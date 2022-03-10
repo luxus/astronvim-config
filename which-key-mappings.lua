@@ -157,6 +157,14 @@ local Vmappings = {
   },
 }
 
+local Gmappings = {
+  d = { "Go to definition" },
+  D = { "Go to declaration" },
+  i = { "Go to implementation" },
+  r = { "Go to references" },
+  o = { "Open diagnostic" },
+}
+
 local NextBracketmappings = {
   d = { "Next diagnostic" },
   f = "Next function start",
@@ -173,6 +181,7 @@ local PrevBracketmappings = {
   X = { "Previous class end" },
 }
 
+which_key.register(Gmappings, opts("n", "g"))
 which_key.register(Vmappings, opts("v", "<leader>"))
 which_key.register(NextBracketmappings, opts("n", "]"))
 which_key.register(PrevBracketmappings, opts("n", "["))
