@@ -157,5 +157,9 @@ return {
     vim.cmd [[
       autocmd FileType dap-float nnoremap <buffer><silent> q <cmd>close!<CR>
     ]]
+
+    vim.cmd [[
+      autocmd VimEnter,ColorScheme * lua require("user.theme").telescope_theme()
+    ]]
   end,
 }
