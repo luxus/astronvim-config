@@ -169,6 +169,16 @@ return function(plugins)
       end,
     },
     { "jbyuki/nabla.nvim", module = "nabla" },
+    {
+      "jc-doyle/cmp-pandoc-references",
+      after = "nvim-cmp",
+      config = function()
+        local cmp = require "cmp"
+        local config = cmp.get_config()
+        table.insert(config.sources, { name = "pandoc_references" })
+        cmp.setup(config)
+      end,
+    },
     { "kana/vim-textobj-indent" },
     { "kana/vim-textobj-line" },
     { "kana/vim-textobj-user" },
