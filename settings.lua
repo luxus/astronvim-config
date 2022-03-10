@@ -1,12 +1,5 @@
 return {
-
-  -- Set colorscheme
   colorscheme = "catppuccin",
-
-  -- On/off virtual diagnostics text
-  virtual_text = true,
-
-  packer_file = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
 
   polish = function()
     local opts = { noremap = true, silent = true }
