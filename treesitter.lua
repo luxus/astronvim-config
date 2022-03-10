@@ -27,7 +27,9 @@ return {
     "vim",
     "yaml",
   },
-  autopairs = nil,
+  autopairs = {
+    enable = false,
+  },
   matchup = {
     enable = true,
   },
@@ -36,11 +38,10 @@ return {
       enable = true,
       lookahead = true,
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
+        ["ax"] = "@class.outer",
+        ["ix"] = "@class.inner",
       },
     },
     move = {
