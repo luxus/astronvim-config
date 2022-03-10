@@ -23,6 +23,9 @@ return {
     local xmap = function(shortcut, command)
       map("x", shortcut, command)
     end
+    local tmap = function(shortcut, command)
+      map("t", shortcut, command)
+    end
 
     local unmap = function(mode, shortcut)
       vim.api.nvim_del_keymap(mode, shortcut)
@@ -91,6 +94,11 @@ return {
     vunmap "J"
     vunmap "K"
 
+    -- disable default terminal mappings
+    vim.cmd [[
+      autocmd! TermMappings
+    ]]
+
     -- resize with arrows
     nmap("<Up>", "<cmd>resize -2<CR>")
     nmap("<Down>", "<cmd>resize +2<CR>")
@@ -113,6 +121,13 @@ return {
     -- type template string
     imap(";mk", "<++>")
     imap("<S-Tab>", "<C-V><Tab>")
+    -- terminal mappings
+    tmap("<leader><esc>", "<c-\\><c-n>")
+    tmap("<esc><esc>", "<c-\\><c-n>:q<cr>")
+    tmap("<c-h>", "<c-\\><c-n><c-w>h")
+    tmap("<c-j>", "<c-\\><c-n><c-w>j")
+    tmap("<c-k>", "<c-\\><c-n><c-w>k")
+    tmap("<c-l>", "<c-\\><c-n><c-w>l")
 
     _map("<c-e><c-e>", "<Plug>SendLine")
     _map("<c-e>", "<Plug>Send")
