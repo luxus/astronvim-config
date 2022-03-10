@@ -158,6 +158,7 @@ local Vmappings = {
 }
 
 local NextBracketmappings = {
+  d = { "Next diagnostic" },
   f = "Next function start",
   x = "Next class start",
   F = "Next function end",
@@ -165,6 +166,7 @@ local NextBracketmappings = {
 }
 
 local PrevBracketmappings = {
+  d = { "Previous diagnostic" },
   f = { "Previous function start" },
   x = { "Previous class start" },
   F = { "Previous function end" },
