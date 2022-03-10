@@ -79,6 +79,13 @@ return function(plugins)
       end,
     },
     {
+      "ellisonleao/glow.nvim",
+      cmd = "Glow",
+      config = function()
+        vim.g.glow_border = "rounded"
+      end,
+    },
+    {
       "ethanholz/nvim-lastplace",
       config = function()
         require("nvim-lastplace").setup {
@@ -161,6 +168,7 @@ return function(plugins)
         cmp.setup(config)
       end,
     },
+    { "jbyuki/nabla.nvim", module = "nabla" },
     { "kana/vim-textobj-indent" },
     { "kana/vim-textobj-line" },
     { "kana/vim-textobj-user" },

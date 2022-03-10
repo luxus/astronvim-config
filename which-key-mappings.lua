@@ -67,6 +67,8 @@ local Nmappings = {
     p = { "<cmd>setlocal paste!<cr>", "Toggle Paste" },
     b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
     w = { "<cmd>set wrap!<cr>", "Toggle Wrapping" },
+    m = { "<cmd>Glow<cr>", "Preview Markdown" },
+    M = { "<cmd>lua require'nabla'.popup()<cr>", "Preview Math" },
   },
 
   h = {
