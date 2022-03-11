@@ -24,6 +24,15 @@ local Nmappings = {
   ["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" },
   ["r"] = { "<cmd>SendHere<cr>", "Set REPL" },
 
+  a = {
+    name = "Annotate",
+    ["<cr>"] = { "<cmd>lua require('neogen').generate()<cr>", "Current" },
+    c = { "<cmd>lua require('neogen').generate({ type = 'class' })<cr>", "Class" },
+    f = { "<cmd>lua require('neogen').generate({ type = 'func' })<cr>", "Function" },
+    t = { "<cmd>lua require('neogen').generate({ type = 'type' })<cr>", "Type" },
+    F = { "<cmd>lua require('neogen').generate({ type = 'file' })<cr>", "File" },
+  },
+
   l = {
     S = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
     R = { "<cmd>Telescope lsp_references<cr>", "References" },
