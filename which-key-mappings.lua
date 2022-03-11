@@ -26,6 +26,9 @@ local Nmappings = {
 
   l = {
     S = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
+    R = { "<cmd>Telescope lsp_references<cr>", "References" },
+    d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Hover Diagnostic" },
+    D = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
   },
 
   f = {
