@@ -42,6 +42,9 @@ return {
     },
   },
   extensions = {
+    bibtex = {
+      context = true,
+    },
     media_files = {
       -- filetypes whitelist
       -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
