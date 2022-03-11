@@ -2,11 +2,11 @@ return function(plugins)
   local my_plugins = {
     { "andymass/vim-matchup" },
     {
-      "mehalter/nvim-1",
-      branch = "SymbolOutline",
+      "catppuccin/nvim",
       as = "catppuccin",
       config = function()
-        require("catppuccin").setup {
+        local catppuccin = require "catppuccin"
+        catppuccin.setup {
           transparent_background = false,
           term_colors = false,
           styles = {
@@ -66,9 +66,10 @@ return function(plugins)
             hop = true,
             notify = false,
             telekasten = false,
-            symbols_outline = true,
           },
         }
+        local colors = require("catppuccin.api.colors").get_colors()
+        catppuccin.remap { FocusedSymbol = { fg = colors.yellow } }
       end,
     },
     {
