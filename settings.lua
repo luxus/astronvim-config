@@ -1,6 +1,4 @@
 return {
-  colorscheme = "catppuccin",
-
   polish = function()
     local opts = { noremap = true, silent = true }
     local set = vim.opt
@@ -38,6 +36,12 @@ return {
     end
 
     -- Set options
+
+    -- set colorscheme without autocmd
+    vim.cmd [[
+      autocmd! colorscheme
+      colorscheme catppuccin
+    ]]
 
     -- show whitespace characters
     set.list = true
