@@ -27,6 +27,9 @@ return {
     "vim",
     "yaml",
   },
+  rainbow = {
+    enable = false,
+  },
   autopairs = {
     enable = false,
   },
