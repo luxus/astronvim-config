@@ -56,6 +56,10 @@ return {
     -- set spell and thesaurus files
     set.spellfile = "~/.config/nvim/lua/user/spell/en.utf-8.add"
     set.thesaurus = "~/.config/nvim/lua/user/spell/mthesaur.txt"
+    -- set Treesitter based folding and disable auto-folding on open
+    set.foldenable = false
+    set.foldmethod = "expr"
+    set.foldexpr = "nvim_treesitter#foldexpr()"
 
     -- Set maps
 
