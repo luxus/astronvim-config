@@ -46,10 +46,8 @@ return {
       context = true,
     },
     media_files = {
-      -- filetypes whitelist
-      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
       filetypes = { "png", "jpg", "mp4", "webm", "pdf" },
-      find_cmd = "rg", -- find command (defaults to `fd`)
+      find_cmd = "rg",
     },
   },
 }
