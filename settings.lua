@@ -1,4 +1,15 @@
 return {
+
+  overrides = {
+    lsp_installer = {
+      on_attach_override = function(client, bufnr)
+        if client.name == "sqls" then
+          require("sqls").on_attach(client, bufnr)
+        end
+      end,
+    },
+  },
+
   polish = function()
     local opts = { noremap = true, silent = true }
     local set = vim.opt
@@ -143,6 +154,11 @@ return {
       inoreabbrev xtime <C-r>=strftime("%H:%M")<CR>
       inoreabbrev ftime <C-r>=strftime("%H:%M:%S")<CR>
       inoreabbrev dts   <C-r>=strftime("%Y/%m/%d %H:%M:%S -")<CR>
+    ]]
+
+    -- LSP completion menu trigger
+    vim.cmd [[
+      inoremap <C-x><C-o> <Cmd>lua require("cmp").complete({config = { sources = { { name = 'nvim_lsp' }}}})<CR>
     ]]
 
     -- Autocompiler

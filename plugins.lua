@@ -273,6 +273,7 @@ return function(plugins)
         vim.g.send_disable_mapping = true
       end,
     },
+    { "nanotee/sqls.nvim" },
     {
       "phaazon/hop.nvim",
       branch = "v1",
