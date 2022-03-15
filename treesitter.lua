@@ -30,9 +30,6 @@ return {
   rainbow = {
     enable = false,
   },
-  autopairs = {
-    enable = false,
-  },
   matchup = {
     enable = true,
   },
