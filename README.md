@@ -10,20 +10,16 @@ My personal user config for AstroVim
 git clone https://github.com/kabinspace/AstroVim ~/.config/nvim
 ```
 
-2. Delete Default `user` folder
-
-```sh
-rm ~/.config/nvim/lua/user
-```
-
-3. Install this repo
+2. Install these user settings
 
 ```sh
 git clone https://git.mehalter.com/mehalter/AstroVim_user.git ~/.config/nvim/lua/user
 ```
 
-4. Initialize AstroVim
+3. Initialize AstroVim
 
 ```sh
 nvim +PackerSync
 ```
+
+4. Close and restart AstroVim with `<leader>q`
