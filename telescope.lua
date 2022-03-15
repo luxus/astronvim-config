@@ -44,6 +44,7 @@ return {
   extensions = {
     bibtex = {
       context = true,
+      context_fallback = false,
     },
     media_files = {
       filetypes = { "png", "jpg", "mp4", "webm", "pdf" },
