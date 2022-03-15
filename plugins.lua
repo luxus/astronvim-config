@@ -324,6 +324,7 @@ return function(plugins)
   -- Disabled Default Plugins
   plugins["glepnir/dashboard-nvim"] = nil
   plugins["karb94/neoscroll.nvim"] = nil
+  plugins["max397574/better-escape.nvim"] = nil
   plugins["windwp/nvim-autopairs"] = nil
 
   -- Disabled Default Lazy Loading
