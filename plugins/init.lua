@@ -292,9 +292,7 @@ return function(plugins)
     { "skywind3000/asyncrun.vim" },
     { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
     {
-      --   "nvim-telescope/telescope-bibtex.nvim",
-      "mehalter/telescope-bibtex.nvim",
-      branch = "context_aware",
+      "nvim-telescope/telescope-bibtex.nvim",
       config = function()
         require("telescope").load_extension "bibtex"
       end,
