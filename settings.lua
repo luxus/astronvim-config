@@ -1,15 +1,4 @@
 return {
-
-  overrides = {
-    lsp_installer = {
-      on_attach_override = function(client, bufnr)
-        if client.name == "sqls" then
-          require("sqls").on_attach(client, bufnr)
-        end
-      end,
-    },
-  },
-
   polish = function()
     local opts = { noremap = true, silent = true }
     local set = vim.opt
