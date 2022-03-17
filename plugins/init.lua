@@ -328,8 +328,6 @@ return function(plugins)
   plugins["akinsho/nvim-toggleterm.lua"]["cmd"] = nil
   plugins["kyazdani42/nvim-tree.lua"]["cmd"] = nil
   plugins["nvim-telescope/telescope.nvim"]["cmd"] = nil
-  plugins["nvim-treesitter/nvim-treesitter"]["cmd"] = nil
-  plugins["nvim-treesitter/nvim-treesitter"]["event"] = nil
 
   return vim.tbl_deep_extend("force", plugins, my_plugins)
 end
