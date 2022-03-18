@@ -122,7 +122,7 @@ return function(plugins)
       "phaazon/hop.nvim",
       branch = "v1",
       config = function()
-        require("hop").setup {}
+        require("hop").setup()
       end,
     },
     {
