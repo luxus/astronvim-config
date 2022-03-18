@@ -1,5 +1,4 @@
-local M = {}
-function M.config()
+return function()
   -- Formatting and linting
   -- https://github.com/jose-elias-alvarez/null-ls.nvim
   local status_ok, null_ls = pcall(require, "null-ls")
@@ -37,5 +36,3 @@ function M.config()
     end,
   }
 end
-
-return M

@@ -1,4 +1,4 @@
-local opts = {
+return {
   settings = {
     yaml = {
       schemas = {
@@ -9,5 +9,3 @@ local opts = {
     },
   },
 }
-
-return opts
