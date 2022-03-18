@@ -6,68 +6,7 @@ return function(plugins)
       as = "catppuccin",
       config = function()
         local catppuccin = require "catppuccin"
-        catppuccin.setup {
-          transparent_background = false,
-          term_colors = false,
-          styles = {
-            comments = "italic",
-            functions = "italic",
-            keywords = "italic",
-            strings = "NONE",
-            variables = "italic",
-          },
-          integrations = {
-            treesitter = true,
-            native_lsp = {
-              enabled = true,
-              virtual_text = {
-                errors = "italic",
-                hints = "italic",
-                warnings = "italic",
-                information = "italic",
-              },
-              underlines = {
-                errors = "underline",
-                hints = "underline",
-                warnings = "underline",
-                information = "underline",
-              },
-            },
-            lsp_trouble = false,
-            cmp = true,
-            lsp_saga = true,
-            gitgutter = false,
-            gitsigns = true,
-            telescope = true,
-            nvimtree = {
-              enabled = true,
-              show_root = false,
-              transparent_panel = false,
-            },
-            neotree = {
-              enabled = false,
-              show_root = true,
-              transparent_panel = true,
-            },
-            which_key = true,
-            indent_blankline = {
-              enabled = true,
-              colored_indent_levels = false,
-            },
-            dashboard = false,
-            neogit = true,
-            vim_sneak = false,
-            fern = false,
-            barbar = false,
-            bufferline = true,
-            markdown = true,
-            lightspeed = false,
-            ts_rainbow = true,
-            hop = true,
-            notify = false,
-            telekasten = false,
-          },
-        }
+        catppuccin.setup(require "user.plugins.catppuccin")
         local colors = require("catppuccin.api.colors").get_colors()
         catppuccin.remap { FocusedSymbol = { fg = colors.yellow } }
       end,
@@ -77,26 +16,7 @@ return function(plugins)
       module = "neogen",
       cmd = "Neogen",
       config = function()
-        require("neogen").setup {
-          snippet_engine = "luasnip",
-          languages = {
-            python = {
-              template = {
-                annotation_convention = "google_docstrings",
-              },
-            },
-            typescript = {
-              template = {
-                annotation_convention = "tsdoc",
-              },
-            },
-            typescriptreact = {
-              template = {
-                annotation_convention = "tsdoc",
-              },
-            },
-          },
-        }
+        require("neogen").setup(require "user.plugins.neogen")
       end,
       requires = "nvim-treesitter/nvim-treesitter",
     },
@@ -117,63 +37,14 @@ return function(plugins)
     {
       "ethanholz/nvim-lastplace",
       config = function()
-        require("nvim-lastplace").setup {
-          lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-          lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
-          lastplace_open_folds = true,
-        }
+        require("nvim-lastplace").setup(require "user.plugins.nvim-lastplace")
       end,
     },
     {
       "folke/zen-mode.nvim",
       cmd = "ZenMode",
       config = function()
-        require("zen-mode").setup {
-          window = {
-            backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-            -- height and width can be:
-            -- * an absolute number of cells when > 1
-            -- * a percentage of the width / height of the editor when <= 1
-            -- * a function that returns the width or the height
-            width = 120, -- width of the Zen window
-            height = 1, -- height of the Zen window
-            -- by default, no options are changed for the Zen window
-            -- uncomment any of the options below, or add other vim.wo options you want to apply
-            options = {
-              -- signcolumn = "no", -- disable signcolumn
-              number = false, -- disable number column
-              relativenumber = false, -- disable relative numbers
-              -- cursorline = false, -- disable cursorline
-              -- cursorcolumn = false, -- disable cursor column
-              foldcolumn = "0", -- disable fold column
-              -- list = false, -- disable whitespace characters
-            },
-          },
-          plugins = {
-            -- disable some global vim options (vim.o...)
-            -- comment the lines to not apply the options
-            options = {
-              enabled = true,
-              ruler = false, -- disables the ruler text in the cmd line area
-              showcmd = false, -- disables the command in the last line of the screen
-            },
-            twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
-            gitsigns = { enabled = false }, -- disables git signs
-            tmux = { enabled = false }, -- disables the tmux statusline
-            -- this will change the font size on kitty when in zen mode
-            -- to make this work, you need to set the following kitty options:
-            -- - allow_remote_control socket-only
-            -- - listen_on unix:/tmp/kitty
-            kitty = {
-              enabled = false,
-              font = "+4", -- font size increment
-            },
-          },
-          -- callback where you can add custom code when the Zen window opens
-          on_open = function(win) end,
-          -- callback where you can add custom code when the Zen window closes
-          on_close = function() end,
-        }
+        require("zen-mode").setup(require "user.plugins.zen-mode")
       end,
     },
     { "glts/vim-textobj-comment" },
@@ -248,22 +119,7 @@ return function(plugins)
     {
       "mickael-menu/zk-nvim",
       config = function()
-        require("zk").setup {
-          picker = "telescope",
-          lsp = {
-            config = {
-              cmd = { "zk", "lsp" },
-              name = "zk",
-              on_attach = require("configs.lsp.handlers").on_attach,
-              capabilities = require("configs.lsp.handlers").capabilities,
-            },
-
-            auto_attach = {
-              enabled = true,
-              filetypes = { "markdown" },
-            },
-          },
-        }
+        require("zk").setup(require "user.plugins.zk")
       end,
     },
     {
