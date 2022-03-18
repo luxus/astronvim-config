@@ -52,20 +52,14 @@ return function(plugins)
       "hrsh7th/cmp-calc",
       after = "nvim-cmp",
       config = function()
-        local cmp = require "cmp"
-        local config = cmp.get_config()
-        table.insert(config.sources, { name = "calc" })
-        cmp.setup(config)
+        require("core.utils").add_cmp_source "calc"
       end,
     },
     {
       "hrsh7th/cmp-emoji",
       after = "nvim-cmp",
       config = function()
-        local cmp = require "cmp"
-        local config = cmp.get_config()
-        table.insert(config.sources, { name = "emoji" })
-        cmp.setup(config)
+        require("core.utils").add_cmp_source "emoji"
       end,
     },
     { "jbyuki/nabla.nvim", module = "nabla" },
@@ -73,10 +67,7 @@ return function(plugins)
       "jc-doyle/cmp-pandoc-references",
       after = "nvim-cmp",
       config = function()
-        local cmp = require "cmp"
-        local config = cmp.get_config()
-        table.insert(config.sources, { name = "pandoc_references" })
-        cmp.setup(config)
+        require("core.utils").add_cmp_source "pandoc_references"
       end,
     },
     { "kana/vim-textobj-indent" },
@@ -86,10 +77,7 @@ return function(plugins)
       "kdheepak/cmp-latex-symbols",
       after = "nvim-cmp",
       config = function()
-        local cmp = require "cmp"
-        local config = cmp.get_config()
-        table.insert(config.sources, { name = "latex_symbols" })
-        cmp.setup(config)
+        require("core.utils").add_cmp_source "latex_symbols"
       end,
     },
     { "machakann/vim-sandwich" },
