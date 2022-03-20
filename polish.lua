@@ -34,7 +34,6 @@ return function()
     unmap("v", shortcut)
   end
 
-  vim.cmd "colorscheme catppuccin"
   -- Options
 
   -- show whitespace characters
