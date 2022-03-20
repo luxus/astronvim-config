@@ -34,8 +34,8 @@ return function()
     unmap("v", shortcut)
   end
 
-  -- Set options
   vim.cmd "colorscheme catppuccin"
+  -- Options
 
   -- show whitespace characters
   set.list = true
@@ -59,7 +59,7 @@ return function()
   set.foldmethod = "expr"
   set.foldexpr = "nvim_treesitter#foldexpr()"
 
-  -- Set maps
+  -- Mappings
 
   -- Disable some default mappings
   nunmap "<C-Up>"
@@ -131,6 +131,23 @@ return function()
 
   _map("<c-e><c-e>", "<Plug>SendLine")
   _map("<c-e>", "<Plug>Send")
+
+  -- Functions
+
+  function _G.toggle_hard_wrap(width)
+    if width == nil then
+      width = 80
+    end
+    if vim.opt.textwidth._value == 0 then
+      vim.opt.textwidth = width
+      print "Hard Wrap Enabled"
+    else
+      vim.opt.textwidth = 0
+      print "Hard Wrap Disabled"
+    end
+  end
+
+  -- Auto Commands
 
   -- date/time abbreviations
   vim.cmd [[
