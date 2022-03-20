@@ -5,10 +5,7 @@ return function(plugins)
       "catppuccin/nvim",
       as = "catppuccin",
       config = function()
-        local catppuccin = require "catppuccin"
-        catppuccin.setup(require "user.plugins.catppuccin")
-        local colors = require("catppuccin.api.colors").get_colors()
-        catppuccin.remap { FocusedSymbol = { fg = colors.yellow } }
+        require("catppuccin").setup(require "user.plugins.catppuccin")
       end,
     },
     {
