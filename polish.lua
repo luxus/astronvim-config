@@ -146,6 +146,16 @@ return function()
     end
   end
 
+  function _G.toggle_soft_wrap()
+    if vim.wo.wrap then
+      vim.wo.wrap = false
+      print "Soft Wrap Disabled"
+    else
+      vim.wo.wrap = true
+      print "Soft Wrap Enabled"
+    end
+  end
+
   -- Auto Commands
 
   -- date/time abbreviations
