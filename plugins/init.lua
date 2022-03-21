@@ -1,13 +1,12 @@
 return function(plugins)
   local my_plugins = {
-    { "andymass/vim-matchup" },
     {
-      "catppuccin/nvim",
-      as = "catppuccin",
+      "EdenEast/nightfox.nvim",
       config = function()
-        require("catppuccin").setup(require "user.plugins.catppuccin")
+        require("nightfox").setup(require "user.plugins.nightfox")
       end,
     },
+    { "andymass/vim-matchup" },
     {
       "danymat/neogen",
       module = "neogen",
