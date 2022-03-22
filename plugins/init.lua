@@ -102,6 +102,7 @@ return function(plugins)
     },
     {
       "mickael-menu/zk-nvim",
+      module = { "zk", "zk.commands" },
       config = function()
         require("zk").setup(require "user.plugins.zk")
       end,
@@ -133,19 +134,24 @@ return function(plugins)
     { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
     {
       "nvim-telescope/telescope-bibtex.nvim",
+      after = "telescope.nvim",
       config = function()
         require("telescope").load_extension "bibtex"
       end,
     },
-    { "nvim-telescope/telescope-hop.nvim" },
+    {
+      "nvim-telescope/telescope-hop.nvim",
+    },
     {
       "nvim-telescope/telescope-media-files.nvim",
+      after = "telescope.nvim",
       config = function()
         require("telescope").load_extension "media_files"
       end,
     },
     {
       "nvim-telescope/telescope-project.nvim",
+      after = "telescope.nvim",
       config = function()
         require("telescope").load_extension "project"
       end,
@@ -167,7 +173,9 @@ return function(plugins)
   -- Disabled Default Lazy Loading
   plugins["akinsho/nvim-toggleterm.lua"]["cmd"] = nil
   plugins["kyazdani42/nvim-tree.lua"]["cmd"] = nil
-  plugins["nvim-telescope/telescope.nvim"]["cmd"] = nil
+
+  -- Add Telescope loading on zk-nvim
+  plugins["nvim-telescope/telescope.nvim"]["module"] = "zk"
 
   return vim.tbl_deep_extend("force", plugins, my_plugins)
 end

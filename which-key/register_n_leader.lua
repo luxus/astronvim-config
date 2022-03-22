@@ -100,14 +100,20 @@ local Nmappings = {
 
   n = {
     name = "Notes",
-    b = { "<cmd>ZkBacklinks<cr>", "Backlink Picker" },
-    d = { "<cmd>ZkCd<cr>", "Change Directory" },
-    r = { "<cmd>ZkIndex<cr>", "Refresh Index" },
-    l = { "<cmd>ZkLinks<cr>", "Link Picker" },
-    s = { "<cmd>ZkNotes { sort = { 'modified' } }<cr>", "Search" },
-    n = { "<cmd>ZkNew { dir = 'personal', title = vim.fn.input('Title: ') }<cr>", "New Personal Note" },
-    N = { "<cmd>ZkNew { dir = 'work', title = vim.fn.input('Title: ') }<cr>", "New Work Note" },
-    t = { "<cmd>ZkTags<cr>", "Tags" },
+    b = { "<cmd>lua require('zk.commands')('ZkBacklinks')()<cr>", "Backlink Picker" },
+    d = { "<cmd>lua require('zk.commands')('ZkCd')()<cr>", "Change Directory" },
+    r = { "<cmd>lua require('zk.commands')('ZkIndex')()<cr>", "Refresh Index" },
+    l = { "<cmd>lua require('zk.commands')('ZkLinks')()<cr>", "Link Picker" },
+    s = { "<cmd>lua require('zk.commands').get('ZkNotes')({ sort = { 'modified' } })<cr>", "Search" },
+    n = {
+      "<cmd>lua require('zk.commands').get('ZkNew')({ dir = 'personal', title = vim.fn.input('Title: ') })<cr>",
+      "New Personal Note",
+    },
+    N = {
+      "<cmd>lua require('zk.commands').get('ZkNew')({ dir = 'work', title = vim.fn.input('Title: ') })<cr>",
+      "New Work Note",
+    },
+    t = { "<cmd>lua require('zk.commands').get('ZkTags')()<cr>", "Tags" },
     i = { "<Plug>(simple-todo-new-list-item)", "Insert Todo" },
     I = { "<Plug>(simple-todo-new-list-item-start-of-line)", "Convert to Todo" },
     o = { "<Plug>(simple-todo-below)", "Insert Todo Below" },
@@ -146,15 +152,21 @@ local Vmappings = {
 
   n = {
     name = "Notes",
-    s = { ":'<,'>ZkMatch<cr>", "Search" },
-    n = { ":'<,'>ZkNewFromTitleSelection { dir = 'personal' }<cr>", "New Personal Note From Title" },
-    N = { ":'<,'>ZkNewFromTitleSelection { dir = 'work' }<cr>", "New Work Note From Title" },
+    s = { ":'<,'>lua require('zk.commands').get('ZkMatch')()<cr>", "Search" },
+    n = {
+      ":'<,'>lua require('zk.commands').get('ZkNewFromTitleSelection')({ dir = 'personal' })<cr>",
+      "New Personal Note From Title",
+    },
+    N = {
+      ":'<,'>lua require('zk.commands').get('ZkNewFromTitleSelection')({ dir = 'work' })<cr>",
+      "New Work Note From Title",
+    },
     W = {
-      ":'<,'>ZkNewFromContentSelection { dir = 'work', title = vim.fn.input('Title: ') }<cr>",
+      ":'<,'>lua require('zk.commands').get('ZkNewFromContentSelection')({ dir = 'work', title = vim.fn.input('Title: ') })<cr>",
       "New Work Note From Content",
     },
     C = {
-      ":'<,'>ZkNewFromContentSelection { dir = 'personal', title = vim.fn.input('Title: ') }<cr>",
+      ":'<,'>lua require('zk.commands').get('ZkNewFromContentSelection')({ dir = 'personal', title = vim.fn.input('Title: ') })<cr>",
       "New Personal Note From Content",
     },
     x = { "<Plug>(simple-todo-mark-as-done)", "Mark Done" },
