@@ -80,7 +80,6 @@ return function()
   nunmap "<leader>fh"
   nunmap "<leader>fo"
   nunmap "<leader>h"
-  nunmap "<leader>s"
   nunmap "<leader>sb"
   nunmap "<leader>sh"
   nunmap "<leader>sm"

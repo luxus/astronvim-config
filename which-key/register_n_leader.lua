@@ -33,13 +33,6 @@ local Nmappings = {
     F = { "<cmd>lua require('neogen').generate({ type = 'file' })<cr>", "File" },
   },
 
-  l = {
-    S = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
-    R = { "<cmd>Telescope lsp_references<cr>", "References" },
-    d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Hover Diagnostic" },
-    D = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-  },
-
   f = {
     name = "Telescope",
     ["?"] = { "<cmd>Telescope help_tags<cr>", "Find Help" },
