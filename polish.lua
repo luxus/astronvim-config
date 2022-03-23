@@ -73,7 +73,7 @@ return function()
   nunmap "<A-k>"
   nunmap "ca"
   nunmap "rn"
-  nunmap "<C-w>"
+  nunmap "<C-s>"
   nunmap "<C-q>"
   nunmap "<C-\\>"
   nunmap "<leader>d"
