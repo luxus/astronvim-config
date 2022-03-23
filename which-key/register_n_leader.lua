@@ -17,7 +17,7 @@ end
 -- Normal Mode <leader> Mappings
 local Nmappings = {
   ["c"] = { "Bye Buffer" },
-  ["C"] = { "<cmd>bdelete!<CR>", "Close Buffer" },
+  ["C"] = { "<cmd>bdelete!<cr>", "Close Buffer" },
   ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
   ["H"] = { "<cmd>set hlsearch!<cr>", "Toggle Highlight" },
   ["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
@@ -56,10 +56,10 @@ local Nmappings = {
     a = { "<cmd>AsyncRun autocomp %:p<cr><cr>", "Auto Compile" },
     v = { "<cmd>!opout %:p<cr><cr>", "View Output" },
     b = {
-      "<cmd>w<CR><cmd>AsyncRun pandoc % --pdf-engine=xelatex --variable urlcolor=blue -t beamer -o %:r.pdf<CR><CR>",
+      "<cmd>w<cr><cmd>AsyncRun pandoc % --pdf-engine=xelatex --variable urlcolor=blue -t beamer -o %:r.pdf<cr><cr>",
       "Compile Beamer",
     },
-    p = { "<cmd>![[ -e %:r.pdf ]] && pdfpc %:r.pdf<CR><CR>", "Present Output" },
+    p = { "<cmd>![[ -e %:r.pdf ]] && pdfpc %:r.pdf<cr><cr>", "Present Output" },
     l = { "<cmd>call asyncrun#quickfix_toggle(8)<cr>", "Logs" },
     t = { "<cmd>TexlabBuild<cr>", "LaTeX" },
     f = { "<cmd>TexlabForward<cr>", "Forward Search" },

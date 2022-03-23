@@ -98,10 +98,10 @@ return function()
   vim.cmd "autocmd! TermMappings"
 
   -- resize with arrows
-  nmap("<Up>", "<cmd>resize -2<CR>")
-  nmap("<Down>", "<cmd>resize +2<CR>")
-  nmap("<Left>", "<cmd>vertical resize -2<CR>")
-  nmap("<Right>", "<cmd>vertical resize +2<CR>")
+  nmap("<Up>", "<cmd>resize -2<cr>")
+  nmap("<Down>", "<cmd>resize +2<cr>")
+  nmap("<Left>", "<cmd>vertical resize -2<cr>")
+  nmap("<Right>", "<cmd>vertical resize +2<cr>")
   -- navigating wrapped lines
   nmap("j", "gj")
   nmap("k", "gk")
@@ -159,17 +159,17 @@ return function()
 
   -- date/time abbreviations
   vim.cmd [[
-    inoreabbrev ndate <C-r>=strftime("%Y-%m-%d")<CR>
-    inoreabbrev xdate <C-r>=strftime("%m/%d/%y")<CR>
-    inoreabbrev fdate <C-r>=strftime("%B %d, %Y")<CR>
-    inoreabbrev xtime <C-r>=strftime("%H:%M")<CR>
-    inoreabbrev ftime <C-r>=strftime("%H:%M:%S")<CR>
-    inoreabbrev dts   <C-r>=strftime("%Y/%m/%d %H:%M:%S -")<CR>
+    inoreabbrev ndate <C-r>=strftime("%Y-%m-%d")<cr>
+    inoreabbrev xdate <C-r>=strftime("%m/%d/%y")<cr>
+    inoreabbrev fdate <C-r>=strftime("%B %d, %Y")<cr>
+    inoreabbrev xtime <C-r>=strftime("%H:%M")<cr>
+    inoreabbrev ftime <C-r>=strftime("%H:%M:%S")<cr>
+    inoreabbrev dts   <C-r>=strftime("%Y/%m/%d %H:%M:%S -")<cr>
   ]]
 
   -- LSP completion menu trigger
   vim.cmd [[
-    inoremap <C-x><C-o> <Cmd>lua require("cmp").complete({config = { sources = { { name = 'nvim_lsp' }}}})<CR>
+    inoremap <C-x><C-o> <Cmd>lua require("cmp").complete({config = { sources = { { name = 'nvim_lsp' }}}})<cr>
   ]]
 
   -- Autocompiler
@@ -193,6 +193,6 @@ return function()
   ]]
 
   vim.cmd [[
-    autocmd FileType dap-float nnoremap <buffer><silent> q <cmd>close!<CR>
+    autocmd FileType dap-float nnoremap <buffer><silent> q <cmd>close!<cr>
   ]]
 end

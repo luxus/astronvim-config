@@ -2,7 +2,7 @@ return {
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
     -- Use a table to apply multiple mappings
-    expand = { "<CR>", "<2-LeftMouse>" },
+    expand = { "<cr>", "<2-LeftMouse>" },
     open = "o",
     remove = "d",
     edit = "e",
@@ -34,7 +34,7 @@ return {
     max_width = nil, -- Floats will be treated as percentage of your screen.
     border = "rounded", -- Border style. Can be "single", "double" or "rounded"
     mappings = {
-      close = { "q", "<Esc>" },
+      close = { "q", "<esc>" },
     },
   },
   windows = { indent = 1 },
