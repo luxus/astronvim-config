@@ -65,6 +65,10 @@ return function()
   nunmap "<C-Down>"
   nunmap "<C-Left>"
   nunmap "<C-Right>"
+  nunmap "<C-h>"
+  nunmap "<C-j>"
+  nunmap "<C-k>"
+  nunmap "<C-l>"
   nunmap "<A-j>"
   nunmap "<A-k>"
   nunmap "ca"
@@ -98,10 +102,15 @@ return function()
   vim.cmd "autocmd! TermMappings"
 
   -- resize with arrows
-  nmap("<Up>", "<cmd>resize -2<cr>")
-  nmap("<Down>", "<cmd>resize +2<cr>")
-  nmap("<Left>", "<cmd>vertical resize -2<cr>")
-  nmap("<Right>", "<cmd>vertical resize +2<cr>")
+  nmap("<Up>", "<cmd>lua require'smart-splits'.resize_up(2)<cr>")
+  nmap("<Down>", "<cmd>lua require'smart-splits'.resize_down(2)<cr>")
+  nmap("<Left>", "<cmd>lua require'smart-splits'.resize_left(2)<cr>")
+  nmap("<Right>", "<cmd>lua require'smart-splits'.resize_right(2)<cr>")
+  -- window navigation
+  nmap("<C-h>", "<cmd>lua require'smart-splits'.move_cursor_left()<cr>")
+  nmap("<C-j>", "<cmd>lua require'smart-splits'.move_cursor_down()<cr>")
+  nmap("<C-k>", "<cmd>lua require'smart-splits'.move_cursor_up()<cr>")
+  nmap("<C-l>", "<cmd>lua require'smart-splits'.move_cursor_right()<cr>")
   -- navigating wrapped lines
   nmap("j", "gj")
   nmap("k", "gk")
