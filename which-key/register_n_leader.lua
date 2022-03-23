@@ -127,13 +127,17 @@ local Nmappings = {
     name = "Debugger",
     b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
     B = { "<cmd>lua require'dap'.clear_breakpoints()<cr>", "Clear Breakpoints" },
-    l = { "<cmd>lua require'dap'.list_breakpoints()<cr>", "List Breakpoints" },
     c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+    l = { "<cmd>lua require'dapui'.float_element('breakpoints')<cr>", "List Breakpoints" },
+    o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
     q = { "<cmd>lua require'dap'.close()<cr>", "Close Session" },
     Q = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
-    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-    o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
     r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "REPL" },
+    s = { "<cmd>lua require'dapui'.float_element('scopes')<cr>", "Scopes" },
+    t = { "<cmd>lua require'dapui'.float_element('stacks')<cr>", "Threads" },
+    u = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle Debugger UI" },
+    w = { "<cmd>lua require'dapui'.float_element('watches')<cr>", "Watches" },
     x = { "<cmd>lua require'dap.ui.widgets'.hover()<cr>", "Inspect" },
   },
 }
@@ -172,6 +176,11 @@ local Vmappings = {
     x = { "<Plug>(simple-todo-mark-as-done)", "Mark Done" },
     X = { "<Plug>(simple-todo-mark-as-undone)", "Mark Undone" },
     ["<tab>"] = { "<Plug>(simple-todo-mark-switch)", "Toggle Todo" },
+  },
+
+  x = {
+    name = "Debugger",
+    e = { "<cmd>lua require('dapui').eval()<cr>", "Evaluate Line" },
   },
 }
 

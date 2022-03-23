@@ -79,6 +79,7 @@ return function(plugins)
     { "machakann/vim-sandwich" },
     {
       "mfussenegger/nvim-dap",
+      module = "dap",
       config = function()
         local dap = require "dap"
         dap.adapters.python = {
@@ -127,6 +128,24 @@ return function(plugins)
       config = function()
         vim.g.vim_markdown_auto_insert_bullets = false
         vim.g.vim_markdown_new_list_item_indent = 0
+      end,
+    },
+    {
+      "rcarriga/nvim-dap-ui",
+      after = "nvim-dap",
+      config = function()
+        local dap, dapui = require "dap", require "dapui"
+        dapui.setup(require "user.plugins.dapui")
+        -- add listeners to auto open DAP UI
+        dap.listeners.after.event_initialized["dapui_config"] = function()
+          dapui.open()
+        end
+        dap.listeners.before.event_terminated["dapui_config"] = function()
+          dapui.close()
+        end
+        dap.listeners.before.event_exited["dapui_config"] = function()
+          dapui.close()
+        end
       end,
     },
     { "sheerun/vim-polyglot" },
