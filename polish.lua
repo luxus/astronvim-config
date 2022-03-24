@@ -84,6 +84,7 @@ return function()
   nunmap "<leader>sh"
   nunmap "<leader>sk"
   nunmap "<leader>sm"
+  nunmap "<leader>sn"
   nunmap "<leader>sr"
   vunmap "<A-j>"
   vunmap "<A-k>"
