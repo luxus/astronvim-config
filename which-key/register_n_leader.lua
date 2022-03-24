@@ -187,7 +187,7 @@ local Vmappings = {
 local Gmappings = {
   d = { "Go to definition" },
   D = { "Go to declaration" },
-  i = { "Go to implementation" },
+  I = { "Go to implementation" },
   r = { "Go to references" },
   o = { "Open diagnostic" },
 }
