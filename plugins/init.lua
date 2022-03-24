@@ -97,10 +97,6 @@ return function(plugins)
       end,
     },
     {
-      "mrjones2014/smart-splits.nvim",
-      module = "smart-splits",
-    },
-    {
       "mtikekar/nvim-send-to-term",
       cmd = "SendHere",
       config = function()

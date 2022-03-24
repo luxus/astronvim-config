@@ -68,10 +68,6 @@ return function()
   nunmap "<C-Right>"
   nunmap "<C-Up>"
   nunmap "<C-\\>"
-  nunmap "<C-h>"
-  nunmap "<C-j>"
-  nunmap "<C-k>"
-  nunmap "<C-l>"
   nunmap "<C-q>"
   nunmap "<C-s>"
   nunmap "<leader>d"
@@ -105,11 +101,6 @@ return function()
   nmap("<Down>", "<cmd>lua require'smart-splits'.resize_down(2)<cr>")
   nmap("<Left>", "<cmd>lua require'smart-splits'.resize_left(2)<cr>")
   nmap("<Right>", "<cmd>lua require'smart-splits'.resize_right(2)<cr>")
-  -- window navigation
-  nmap("<C-h>", "<cmd>lua require'smart-splits'.move_cursor_left()<cr>")
-  nmap("<C-j>", "<cmd>lua require'smart-splits'.move_cursor_down()<cr>")
-  nmap("<C-k>", "<cmd>lua require'smart-splits'.move_cursor_up()<cr>")
-  nmap("<C-l>", "<cmd>lua require'smart-splits'.move_cursor_right()<cr>")
   -- navigating wrapped lines
   nmap("j", "gj")
   nmap("k", "gk")
