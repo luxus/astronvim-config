@@ -47,24 +47,15 @@ return function(plugins)
     {
       "hrsh7th/cmp-calc",
       after = "nvim-cmp",
-      config = function()
-        require("core.utils").add_cmp_source "calc"
-      end,
     },
     {
       "hrsh7th/cmp-emoji",
       after = "nvim-cmp",
-      config = function()
-        require("core.utils").add_cmp_source "emoji"
-      end,
     },
     { "jbyuki/nabla.nvim", module = "nabla" },
     {
       "jc-doyle/cmp-pandoc-references",
       after = "nvim-cmp",
-      config = function()
-        require("core.utils").add_cmp_source "pandoc_references"
-      end,
     },
     { "kana/vim-textobj-indent" },
     { "kana/vim-textobj-line" },
@@ -72,9 +63,6 @@ return function(plugins)
     {
       "kdheepak/cmp-latex-symbols",
       after = "nvim-cmp",
-      config = function()
-        require("core.utils").add_cmp_source "latex_symbols"
-      end,
     },
     { "machakann/vim-sandwich" },
     {

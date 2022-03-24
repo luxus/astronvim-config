@@ -203,4 +203,6 @@ return function()
   vim.cmd [[
     autocmd FileType dap-float nnoremap <buffer><silent> q <cmd>close!<cr>
   ]]
+
+  require("user.cmp").setup_sources()
 end
