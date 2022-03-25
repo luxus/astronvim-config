@@ -30,6 +30,7 @@ return function()
     },
     -- NOTE: You can remove this on attach function to disable format on save
     on_attach = function(client)
+      vim.notify(client.name, "info", { title = "Language Server" })
       if client.resolved_capabilities.document_formatting then
         vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
       end
