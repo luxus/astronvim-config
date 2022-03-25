@@ -197,4 +197,5 @@ return function()
   ]]
 
   require("user.cmp").setup_sources()
+  require("user.notify").setup()
 end
