@@ -1,4 +1,3 @@
----@diagnostic disable: different-requires
 return function(plugins)
   local my_plugins = {
     {
