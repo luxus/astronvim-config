@@ -1,8 +1,7 @@
 return {
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
-    -- Use a table to apply multiple mappings
-    expand = { "<cr>", "<2-LeftMouse>" },
+    expand = "<cr>",
     open = "o",
     remove = "d",
     edit = "e",
@@ -10,29 +9,21 @@ return {
     toggle = "t",
   },
   sidebar = {
-    -- You can change the order of elements in the sidebar
     elements = {
-      -- Provide as ID strings or tables with "id" and "size" keys
-      {
-        id = "scopes",
-        size = 0.25, -- Can be float or integer > 1
-      },
+      { id = "scopes", size = 0.5 },
       { id = "breakpoints", size = 0.25 },
       { id = "stacks", size = 0.25 },
-      { id = "watches", size = 00.25 },
     },
     size = 40,
-    position = "right", -- Can be "left", "right", "top", "bottom"
+    position = "right",
   },
   tray = {
     elements = { "repl" },
     size = 10,
-    position = "bottom", -- Can be "left", "right", "top", "bottom"
+    position = "bottom",
   },
   floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "rounded", -- Border style. Can be "single", "double" or "rounded"
+    border = "rounded",
     mappings = {
       close = { "q", "<esc>" },
     },

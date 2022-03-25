@@ -3,5 +3,5 @@ return function(client, bufnr)
     require("sqls").on_attach(client, bufnr)
   end
 
-  vim.notify(client.name, "info", { title = "Language Server" })
+  vim.notify(client.name, "info", { title = "Language Server", timeout = 500 })
 end
