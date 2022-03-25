@@ -16,6 +16,8 @@ end
 
 -- Normal Mode <leader> Mappings
 local Nmappings = {
+  ["e"] = { "<cmd>Neotree toggle<cr>", "Toggle Explorer" },
+  ["o"] = { "<cmd>Neotree focus<cr>", "Focus Explorer" },
   ["c"] = { "Bye Buffer" },
   ["C"] = { "<cmd>bdelete!<cr>", "Close Buffer" },
   ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },

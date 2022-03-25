@@ -87,6 +87,18 @@ return function(plugins)
     },
     { "nanotee/sqls.nvim" },
     {
+      "nvim-neo-tree/neo-tree.nvim",
+      requires = "MunifTanjim/nui.nvim",
+      config = function()
+        vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
+        vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+        vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+        vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
+        vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+        require("neo-tree").setup(require "user.plugins.neo-tree")
+      end,
+    },
+    {
       "phaazon/hop.nvim",
       branch = "v1",
       config = function()
@@ -158,10 +170,10 @@ return function(plugins)
   plugins["glepnir/dashboard-nvim"] = nil
   plugins["karb94/neoscroll.nvim"] = nil
   plugins["max397574/better-escape.nvim"] = nil
+  plugins["kyazdani42/nvim-tree.lua"] = nil
 
   -- Disabled Default Lazy Loading
   plugins["akinsho/nvim-toggleterm.lua"]["cmd"] = nil
-  plugins["kyazdani42/nvim-tree.lua"]["cmd"] = nil
 
   -- Add Telescope loading on zk-nvim
   plugins["nvim-telescope/telescope.nvim"]["module"] = "zk"
