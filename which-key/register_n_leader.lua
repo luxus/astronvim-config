@@ -40,6 +40,7 @@ local Nmappings = {
     B = { "<cmd>Telescope bibtex<cr>", "BibTeX" },
     c = { "<cmd>Telescope commands<cr>", "Commands" },
     f = { "<cmd>Telescope find_files<cr>", "Files" },
+    F = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", "All Files" },
     h = { "<cmd>Telescope oldfiles<cr>", "History" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
