@@ -175,7 +175,7 @@ return function(plugins)
   plugins["akinsho/nvim-toggleterm.lua"]["cmd"] = nil
 
   -- Add Telescope loading on zk-nvim
-  plugins["nvim-telescope/telescope.nvim"]["module"] = "zk"
+  plugins["nvim-telescope/telescope.nvim"]["module"] = { "zk", "dressing" }
 
   return vim.tbl_deep_extend("force", plugins, my_plugins)
 end
