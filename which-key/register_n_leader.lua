@@ -25,6 +25,7 @@ local Nmappings = {
   ["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
   ["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" },
   ["r"] = { "<cmd>SendHere<cr>", "Set REPL" },
+  ["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
 
   a = {
     name = "Annotate",
