@@ -28,7 +28,7 @@ return {
     "yaml",
   },
   rainbow = {
-    enable = false,
+    enable = true,
   },
   matchup = {
     enable = true,
