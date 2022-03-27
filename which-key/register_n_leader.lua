@@ -16,8 +16,18 @@ end
 
 -- Normal Mode <leader> Mappings
 local Nmappings = {
-  ["e"] = { "<cmd>Neotree toggle<cr>", "Toggle Explorer" },
-  ["o"] = { "<cmd>Neotree focus<cr>", "Focus Explorer" },
+  ["e"] = {
+    function()
+      require("neo-tree.command")._command "toggle"
+    end,
+    "Toggle Explorer",
+  },
+  ["o"] = {
+    function()
+      require("neo-tree.command")._command "focus"
+    end,
+    "Focus Explorer",
+  },
   ["c"] = { "Bye Buffer" },
   ["C"] = { "<cmd>bdelete!<cr>", "Close Buffer" },
   ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
@@ -29,11 +39,36 @@ local Nmappings = {
 
   a = {
     name = "Annotate",
-    ["<cr>"] = { "<cmd>lua require('neogen').generate()<cr>", "Current" },
-    c = { "<cmd>lua require('neogen').generate({ type = 'class' })<cr>", "Class" },
-    f = { "<cmd>lua require('neogen').generate({ type = 'func' })<cr>", "Function" },
-    t = { "<cmd>lua require('neogen').generate({ type = 'type' })<cr>", "Type" },
-    F = { "<cmd>lua require('neogen').generate({ type = 'file' })<cr>", "File" },
+    ["<cr>"] = {
+      function()
+        require("neogen").generate()
+      end,
+      "Current",
+    },
+    c = {
+      function()
+        require("neogen").generate { type = "class" }
+      end,
+      "Class",
+    },
+    f = {
+      function()
+        require("neogen").generate { type = "func" }
+      end,
+      "Function",
+    },
+    t = {
+      function()
+        require("neogen").generate { type = "type" }
+      end,
+      "Type",
+    },
+    F = {
+      function()
+        require("neogen").generate { type = "file" }
+      end,
+      "File",
+    },
   },
 
   f = {
@@ -76,10 +111,15 @@ local Nmappings = {
     t = { "<cmd>TableModeToggle<cr>", "Toggle Table Mode" },
     p = { "<cmd>setlocal paste!<cr>", "Toggle Paste" },
     b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
-    w = { "<cmd>lua _G.toggle_soft_wrap()<cr>", "Toggle Soft Wrapping" },
-    W = { "<cmd>lua _G.toggle_hard_wrap()<cr>", "Toggle Hard Wrapping" },
+    w = { _G.toggle_soft_wrap, "Toggle Soft Wrapping" },
+    W = { _G.toggle_hard_wrap, "Toggle Hard Wrapping" },
     m = { "<cmd>Glow<cr>", "Preview Markdown" },
-    M = { "<cmd>lua require'nabla'.popup()<cr>", "Preview Math" },
+    M = {
+      function()
+        require("nabla").popup()
+      end,
+      "Preview Math",
+    },
   },
 
   h = {
@@ -106,20 +146,54 @@ local Nmappings = {
 
   n = {
     name = "Notes",
-    b = { "<cmd>lua require('zk.commands')('ZkBacklinks')()<cr>", "Backlink Picker" },
-    d = { "<cmd>lua require('zk.commands')('ZkCd')()<cr>", "Change Directory" },
-    r = { "<cmd>lua require('zk.commands')('ZkIndex')()<cr>", "Refresh Index" },
-    l = { "<cmd>lua require('zk.commands')('ZkLinks')()<cr>", "Link Picker" },
-    s = { "<cmd>lua require('zk.commands').get('ZkNotes')({ sort = { 'modified' } })<cr>", "Search" },
+    b = {
+      function()
+        require "zk.commands" "ZkBacklinks"()
+      end,
+      "Backlink Picker",
+    },
+    d = {
+      function()
+        require "zk.commands" "ZkCd"()
+      end,
+      "Change Directory",
+    },
+    r = {
+      function()
+        require "zk.commands" "ZkIndex"()
+      end,
+      "Refresh Index",
+    },
+    l = {
+      function()
+        require "zk.commands" "ZkLinks"()
+      end,
+      "Link Picker",
+    },
+    s = {
+      function()
+        require("zk.commands").get "ZkNotes" { sort = { "modified" } }
+      end,
+      "Search",
+    },
     n = {
-      "<cmd>lua require('zk.commands').get('ZkNew')({ dir = 'personal', title = vim.fn.input('Title: ') })<cr>",
+      function()
+        require("zk.commands").get "ZkNew" { dir = "personal", title = vim.fn.input "Title: " }
+      end,
       "New Personal Note",
     },
     N = {
-      "<cmd>lua require('zk.commands').get('ZkNew')({ dir = 'work', title = vim.fn.input('Title: ') })<cr>",
+      function()
+        require("zk.commands").get "ZkNew" { dir = "work", title = vim.fn.input "Title: " }
+      end,
       "New Work Note",
     },
-    t = { "<cmd>lua require('zk.commands').get('ZkTags')()<cr>", "Tags" },
+    t = {
+      function()
+        require("zk.commands").get "ZkTags"()
+      end,
+      "Tags",
+    },
     i = { "<Plug>(simple-todo-new-list-item)", "Insert Todo" },
     I = { "<Plug>(simple-todo-new-list-item-start-of-line)", "Convert to Todo" },
     o = { "<Plug>(simple-todo-below)", "Insert Todo Below" },
@@ -131,20 +205,90 @@ local Nmappings = {
 
   x = {
     name = "Debugger",
-    b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-    B = { "<cmd>lua require'dap'.clear_breakpoints()<cr>", "Clear Breakpoints" },
-    c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-    i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-    l = { "<cmd>lua require'dapui'.float_element('breakpoints')<cr>", "List Breakpoints" },
-    o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-    q = { "<cmd>lua require'dap'.close()<cr>", "Close Session" },
-    Q = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
-    r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "REPL" },
-    s = { "<cmd>lua require'dapui'.float_element('scopes')<cr>", "Scopes" },
-    t = { "<cmd>lua require'dapui'.float_element('stacks')<cr>", "Threads" },
-    u = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle Debugger UI" },
-    w = { "<cmd>lua require'dapui'.float_element('watches')<cr>", "Watches" },
-    x = { "<cmd>lua require'dap.ui.widgets'.hover()<cr>", "Inspect" },
+    b = {
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+      "Toggle Breakpoint",
+    },
+    B = {
+      function()
+        require("dap").clear_breakpoints()
+      end,
+      "Clear Breakpoints",
+    },
+    c = {
+      function()
+        require("dap").continue()
+      end,
+      "Continue",
+    },
+    i = {
+      function()
+        require("dap").step_into()
+      end,
+      "Step Into",
+    },
+    l = {
+      function()
+        require("dapui").float_element "breakpoints"
+      end,
+      "List Breakpoints",
+    },
+    o = {
+      function()
+        require("dap").step_over()
+      end,
+      "Step Over",
+    },
+    q = {
+      function()
+        require("dap").close()
+      end,
+      "Close Session",
+    },
+    Q = {
+      function()
+        require("dap").terminate()
+      end,
+      "Terminate",
+    },
+    r = {
+      function()
+        require("dap").repl.toggle()
+      end,
+      "REPL",
+    },
+    s = {
+      function()
+        require("dapui").float_element "scopes"
+      end,
+      "Scopes",
+    },
+    t = {
+      function()
+        require("dapui").float_element "stacks"
+      end,
+      "Threads",
+    },
+    u = {
+      function()
+        require("dapui").toggle()
+      end,
+      "Toggle Debugger UI",
+    },
+    w = {
+      function()
+        require("dapui").float_element "watches"
+      end,
+      "Watches",
+    },
+    x = {
+      function()
+        require("dap.ui.widgets").hover()
+      end,
+      "Inspect",
+    },
   },
 }
 
@@ -186,7 +330,12 @@ local Vmappings = {
 
   x = {
     name = "Debugger",
-    e = { "<cmd>lua require('dapui').eval()<cr>", "Evaluate Line" },
+    e = {
+      function()
+        require("dapui").eval()
+      end,
+      "Evaluate Line",
+    },
   },
 }
 

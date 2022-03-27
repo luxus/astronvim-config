@@ -26,6 +26,7 @@ return function(plugins)
     {
       "ellisonleao/glow.nvim",
       cmd = "Glow",
+      module = "glow",
       config = function()
         vim.g.glow_border = "rounded"
       end,
@@ -39,6 +40,7 @@ return function(plugins)
     {
       "folke/zen-mode.nvim",
       cmd = "ZenMode",
+      module = "zen-mode",
       config = function()
         require("zen-mode").setup(require "user.plugins.zen-mode")
       end,
