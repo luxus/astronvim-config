@@ -16,18 +16,6 @@ end
 
 -- Normal Mode <leader> Mappings
 local Nmappings = {
-  ["e"] = {
-    function()
-      require("neo-tree.command")._command "toggle"
-    end,
-    "Toggle Explorer",
-  },
-  ["o"] = {
-    function()
-      require("neo-tree.command")._command "focus"
-    end,
-    "Focus Explorer",
-  },
   ["c"] = { "Bye Buffer" },
   ["C"] = { "<cmd>bdelete!<cr>", "Close Buffer" },
   ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
