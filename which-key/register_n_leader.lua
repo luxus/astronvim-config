@@ -292,6 +292,15 @@ local Nmappings = {
   },
 }
 
+local Dmappings = {
+  n = { "<C-r>=strftime('%Y-%m-%d')<cr>", "Y-m-d" },
+  x = { "<C-r>=strftime('%m/%d/%y')<cr>", "m/d/y" },
+  f = { "<C-r>=strftime('%B %d, %Y')<cr>", "B d, Y" },
+  X = { "<C-r>=strftime('%H:%M')<cr>", "H:M" },
+  F = { "<C-r>=strftime('%H:%M:%S')<cr>", "H:M:S" },
+  d = { "<C-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", "Y/m/d H:M:S -" },
+}
+
 local Vmappings = {
   ["/"] = { "Comment" },
 
@@ -365,6 +374,7 @@ local PrevBracketmappings = {
 
 which_key.register(Gmappings, opts("n", "g"))
 which_key.register(Vmappings, opts("v", "<leader>"))
+which_key.register(Dmappings, opts("i", "<c-d>"))
 which_key.register(NextBracketmappings, opts("n", "]"))
 which_key.register(PrevBracketmappings, opts("n", "["))
 
