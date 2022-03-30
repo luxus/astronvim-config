@@ -15,26 +15,6 @@ return {
       command = "!autocomp %:p stop",
     })
 
-    augroup("mutt", {})
-    cmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
-      desc = "Treat mutt emails as markdown",
-      group = "mutt",
-      pattern = "/tmp/neomutt*",
-      callback = function()
-        vim.bo.filetype = "markdown"
-      end,
-    })
-
-    augroup("rmd", {})
-    cmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
-      desc = "Treat rmd as markdown",
-      group = "rmd",
-      pattern = "*.rmd",
-      callback = function()
-        vim.bo.filetype = "markdown"
-      end,
-    })
-
     augroup("dapui", {})
     cmd("FileType", {
       desc = "Make q close dap floating windows",

@@ -119,7 +119,6 @@ return function(plugins)
         end
       end,
     },
-    { "sheerun/vim-polyglot" },
     { "skywind3000/asyncrun.vim" },
     { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
     {
