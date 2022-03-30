@@ -26,6 +26,8 @@ return function()
   set.foldmethod = "expr"
   set.foldexpr = "nvim_treesitter#foldexpr()"
 
+  vim.g.load_black = false
+
   -- Functions
   function _G.toggle_hard_wrap(width)
     if width == nil then

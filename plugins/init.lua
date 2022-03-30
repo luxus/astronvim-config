@@ -6,7 +6,7 @@ return function(plugins)
         require("nightfox").setup(require "user.plugins.nightfox")
       end,
     },
-    { "andymass/vim-matchup" },
+    { "andymass/vim-matchup", event = { "BufRead", "BufNewFile" } },
     {
       "danymat/neogen",
       module = "neogen",
@@ -33,6 +33,7 @@ return function(plugins)
     },
     {
       "ethanholz/nvim-lastplace",
+      event = "BufRead",
       config = function()
         require("nvim-lastplace").setup(require "user.plugins.nvim-lastplace")
       end,
@@ -45,28 +46,16 @@ return function(plugins)
         require("zen-mode").setup(require "user.plugins.zen-mode")
       end,
     },
-    { "glts/vim-textobj-comment" },
-    {
-      "hrsh7th/cmp-calc",
-      after = "nvim-cmp",
-    },
-    {
-      "hrsh7th/cmp-emoji",
-      after = "nvim-cmp",
-    },
+    { "glts/vim-textobj-comment", after = "vim-textobj-user" },
+    { "hrsh7th/cmp-calc", after = "nvim-cmp" },
+    { "hrsh7th/cmp-emoji", after = "nvim-cmp" },
     { "jbyuki/nabla.nvim", module = "nabla" },
-    {
-      "jc-doyle/cmp-pandoc-references",
-      after = "nvim-cmp",
-    },
-    { "kana/vim-textobj-indent" },
-    { "kana/vim-textobj-line" },
-    { "kana/vim-textobj-user" },
-    {
-      "kdheepak/cmp-latex-symbols",
-      after = "nvim-cmp",
-    },
-    { "machakann/vim-sandwich" },
+    { "jc-doyle/cmp-pandoc-references", after = "nvim-cmp" },
+    { "kana/vim-textobj-indent", after = "vim-textobj-user" },
+    { "kana/vim-textobj-line", after = "vim-textobj-user" },
+    { "kana/vim-textobj-user", event = { "BufRead", "BufNewFile" } },
+    { "kdheepak/cmp-latex-symbols", after = "nvim-cmp" },
+    { "machakann/vim-sandwich", event = { "BufRead", "BufNewFile" } },
     {
       "mfussenegger/nvim-dap",
       module = "dap",
@@ -86,19 +75,13 @@ return function(plugins)
         vim.g.send_disable_mapping = true
       end,
     },
-    { "nanotee/sqls.nvim" },
+    { "nanotee/sqls.nvim", after = "nvim-lspconfig" },
     {
       "phaazon/hop.nvim",
+      event = { "BufRead", "BufNewFile" },
       branch = "v1",
       config = function()
         require("hop").setup()
-      end,
-    },
-    {
-      "preservim/vim-markdown",
-      config = function()
-        vim.g.vim_markdown_auto_insert_bullets = false
-        vim.g.vim_markdown_new_list_item_indent = 0
       end,
     },
     {
@@ -119,7 +102,7 @@ return function(plugins)
         end
       end,
     },
-    { "skywind3000/asyncrun.vim" },
+    { "skywind3000/asyncrun.vim", event = { "BufRead", "BufNewFile" } },
     { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
     {
       "nvim-telescope/telescope-bibtex.nvim",
@@ -128,9 +111,7 @@ return function(plugins)
         require("telescope").load_extension "bibtex"
       end,
     },
-    {
-      "nvim-telescope/telescope-hop.nvim",
-    },
+    { "nvim-telescope/telescope-hop.nvim", event = "BufWinEnter" },
     {
       "nvim-telescope/telescope-media-files.nvim",
       after = "telescope.nvim",
@@ -151,7 +132,7 @@ return function(plugins)
         vim.g.simple_todo_map_keys = false
       end,
     },
-    { "wakatime/vim-wakatime" },
+    { "wakatime/vim-wakatime", event = "BufRead" },
   }
 
   -- Disabled Default Plugins
@@ -161,6 +142,7 @@ return function(plugins)
 
   -- Disabled Default Lazy Loading
   plugins["akinsho/nvim-toggleterm.lua"]["cmd"] = nil
+  plugins["akinsho/nvim-toggleterm.lua"]["event"] = { "BufRead", "BufNewFile" }
   plugins["nvim-neo-tree/neo-tree.nvim"]["cmd"] = nil
   plugins["nvim-neo-tree/neo-tree.nvim"]["module"] = nil
 
