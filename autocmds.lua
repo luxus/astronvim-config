@@ -6,12 +6,16 @@ return {
     -- Autocompiler
     vim.cmd [[
       augroup autocomp
+        autocmd!
         autocmd VimLeave * !autocomp %:p stop
       augroup END
     ]]
 
     vim.cmd [[
-      autocmd FileType dap-float nnoremap <buffer><silent> q <cmd>close!<cr>
+      augroup dapui
+        autocmd!
+        autocmd FileType dap-float nnoremap <buffer><silent> q <cmd>close!<cr>
+      augroup END
     ]]
   end,
 }
