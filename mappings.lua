@@ -65,7 +65,6 @@ return {
     vunmap ">"
     vunmap "J"
     vunmap "K"
-    vunmap "p"
 
     -- resize with arrows
     nmap("<Up>", "<cmd>lua require'smart-splits'.resize_up(2)<cr>")

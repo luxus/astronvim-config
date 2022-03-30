@@ -34,7 +34,6 @@ return {
     unmap("v", ">")
     unmap("v", "J")
     unmap("v", "K")
-    unmap("v", "p")
 
     -- resize with arrows
     map("n", "<Up>", function()
