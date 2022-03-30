@@ -18,6 +18,7 @@ return {
     "latex",
     "lua",
     "make",
+    "markdown",
     "python",
     "r",
     "regex",
@@ -26,6 +27,9 @@ return {
     "typescript",
     "vim",
     "yaml",
+  },
+  highlight = {
+    additional_vim_regex_highlighting = { "markdown" },
   },
   rainbow = {
     enable = true,
