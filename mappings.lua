@@ -48,6 +48,7 @@ return {
     nunmap "<leader>fb"
     nunmap "<leader>ff"
     nunmap "<leader>fh"
+    nunmap "<leader>fn"
     nunmap "<leader>fo"
     nunmap "<leader>fw"
     nunmap "<leader>h"
