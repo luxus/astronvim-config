@@ -141,8 +141,6 @@ return function(plugins)
   plugins["max397574/better-escape.nvim"] = nil
 
   -- Disabled Default Lazy Loading
-  plugins["akinsho/nvim-toggleterm.lua"]["cmd"] = nil
-  plugins["akinsho/nvim-toggleterm.lua"]["event"] = { "BufRead", "BufNewFile" }
   plugins["nvim-neo-tree/neo-tree.nvim"]["cmd"] = nil
   plugins["nvim-neo-tree/neo-tree.nvim"]["module"] = nil
 
