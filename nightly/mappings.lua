@@ -60,15 +60,14 @@ return {
     map("n", "+", "<c-a>")
     map("x", "+", "g<c-a>")
     map("x", "-", "g<c-x>")
+    -- line text-objects
+    map("x", "il", "g_o^")
+    map("o", "il", ":normal vil<cr>")
+    map("x", "al", "$o^")
+    map("o", "al", ":normal val<cr>")
     -- type template string
     map("i", ";mk", "<++>")
     map("i", "<S-Tab>", "<C-V><Tab>")
-
-    -- cmp lsp auto complete
-    map("i", "<c-x><c-o>", function()
-      require("cmp").complete { config = { sources = { { name = "nvim_lsp" } } } }
-    end)
-
     -- terminal mappings
     map("t", "<leader><esc>", "<c-\\><c-n>")
     map("t", "<esc><esc>", "<c-\\><c-n>:q<cr>")
@@ -76,7 +75,10 @@ return {
     map("t", "<c-j>", "<c-\\><c-n><c-w>j")
     map("t", "<c-k>", "<c-\\><c-n><c-w>k")
     map("t", "<c-l>", "<c-\\><c-n><c-w>l")
-
+    -- cmp lsp auto complete
+    map("i", "<c-x><c-o>", function()
+      require("cmp").complete { config = { sources = { { name = "nvim_lsp" } } } }
+    end)
     map("", "<c-e><c-e>", "<Plug>SendLine")
     map("", "<c-e>", "<Plug>Send")
   end,

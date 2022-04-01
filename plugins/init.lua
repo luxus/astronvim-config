@@ -24,6 +24,12 @@ return function(plugins)
       end,
     },
     {
+      "echasnovski/mini.nvim",
+      config = function()
+        require "user.plugins.mini"()
+      end,
+    },
+    {
       "ellisonleao/glow.nvim",
       cmd = "Glow",
       module = "glow",
@@ -46,16 +52,11 @@ return function(plugins)
         require("zen-mode").setup(require "user.plugins.zen-mode")
       end,
     },
-    { "glts/vim-textobj-comment", after = "vim-textobj-user" },
     { "hrsh7th/cmp-calc", after = "nvim-cmp" },
     { "hrsh7th/cmp-emoji", after = "nvim-cmp" },
     { "jbyuki/nabla.nvim", module = "nabla" },
     { "jc-doyle/cmp-pandoc-references", after = "nvim-cmp" },
-    { "kana/vim-textobj-indent", after = "vim-textobj-user" },
-    { "kana/vim-textobj-line", after = "vim-textobj-user" },
-    { "kana/vim-textobj-user", event = { "BufRead", "BufNewFile" } },
     { "kdheepak/cmp-latex-symbols", after = "nvim-cmp" },
-    { "machakann/vim-sandwich", event = { "BufRead", "BufNewFile" } },
     {
       "mfussenegger/nvim-dap",
       module = "dap",
@@ -139,6 +140,8 @@ return function(plugins)
   plugins["glepnir/dashboard-nvim"] = nil
   plugins["karb94/neoscroll.nvim"] = nil
   plugins["max397574/better-escape.nvim"] = nil
+  plugins["lukas-reineke/indent-blankline.nvim"] = nil
+  plugins["numToStr/Comment.nvim"] = nil
 
   -- Disabled Default Lazy Loading
   plugins["nvim-neo-tree/neo-tree.nvim"]["cmd"] = nil

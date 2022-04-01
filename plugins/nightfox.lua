@@ -8,4 +8,7 @@ return {
       match_paren = true,
     },
   },
+  groups = {
+    MiniIndentscopeSymbol = { link = "PreProc" },
+  },
 }

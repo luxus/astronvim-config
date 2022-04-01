@@ -19,6 +19,9 @@ return {
     local xmap = function(shortcut, command)
       map("x", shortcut, command)
     end
+    local omap = function(shortcut, command)
+      map("o", shortcut, command)
+    end
     local tmap = function(shortcut, command)
       map("t", shortcut, command)
     end
@@ -90,6 +93,11 @@ return {
     imap(";mk", "<++>")
     imap("<S-Tab>", "<C-V><Tab>")
     imap("<c-x><c-o>", "<cmd>lua require('cmp').complete({config = { sources = { { name = 'nvim_lsp' }}}})<cr>")
+    -- line text-objects
+    xmap("il", "g_o^")
+    omap("il", ":normal vil<cr>")
+    xmap("al", "$o^")
+    omap("al", ":normal val<cr>")
     -- terminal mappings
     tmap("<leader><esc>", "<c-\\><c-n>")
     tmap("<esc><esc>", "<c-\\><c-n>:q<cr>")
@@ -97,7 +105,6 @@ return {
     tmap("<c-j>", "<c-\\><c-n><c-w>j")
     tmap("<c-k>", "<c-\\><c-n><c-w>k")
     tmap("<c-l>", "<c-\\><c-n><c-w>l")
-
     _map("<c-e><c-e>", "<Plug>SendLine")
     _map("<c-e>", "<Plug>Send")
   end,
