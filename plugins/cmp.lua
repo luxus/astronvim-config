@@ -1,14 +1,10 @@
-local cmp_ok, cmp = pcall(require, "cmp")
-local luasnip_ok, luasnip = pcall(require, "luasnip")
+return function(config)
+  local cmp_ok, cmp = pcall(require, "cmp")
+  local luasnip_ok, luasnip = pcall(require, "luasnip")
 
-if not (cmp_ok and luasnip_ok) then
-  return {}
-end
-
-return {
-  mapping = {
-    ["<CR>"] = cmp.mapping.confirm(),
-    ["<Tab>"] = cmp.mapping(function(fallback)
+  if cmp_ok and luasnip_ok then
+    config.mapping["<CR>"] = cmp.mapping.confirm()
+    config.mapping["<Tab>"] = cmp.mapping(function(fallback)
       if luasnip.expandable() then
         luasnip.expand()
       elseif luasnip.expand_or_jumpable() then
@@ -19,8 +15,8 @@ return {
     end, {
       "i",
       "s",
-    }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
+    })
+    config.mapping["<S-Tab>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
@@ -29,6 +25,19 @@ return {
     end, {
       "i",
       "s",
-    }),
-  },
-}
+    })
+
+    config.sources = {
+      { name = "luasnip" },
+      { name = "nvim_lsp" },
+      { name = "pandoc_references" },
+      { name = "path" },
+      { name = "calc" },
+      { name = "emoji" },
+      { name = "latex_symbols" },
+      { name = "buffer" },
+    }
+  end
+
+  return config
+end

@@ -57,7 +57,4 @@ return function()
 
   -- Mappings
   require(nightly_user .. "mappings").setup()
-
-  -- Setup cmp source priority
-  require("user.cmp").setup_sources()
 end
