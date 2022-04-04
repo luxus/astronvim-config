@@ -160,8 +160,15 @@ return function(plugins)
   plugins["stevearc/dressing.nvim"] = nil
 
   -- Disabled Default Lazy Loading
-  plugins["nvim-neo-tree/neo-tree.nvim"]["cmd"] = nil
-  plugins["nvim-neo-tree/neo-tree.nvim"]["module"] = nil
+  plugins["nvim-neo-tree/neo-tree.nvim"].cmd = nil
+  plugins["nvim-neo-tree/neo-tree.nvim"].module = nil
+
+  -- Better lazy loading for cmp (TODO: move upstream)
+  plugins["rafamadriz/friendly-snippets"].event = nil
+  plugins["rafamadriz/friendly-snippets"].after = "nvim-cmp"
+  plugins["hrsh7th/nvim-cmp"].event = "InsertEnter"
+  plugins["neovim/nvim-lspconfig"].after = nil
+  plugins["neovim/nvim-lspconfig"].event = "BufWinEnter"
 
   return vim.tbl_deep_extend("force", plugins, my_plugins)
 end
