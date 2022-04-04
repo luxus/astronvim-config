@@ -1,5 +1,3 @@
-local nightly_user = "user." .. (vim.fn.has "nvim-0.7" == 1 and "nightly." or "")
-
 return function()
   local set = vim.opt
 
@@ -53,8 +51,8 @@ return function()
   end
 
   -- Auto Commands
-  require(nightly_user .. "autocmds").setup()
+  require("user.autocmds").setup()
 
   -- Mappings
-  require(nightly_user .. "mappings").setup()
+  require("user.mappings").setup()
 end
