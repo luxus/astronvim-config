@@ -27,5 +27,8 @@ return {
   groups = {
     MiniIndentscopeSymbol = { link = "PreProc" },
     NormalFloat = { link = "Normal" },
+    TelescopeBorder = { bg = "bg1" },
+    TelescopePromptCounter = { link = "TelescopePromptNormal" },
+    TelescopePromptPrefix = { link = "TelescopePromptNormal" },
   },
 }
