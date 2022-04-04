@@ -55,4 +55,7 @@ return function()
 
   -- Mappings
   require("user.mappings").setup()
+
+  -- vim.ui
+  require("user.ui").setup()
 end
