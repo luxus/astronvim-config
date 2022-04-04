@@ -26,5 +26,6 @@ return {
   },
   groups = {
     MiniIndentscopeSymbol = { link = "PreProc" },
+    NormalFloat = { link = "Normal" },
   },
 }
