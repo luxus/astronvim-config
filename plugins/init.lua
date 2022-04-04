@@ -19,7 +19,7 @@ return function(plugins)
     {
       "dhruvasagar/vim-table-mode",
       cmd = "TableModeToggle",
-      config = function()
+      setup = function()
         vim.g.table_mode_corner = "|"
       end,
     },
@@ -33,7 +33,7 @@ return function(plugins)
       "ellisonleao/glow.nvim",
       cmd = "Glow",
       module = "glow",
-      config = function()
+      setup = function()
         vim.g.glow_border = "rounded"
       end,
     },
@@ -72,7 +72,7 @@ return function(plugins)
     {
       "mtikekar/nvim-send-to-term",
       cmd = "SendHere",
-      config = function()
+      setup = function()
         vim.g.send_disable_mapping = true
       end,
     },
@@ -135,7 +135,16 @@ return function(plugins)
     },
     {
       "vitalk/vim-simple-todo",
-      config = function()
+      keys = {
+        "<Plug>(simple-todo-above)",
+        "<Plug>(simple-todo-below)",
+        "<Plug>(simple-todo-mark-as-done)",
+        "<Plug>(simple-todo-mark-as-undone)",
+        "<Plug>(simple-todo-mark-switch)",
+        "<Plug>(simple-todo-new-list-item)",
+        "<Plug>(simple-todo-new-list-item-start-of-line)",
+      },
+      setup = function()
         vim.g.simple_todo_map_keys = false
       end,
     },
