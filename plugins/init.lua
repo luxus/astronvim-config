@@ -112,7 +112,13 @@ return function(plugins)
         require("telescope").load_extension "bibtex"
       end,
     },
-    { "nvim-telescope/telescope-hop.nvim", event = "BufWinEnter" },
+    {
+      "nvim-telescope/telescope-hop.nvim",
+      after = "telescope.nvim",
+      config = function()
+        require("telescope").load_extension "hop"
+      end,
+    },
     {
       "nvim-telescope/telescope-media-files.nvim",
       after = "telescope.nvim",
