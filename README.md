@@ -19,7 +19,5 @@ git clone https://git.mehalter.com/mehalter/AstroVim_user.git ~/.config/nvim/lua
 3. Initialize AstroVim
 
 ```sh
-nvim +PackerSync
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 ```
-
-4. Close and restart AstroVim with `<leader>q`
