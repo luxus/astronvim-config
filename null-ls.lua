@@ -29,7 +29,11 @@ return function()
     on_attach = function(client)
       vim.notify(client.name, "info", { title = "Language Server", timeout = 500 })
       if client.resolved_capabilities.document_formatting then
-        vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          desc = "Auto format before save",
+          pattern = "<buffer>",
+          callback = vim.lsp.buf.formatting_sync,
+        })
       end
     end,
   }
