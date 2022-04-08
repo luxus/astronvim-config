@@ -15,6 +15,7 @@ return {
     unmap("n", "<leader>fb")
     unmap("n", "<leader>ff")
     unmap("n", "<leader>fh")
+    unmap("n", "<leader>fm")
     unmap("n", "<leader>fo")
     unmap("n", "<leader>fw")
     unmap("n", "<leader>h")

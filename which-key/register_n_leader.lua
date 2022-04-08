@@ -62,6 +62,7 @@ local Nmappings = {
   f = {
     name = "Telescope",
     ["?"] = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+    ["'"] = { "<cmd>Telescope marks<cr>", "Marks" },
     b = { "<cmd>Telescope buffers<cr>", "Buffers" },
     B = { "<cmd>Telescope bibtex<cr>", "BibTeX" },
     c = { "<cmd>Telescope commands<cr>", "Commands" },
