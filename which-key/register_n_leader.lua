@@ -76,6 +76,7 @@ local Nmappings = {
     r = { "<cmd>Telescope registers<cr>", "Registers" },
     t = { "<cmd>Telescope colorscheme<cr>", "Themes" },
     w = { "<cmd>Telescope live_grep<cr>", "Words" },
+    o = { nil },
   },
 
   m = {
