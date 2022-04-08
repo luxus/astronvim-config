@@ -10,9 +10,10 @@ return function()
         builtins.code_actions.shellcheck,
         builtins.formatting.stylua,
         builtins.formatting.black,
-        builtins.formatting.format_r,
         builtins.formatting.isort,
-        builtins.formatting.prettier,
+        builtins.formatting.prettier.with {
+          extra_filetypes = { "rmd" },
+        },
         builtins.formatting.shfmt,
         builtins.diagnostics.cue_fmt,
         builtins.diagnostics.shellcheck,

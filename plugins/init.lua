@@ -55,7 +55,8 @@ return function(plugins)
     { "hrsh7th/cmp-calc", after = "nvim-cmp" },
     { "hrsh7th/cmp-emoji", after = "nvim-cmp" },
     { "jbyuki/nabla.nvim", module = "nabla" },
-    { "jc-doyle/cmp-pandoc-references", after = "nvim-cmp" },
+    -- { "jc-doyle/cmp-pandoc-references", after = "nvim-cmp" }, -- reenable once rmd is added
+    { "mehalter/cmp-pandoc-references", after = "nvim-cmp" },
     { "kdheepak/cmp-latex-symbols", after = "nvim-cmp" },
     {
       "mfussenegger/nvim-dap",
