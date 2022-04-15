@@ -56,14 +56,14 @@ return function(plugins)
       "hrsh7th/cmp-calc",
       after = "nvim-cmp",
       config = function()
-        require("core.utils").add_cmp_source("calc", 650)
+        require("core.utils").add_user_cmp_source "calc"
       end,
     },
     {
       "hrsh7th/cmp-emoji",
       after = "nvim-cmp",
       config = function()
-        require("core.utils").add_cmp_source("emoji", 700)
+        require("core.utils").add_user_cmp_source "emoji"
       end,
     },
     { "jbyuki/nabla.nvim", module = "nabla" },
@@ -72,14 +72,14 @@ return function(plugins)
       "mehalter/cmp-pandoc-references",
       after = "nvim-cmp",
       config = function()
-        require("core.utils").add_cmp_source("pandoc_references", 700)
+        require("core.utils").add_user_cmp_source "pandoc_references"
       end,
     },
     {
       "kdheepak/cmp-latex-symbols",
       after = "nvim-cmp",
       config = function()
-        require("core.utils").add_cmp_source("latex_symbols", 700)
+        require("core.utils").add_user_cmp_source "latex_symbols"
       end,
     },
     {
