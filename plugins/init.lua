@@ -52,12 +52,36 @@ return function(plugins)
         require("zen-mode").setup(require "user.plugins.zen-mode")
       end,
     },
-    { "hrsh7th/cmp-calc", after = "nvim-cmp" },
-    { "hrsh7th/cmp-emoji", after = "nvim-cmp" },
+    {
+      "hrsh7th/cmp-calc",
+      after = "nvim-cmp",
+      config = function()
+        require("core.utils").add_cmp_source("calc", 650)
+      end,
+    },
+    {
+      "hrsh7th/cmp-emoji",
+      after = "nvim-cmp",
+      config = function()
+        require("core.utils").add_cmp_source("emoji", 700)
+      end,
+    },
     { "jbyuki/nabla.nvim", module = "nabla" },
     -- { "jc-doyle/cmp-pandoc-references", after = "nvim-cmp" }, -- reenable once rmd is added
-    { "mehalter/cmp-pandoc-references", after = "nvim-cmp" },
-    { "kdheepak/cmp-latex-symbols", after = "nvim-cmp" },
+    {
+      "mehalter/cmp-pandoc-references",
+      after = "nvim-cmp",
+      config = function()
+        require("core.utils").add_cmp_source("pandoc_references", 700)
+      end,
+    },
+    {
+      "kdheepak/cmp-latex-symbols",
+      after = "nvim-cmp",
+      config = function()
+        require("core.utils").add_cmp_source("latex_symbols", 700)
+      end,
+    },
     {
       "mfussenegger/nvim-dap",
       module = "dap",
