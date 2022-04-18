@@ -4,6 +4,4 @@ return function(client, bufnr)
   elseif client.name == "r_language_server" and vim.o.filetype == "rmd" then
     client.resolved_capabilities.document_formatting = false
   end
-
-  vim.notify(client.name, "info", { title = "Language Server", timeout = 500 })
 end
