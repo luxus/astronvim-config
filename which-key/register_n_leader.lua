@@ -147,6 +147,18 @@ local Nmappings = {
     c = { nil },
     p = { "Next Parameter" },
     P = { "Previous Parameter" },
+    s = {
+      function()
+        require("syntax-tree-surfer").select()
+      end,
+      "Surf",
+    },
+    S = {
+      function()
+        require("syntax-tree-surfer").select_current_node()
+      end,
+      "Surf Node",
+    },
   },
 
   n = {

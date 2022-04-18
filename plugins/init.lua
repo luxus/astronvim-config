@@ -174,6 +174,7 @@ return function(plugins)
       end,
     },
     { "wakatime/vim-wakatime", event = "BufRead" },
+    { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
   }
 
   -- Disabled Default Plugins
