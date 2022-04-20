@@ -67,9 +67,8 @@ return function(plugins)
       end,
     },
     { "jbyuki/nabla.nvim", module = "nabla" },
-    -- { "jc-doyle/cmp-pandoc-references", after = "nvim-cmp" }, -- reenable once rmd is added
     {
-      "mehalter/cmp-pandoc-references",
+      "jc-doyle/cmp-pandoc-references",
       after = "nvim-cmp",
       config = function()
         require("core.utils").add_user_cmp_source "pandoc_references"
