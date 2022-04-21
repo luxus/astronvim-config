@@ -28,9 +28,6 @@ return {
     "vim",
     "yaml",
   },
-  rainbow = {
-    enable = true,
-  },
   matchup = {
     enable = true,
   },
