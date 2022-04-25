@@ -294,6 +294,12 @@ return {
         },
       },
     },
+    g = {
+      x = {
+        ":execute 'silent! !xdg-open ' . shellescape(expand('<cfile>'), 1)<CR>",
+        "Open the file under cursor with system app",
+      },
+    },
     ["]"] = {
       f = "Next function start",
       x = "Next class start",
