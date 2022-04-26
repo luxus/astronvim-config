@@ -63,13 +63,7 @@ return {
       },
     },
     swap = {
-      enable = true,
-      swap_next = {
-        ["<leader>sp"] = "@parameter.inner",
-      },
-      swap_previous = {
-        ["<leader>sP"] = "@parameter.inner",
-      },
+      enable = false,
     },
   },
 }

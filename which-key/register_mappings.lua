@@ -123,7 +123,7 @@ return {
       },
 
       s = {
-        name = "Swap",
+        name = "Surf",
         b = { nil },
         h = { nil },
         m = { nil },
@@ -131,8 +131,6 @@ return {
         r = { nil },
         k = { nil },
         c = { nil },
-        p = "Next Parameter",
-        P = "Previous Parameter",
         s = {
           function()
             require("syntax-tree-surfer").select()
