@@ -30,5 +30,6 @@ return {
     TelescopeBorder = { bg = "bg1" },
     TelescopePromptCounter = { link = "TelescopePromptNormal" },
     TelescopePromptPrefix = { link = "TelescopePromptNormal" },
+    HighlightURL = { style = "underline" },
   },
 }
