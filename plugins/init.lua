@@ -82,6 +82,13 @@ return function(plugins)
       end,
     },
     {
+      "lukas-reineke/headlines.nvim",
+      ft = { "markdown", "rmd" },
+      config = function()
+        require("headlines").setup(require "user.plugins.headlines")
+      end,
+    },
+    {
       "mfussenegger/nvim-dap",
       module = "dap",
       config = require "user.plugins.dap",
