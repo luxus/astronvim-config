@@ -66,6 +66,7 @@ return {
         b = { "<cmd>Telescope buffers<cr>", "Buffers" },
         B = { "<cmd>Telescope bibtex<cr>", "BibTeX" },
         c = { "<cmd>Telescope commands<cr>", "Commands" },
+        e = { "<cmd>Telescope file_browser<cr>", "Explorer" },
         f = { "<cmd>Telescope find_files<cr>", "Files" },
         F = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", "All Files" },
         h = { "<cmd>Telescope oldfiles<cr>", "History" },

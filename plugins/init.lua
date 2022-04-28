@@ -144,6 +144,13 @@ return function(plugins)
       end,
     },
     {
+      "nvim-telescope/telescope-file-browser.nvim",
+      after = "telescope.nvim",
+      config = function()
+        require("telescope").load_extension "file_browser"
+      end,
+    },
+    {
       "nvim-telescope/telescope-hop.nvim",
       after = "telescope.nvim",
       config = function()
