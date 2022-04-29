@@ -6,7 +6,13 @@ return function(plugins)
         require("nightfox").setup(require "user.plugins.nightfox")
       end,
     },
-    { "andymass/vim-matchup", event = { "BufRead", "BufNewFile" } },
+    {
+      "andymass/vim-matchup",
+      opt = true,
+      setup = function()
+        require("core.utils").defer_plugin "vim-matchup"
+      end,
+    },
     {
       "danymat/neogen",
       module = "neogen",
@@ -25,6 +31,10 @@ return function(plugins)
     },
     {
       "echasnovski/mini.nvim",
+      opt = true,
+      setup = function()
+        require("core.utils").defer_plugin "mini.nvim"
+      end,
       config = function()
         require "user.plugins.mini"()
       end,
@@ -110,7 +120,10 @@ return function(plugins)
     { "nanotee/sqls.nvim", after = "nvim-lspconfig" },
     {
       "phaazon/hop.nvim",
-      event = { "BufRead", "BufNewFile" },
+      opt = true,
+      setup = function()
+        require("core.utils").defer_plugin "hop.nvim"
+      end,
       branch = "v1",
       config = function()
         require("hop").setup()
@@ -186,7 +199,13 @@ return function(plugins)
         vim.g.simple_todo_map_keys = false
       end,
     },
-    { "wakatime/vim-wakatime", event = "BufRead" },
+    {
+      "wakatime/vim-wakatime",
+      opt = true,
+      setup = function()
+        require("core.utils").defer_plugin "vim-wakatime"
+      end,
+    },
     { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
   }
 
@@ -196,10 +215,6 @@ return function(plugins)
   plugins["max397574/better-escape.nvim"] = nil
   plugins["lukas-reineke/indent-blankline.nvim"] = nil
   plugins["numToStr/Comment.nvim"] = nil
-
-  -- Disabled Default Lazy Loading
-  plugins["nvim-neo-tree/neo-tree.nvim"].cmd = nil
-  plugins["nvim-neo-tree/neo-tree.nvim"].module = nil
 
   return vim.tbl_deep_extend("force", plugins, my_plugins)
 end
