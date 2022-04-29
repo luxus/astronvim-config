@@ -3,8 +3,6 @@ return {
     local unmap = vim.keymap.del
     local map = vim.keymap.set
 
-    unmap("n", "<A-j>")
-    unmap("n", "<A-k>")
     unmap("n", "<C-Down>")
     unmap("n", "<C-Left>")
     unmap("n", "<C-Right>")
@@ -12,12 +10,8 @@ return {
     unmap("n", "<C-\\>")
     unmap("n", "<C-q>")
     unmap("n", "<C-s>")
-    unmap("v", "<A-j>")
-    unmap("v", "<A-k>")
     unmap("v", "<")
     unmap("v", ">")
-    unmap("v", "J")
-    unmap("v", "K")
 
     -- resize with arrows
     map("n", "<Up>", function()
