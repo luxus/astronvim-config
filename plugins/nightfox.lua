@@ -22,6 +22,7 @@ return {
       nvimtree = false,
       pounce = false,
       sneak = false,
+      symbols_outline = false,
     },
   },
   groups = {
@@ -31,5 +32,7 @@ return {
     TelescopePromptCounter = { link = "TelescopePromptNormal" },
     TelescopePromptPrefix = { link = "TelescopePromptNormal" },
     HighlightURL = { style = "underline" },
+    AerialLine = { link = "Search" },
+    AerialGuide = { link = "NeoTreeIndentMarker" },
   },
 }
