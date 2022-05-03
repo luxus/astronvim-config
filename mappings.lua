@@ -3,11 +3,13 @@ vim.keymap.del("n", "<C-Down>")
 vim.keymap.del("n", "<C-Left>")
 vim.keymap.del("n", "<C-Right>")
 vim.keymap.del("n", "<C-Up>")
-vim.keymap.del("n", "<C-\\>")
 vim.keymap.del("n", "<C-q>")
 vim.keymap.del("n", "<C-s>")
 vim.keymap.del("v", "<")
 vim.keymap.del("v", ">")
+if require("core.utils").is_available "nvim-toggleterm.lua" then
+  vim.keymap.del("n", "<C-\\>")
+end
 
 -- resize with arrows
 vim.keymap.set("n", "<Up>", function()
