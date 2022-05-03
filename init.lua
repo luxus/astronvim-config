@@ -1,5 +1,5 @@
 return {
-  colorscheme = pcall(require, "nightfox") and "duskfox" or "default_theme",
+  colorscheme = "duskfox",
   lsp = require "user.lsp",
   ["which-key"] = require "user.which-key",
 
@@ -17,7 +17,11 @@ return {
   },
 
   polish = function()
-    require "user.options"
+    vim.filetype.add {
+      pattern = {
+        ["/tmp/neomutt.*"] = "markdown",
+      },
+    }
     require "user.autocmds"
     require "user.mappings"
   end,
