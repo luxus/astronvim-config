@@ -38,6 +38,13 @@ vim.keymap.set("x", "il", "g_o^", { desc = "Inside line text object" })
 vim.keymap.set("o", "il", ":normal vil<cr>", { desc = "Inside line text object" })
 vim.keymap.set("x", "al", "$o^", { desc = "Around line text object" })
 vim.keymap.set("o", "al", ":normal val<cr>", { desc = "Around line text object" })
+-- more in/all objects between 2 characters
+for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
+  for _, mode in ipairs { "x", "o" } do
+    vim.keymap.set(mode, "i" .. char, (":<C-u>silent! normal! f%sF%slvt%s<CR>"):format(char, char, char))
+    vim.keymap.set(mode, "a" .. char, (":<C-u>silent! normal! f%sF%svf%s<CR>"):format(char, char, char))
+  end
+end
 -- type template string
 vim.keymap.set("i", ";mk", "<++>", { desc = "Insert template string" })
 vim.keymap.set("i", "<S-Tab>", "<C-V><Tab>", { desc = "Tab character" })
