@@ -13,6 +13,7 @@ return {
       fern = false,
       fidget = false,
       gitgutter = false,
+      glyph_palette = false,
       illuminate = false,
       lightspeed = false,
       lsp_saga = false,
@@ -32,7 +33,5 @@ return {
     TelescopePromptCounter = { link = "TelescopePromptNormal" },
     TelescopePromptPrefix = { link = "TelescopePromptNormal" },
     HighlightURL = { style = "underline" },
-    AerialLine = { link = "Search" },
-    AerialGuide = { link = "NeoTreeIndentMarker" },
   },
 }
