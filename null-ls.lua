@@ -11,17 +11,17 @@ return function()
         builtins.formatting.stylua,
         builtins.formatting.black,
         builtins.formatting.isort,
-        builtins.formatting.prettier.with {
-          extra_filetypes = { "rmd" },
-        },
+        builtins.formatting.prettier.with { extra_filetypes = { "rmd" } },
         builtins.formatting.shfmt,
         builtins.diagnostics.cue_fmt,
         builtins.diagnostics.shellcheck,
       },
       on_attach = function(client)
         if client.server_capabilities.documentFormattingProvider then
+          vim.api.nvim_create_augroup("autoformat", { clear = true })
           vim.api.nvim_create_autocmd("BufWritePre", {
             desc = "Auto format before save",
+            group = "autoformat",
             pattern = "<buffer>",
             callback = vim.lsp.buf.formatting_sync,
           })
