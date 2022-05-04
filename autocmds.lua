@@ -1,6 +1,6 @@
 vim.api.nvim_del_augroup_by_name "TermMappings"
 
-vim.api.nvim_create_augroup("autocomp", {})
+vim.api.nvim_create_augroup("autocomp", { clear = true })
 vim.api.nvim_create_autocmd("VimLeave", {
   desc = "Stop running auto compiler",
   group = "autocomp",
@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("VimLeave", {
   command = "!autocomp %:p stop",
 })
 
-vim.api.nvim_create_augroup("dapui", {})
+vim.api.nvim_create_augroup("dapui", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Make q close dap floating windows",
   group = "dapui",
@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_augroup("mini", {})
+vim.api.nvim_create_augroup("mini", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Disable indent scope for conent types",
   group = "mini",
