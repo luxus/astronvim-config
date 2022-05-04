@@ -22,6 +22,23 @@ vim.api.nvim_create_augroup("mini", {})
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Disable indent scope for conent types",
   group = "mini",
-  pattern = "*",
-  command = "if index(['help', 'startify', 'alpha', 'packer', 'neogitstatus', 'NvimTree', 'neo-tree', 'Trouble'], &ft) != -1 || index(['nofile', 'terminal', 'lsp-installer', 'lspinfo'], &bt) != -1 | let b:miniindentscope_disable=v:true | endif",
+  callback = function()
+    if
+      vim.tbl_contains({
+        "NvimTree",
+        "TelescopePrompt",
+        "Trouble",
+        "alpha",
+        "help",
+        "lsp-installer",
+        "lspinfo",
+        "neo-tree",
+        "neogitstatus",
+        "packer",
+        "startify",
+      }, vim.bo.filetype) or vim.tbl_contains({ "nofile", "terminal" }, vim.bo.buftype)
+    then
+      vim.b.miniindentscope_disable = true
+    end
+  end,
 })
