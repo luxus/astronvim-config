@@ -16,7 +16,6 @@ return {
   register_mappings = {
     n = {
       ["<leader>"] = {
-
         ["c"] = { "<cmd>Bdelete!<CR>", "Bye Buffer" },
         ["C"] = { "<cmd>bdelete!<cr>", "Close Buffer" },
         ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
@@ -76,8 +75,6 @@ return {
           p = { "<cmd>Telescope project<cr>", "Projects" },
           r = { "<cmd>Telescope registers<cr>", "Registers" },
           t = { "<cmd>Telescope colorscheme<cr>", "Themes" },
-          w = { "<cmd>Telescope live_grep<cr>", "Words" },
-          o = { nil },
         },
 
         m = {
@@ -124,13 +121,6 @@ return {
 
         s = {
           name = "Surf",
-          b = { nil },
-          h = { nil },
-          m = { nil },
-          n = { nil },
-          r = { nil },
-          k = { nil },
-          c = { nil },
           s = {
             function()
               require("syntax-tree-surfer").select()
@@ -317,8 +307,6 @@ return {
     },
     v = {
       ["<leader>"] = {
-        ["/"] = "Comment",
-
         h = {
           name = "Hop",
           c = { "<cmd>HopChar1<cr>", "Character" },

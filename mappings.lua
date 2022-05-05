@@ -7,8 +7,23 @@ vim.keymap.del("n", "<C-q>")
 vim.keymap.del("n", "<C-s>")
 vim.keymap.del("v", "<")
 vim.keymap.del("v", ">")
+vim.keymap.del("n", "<leader>c")
+vim.keymap.del("n", "<leader>h")
 if require("core.utils").is_available "nvim-toggleterm.lua" then
   vim.keymap.del("n", "<C-\\>")
+end
+if require("core.utils").is_available "telescope.nvim" then
+  vim.keymap.del("n", "<leader>fh")
+  vim.keymap.del("n", "<leader>fm")
+  vim.keymap.del("n", "<leader>fn")
+  vim.keymap.del("n", "<leader>fo")
+  vim.keymap.del("n", "<leader>sb")
+  vim.keymap.del("n", "<leader>sc")
+  vim.keymap.del("n", "<leader>sh")
+  vim.keymap.del("n", "<leader>sk")
+  vim.keymap.del("n", "<leader>sm")
+  vim.keymap.del("n", "<leader>sn")
+  vim.keymap.del("n", "<leader>sr")
 end
 
 -- resize with arrows
