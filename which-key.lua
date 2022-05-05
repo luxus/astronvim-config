@@ -94,6 +94,7 @@ return {
 
         d = {
           name = "Document",
+          n = { "<cmd>enew<cr>", "New File" },
           s = { "<cmd>setlocal spell!<cr>", "Toggle Spelling" },
           t = { "<cmd>TableModeToggle<cr>", "Toggle Table Mode" },
           p = { "<cmd>setlocal paste!<cr>", "Toggle Paste" },
