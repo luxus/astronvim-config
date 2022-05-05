@@ -7,6 +7,8 @@ vim.keymap.del("n", "<C-q>")
 vim.keymap.del("n", "<C-s>")
 vim.keymap.del("v", "<")
 vim.keymap.del("v", ">")
+vim.keymap.del("t", "<esc>")
+vim.keymap.del("t", "jk")
 vim.keymap.del("n", "<leader>c")
 vim.keymap.del("n", "<leader>h")
 if require("core.utils").is_available "nvim-toggleterm.lua" then
@@ -67,11 +69,7 @@ vim.keymap.set("i", ";mk", "<++>", { desc = "Insert template string" })
 vim.keymap.set("i", "<S-Tab>", "<C-V><Tab>", { desc = "Tab character" })
 -- terminal mappings
 vim.keymap.set("t", "<leader><esc>", "<c-\\><c-n>", { desc = "Terminal normal mode" })
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>:q<cr>", { desc = "Terminal quite" })
-vim.keymap.set("t", "<c-h>", "<c-\\><c-n><c-w>h", { desc = "Terminal left window" })
-vim.keymap.set("t", "<c-j>", "<c-\\><c-n><c-w>j", { desc = "Terminal below window" })
-vim.keymap.set("t", "<c-k>", "<c-\\><c-n><c-w>k", { desc = "Terminal above window" })
-vim.keymap.set("t", "<c-l>", "<c-\\><c-n><c-w>l", { desc = "Terminal right window" })
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>:q<cr>", { desc = "Terminal quit" })
 -- cmp lsp auto complete
 vim.keymap.set("i", "<c-x><c-o>", function()
   require("cmp").complete { config = { sources = { { name = "nvim_lsp" } } } }

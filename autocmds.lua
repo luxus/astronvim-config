@@ -1,5 +1,3 @@
-vim.api.nvim_del_augroup_by_name "TermMappings"
-
 vim.api.nvim_create_augroup("autocomp", { clear = true })
 vim.api.nvim_create_autocmd("VimLeave", {
   desc = "Stop running auto compiler",
