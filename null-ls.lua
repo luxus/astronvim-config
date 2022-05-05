@@ -17,7 +17,7 @@ return function()
         builtins.diagnostics.shellcheck,
       },
       on_attach = function(client)
-        if client.server_capabilities.documentFormattingProvider then
+        if client.resolved_capabilities.document_formatting then
           vim.api.nvim_create_augroup("autoformat", { clear = true })
           vim.api.nvim_create_autocmd("BufWritePre", {
             desc = "Auto format before save",
