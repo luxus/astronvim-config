@@ -1,8 +1,8 @@
 return {
+  ["declancm/cinnamon.nvim"] = { disable = true },
   ["goolord/alpha-nvim"] = { disable = true },
-  ["karb94/neoscroll.nvim"] = { disable = true },
-  ["max397574/better-escape.nvim"] = { disable = true },
   ["lukas-reineke/indent-blankline.nvim"] = { disable = true },
+  ["max397574/better-escape.nvim"] = { disable = true },
   ["numToStr/Comment.nvim"] = { disable = true },
   {
     "EdenEast/nightfox.nvim",
