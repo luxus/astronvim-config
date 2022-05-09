@@ -20,7 +20,7 @@ return {
     end
   end,
 
-  server_settings = {
+  ["server-settings"] = {
     clangd = {
       capabilities = {
         offsetEncoding = "utf-8",
