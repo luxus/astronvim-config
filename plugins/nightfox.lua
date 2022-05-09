@@ -40,6 +40,7 @@ return {
   groups = {
     HighlightURL = { style = "underline" },
     MiniIndentscopeSymbol = { link = "PreProc" },
+    NormalFloat = { link = "Normal" },
     TelescopeBorder = { fg = "telescope.bg_alt", bg = "telescope.bg" },
     TelescopeNormal = { bg = "telescope.bg" },
     TelescopePreviewBorder = { fg = "telescope.bg", bg = "telescope.bg" },
