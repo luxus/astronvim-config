@@ -70,10 +70,6 @@ vim.keymap.set("i", "<S-Tab>", "<C-V><Tab>", { desc = "Tab character" })
 -- terminal mappings
 vim.keymap.set("t", "<leader><esc>", "<c-\\><c-n>", { desc = "Terminal normal mode" })
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>:q<cr>", { desc = "Terminal quit" })
--- cmp lsp auto complete
-vim.keymap.set("i", "<c-x><c-o>", function()
-  require("cmp").complete { config = { sources = { { name = "nvim_lsp" } } } }
-end, { desc = "Complete LSP" })
 vim.keymap.set("", "<c-e><c-e>", "<Plug>SendLine", { desc = "Send line to REPL" })
 vim.keymap.set("", "<c-e>", "<Plug>Send", { desc = "Send to REPL" })
 -- Treesitter Surfer
