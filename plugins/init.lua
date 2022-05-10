@@ -10,13 +10,7 @@ return {
       require("nightfox").setup(require "user.plugins.nightfox")
     end,
   },
-  {
-    "andymass/vim-matchup",
-    opt = true,
-    setup = function()
-      require("core.utils").defer_plugin "vim-matchup"
-    end,
-  },
+  { "andymass/vim-matchup", after = "nvim-treesitter" },
   {
     "danymat/neogen",
     module = "neogen",
@@ -41,14 +35,6 @@ return {
     end,
     config = function()
       require "user.plugins.mini"()
-    end,
-  },
-  {
-    "ellisonleao/glow.nvim",
-    cmd = "Glow",
-    module = "glow",
-    setup = function()
-      vim.g.glow_border = "rounded"
     end,
   },
   {
@@ -121,13 +107,10 @@ return {
       vim.g.send_disable_mapping = true
     end,
   },
-  { "nanotee/sqls.nvim", after = "nvim-lspconfig" },
+  { "nanotee/sqls.nvim", module = "sqls" },
   {
     "phaazon/hop.nvim",
-    opt = true,
-    setup = function()
-      require("core.utils").defer_plugin "hop.nvim"
-    end,
+    cmd = { "HopChar1", "HopChar2", "HopLine", "HopPattern", "HopWord" },
     branch = "v1",
     config = function()
       require("hop").setup()
