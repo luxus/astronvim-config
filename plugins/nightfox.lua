@@ -52,7 +52,6 @@ return {
       TelescopePromptTitle = { fg = "telescope.bg", bg = "telescope.red" },
       TelescopeResultsBorder = { fg = "telescope.bg", bg = "telescope.bg" },
       TelescopeResultsTitle = { fg = "telescope.bg", bg = "telescope.bg" },
-      Feline = { fg = "fg2", bg = "bg0" },
       FelineNormal = { fg = "bg0", bg = "palette.blue" },
       FelineInsert = { fg = "bg0", bg = "palette.green" },
       FelineVisual = { fg = "bg0", bg = "palette.magenta" },
