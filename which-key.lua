@@ -1,15 +1,13 @@
 local function vim_opt_toggle(opt, on, off, name)
-  return function()
-    local message = name
-    if vim.opt[opt]._value == off then
-      vim.opt[opt] = on
-      message = message .. " Enabled"
-    else
-      vim.opt[opt] = off
-      message = message .. " Disabled"
-    end
-    vim.notify(message, "info", require("core.utils").base_notification)
+  local message = name
+  if vim.opt[opt]._value == off then
+    vim.opt[opt] = on
+    message = message .. " Enabled"
+  else
+    vim.opt[opt] = off
+    message = message .. " Disabled"
   end
+  vim.notify(message, "info", astronvim.base_notification)
 end
 
 return {
@@ -99,9 +97,24 @@ return {
           t = { "<cmd>TableModeToggle<cr>", "Toggle Table Mode" },
           p = { "<cmd>setlocal paste!<cr>", "Toggle Paste" },
           b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
-          c = { vim_opt_toggle("conceallevel", 2, 0, "Conceal"), "Toggle Conceal" },
-          w = { vim_opt_toggle("wrap", true, false, "Soft Wrap"), "Toggle Soft Wrapping" },
-          W = { vim_opt_toggle("textwidth", 80, 0, "Hard Wrap"), "Toggle Hard Wrapping" },
+          c = {
+            function()
+              vim_opt_toggle("conceallevel", 2, 0, "Conceal")
+            end,
+            "Toggle Conceal",
+          },
+          w = {
+            function()
+              vim_opt_toggle("wrap", true, false, "Soft Wrap")
+            end,
+            "Toggle Soft Wrapping",
+          },
+          W = {
+            function()
+              vim_opt_toggle("textwidth", 80, 0, "Hard Wrap")
+            end,
+            "Toggle Hard Wrapping",
+          },
           m = {
             function()
               require("nabla").popup()
