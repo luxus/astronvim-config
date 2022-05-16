@@ -3,7 +3,7 @@ local luasnip_ok, luasnip = pcall(require, "luasnip")
 if cmp_ok and luasnip_ok then
   return {
     mapping = {
-      ["<CR>"] = cmp.mapping.confirm(),
+      ["<CR>"] = cmp.mapping.confirm { select = false },
       ["<Tab>"] = cmp.mapping(function(fallback)
         if luasnip.expandable() then
           luasnip.expand()
@@ -12,22 +12,14 @@ if cmp_ok and luasnip_ok then
         else
           fallback()
         end
-      end, {
-        "i",
-        "s",
-      }),
+      end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if luasnip.jumpable(-1) then
           luasnip.jump(-1)
         else
           fallback()
         end
-      end, {
-        "i",
-        "s",
-      }),
+      end, { "i", "s" }),
     },
   }
-else
-  return {}
 end
