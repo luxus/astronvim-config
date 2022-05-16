@@ -7,10 +7,6 @@ return {
       on_attach = require("configs.lsp.handlers").on_attach,
       capabilities = require("configs.lsp.handlers").capabilities,
     },
-
-    auto_attach = {
-      enabled = true,
-      filetypes = { "markdown" },
-    },
+    auto_attach = { enabled = true, filetypes = { "markdown" } },
   },
 }

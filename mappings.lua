@@ -1,6 +1,5 @@
 local map = vim.keymap.set
 local unmap = vim.keymap.del
-local is_available = astronvim.is_available
 -- remove default bindings
 unmap("n", "<C-Down>")
 unmap("n", "<C-Left>")
@@ -14,22 +13,18 @@ unmap("t", "<esc>")
 unmap("t", "jk")
 unmap("n", "<leader>c")
 unmap("n", "<leader>h")
-if is_available "nvim-toggleterm.lua" then
-  unmap("n", "<C-\\>")
-end
-if is_available "telescope.nvim" then
-  unmap("n", "<leader>fh")
-  unmap("n", "<leader>fm")
-  unmap("n", "<leader>fn")
-  unmap("n", "<leader>fo")
-  unmap("n", "<leader>sb")
-  unmap("n", "<leader>sc")
-  unmap("n", "<leader>sh")
-  unmap("n", "<leader>sk")
-  unmap("n", "<leader>sm")
-  unmap("n", "<leader>sn")
-  unmap("n", "<leader>sr")
-end
+unmap("n", "<C-\\>") -- ToggleTerm
+unmap("n", "<leader>fh") -- Telescope
+unmap("n", "<leader>fm") -- Telescope
+unmap("n", "<leader>fn") -- Telescope
+unmap("n", "<leader>fo") -- Telescope
+unmap("n", "<leader>sb") -- Telescope
+unmap("n", "<leader>sc") -- Telescope
+unmap("n", "<leader>sh") -- Telescope
+unmap("n", "<leader>sk") -- Telescope
+unmap("n", "<leader>sm") -- Telescope
+unmap("n", "<leader>sn") -- Telescope
+unmap("n", "<leader>sr") -- Telescope
 -- resize with arrows
 map("n", "<Up>", function()
   require("smart-splits").resize_up(2)

@@ -28,20 +28,16 @@ if status_ok then
         i = {
           ["<C-h>"] = hop.hop,
           ["<C-space>"] = function(prompt_bufnr)
-            local opts = {
+            hop._hop_loop(prompt_bufnr, {
               callback = actions.toggle_selection,
               loop_callback = actions.send_selected_to_qflist,
-            }
-            hop._hop_loop(prompt_bufnr, opts)
+            })
           end,
         },
       },
     },
     extensions = {
-      bibtex = {
-        context = true,
-        context_fallback = false,
-      },
+      bibtex = { context = true, context_fallback = false },
       media_files = {
         filetypes = { "png", "jpg", "mp4", "webm", "pdf" },
         find_cmd = "rg",
