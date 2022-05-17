@@ -4,6 +4,18 @@ function M.quick_notification(msg)
   vim.notify(msg, "info", { title = "AstroNvim", timeout = 0 })
 end
 
+function M.vim_opt_toggle(opt, on, off, name)
+  local message = name
+  if vim.opt[opt]._value == off then
+    vim.opt[opt] = on
+    message = message .. " Enabled"
+  else
+    vim.opt[opt] = off
+    message = message .. " Disabled"
+  end
+  M.quick_notification(message)
+end
+
 function M.async_run(cmd, on_finish)
   local lines = { "" }
 
@@ -31,18 +43,6 @@ function M.async_run(cmd, on_finish)
     stdout_buffered = true,
     stderr_buffered = true,
   })
-end
-
-function M.vim_opt_toggle(opt, on, off, name)
-  local message = name
-  if vim.opt[opt]._value == off then
-    vim.opt[opt] = on
-    message = message .. " Enabled"
-  else
-    vim.opt[opt] = off
-    message = message .. " Disabled"
-  end
-  vim.notify(message, "info", astronvim.base_notification)
 end
 
 function M.toggle_qf()
