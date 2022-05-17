@@ -116,7 +116,6 @@ return {
       end
     end,
   },
-  ["skywind3000/asyncrun.vim"] = { cmd = "AsyncRun" },
   ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
   ["nvim-telescope/telescope-bibtex.nvim"] = {
     after = "telescope.nvim",

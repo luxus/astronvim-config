@@ -1,14 +1,4 @@
-local function vim_opt_toggle(opt, on, off, name)
-  local message = name
-  if vim.opt[opt]._value == off then
-    vim.opt[opt] = on
-    message = message .. " Enabled"
-  else
-    vim.opt[opt] = off
-    message = message .. " Disabled"
-  end
-  vim.notify(message, "info", astronvim.base_notification)
-end
+local utils = require "user.utils"
 
 return {
   n = {
@@ -81,15 +71,65 @@ return {
 
       m = {
         name = "Compiler",
-        k = { "<cmd>w<cr><cmd>AsyncRun compiler %:p<cr><cr>", "Compile" },
-        a = { "<cmd>AsyncRun autocomp %:p<cr><cr>", "Auto Compile" },
-        v = { "<cmd>!opout %:p<cr><cr>", "View Output" },
+        k = {
+          function()
+            vim.cmd "silent! write"
+            local filename = vim.fn.expand "%:t"
+            utils.async_run({ "compiler", vim.fn.expand "%:p" }, function()
+              utils.quick_notification("Compiled " .. filename)
+            end)
+          end,
+          "Compile",
+        },
+        a = {
+          function()
+            vim.notify "Autocompile Started"
+            utils.async_run({ "autocomp", vim.fn.expand "%:p" }, function()
+              utils.quick_notification "Autocompile stopped"
+            end)
+          end,
+          "Auto Compile",
+        },
+        v = {
+          function()
+            vim.fn.jobstart { "opout", vim.fn.expand "%:p" }
+          end,
+          "View Output",
+        },
         b = {
-          "<cmd>w<cr><cmd>AsyncRun pandoc % --pdf-engine=xelatex --variable urlcolor=blue -t beamer -o %:r.pdf<cr><cr>",
+          function()
+            local filename = vim.fn.expand "%:t"
+            utils.async_run({
+              "pandoc",
+              vim.fn.expand "%",
+              "--pdf-engine=xelatex",
+              "--variable",
+              "urlcolor=blue",
+              "-t",
+              "beamer",
+              "-o",
+              vim.fn.expand "%:r" .. ".pdf",
+            }, function()
+              utils.quick_notification("Compiled " .. filename)
+            end)
+          end,
           "Compile Beamer",
         },
-        p = { "<cmd>![[ -e %:r.pdf ]] && pdfpc %:r.pdf<cr><cr>", "Present Output" },
-        l = { "<cmd>call asyncrun#quickfix_toggle(8)<cr>", "Logs" },
+        p = {
+          function()
+            local pdf_path = vim.fn.expand "%:r" .. ".pdf"
+            if vim.fn.filereadable(pdf_path) == 1 then
+              vim.fn.jobstart { "pdfpc", pdf_path }
+            end
+          end,
+          "Present Output",
+        },
+        l = {
+          function()
+            utils.toggle_qf()
+          end,
+          "Logs",
+        },
         t = { "<cmd>TexlabBuild<cr>", "LaTeX" },
         f = { "<cmd>TexlabForward<cr>", "Forward Search" },
       },
@@ -103,19 +143,19 @@ return {
         b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
         c = {
           function()
-            vim_opt_toggle("conceallevel", 2, 0, "Conceal")
+            utils.vim_opt_toggle("conceallevel", 2, 0, "Conceal")
           end,
           "Toggle Conceal",
         },
         w = {
           function()
-            vim_opt_toggle("wrap", true, false, "Soft Wrap")
+            utils.vim_opt_toggle("wrap", true, false, "Soft Wrap")
           end,
           "Toggle Soft Wrapping",
         },
         W = {
           function()
-            vim_opt_toggle("textwidth", 80, 0, "Hard Wrap")
+            utils.vim_opt_toggle("textwidth", 80, 0, "Hard Wrap")
           end,
           "Toggle Hard Wrapping",
         },

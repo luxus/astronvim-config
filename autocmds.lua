@@ -3,7 +3,9 @@ vim.api.nvim_create_autocmd("VimLeave", {
   desc = "Stop running auto compiler",
   group = "autocomp",
   pattern = "*",
-  command = "!autocomp %:p stop",
+  callback = function()
+    vim.fn.jobstart { "autocomp", vim.fn.expand "%:p", "stop" }
+  end,
 })
 
 vim.api.nvim_create_augroup("dapui", { clear = true })
