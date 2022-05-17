@@ -13,8 +13,8 @@ end
 return {
   n = {
     ["<leader>"] = {
-      ["c"] = { "<cmd>Bdelete!<CR>", "Bye Buffer" },
-      ["C"] = { "<cmd>bdelete!<cr>", "Close Buffer" },
+      ["c"] = { "<cmd>Bdelete<CR>", "Bye Buffer" },
+      ["C"] = { "<cmd>bdelete<cr>", "Close Buffer" },
       ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
       ["H"] = { "<cmd>set hlsearch!<cr>", "Toggle Highlight" },
       ["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
