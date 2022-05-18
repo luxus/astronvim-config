@@ -1,20 +1,7 @@
-return {
-  snippet_engine = "luasnip",
-  languages = {
-    python = {
-      template = {
-        annotation_convention = "google_docstrings",
-      },
-    },
-    typescript = {
-      template = {
-        annotation_convention = "tsdoc",
-      },
-    },
-    typescriptreact = {
-      template = {
-        annotation_convention = "tsdoc",
-      },
-    },
-  },
-}
+local M = {}
+M.snippet_engine = "luasnip"
+M.languages = {}
+M.python = { template = { annotation_convention = "google_docstrings" } }
+M.typescript = { template = { annotation_convention = "tsdoc" } }
+M.typescriptreact = M.typescript
+return M

@@ -1,9 +1,7 @@
 return {
   options = {
     dim_inactive = true,
-    styles = {
-      comments = "italic",
-    },
+    styles = { comments = "italic" },
     modules = {
       barbar = false,
       dashboard = false,

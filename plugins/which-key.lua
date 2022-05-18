@@ -1,5 +1,1 @@
-return {
-  window = {
-    border = "none",
-  },
-}
+return { window = { border = "none" } }

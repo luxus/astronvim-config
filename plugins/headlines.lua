@@ -1,10 +1,4 @@
-return {
-  markdown = {
-    headline_highlights = { "DiagnosticVirtualTextInfo" },
-    dash_string = "―",
-  },
-  rmd = {
-    headline_highlights = { "DiagnosticVirtualTextInfo" },
-    dash_string = "―",
-  },
-}
+local M = {}
+M.markdown = { headline_highlights = { "DiagnosticVirtualTextInfo" }, dash_string = "―" }
+M.rmd = M.markdown
+return M

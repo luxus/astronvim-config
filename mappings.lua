@@ -13,18 +13,22 @@ unmap("t", "<esc>")
 unmap("t", "jk")
 unmap("n", "<leader>c")
 unmap("n", "<leader>h")
-unmap("n", "<C-\\>") -- ToggleTerm
-unmap("n", "<leader>fh") -- Telescope
-unmap("n", "<leader>fm") -- Telescope
-unmap("n", "<leader>fn") -- Telescope
-unmap("n", "<leader>fo") -- Telescope
-unmap("n", "<leader>sb") -- Telescope
-unmap("n", "<leader>sc") -- Telescope
-unmap("n", "<leader>sh") -- Telescope
-unmap("n", "<leader>sk") -- Telescope
-unmap("n", "<leader>sm") -- Telescope
-unmap("n", "<leader>sn") -- Telescope
-unmap("n", "<leader>sr") -- Telescope
+if astronvim.is_available "nvim-toggleterm.lua" then
+  unmap("n", "<C-\\>") -- ToggleTerm
+end
+if astronvim.is_available "telescope.nvim" then
+  unmap("n", "<leader>fh") -- Telescope
+  unmap("n", "<leader>fm") -- Telescope
+  unmap("n", "<leader>fn") -- Telescope
+  unmap("n", "<leader>fo") -- Telescope
+  unmap("n", "<leader>sb") -- Telescope
+  unmap("n", "<leader>sc") -- Telescope
+  unmap("n", "<leader>sh") -- Telescope
+  unmap("n", "<leader>sk") -- Telescope
+  unmap("n", "<leader>sm") -- Telescope
+  unmap("n", "<leader>sn") -- Telescope
+  unmap("n", "<leader>sr") -- Telescope
+end
 -- resize with arrows
 map("n", "<Up>", function()
   require("smart-splits").resize_up(2)

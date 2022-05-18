@@ -55,9 +55,7 @@ function M.toggle_qf()
   end
   if qf_exists then
     vim.cmd "cclose"
-    return
-  end
-  if not vim.tbl_isempty(vim.fn.getqflist()) then
+  elseif not vim.tbl_isempty(vim.fn.getqflist()) then
     vim.cmd "copen"
   end
 end
