@@ -65,7 +65,7 @@ end
 map("i", ";mk", "<++>", { desc = "Insert template string" })
 map("i", "<S-Tab>", "<C-V><Tab>", { desc = "Tab character" })
 -- terminal mappings
-map("t", "<leader><esc>", "<c-\\><c-n>", { desc = "Terminal normal mode" })
+map("t", "<c-q>", "<c-\\><c-n>", { desc = "Terminal normal mode" })
 map("t", "<esc><esc>", "<c-\\><c-n>:q<cr>", { desc = "Terminal quit" })
 map("", "<c-e><c-e>", "<Plug>SendLine", { desc = "Send line to REPL" })
 map("", "<c-e>", "<Plug>Send", { desc = "Send to REPL" })
