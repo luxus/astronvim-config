@@ -28,7 +28,6 @@ return {
     "vim",
     "yaml",
   },
-  matchup = { enable = true },
   textobjects = {
     select = {
       enable = true,

@@ -10,7 +10,6 @@ return {
       require("nightfox").setup(require "user.plugins.nightfox")
     end,
   },
-  ["andymass/vim-matchup"] = { after = "nvim-treesitter" },
   ["danymat/neogen"] = {
     module = "neogen",
     cmd = "Neogen",

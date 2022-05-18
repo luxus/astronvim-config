@@ -4,9 +4,6 @@ return {
     styles = {
       comments = "italic",
     },
-    inverse = {
-      match_paren = true,
-    },
     modules = {
       barbar = false,
       dashboard = false,
