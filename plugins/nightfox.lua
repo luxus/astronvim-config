@@ -34,6 +34,8 @@ return {
   },
   groups = {
     all = {
+      WinBar = { fg = "fg2", bg = "bg1" },
+      WinBarNC = { fg = "fg3", bg = "bg0" },
       HighlightURL = { style = "underline" },
       MiniIndentscopeSymbol = { link = "PreProc" },
       NormalFloat = { link = "Normal" },

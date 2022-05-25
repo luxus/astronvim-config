@@ -6,6 +6,7 @@ return {
   ["max397574/better-escape.nvim"] = { disable = true },
   ["numToStr/Comment.nvim"] = { disable = true },
   ["EdenEast/nightfox.nvim"] = {
+    commit = "b502287ba7f250a1893f04f69e78ef3ea6a9c3dc",
     config = function()
       require("nightfox").setup(require "user.plugins.nightfox")
     end,
