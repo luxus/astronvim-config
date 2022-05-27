@@ -351,6 +351,67 @@ return {
       F = "Previous function end",
       X = "Previous class end",
     },
+    g = {
+      t = {
+        name = "Treesitter",
+        v = {
+          function()
+            require("syntax-tree-surfer").targeted_jump { "variable_declaration" }
+          end,
+          "Go to Variables",
+        },
+        f = {
+          function()
+            require("syntax-tree-surfer").targeted_jump { "function" }
+          end,
+          "Go to Functions",
+        },
+        i = {
+          function()
+            require("syntax-tree-surfer").targeted_jump {
+              "if_statement",
+              "else_clause",
+              "else_statement",
+              "elseif_statement",
+            }
+          end,
+          "Go to If Statements",
+        },
+        r = {
+          function()
+            require("syntax-tree-surfer").targeted_jump { "for_statement" }
+          end,
+          "Go to If Statements",
+        },
+        w = {
+          function()
+            require("syntax-tree-surfer").targeted_jump { "white_statement" }
+          end,
+          "Go to While Statements",
+        },
+        s = {
+          function()
+            require("syntax-tree-surfer").targeted_jump { "switch_statement" }
+          end,
+          "Go to Switch Statements",
+        },
+        t = {
+          function()
+            require("syntax-tree-surfer").targeted_jump {
+              "function",
+              "if_statement",
+              "else_clause",
+              "else_statement",
+              "elseif_statement",
+              "for_statement",
+              "while_statement",
+              "switch_statement",
+            }
+          end,
+          "Go to Statement",
+        },
+      },
+    },
   },
   i = {
     ["<c-d>"] = {

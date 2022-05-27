@@ -161,5 +161,10 @@ return {
     end,
   },
   ["wakatime/vim-wakatime"] = { event = "BufEnter" },
-  ["ziontee113/syntax-tree-surfer"] = { module = "syntax-tree-surfer" },
+  ["ziontee113/syntax-tree-surfer"] = {
+    module = "syntax-tree-surfer",
+    config = function()
+      require("syntax-tree-surfer").setup(require "user.plugins.syntax-tree-surfer")
+    end,
+  },
 }
