@@ -2,7 +2,6 @@ local cmp = require "cmp"
 local luasnip = require "luasnip"
 return {
   mapping = {
-    ["<CR>"] = cmp.mapping.confirm { select = false },
     ["<Tab>"] = cmp.mapping(function(fallback)
       if luasnip.expandable() then
         luasnip.expand()
