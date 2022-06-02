@@ -146,6 +146,12 @@ return {
       require("telescope").load_extension "project"
     end,
   },
+  ["p00f/clangd_extensions.nvim"] = {
+    after = "nvim-lsp-installer",
+    config = function()
+      require("clangd_extensions").setup(require "user.plugins.clangd_extensions")
+    end,
+  },
   ["vitalk/vim-simple-todo"] = {
     keys = {
       "<Plug>(simple-todo-above)",
