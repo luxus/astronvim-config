@@ -62,6 +62,12 @@ return {
       astronvim.add_user_cmp_source "pandoc_references"
     end,
   },
+  ["jose-elias-alvarez/typescript.nvim"] = {
+    after = "nvim-lsp-installer",
+    config = function()
+      require("typescript").setup(require "user.plugins.typescript")
+    end,
+  },
   ["kdheepak/cmp-latex-symbols"] = {
     after = "nvim-cmp",
     config = function()
