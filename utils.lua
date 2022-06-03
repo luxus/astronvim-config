@@ -5,15 +5,9 @@ function M.quick_notification(msg)
 end
 
 function M.vim_opt_toggle(opt, on, off, name)
-  local message = name
-  if vim.opt[opt]._value == off then
-    vim.opt[opt] = on
-    message = message .. " Enabled"
-  else
-    vim.opt[opt] = off
-    message = message .. " Disabled"
-  end
-  M.quick_notification(message)
+  local is_off = vim.opt[opt]:get() == off
+  vim.opt[opt] = is_off and on or off
+  M.quick_notification(name .. " " .. (is_off and "Enabled" or "Disabled"))
 end
 
 function M.async_run(cmd, on_finish)

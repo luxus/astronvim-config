@@ -1,3 +1,1 @@
-return {
-  server = astronvim.lsp.server_settings "clangd",
-}
+return { server = astronvim.lsp.server_settings "clangd" }
