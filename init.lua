@@ -1,4 +1,5 @@
 return {
+  updater = { skip_prompts = true },
   colorscheme = "duskfox",
   lsp = require "user.lsp",
   polish = function()
