@@ -178,18 +178,8 @@ return {
 
       s = {
         name = "Surf",
-        s = {
-          function()
-            require("syntax-tree-surfer").select()
-          end,
-          "Surf",
-        },
-        S = {
-          function()
-            require("syntax-tree-surfer").select_current_node()
-          end,
-          "Surf Node",
-        },
+        s = { "<cmd>STSSelectMasterNode<cr>", "Surf" },
+        S = { "<cmd>STSSelectCurrentNode<cr>", "Surf Node" },
       },
 
       n = {
