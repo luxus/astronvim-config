@@ -13,7 +13,7 @@ unmap("t", "<esc>")
 unmap("t", "jk")
 unmap("n", "<leader>c")
 unmap("n", "<leader>h")
-if astronvim.is_available "nvim-toggleterm.lua" then
+if astronvim.is_available "toggleterm.nvim" then
   unmap("n", "<C-\\>") -- ToggleTerm
 end
 if astronvim.is_available "telescope.nvim" then
