@@ -9,6 +9,5 @@ return {
       },
     }
     require "user.autocmds"
-    require "user.mappings"
   end,
 }
