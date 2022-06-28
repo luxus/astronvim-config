@@ -56,7 +56,6 @@ return {
         ["?"] = { "<cmd>Telescope help_tags<cr>", "Find Help" },
         ["'"] = { "<cmd>Telescope marks<cr>", "Marks" },
         B = { "<cmd>Telescope bibtex<cr>", "BibTeX" },
-        c = { "<cmd>Telescope commands<cr>", "Commands" },
         e = { "<cmd>Telescope file_browser<cr>", "Explorer" },
         h = { "<cmd>Telescope oldfiles<cr>", "History" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
