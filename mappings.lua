@@ -18,8 +18,6 @@ return {
     ["<C-s>"] = false,
     ["<"] = false,
     [">"] = false,
-    ["<esc>"] = false,
-    ["jk"] = false,
     ["<leader>c"] = false,
     ["<leader>h"] = false,
     ["<C-\\>"] = false,
@@ -86,6 +84,8 @@ return {
   },
   -- terminal mappings
   t = {
+    ["<esc>"] = false,
+    ["jk"] = false,
     ["<c-q>"] = { "<c-\\><c-n>", desc = "Terminal normal mode" },
     ["<esc><esc>"] = { "<c-\\><c-n>:q<cr>", desc = "Terminal quit" },
   },
