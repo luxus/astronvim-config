@@ -3,12 +3,7 @@ local utils = require "user.utils"
 return {
   n = {
     ["<leader>"] = {
-      ["c"] = {
-        function()
-          MiniBufremove.delete()
-        end,
-        "Bye Buffer",
-      },
+      ["c"] = { function() MiniBufremove.delete() end, "Bye Buffer" },
       ["C"] = { "<cmd>bdelete<cr>", "Close Buffer" },
       ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
       ["H"] = { "<cmd>set hlsearch!<cr>", "Toggle Highlight" },
@@ -19,36 +14,11 @@ return {
 
       a = {
         name = "Annotate",
-        ["<cr>"] = {
-          function()
-            require("neogen").generate()
-          end,
-          "Current",
-        },
-        c = {
-          function()
-            require("neogen").generate { type = "class" }
-          end,
-          "Class",
-        },
-        f = {
-          function()
-            require("neogen").generate { type = "func" }
-          end,
-          "Function",
-        },
-        t = {
-          function()
-            require("neogen").generate { type = "type" }
-          end,
-          "Type",
-        },
-        F = {
-          function()
-            require("neogen").generate { type = "file" }
-          end,
-          "File",
-        },
+        ["<cr>"] = { function() require("neogen").generate() end, "Current" },
+        c = { function() require("neogen").generate { type = "class" } end, "Class" },
+        f = { function() require("neogen").generate { type = "func" } end, "Function" },
+        t = { function() require("neogen").generate { type = "type" } end, "Type" },
+        F = { function() require("neogen").generate { type = "file" } end, "File" },
       },
 
       f = {
@@ -73,27 +43,24 @@ return {
           function()
             vim.cmd "silent! write"
             local filename = vim.fn.expand "%:t"
-            utils.async_run({ "compiler", vim.fn.expand "%:p" }, function()
-              utils.quick_notification("Compiled " .. filename)
-            end)
+            utils.async_run(
+              { "compiler", vim.fn.expand "%:p" },
+              function() utils.quick_notification("Compiled " .. filename) end
+            )
           end,
           "Compile",
         },
         a = {
           function()
             vim.notify "Autocompile Started"
-            utils.async_run({ "autocomp", vim.fn.expand "%:p" }, function()
-              utils.quick_notification "Autocompile stopped"
-            end)
+            utils.async_run(
+              { "autocomp", vim.fn.expand "%:p" },
+              function() utils.quick_notification "Autocompile stopped" end
+            )
           end,
           "Auto Compile",
         },
-        v = {
-          function()
-            vim.fn.jobstart { "opout", vim.fn.expand "%:p" }
-          end,
-          "View Output",
-        },
+        v = { function() vim.fn.jobstart { "opout", vim.fn.expand "%:p" } end, "View Output" },
         b = {
           function()
             local filename = vim.fn.expand "%:t"
@@ -107,27 +74,18 @@ return {
               "beamer",
               "-o",
               vim.fn.expand "%:r" .. ".pdf",
-            }, function()
-              utils.quick_notification("Compiled " .. filename)
-            end)
+            }, function() utils.quick_notification("Compiled " .. filename) end)
           end,
           "Compile Beamer",
         },
         p = {
           function()
             local pdf_path = vim.fn.expand "%:r" .. ".pdf"
-            if vim.fn.filereadable(pdf_path) == 1 then
-              vim.fn.jobstart { "pdfpc", pdf_path }
-            end
+            if vim.fn.filereadable(pdf_path) == 1 then vim.fn.jobstart { "pdfpc", pdf_path } end
           end,
           "Present Output",
         },
-        l = {
-          function()
-            utils.toggle_qf()
-          end,
-          "Logs",
-        },
+        l = { function() utils.toggle_qf() end, "Logs" },
         t = { "<cmd>TexlabBuild<cr>", "LaTeX" },
         f = { "<cmd>TexlabForward<cr>", "Forward Search" },
       },
@@ -139,30 +97,10 @@ return {
         t = { "<cmd>TableModeToggle<cr>", "Toggle Table Mode" },
         p = { "<cmd>setlocal paste!<cr>", "Toggle Paste" },
         b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
-        c = {
-          function()
-            utils.vim_opt_toggle("conceallevel", 2, 0, "Conceal")
-          end,
-          "Toggle Conceal",
-        },
-        w = {
-          function()
-            utils.vim_opt_toggle("wrap", true, false, "Soft Wrap")
-          end,
-          "Toggle Soft Wrapping",
-        },
-        W = {
-          function()
-            utils.vim_opt_toggle("textwidth", 80, 0, "Hard Wrap")
-          end,
-          "Toggle Hard Wrapping",
-        },
-        m = {
-          function()
-            require("nabla").popup()
-          end,
-          "Preview Math",
-        },
+        c = { function() utils.vim_opt_toggle("conceallevel", 2, 0, "Conceal") end, "Toggle Conceal" },
+        w = { function() utils.vim_opt_toggle("wrap", true, false, "Soft Wrap") end, "Toggle Soft Wrapping" },
+        W = { function() utils.vim_opt_toggle("textwidth", 80, 0, "Hard Wrap") end, "Toggle Hard Wrapping" },
+        m = { function() require("nabla").popup() end, "Preview Math" },
       },
 
       h = {
@@ -182,54 +120,20 @@ return {
 
       n = {
         name = "Notes",
-        b = {
-          function()
-            require "zk.commands" "ZkBacklinks"()
-          end,
-          "Backlink Picker",
-        },
-        d = {
-          function()
-            require "zk.commands" "ZkCd"()
-          end,
-          "Change Directory",
-        },
-        r = {
-          function()
-            require "zk.commands" "ZkIndex"()
-          end,
-          "Refresh Index",
-        },
-        l = {
-          function()
-            require "zk.commands" "ZkLinks"()
-          end,
-          "Link Picker",
-        },
-        s = {
-          function()
-            require("zk.commands").get "ZkNotes" { sort = { "modified" } }
-          end,
-          "Search",
-        },
+        b = { function() require "zk.commands" "ZkBacklinks"() end, "Backlink Picker" },
+        d = { function() require "zk.commands" "ZkCd"() end, "Change Directory" },
+        r = { function() require "zk.commands" "ZkIndex"() end, "Refresh Index" },
+        l = { function() require "zk.commands" "ZkLinks"() end, "Link Picker" },
+        s = { function() require("zk.commands").get "ZkNotes" { sort = { "modified" } } end, "Search" },
         n = {
-          function()
-            require("zk.commands").get "ZkNew" { dir = "personal", title = vim.fn.input "Title: " }
-          end,
+          function() require("zk.commands").get "ZkNew" { dir = "personal", title = vim.fn.input "Title: " } end,
           "New Personal Note",
         },
         N = {
-          function()
-            require("zk.commands").get "ZkNew" { dir = "work", title = vim.fn.input "Title: " }
-          end,
+          function() require("zk.commands").get "ZkNew" { dir = "work", title = vim.fn.input "Title: " } end,
           "New Work Note",
         },
-        t = {
-          function()
-            require("zk.commands").get "ZkTags"()
-          end,
-          "Tags",
-        },
+        t = { function() require("zk.commands").get "ZkTags"() end, "Tags" },
         i = { "<Plug>(simple-todo-new-list-item)", "Insert Todo" },
         I = { "<Plug>(simple-todo-new-list-item-start-of-line)", "Convert to Todo" },
         o = { "<Plug>(simple-todo-below)", "Insert Todo Below" },
@@ -241,90 +145,20 @@ return {
 
       x = {
         name = "Debugger",
-        b = {
-          function()
-            require("dap").toggle_breakpoint()
-          end,
-          "Toggle Breakpoint",
-        },
-        B = {
-          function()
-            require("dap").clear_breakpoints()
-          end,
-          "Clear Breakpoints",
-        },
-        c = {
-          function()
-            require("dap").continue()
-          end,
-          "Continue",
-        },
-        i = {
-          function()
-            require("dap").step_into()
-          end,
-          "Step Into",
-        },
-        l = {
-          function()
-            require("dapui").float_element "breakpoints"
-          end,
-          "List Breakpoints",
-        },
-        o = {
-          function()
-            require("dap").step_over()
-          end,
-          "Step Over",
-        },
-        q = {
-          function()
-            require("dap").close()
-          end,
-          "Close Session",
-        },
-        Q = {
-          function()
-            require("dap").terminate()
-          end,
-          "Terminate",
-        },
-        r = {
-          function()
-            require("dap").repl.toggle()
-          end,
-          "REPL",
-        },
-        s = {
-          function()
-            require("dapui").float_element "scopes"
-          end,
-          "Scopes",
-        },
-        t = {
-          function()
-            require("dapui").float_element "stacks"
-          end,
-          "Threads",
-        },
-        u = {
-          function()
-            require("dapui").toggle()
-          end,
-          "Toggle Debugger UI",
-        },
-        w = {
-          function()
-            require("dapui").float_element "watches"
-          end,
-          "Watches",
-        },
-        x = {
-          function()
-            require("dap.ui.widgets").hover()
-          end,
-          "Inspect",
-        },
+        b = { function() require("dap").toggle_breakpoint() end, "Toggle Breakpoint" },
+        B = { function() require("dap").clear_breakpoints() end, "Clear Breakpoints" },
+        c = { function() require("dap").continue() end, "Continue" },
+        i = { function() require("dap").step_into() end, "Step Into" },
+        l = { function() require("dapui").float_element "breakpoints" end, "List Breakpoints" },
+        o = { function() require("dap").step_over() end, "Step Over" },
+        q = { function() require("dap").close() end, "Close Session" },
+        Q = { function() require("dap").terminate() end, "Terminate" },
+        r = { function() require("dap").repl.toggle() end, "REPL" },
+        s = { function() require("dapui").float_element "scopes" end, "Scopes" },
+        t = { function() require("dapui").float_element "stacks" end, "Threads" },
+        u = { function() require("dapui").toggle() end, "Toggle Debugger UI" },
+        w = { function() require("dapui").float_element "watches" end, "Watches" },
+        x = { function() require("dap.ui.widgets").hover() end, "Inspect" },
       },
     },
     ["]"] = {
@@ -343,15 +177,11 @@ return {
       t = {
         name = "Treesitter",
         v = {
-          function()
-            require("syntax-tree-surfer").targeted_jump { "variable_declaration" }
-          end,
+          function() require("syntax-tree-surfer").targeted_jump { "variable_declaration" } end,
           "Go to Variables",
         },
         f = {
-          function()
-            require("syntax-tree-surfer").targeted_jump { "function" }
-          end,
+          function() require("syntax-tree-surfer").targeted_jump { "function" } end,
           "Go to Functions",
         },
         i = {
@@ -366,21 +196,15 @@ return {
           "Go to If Statements",
         },
         r = {
-          function()
-            require("syntax-tree-surfer").targeted_jump { "for_statement" }
-          end,
+          function() require("syntax-tree-surfer").targeted_jump { "for_statement" } end,
           "Go to If Statements",
         },
         w = {
-          function()
-            require("syntax-tree-surfer").targeted_jump { "white_statement" }
-          end,
+          function() require("syntax-tree-surfer").targeted_jump { "white_statement" } end,
           "Go to While Statements",
         },
         s = {
-          function()
-            require("syntax-tree-surfer").targeted_jump { "switch_statement" }
-          end,
+          function() require("syntax-tree-surfer").targeted_jump { "switch_statement" } end,
           "Go to Switch Statements",
         },
         t = {
@@ -448,12 +272,7 @@ return {
 
       x = {
         name = "Debugger",
-        e = {
-          function()
-            require("dapui").eval()
-          end,
-          "Evaluate Line",
-        },
+        e = { function() require("dapui").eval() end, "Evaluate Line" },
       },
     },
   },
