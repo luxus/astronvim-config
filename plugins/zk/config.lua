@@ -1,4 +1,4 @@
-return {
+require("zk").setup {
   picker = "telescope",
   lsp = {
     config = {

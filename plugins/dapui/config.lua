@@ -1,4 +1,5 @@
-return {
+local dap, dapui = require "dap", require "dapui"
+dapui.setup {
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
     expand = "<cr>",
@@ -30,3 +31,7 @@ return {
   },
   windows = { indent = 1 },
 }
+-- add listeners to auto open DAP UI
+dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
+dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
+dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
