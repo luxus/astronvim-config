@@ -1,12 +1,3 @@
--- more in/all objects between 2 characters
-local map = vim.keymap.set
-for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
-  for _, mode in ipairs { "x", "o" } do
-    map(mode, "i" .. char, (":<C-u>silent! normal! f%sF%slvt%s<CR>"):format(char, char, char))
-    map(mode, "a" .. char, (":<C-u>silent! normal! f%sF%svf%s<CR>"):format(char, char, char))
-  end
-end
-
 return {
   n = {
     -- disable default bindings
