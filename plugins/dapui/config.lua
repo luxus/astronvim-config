@@ -9,19 +9,25 @@ dapui.setup {
     repl = "r",
     toggle = "t",
   },
-  sidebar = {
-    elements = {
-      { id = "scopes", size = 0.5 },
-      { id = "breakpoints", size = 0.25 },
-      { id = "stacks", size = 0.25 },
+  layouts = {
+    {
+      elements = {
+        "scopes",
+        "breakpoints",
+        "stacks",
+        "watches",
+      },
+      size = 40,
+      position = "right",
     },
-    size = 40,
-    position = "right",
-  },
-  tray = {
-    elements = { "repl" },
-    size = 10,
-    position = "bottom",
+    {
+      elements = {
+        "repl",
+        "console",
+      },
+      size = 10,
+      position = "bottom",
+    },
   },
   floating = {
     border = "rounded",

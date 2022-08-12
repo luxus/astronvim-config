@@ -1,9 +1,10 @@
 return {
   ensure_installed = {
-    "shellcheck",
     "black",
+    "debugpy",
     "isort",
     "prettierd",
+    "shellcheck",
     "shfmt",
     "stylua",
   },
