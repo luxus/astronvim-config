@@ -11,6 +11,7 @@ return {
       ["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" },
       ["r"] = { "<cmd>SendHere<cr>", "Set REPL" },
       ["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
+      ["P"] = { function() utils.toggle_presence() end, "Toggle Presence" },
 
       a = {
         name = "Annotate",

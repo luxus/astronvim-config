@@ -34,4 +34,5 @@ return {
   ["vitalk/vim-simple-todo"] = require "user.plugins.vim-simple-todo",
   ["wakatime/vim-wakatime"] = require "user.plugins.vim-wakatime",
   ["ziontee113/syntax-tree-surfer"] = require "user.plugins.syntax-tree-surfer",
+  ["andweeb/presence.nvim"] = require "user.plugins.presence",
 }
