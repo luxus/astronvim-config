@@ -4,6 +4,7 @@ return {
   "cssls",
   "html",
   "intelephense",
+  "marksman",
   "jsonls",
   "pyright",
   "sqls",
