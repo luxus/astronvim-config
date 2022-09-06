@@ -1,6 +1,6 @@
 return {
-  { "*", css = { css = true } },
-  {
+  filetypes = { "*", css = { css = true } },
+  user_default_options = {
     RGB = true, -- #RGB hex codes
     RRGGBB = true, -- #RRGGBB hex codes
     names = false, -- "Name" codes like Blue
