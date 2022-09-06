@@ -42,6 +42,15 @@ return {
     ["<c-right>"] = { "<cmd>STSSwapDownNormal<cr>", desc = "Swap next tree-sitter object" },
     ["<c-up>"] = { "<cmd>STSSwapUpNormal<cr>", desc = "Swap previous tree-sitter object" },
     ["<c-left>"] = { "<cmd>STSSwapUpNormal<cr>", desc = "Swap previous tree-sitter object" },
+    -- Git Conflict
+    ["Cc"] = { "<Plug>(git-conflict-ours)", desc = "Take Current" },
+    ["Ci"] = { "<Plug>(git-conflict-theirs)", desc = "Take Incoming" },
+    ["Cb"] = { "<Plug>(git-conflict-both)", desc = "Take Both" },
+    ["C0"] = { "<Plug>(git-conflict-none)", desc = "Take None" },
+    ["Cr"] = { "<cmd>GitConflictRefresh<cr>", desc = "Refresh Conflicts" },
+    ["Cl"] = { "<cmd>GitConflictListQf<cr>", desc = "List Conflicts" },
+    ["]C"] = { "<Plug>(git-conflict-next-conflict)", desc = "Next conflict" },
+    ["[C"] = { "<Plug>(git-conflict-prev-conflict)", desc = "Previous conflict" },
   },
   i = {
     -- type template string

@@ -35,4 +35,5 @@ return {
   ["wakatime/vim-wakatime"] = require "user.plugins.vim-wakatime",
   ["ziontee113/syntax-tree-surfer"] = require "user.plugins.syntax-tree-surfer",
   ["andweeb/presence.nvim"] = require "user.plugins.presence",
+  ["akinsho/git-conflict.nvim"] = require "user.plugins.git-conflict",
 }
