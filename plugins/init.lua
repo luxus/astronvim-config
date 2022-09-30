@@ -1,5 +1,4 @@
 return {
-  ["declancm/cinnamon.nvim"] = { disable = true },
   ["famiu/bufdelete.nvim"] = { disable = true },
   ["goolord/alpha-nvim"] = { disable = true },
   ["lukas-reineke/indent-blankline.nvim"] = { disable = true },
