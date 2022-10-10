@@ -1,4 +1,1 @@
-return {
-  event = "BufRead",
-  config = function() require "user.plugins.nvim-lastplace.config" end,
-}
+return { config = function() require "user.plugins.nvim-lastplace.config" end }

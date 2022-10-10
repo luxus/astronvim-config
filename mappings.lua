@@ -11,7 +11,6 @@ return {
     [">"] = false,
     ["<leader>c"] = false,
     ["<leader>h"] = false,
-    ["<C-\\>"] = false,
     ["<leader>fh"] = false,
     ["<leader>fm"] = false,
     ["<leader>fn"] = false,
