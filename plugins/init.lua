@@ -4,6 +4,7 @@ return {
   ["lukas-reineke/indent-blankline.nvim"] = { disable = true },
   ["max397574/better-escape.nvim"] = { disable = true },
   ["numToStr/Comment.nvim"] = { disable = true },
+  ["andymass/vim-matchup"] = require "user.plugins.vim-matchup",
   ["EdenEast/nightfox.nvim"] = require "user.plugins.nightfox",
   ["danymat/neogen"] = require "user.plugins.neogen",
   ["dhruvasagar/vim-table-mode"] = require "user.plugins.vim-table-mode",

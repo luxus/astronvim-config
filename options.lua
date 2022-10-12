@@ -13,4 +13,7 @@ return {
     thesaurus = "~/.config/nvim/lua/user/spell/mthesaur.txt",
     wrap = true, -- soft wrap lines
   },
+  g = {
+    matchup_matchparen_deferred = 1,
+  },
 }
