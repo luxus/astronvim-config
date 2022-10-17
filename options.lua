@@ -9,8 +9,8 @@ return {
     listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
     shortmess = vim.opt.shortmess + { I = true },
     showbreak = "↪ ",
-    spellfile = "~/.config/nvim/lua/user/spell/en.utf-8.add",
-    thesaurus = "~/.config/nvim/lua/user/spell/mthesaur.txt",
+    spellfile = vim.fn.expand "~/.config/nvim/lua/user/spell/en.utf-8.add",
+    thesaurus = vim.fn.expand "~/.config/nvim/lua/user/spell/mthesaur.txt",
     wrap = true, -- soft wrap lines
   },
   g = {
