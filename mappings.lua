@@ -53,7 +53,7 @@ return {
   },
   i = {
     -- type template string
-    [";mk"] = { "<++>", desc = "Insert template string" },
+    ["<c-CR>"] = { "<++>", desc = "Insert template string" },
     ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
   },
   v = {
