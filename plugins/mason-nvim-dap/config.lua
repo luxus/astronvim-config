@@ -2,7 +2,7 @@ local dap, mason_dap = require "dap", require "mason-nvim-dap"
 
 mason_dap.setup {
   automatic_installation = true,
-  ensure_installed = { "bash", "python" },
+  ensure_installed = { "bash", "js", "python" },
 }
 
 mason_dap.setup_handlers {
