@@ -12,6 +12,7 @@ return {
   ["goolord/alpha-nvim"] = { disable = true },
   ["hrsh7th/cmp-calc"] = require "user.plugins.cmp-calc",
   ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp-emoji",
+  ["hrsh7th/cmp-omni"] = require "user.plugins.cmp-omni",
   ["jayp0521/mason-nvim-dap.nvim"] = require "user.plugins.mason-nvim-dap",
   ["jbyuki/nabla.nvim"] = require "user.plugins.nabla",
   ["jc-doyle/cmp-pandoc-references"] = require "user.plugins.cmp-pandoc-references",
