@@ -1,4 +1,4 @@
-local dap, mason_dap = require "dap", require "mason-nvim-dap"
+local dap, mason_dap, registry = require "dap", require "mason-nvim-dap", require "mason-registry"
 
 mason_dap.setup {
   automatic_installation = true,
@@ -18,7 +18,7 @@ mason_dap.setup_handlers {
     }
   end,
   bash = function()
-    local BASHDB_DIR = vim.fn.stdpath "data" .. "/mason/packages/bash-debug-adapter/extension/bashdb_dir"
+    local BASHDB_DIR = registry.get_package("bash-debug-adapter"):get_install_path() .. "/extension/bashdb_dir"
     dap.adapters.sh = { type = "executable", command = "bash-debug-adapter" }
     dap.configurations.sh = {
       {
