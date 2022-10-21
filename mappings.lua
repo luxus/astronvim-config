@@ -7,8 +7,6 @@ return {
     ["<C-Up>"] = false,
     ["<C-q>"] = false,
     ["<C-s>"] = false,
-    ["<"] = false,
-    [">"] = false,
     ["<leader>c"] = false,
     ["<leader>h"] = false,
     ["<leader>fh"] = false,
