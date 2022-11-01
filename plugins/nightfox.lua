@@ -4,6 +4,7 @@ require("nightfox").setup {
     styles = { comments = "italic" },
     modules = {
       barbar = false,
+      coc = false,
       dashboard = false,
       fern = false,
       fidget = false,
@@ -13,18 +14,15 @@ require("nightfox").setup {
       lightspeed = false,
       lsp_saga = false,
       lsp_trouble = false,
+      mini = false,
       modes = false,
       neogit = false,
+      neotest = false,
       nvimtree = false,
       pounce = false,
       sneak = false,
-      symbols_outline = false,
+      symbol_outline = false,
     },
   },
-  groups = {
-    all = {
-      MiniIndentscopeSymbol = { link = "PreProc" },
-      NormalFloat = { link = "Normal" },
-    },
-  },
+  groups = { all = { NormalFloat = { link = "Normal" } } },
 }
