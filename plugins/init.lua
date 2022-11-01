@@ -1,5 +1,4 @@
 return {
-  ["famiu/bufdelete.nvim"] = { disable = true },
   ["goolord/alpha-nvim"] = { disable = true },
   ["lukas-reineke/indent-blankline.nvim"] = { disable = true },
   ["max397574/better-escape.nvim"] = { disable = true },

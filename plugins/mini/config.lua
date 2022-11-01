@@ -1,4 +1,3 @@
-require("mini.bufremove").setup()
 require("mini.comment").setup()
 require("mini.jump").setup()
 require("mini.surround").setup()
