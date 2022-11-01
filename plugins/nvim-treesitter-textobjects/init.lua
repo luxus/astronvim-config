@@ -1,1 +1,0 @@
-return { after = "nvim-treesitter" }
