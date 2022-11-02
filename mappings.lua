@@ -7,7 +7,6 @@ local mappings = {
     ["<C-Up>"] = false,
     ["<C-q>"] = false,
     ["<C-s>"] = false,
-    ["<leader>c"] = false,
     ["<leader>h"] = false,
     ["<leader>fh"] = false,
     ["<leader>fm"] = false,
