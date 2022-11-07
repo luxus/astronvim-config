@@ -3,7 +3,7 @@ return {
   ["max397574/better-escape.nvim"] = { disable = true },
 
   ["EdenEast/nightfox.nvim"] = { config = function() require "user.plugins.nightfox" end },
-  ["akinsho/git-conflict.nvim"] = { tag = "*", config = function() require "user.plugins.git-conflict" end },
+
   ["andweeb/presence.nvim"] = { module = "presence" },
   ["andymass/vim-matchup"] = { after = "nvim-treesitter" },
   ["arsham/indent-tools.nvim"] = {
@@ -88,6 +88,10 @@ return {
     config = function() require "user.plugins.hop" end,
   },
   ["rcarriga/nvim-dap-ui"] = { after = "nvim-dap", config = function() require "user.plugins.dapui" end },
+  ["sindrets/diffview.nvim"] = {
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+    config = function() require "user.plugins.diffview" end,
+  },
   ["theHamsta/nvim-dap-virtual-text"] = {
     after = "nvim-dap",
     config = function() require "user.plugins.nvim-dap-virtual-text" end,
