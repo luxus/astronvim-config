@@ -41,11 +41,11 @@ return {
     after = "nvim-cmp",
     config = function() require "user.plugins.cmp-latex-symbols" end,
   },
-  ["kylechui/nvim-surround"] = { tag = "*", config = function() require "user.plugins.nvim-surround" end },
   ["lukas-reineke/headlines.nvim"] = {
     ft = { "markdown", "rmd", "qmd" },
     config = function() require "user.plugins.headlines" end,
   },
+  ["machakann/vim-sandwich"] = {},
   ["mfussenegger/nvim-dap"] = {},
   ["mickael-menu/zk-nvim"] = { module = { "zk", "zk.commands" }, config = function() require "user.plugins.zk" end },
   ["mtikekar/nvim-send-to-term"] = {
