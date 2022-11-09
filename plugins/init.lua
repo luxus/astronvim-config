@@ -16,10 +16,6 @@ return {
     cmd = "Neogen",
     config = function() require "user.plugins.neogen" end,
   },
-  ["dhruvasagar/vim-table-mode"] = {
-    cmd = "TableModeToggle",
-    config = function() require "user.plugins.vim-table-mode" end,
-  },
   ["ethanholz/nvim-lastplace"] = { config = function() require "user.plugins.nvim-lastplace" end },
   ["hrsh7th/cmp-calc"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-calc" end },
   ["hrsh7th/cmp-emoji"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-emoji" end },
@@ -28,7 +24,6 @@ return {
     after = { "mason.nvim", "nvim-dap" },
     config = function() require "user.plugins.mason-nvim-dap" end,
   },
-  ["jbyuki/nabla.nvim"] = { module = "nabla" },
   ["jc-doyle/cmp-pandoc-references"] = {
     after = "nvim-cmp",
     config = function() require "user.plugins.cmp-pandoc-references" end,
@@ -37,6 +32,7 @@ return {
     after = "mason-lspconfig.nvim",
     config = function() require "user.plugins.typescript" end,
   },
+  ["junegunn/vim-easy-align"] = {},
   ["kdheepak/cmp-latex-symbols"] = {
     after = "nvim-cmp",
     config = function() require "user.plugins.cmp-latex-symbols" end,
@@ -47,7 +43,6 @@ return {
   },
   ["machakann/vim-sandwich"] = {},
   ["mfussenegger/nvim-dap"] = {},
-  ["mickael-menu/zk-nvim"] = { module = { "zk", "zk.commands" }, config = function() require "user.plugins.zk" end },
   ["mtikekar/nvim-send-to-term"] = {
     cmd = "SendHere",
     config = function() require "user.plugins.nvim-send-to-term" end,
