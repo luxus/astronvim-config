@@ -82,11 +82,6 @@ return {
     after = "mason-lspconfig.nvim",
     config = function() require "user.plugins.clangd_extensions" end,
   },
-  ["phaazon/hop.nvim"] = {
-    cmd = { "HopChar1", "HopChar2", "HopLine", "HopPattern", "HopWord" },
-    branch = "v2",
-    config = function() require "user.plugins.hop" end,
-  },
   ["rcarriga/nvim-dap-ui"] = { after = "nvim-dap", config = function() require "user.plugins.dapui" end },
   ["sindrets/diffview.nvim"] = {
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },

@@ -102,15 +102,6 @@ return {
         m = { function() require("nabla").popup() end, "Preview Math" },
       },
 
-      h = {
-        name = "Hop",
-        c = { "<cmd>HopChar1<cr>", "Character" },
-        C = { "<cmd>HopChar2<cr>", "2 Characters" },
-        l = { "<cmd>HopLine<cr>", "Line" },
-        p = { "<cmd>HopPattern<cr>", "Pattern" },
-        w = { "<cmd>HopWord<cr>", "Word" },
-      },
-
       s = {
         name = "Surf",
         s = { "<cmd>STSSelectMasterNode<cr>", "Surf" },
@@ -236,15 +227,6 @@ return {
   },
   v = {
     ["<leader>"] = {
-      h = {
-        name = "Hop",
-        c = { "<cmd>HopChar1<cr>", "Character" },
-        C = { "<cmd>HopChar2<cr>", "2 Characters" },
-        l = { "<cmd>HopLine<cr>", "Line" },
-        p = { "<cmd>HopPattern<cr>", "Pattern" },
-        w = { "<cmd>HopWord<cr>", "Word" },
-      },
-
       n = {
         name = "Notes",
         s = { ":'<,'>lua require('zk.commands').get('ZkMatch')()<cr>", "Search" },

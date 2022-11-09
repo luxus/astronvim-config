@@ -38,6 +38,7 @@ local mappings = {
     ["<c-right>"] = { "<cmd>STSSwapDownNormal<cr>", desc = "Swap next tree-sitter object" },
     ["<c-up>"] = { "<cmd>STSSwapUpNormal<cr>", desc = "Swap previous tree-sitter object" },
     ["<c-left>"] = { "<cmd>STSSwapUpNormal<cr>", desc = "Swap previous tree-sitter object" },
+    -- DiffView
     ["C<cr>"] = { "<cmd>DiffviewOpen<cr>", desc = "Open DiffView" },
     ["Ch"] = { "<cmd>DiffviewFileHistory %<cr>", desc = "Open DiffView File History" },
     ["CH"] = { "<cmd>DiffviewFileHistory<cr>", desc = "Open DiffView Branch History" },
