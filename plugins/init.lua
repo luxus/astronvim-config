@@ -86,18 +86,6 @@ return {
     after = "nvim-dap",
     config = function() require "user.plugins.nvim-dap-virtual-text" end,
   },
-  ["vitalk/vim-simple-todo"] = {
-    keys = {
-      "<Plug>(simple-todo-above)",
-      "<Plug>(simple-todo-below)",
-      "<Plug>(simple-todo-mark-as-done)",
-      "<Plug>(simple-todo-mark-as-undone)",
-      "<Plug>(simple-todo-mark-switch)",
-      "<Plug>(simple-todo-new-list-item)",
-      "<Plug>(simple-todo-new-list-item-start-of-line)",
-    },
-    config = function() require "user.plugins.vim-simple-todo" end,
-  },
   ["wakatime/vim-wakatime"] = { event = "BufEnter" },
   ["ziontee113/syntax-tree-surfer"] = {
     cmd = {

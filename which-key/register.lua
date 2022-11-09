@@ -3,11 +3,12 @@ local utils = require "user.utils"
 return {
   n = {
     ["<leader>"] = {
-      ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+      b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
+      r = { "<cmd>SendHere<cr>", "Set REPL" },
+      N = { "<cmd>tabnew<cr>", "New Buffer" },
+      P = { function() utils.toggle_presence() end, "Toggle Presence" },
       ["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
-      ["r"] = { "<cmd>SendHere<cr>", "Set REPL" },
       ["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
-      ["P"] = { function() utils.toggle_presence() end, "Toggle Presence" },
 
       a = {
         name = "Annotate",
@@ -98,18 +99,6 @@ return {
         name = "Surf",
         s = { "<cmd>STSSelectMasterNode<cr>", "Surf" },
         S = { "<cmd>STSSelectCurrentNode<cr>", "Surf Node" },
-      },
-
-      n = {
-        name = "Notes",
-        b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
-        i = { "<Plug>(simple-todo-new-list-item)", "Insert Todo" },
-        I = { "<Plug>(simple-todo-new-list-item-start-of-line)", "Convert to Todo" },
-        o = { "<Plug>(simple-todo-below)", "Insert Todo Below" },
-        O = { "<Plug>(simple-todo-above)", "Insert Todo Above" },
-        x = { "<Plug>(simple-todo-mark-as-done)", "Mark Done" },
-        X = { "<Plug>(simple-todo-mark-as-undone)", "Mark Undone" },
-        ["<tab>"] = { "<Plug>(simple-todo-mark-switch)", "Toggle Todo" },
       },
 
       x = {
@@ -206,13 +195,6 @@ return {
   },
   v = {
     ["<leader>"] = {
-      n = {
-        name = "Notes",
-        x = { "<Plug>(simple-todo-mark-as-done)", "Mark Done" },
-        X = { "<Plug>(simple-todo-mark-as-undone)", "Mark Undone" },
-        ["<tab>"] = { "<Plug>(simple-todo-mark-switch)", "Toggle Todo" },
-      },
-
       x = {
         name = "Debugger",
         e = { function() require("dapui").eval() end, "Evaluate Line" },
