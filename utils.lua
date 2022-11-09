@@ -48,22 +48,4 @@ function M.toggle_qf()
   end
 end
 
-function M.disable_presence() require("presence"):cancel() end
-
-function M.enable_presence()
-  require("presence"):setup {
-    client_id = "1009122352916857003",
-    buttons = {
-      { label = "Project Repository", url = "https://github.com/AstroNvim/AstroNvim" },
-      { label = "User Configuration", url = "https://code.mehalter.com/projects/68" },
-    },
-  }
-end
-
-function M.toggle_presence()
-  local is_conn = require("presence").is_connected
-  M[is_conn and "disable_presence" or "enable_presence"]()
-  M.quick_notification("Presence " .. (is_conn and "Disabled" or "Enabled"))
-end
-
 return M

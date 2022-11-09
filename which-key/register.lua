@@ -6,7 +6,6 @@ return {
       b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
       r = { "<cmd>SendHere<cr>", "Set REPL" },
       N = { "<cmd>tabnew<cr>", "New Buffer" },
-      P = { function() utils.toggle_presence() end, "Toggle Presence" },
       ["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
       ["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
 

@@ -2,12 +2,9 @@ return {
   ["goolord/alpha-nvim"] = { disable = true },
   ["max397574/better-escape.nvim"] = { disable = true },
 
-  ["EdenEast/nightfox.nvim"] = { config = function() require "user.plugins.nightfox" end },
-
-  ["andweeb/presence.nvim"] = { module = "presence" },
   ["andymass/vim-matchup"] = { after = "nvim-treesitter" },
   ["arsham/indent-tools.nvim"] = {
-    requires = { "arsham/arshlib.nvim" },
+    requires = "arsham/arshlib.nvim",
     config = function() require "user.plugins.indent-tools" end,
   },
   ["danymat/neogen"] = {
@@ -16,6 +13,7 @@ return {
     cmd = "Neogen",
     config = function() require "user.plugins.neogen" end,
   },
+  ["EdenEast/nightfox.nvim"] = { config = function() require "user.plugins.nightfox" end },
   ["ethanholz/nvim-lastplace"] = { config = function() require "user.plugins.nvim-lastplace" end },
   ["hrsh7th/cmp-calc"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-calc" end },
   ["hrsh7th/cmp-emoji"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-emoji" end },
@@ -36,10 +34,6 @@ return {
   ["kdheepak/cmp-latex-symbols"] = {
     after = "nvim-cmp",
     config = function() require "user.plugins.cmp-latex-symbols" end,
-  },
-  ["lukas-reineke/headlines.nvim"] = {
-    ft = { "markdown", "rmd", "qmd" },
-    config = function() require "user.plugins.headlines" end,
   },
   ["machakann/vim-sandwich"] = {},
   ["mfussenegger/nvim-dap"] = {},
