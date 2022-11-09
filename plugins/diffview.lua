@@ -5,8 +5,7 @@ local build_keymaps = function(maps)
   local i = 1
   for lhs, def in
     pairs(astronvim.default_tbl({
-      ["C<cr>"] = "<nop>",
-      ["Cq"] = { "<cmd>DiffviewClose<cr>", desc = "Quit Diffview" }, -- Toggle the file panel.
+      ["<leader>dq"] = { "<cmd>DiffviewClose<cr>", desc = "Quit Diffview" }, -- Toggle the file panel.
       ["]D"] = { actions.select_next_entry, desc = "Next Difference" }, -- Open the diff for the next file
       ["[D"] = { actions.select_prev_entry, desc = "Previous Difference" }, -- Open the diff for the previous file
       ["[C"] = { actions.prev_conflict, desc = "Next Conflict" }, -- In the merge_tool: jump to the previous conflict
@@ -40,20 +39,20 @@ require("diffview").setup {
   keymaps = {
     disable_defaults = true,
     view = build_keymaps {
-      Co = { actions.conflict_choose "ours", desc = "Take Ours" }, -- Choose the OURS version of a conflict
-      Ct = { actions.conflict_choose "theirs", desc = "Take Theirs" }, -- Choose the THEIRS version of a conflict
-      Cb = { actions.conflict_choose "base", desc = "Take Base" }, -- Choose the BASE version of a conflict
-      Ca = { actions.conflict_choose "all", desc = "Take All" }, -- Choose all the versions of a conflict
-      C0 = { actions.conflict_choose "none", desc = "Take None" }, -- Delete the conflict region
+      ["<leader>do"] = { actions.conflict_choose "ours", desc = "Take Ours" }, -- Choose the OURS version of a conflict
+      ["<leader>dt"] = { actions.conflict_choose "theirs", desc = "Take Theirs" }, -- Choose the THEIRS version of a conflict
+      ["<leader>db"] = { actions.conflict_choose "base", desc = "Take Base" }, -- Choose the BASE version of a conflict
+      ["<leader>da"] = { actions.conflict_choose "all", desc = "Take All" }, -- Choose all the versions of a conflict
+      ["<leader>d0"] = { actions.conflict_choose "none", desc = "Take None" }, -- Delete the conflict region
     },
     diff3 = build_keymaps {
-      CO = { actions.diffget "ours", mode = { "n", "x" }, desc = "Get Our Diff" }, -- Obtain the diff hunk from the OURS version of the file
-      CT = { actions.diffget "theirs", mode = { "n", "x" }, desc = "Get Their Diff" }, -- Obtain the diff hunk from the THEIRS version of the file
+      ["<leader>dO"] = { actions.diffget "ours", mode = { "n", "x" }, desc = "Get Our Diff" }, -- Obtain the diff hunk from the OURS version of the file
+      ["<leader>dT"] = { actions.diffget "theirs", mode = { "n", "x" }, desc = "Get Their Diff" }, -- Obtain the diff hunk from the THEIRS version of the file
     },
     diff4 = build_keymaps {
-      CB = { actions.diffget "base", mode = { "n", "x" }, desc = "Get Base Diff" }, -- Obtain the diff hunk from the OURS version of the file
-      CO = { actions.diffget "ours", mode = { "n", "x" }, desc = "Get Our Diff" }, -- Obtain the diff hunk from the OURS version of the file
-      CT = { actions.diffget "theirs", mode = { "n", "x" }, desc = "Get Their Diff" }, -- Obtain the diff hunk from the THEIRS version of the file
+      ["<leader>dB"] = { actions.diffget "base", mode = { "n", "x" }, desc = "Get Base Diff" }, -- Obtain the diff hunk from the OURS version of the file
+      ["<leader>dO"] = { actions.diffget "ours", mode = { "n", "x" }, desc = "Get Our Diff" }, -- Obtain the diff hunk from the OURS version of the file
+      ["<leader>dT"] = { actions.diffget "theirs", mode = { "n", "x" }, desc = "Get Their Diff" }, -- Obtain the diff hunk from the THEIRS version of the file
     },
     file_panel = build_keymaps {
       j = actions.next_entry, -- Bring the cursor to the next file entry
