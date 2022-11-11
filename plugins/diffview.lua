@@ -1,5 +1,18 @@
 local actions = require "diffview.actions"
 
+astronvim.which_key_register {
+  n = {
+    ["<leader>"] = {
+      d = {
+        name = "Diff View",
+        ["<cr>"] = { "<cmd>DiffviewOpen<cr>", "Open DiffView" },
+        h = { "<cmd>DiffviewFileHistory %<cr>", "Open DiffView File History" },
+        H = { "<cmd>DiffviewFileHistory<cr>", "Open DiffView Branch History" },
+      },
+    },
+  },
+}
+
 local build_keymaps = function(maps)
   local out = {}
   local i = 1

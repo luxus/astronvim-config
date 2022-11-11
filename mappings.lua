@@ -35,10 +35,22 @@ local mappings = {
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
     -- Treesitter Surfer
-    ["<C-down>"] = { "<cmd>STSSwapDownNormal<cr>", desc = "Swap next tree-sitter object" },
-    ["<C-right>"] = { "<cmd>STSSwapDownNormal<cr>", desc = "Swap next tree-sitter object" },
-    ["<C-up>"] = { "<cmd>STSSwapUpNormal<cr>", desc = "Swap previous tree-sitter object" },
-    ["<C-left>"] = { "<cmd>STSSwapUpNormal<cr>", desc = "Swap previous tree-sitter object" },
+    ["<C-down>"] = {
+      function() require("syntax-tree-surfer").move("n", false) end,
+      desc = "Swap next tree-sitter object",
+    },
+    ["<C-right>"] = {
+      function() require("syntax-tree-surfer").move("n", false) end,
+      desc = "Swap next tree-sitter object",
+    },
+    ["<C-up>"] = {
+      function() require("syntax-tree-surfer").move("n", true) end,
+      desc = "Swap previous tree-sitter object",
+    },
+    ["<C-left>"] = {
+      function() require("syntax-tree-surfer").move("n", true) end,
+      desc = "Swap previous tree-sitter object",
+    },
   },
   i = {
     -- type template string
@@ -65,14 +77,38 @@ local mappings = {
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
     -- Tressitter Surfer
-    ["J"] = { "<cmd>STSSelectNextSiblingNode<cr>", desc = "Surf next tree-sitter object" },
-    ["K"] = { "<cmd>STSSelectPrevSiblingNode<cr>", desc = "Surf previous tree-sitter object" },
-    ["H"] = { "<cmd>STSSelectParentNode<cr>", desc = "Surf parent tree-sitter object" },
-    ["L"] = { "<cmd>STSSelectChildNode<cr>", desc = "Surf child tree-sitter object" },
-    ["<C-j>"] = { "<cmd>STSSwapNextVisual<cr>", desc = "Surf next tree-sitter object" },
-    ["<C-l>"] = { "<cmd>STSSwapNextVisual<cr>", desc = "Surf next tree-sitter object" },
-    ["<C-k>"] = { "<cmd>STSSwapPrevVisual<cr>", desc = "Surf previous tree-sitter object" },
-    ["<C-h>"] = { "<cmd>STSSwapPrevVisual<cr>", desc = "Surf previous tree-sitter object" },
+    ["J"] = {
+      function() require("syntax-tree-surfer").surf("next", "visual") end,
+      desc = "Surf next tree-sitter object",
+    },
+    ["K"] = {
+      function() require("syntax-tree-surfer").surf("prev", "visual") end,
+      desc = "Surf previous tree-sitter object",
+    },
+    ["H"] = {
+      function() require("syntax-tree-surfer").surf("parent", "visual") end,
+      desc = "Surf parent tree-sitter object",
+    },
+    ["L"] = {
+      function() require("syntax-tree-surfer").surf("child", "visual") end,
+      desc = "Surf child tree-sitter object",
+    },
+    ["<C-j>"] = {
+      function() require("syntax-tree-surfer").surf("next", "visual", true) end,
+      desc = "Surf next tree-sitter object",
+    },
+    ["<C-l>"] = {
+      function() require("syntax-tree-surfer").surf("next", "visual", true) end,
+      desc = "Surf next tree-sitter object",
+    },
+    ["<C-k>"] = {
+      function() require("syntax-tree-surfer").surf("prev", "visual", true) end,
+      desc = "Surf previous tree-sitter object",
+    },
+    ["<C-h>"] = {
+      function() require("syntax-tree-surfer").surf("prev", "visual", true) end,
+      desc = "Surf previous tree-sitter object",
+    },
   },
   o = {
     -- line text-objects

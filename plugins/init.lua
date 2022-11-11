@@ -73,7 +73,8 @@ return {
   },
   ["rcarriga/nvim-dap-ui"] = { after = "nvim-dap", config = function() require "user.plugins.dapui" end },
   ["sindrets/diffview.nvim"] = {
-    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+    opt = true,
+    setup = function() table.insert(astronvim.git_plugins, "diffview.nvim") end,
     config = function() require "user.plugins.diffview" end,
   },
   ["theHamsta/nvim-dap-virtual-text"] = {
@@ -82,18 +83,7 @@ return {
   },
   ["wakatime/vim-wakatime"] = { event = "BufEnter" },
   ["ziontee113/syntax-tree-surfer"] = {
-    cmd = {
-      "STSSwapUpNormal",
-      "STSSwapDownNormal",
-      "STSSelectCurrentNode",
-      "STSSelectMasterNode",
-      "STSSelectParentNode",
-      "STSSelectChildNode",
-      "STSSelectPrevSiblingNode",
-      "STSSelectNextSiblingNode",
-      "STSSwapNextVisual",
-      "STSSwapPrevVisual",
-    },
+    module = "syntax-tree-surfer",
     config = function() require "user.plugins.syntax-tree-surfer" end,
   },
 }

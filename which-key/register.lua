@@ -18,13 +18,6 @@ return {
         F = { function() require("neogen").generate { type = "file" } end, "File" },
       },
 
-      d = {
-        name = "Diff View",
-        ["<cr>"] = { "<cmd>DiffviewOpen<cr>", "Open DiffView" },
-        h = { "<cmd>DiffviewFileHistory %<cr>", "Open DiffView File History" },
-        H = { "<cmd>DiffviewFileHistory<cr>", "Open DiffView Branch History" },
-      },
-
       f = {
         name = "Telescope",
         ["?"] = { "<cmd>Telescope help_tags<cr>", "Find Help" },
@@ -96,8 +89,8 @@ return {
 
       s = {
         name = "Surf",
-        s = { "<cmd>STSSelectMasterNode<cr>", "Surf" },
-        S = { "<cmd>STSSelectCurrentNode<cr>", "Surf Node" },
+        s = { function() require("syntax-tree-surfer").select() end, "Surf" },
+        S = { function() require("syntax-tree-surfer").select_current_node() end, "Surf Node" },
       },
 
       x = {
