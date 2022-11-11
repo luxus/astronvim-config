@@ -1,15 +1,13 @@
-vim.api.nvim_create_augroup("autocomp", { clear = true })
 vim.api.nvim_create_autocmd("VimLeave", {
   desc = "Stop running auto compiler",
-  group = "autocomp",
+  group = vim.api.nvim_create_augroup("autocomp", { clear = true }),
   pattern = "*",
   callback = function() vim.fn.jobstart { "autocomp", vim.fn.expand "%:p", "stop" } end,
 })
 
-vim.api.nvim_create_augroup("dapui", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Make q close dap floating windows",
-  group = "dapui",
+  group = vim.api.nvim_create_augroup("dapui", { clear = true }),
   pattern = "dap-float",
   callback = function() vim.keymap.set("n", "q", "<cmd>close!<cr>") end,
 })
