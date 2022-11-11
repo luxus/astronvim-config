@@ -37,10 +37,6 @@ return {
   },
   ["machakann/vim-sandwich"] = {},
   ["mfussenegger/nvim-dap"] = {},
-  ["mtikekar/nvim-send-to-term"] = {
-    cmd = "SendHere",
-    config = function() require "user.plugins.nvim-send-to-term" end,
-  },
   ["mxsdev/nvim-dap-vscode-js"] = {
     after = "mason-nvim-dap.nvim",
     config = function() require "user.plugins.nvim-dap-vscode-js" end,

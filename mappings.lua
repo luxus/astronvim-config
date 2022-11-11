@@ -115,10 +115,6 @@ local mappings = {
     ["il"] = { ":normal vil<cr>", desc = "Inside line text object" },
     ["al"] = { ":normal val<cr>", desc = "Around line text object" },
   },
-  [""] = {
-    ["<C-e><C-e>"] = { "<Plug>SendLine", desc = "Send line to REPL" },
-    ["<C-e>"] = { "<Plug>Send", desc = "Send to REPL" },
-  },
 }
 
 -- add more text objects for "in" and "around"
