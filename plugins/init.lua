@@ -1,10 +1,13 @@
+local on_file_open = { "BufRead", "BufWinEnter", "BufNewFile" }
+
 return {
   ["goolord/alpha-nvim"] = { disable = true },
   ["max397574/better-escape.nvim"] = { disable = true },
 
   ["andymass/vim-matchup"] = { after = "nvim-treesitter" },
   ["arsham/indent-tools.nvim"] = {
-    requires = "arsham/arshlib.nvim",
+    event = on_file_open,
+    requires = { "arsham/arshlib.nvim", module = "arshlib" },
     config = function() require "user.plugins.indent-tools" end,
   },
   ["danymat/neogen"] = {
@@ -13,8 +16,15 @@ return {
     cmd = "Neogen",
     config = function() require "user.plugins.neogen" end,
   },
-  ["EdenEast/nightfox.nvim"] = { config = function() require "user.plugins.nightfox" end },
-  ["ethanholz/nvim-lastplace"] = { config = function() require "user.plugins.nvim-lastplace" end },
+  ["EdenEast/nightfox.nvim"] = {
+    module = "nightfox",
+    event = "ColorScheme",
+    config = function() require "user.plugins.nightfox" end,
+  },
+  ["ethanholz/nvim-lastplace"] = {
+    event = on_file_open,
+    config = function() require "user.plugins.nvim-lastplace" end,
+  },
   ["hrsh7th/cmp-calc"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-calc" end },
   ["hrsh7th/cmp-emoji"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-emoji" end },
   ["hrsh7th/cmp-omni"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-omni" end },
@@ -30,13 +40,13 @@ return {
     after = "mason-lspconfig.nvim",
     config = function() require "user.plugins.typescript" end,
   },
-  ["junegunn/vim-easy-align"] = {},
+  ["junegunn/vim-easy-align"] = { event = on_file_open },
   ["kdheepak/cmp-latex-symbols"] = {
     after = "nvim-cmp",
     config = function() require "user.plugins.cmp-latex-symbols" end,
   },
-  ["machakann/vim-sandwich"] = {},
-  ["mfussenegger/nvim-dap"] = {},
+  ["machakann/vim-sandwich"] = { event = on_file_open },
+  ["mfussenegger/nvim-dap"] = { event = on_file_open },
   ["mxsdev/nvim-dap-vscode-js"] = {
     after = "mason-nvim-dap.nvim",
     config = function() require "user.plugins.nvim-dap-vscode-js" end,
@@ -77,7 +87,7 @@ return {
     after = "nvim-dap",
     config = function() require "user.plugins.nvim-dap-virtual-text" end,
   },
-  ["wakatime/vim-wakatime"] = { event = "BufEnter" },
+  ["wakatime/vim-wakatime"] = { event = on_file_open },
   ["ziontee113/syntax-tree-surfer"] = {
     module = "syntax-tree-surfer",
     config = function() require "user.plugins.syntax-tree-surfer" end,
