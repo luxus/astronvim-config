@@ -18,6 +18,7 @@ local mappings = {
     ["<leader>sm"] = false,
     ["<leader>sn"] = false,
     ["<leader>sr"] = false,
+    ["q:"] = "<Nop>",
     -- navigating wrapped lines
     j = { "gj", desc = "Navigate down" },
     k = { "gk", desc = "Navigate down" },
