@@ -1,12 +1,11 @@
-local on_file_open = { "BufRead", "BufWinEnter", "BufNewFile" }
-
 return {
   ["goolord/alpha-nvim"] = { disable = true },
   ["max397574/better-escape.nvim"] = { disable = true },
 
   ["andymass/vim-matchup"] = { after = "nvim-treesitter" },
   ["arsham/indent-tools.nvim"] = {
-    event = on_file_open,
+    opt = true,
+    setup = function() astronvim.load_plugin_with_file "indent-tools.nvim" end,
     requires = { "arsham/arshlib.nvim", module = "arshlib" },
     config = function() require "user.plugins.indent-tools" end,
   },
@@ -22,7 +21,8 @@ return {
     config = function() require "user.plugins.nightfox" end,
   },
   ["ethanholz/nvim-lastplace"] = {
-    event = on_file_open,
+    opt = true,
+    setup = function() astronvim.load_plugin_with_file "nvim-lastplace" end,
     config = function() require "user.plugins.nvim-lastplace" end,
   },
   ["hrsh7th/cmp-calc"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-calc" end },
@@ -40,13 +40,13 @@ return {
     after = "mason-lspconfig.nvim",
     config = function() require "user.plugins.typescript" end,
   },
-  ["junegunn/vim-easy-align"] = { event = on_file_open },
+  ["junegunn/vim-easy-align"] = { opt = true, setup = function() astronvim.load_plugin_with_file "vim-easy-align" end },
   ["kdheepak/cmp-latex-symbols"] = {
     after = "nvim-cmp",
     config = function() require "user.plugins.cmp-latex-symbols" end,
   },
-  ["machakann/vim-sandwich"] = { event = on_file_open },
-  ["mfussenegger/nvim-dap"] = { event = on_file_open },
+  ["machakann/vim-sandwich"] = { opt = true, setup = function() astronvim.load_plugin_with_file "vim-sandwich" end },
+  ["mfussenegger/nvim-dap"] = { opt = true, setup = function() astronvim.load_plugin_with_file "nvim-dap" end },
   ["mxsdev/nvim-dap-vscode-js"] = {
     after = "mason-nvim-dap.nvim",
     config = function() require "user.plugins.nvim-dap-vscode-js" end,
@@ -87,7 +87,7 @@ return {
     after = "nvim-dap",
     config = function() require "user.plugins.nvim-dap-virtual-text" end,
   },
-  ["wakatime/vim-wakatime"] = { event = on_file_open },
+  ["wakatime/vim-wakatime"] = { opt = true, setup = function() astronvim.load_plugin_with_file "vim-wakatime" end },
   ["ziontee113/syntax-tree-surfer"] = {
     module = "syntax-tree-surfer",
     config = function() require "user.plugins.syntax-tree-surfer" end,
