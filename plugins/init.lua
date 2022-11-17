@@ -27,7 +27,6 @@ return {
   },
   ["hrsh7th/cmp-calc"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-calc" end },
   ["hrsh7th/cmp-emoji"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-emoji" end },
-  ["hrsh7th/cmp-omni"] = { after = "nvim-cmp", config = function() require "user.plugins.cmp-omni" end },
   ["jayp0521/mason-nvim-dap.nvim"] = {
     after = { "mason.nvim", "nvim-dap" },
     config = function() require "user.plugins.mason-nvim-dap" end,
