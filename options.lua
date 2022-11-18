@@ -11,7 +11,6 @@ return {
     spellfile = vim.fn.expand "~/.config/nvim/lua/user/spell/en.utf-8.add",
     thesaurus = vim.fn.expand "~/.config/nvim/lua/user/spell/mthesaur.txt",
     wrap = true, -- soft wrap lines
-    shortmess = vim.opt.shortmess + { s = true, I = true },
   },
   g = {
     matchup_matchparen_deferred = 1,
