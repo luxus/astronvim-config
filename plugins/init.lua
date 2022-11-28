@@ -15,11 +15,7 @@ return {
     cmd = "Neogen",
     config = function() require "user.plugins.neogen" end,
   },
-  ["EdenEast/nightfox.nvim"] = {
-    module = "nightfox",
-    event = "ColorScheme",
-    config = function() require "user.plugins.nightfox" end,
-  },
+  ["EdenEast/nightfox.nvim"] = { module = "nightfox", config = function() require "user.plugins.nightfox" end },
   ["ethanholz/nvim-lastplace"] = {
     opt = true,
     setup = function() table.insert(astronvim.file_plugins, "nvim-lastplace") end,
@@ -39,13 +35,19 @@ return {
     after = "mason-lspconfig.nvim",
     config = function() require "user.plugins.typescript" end,
   },
-  ["junegunn/vim-easy-align"] = { opt = true, setup = function() table.insert(astronvim.file_plugins, "vim-easy-align") end },
+  ["junegunn/vim-easy-align"] = {
+    opt = true,
+    setup = function() table.insert(astronvim.file_plugins, "vim-easy-align") end,
+  },
   ["kdheepak/cmp-latex-symbols"] = {
     after = "nvim-cmp",
     config = function() require "user.plugins.cmp-latex-symbols" end,
   },
-  ["machakann/vim-sandwich"] = { opt = true, setup = function() table.insert(astronvim.file_plugins, "vim-sandwich") end },
-  ["mfussenegger/nvim-dap"] = { opt = true, setup = function() table.insert(astronvim.file_plugins, "nvim-dap" )end },
+  ["machakann/vim-sandwich"] = {
+    opt = true,
+    setup = function() table.insert(astronvim.file_plugins, "vim-sandwich") end,
+  },
+  ["mfussenegger/nvim-dap"] = { opt = true, setup = function() table.insert(astronvim.file_plugins, "nvim-dap") end },
   ["mxsdev/nvim-dap-vscode-js"] = {
     after = "mason-nvim-dap.nvim",
     config = function() require "user.plugins.nvim-dap-vscode-js" end,
@@ -86,7 +88,10 @@ return {
     after = "nvim-dap",
     config = function() require "user.plugins.nvim-dap-virtual-text" end,
   },
-  ["wakatime/vim-wakatime"] = { opt = true, setup = function() table.insert(astronvim.file_plugins, "vim-wakatime") end },
+  ["wakatime/vim-wakatime"] = {
+    opt = true,
+    setup = function() table.insert(astronvim.file_plugins, "vim-wakatime") end,
+  },
   ["ziontee113/syntax-tree-surfer"] = {
     module = "syntax-tree-surfer",
     config = function() require "user.plugins.syntax-tree-surfer" end,
