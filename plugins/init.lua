@@ -83,6 +83,7 @@ return {
     module = "lsp-inlayhints",
     config = function() require "user.plugins.lsp-inlayhints" end,
   },
+  ["ray-x/go.nvim"] = { after = "mason-lspconfig.nvim", config = function() require "user.plugins.go" end },
   ["sindrets/diffview.nvim"] = {
     opt = true,
     setup = function() table.insert(astronvim.git_plugins, "diffview.nvim") end,
