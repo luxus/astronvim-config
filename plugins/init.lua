@@ -79,6 +79,10 @@ return {
     config = function() require "user.plugins.clangd_extensions" end,
   },
   ["rcarriga/nvim-dap-ui"] = { after = "nvim-dap", config = function() require "user.plugins.dapui" end },
+  ["lvimuser/lsp-inlayhints.nvim"] = {
+    module = "lsp-inlayhints",
+    config = function() require "user.plugins.lsp-inlayhints" end,
+  },
   ["sindrets/diffview.nvim"] = {
     opt = true,
     setup = function() table.insert(astronvim.git_plugins, "diffview.nvim") end,
