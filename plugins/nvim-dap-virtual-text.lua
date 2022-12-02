@@ -1,4 +1,1 @@
-return {
-  after = "nvim-dap",
-  config = function() require "user.plugins.nvim-dap-virtual-text.config" end,
-}
+require("nvim-dap-virtual-text").setup()
