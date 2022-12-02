@@ -1,1 +1,1 @@
-return { "clangd", "gopls", "tsserver" }
+return { "clangd", "tsserver" }
