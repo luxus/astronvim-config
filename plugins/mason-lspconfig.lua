@@ -3,6 +3,7 @@ return {
     "clangd",
     "cmake",
     "cssls",
+    "gopls",
     "html",
     "intelephense",
     "marksman",
