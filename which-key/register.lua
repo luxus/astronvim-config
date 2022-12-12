@@ -3,7 +3,6 @@ local utils = require "user.utils"
 return {
   n = {
     ["<leader>"] = {
-      b = { "<cmd>read !getbib -c<cr>", "Get Bib" },
       r = { "<cmd>SendHere<cr>", "Set REPL" },
       N = { "<cmd>tabnew<cr>", "New Buffer" },
       ["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },

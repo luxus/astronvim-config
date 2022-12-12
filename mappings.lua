@@ -22,9 +22,6 @@ local mappings = {
     -- navigating wrapped lines
     j = { "gj", desc = "Navigate down" },
     k = { "gk", desc = "Navigate down" },
-    -- easy splits
-    ["\\"] = { "<cmd>split<cr>", desc = "Horizontal split" },
-    ["|"] = { "<cmd>vsplit<cr>", desc = "Vertical split" },
     -- better increment/decrement
     ["-"] = { "<c-x>", desc = "Descrement number" },
     ["+"] = { "<c-a>", desc = "Increment number" },
