@@ -22,6 +22,9 @@ local mappings = {
     -- navigating wrapped lines
     j = { "gj", desc = "Navigate down" },
     k = { "gk", desc = "Navigate down" },
+    -- better search
+    n = { require("user.utils").better_search "n", desc = "Next search" },
+    N = { require("user.utils").better_search "N", desc = "Previous search" },
     -- better increment/decrement
     ["-"] = { "<c-x>", desc = "Descrement number" },
     ["+"] = { "<c-a>", desc = "Increment number" },

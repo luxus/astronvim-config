@@ -1,6 +1,6 @@
 M = {}
 
-function M.quick_notification(msg) astronvim.notify(msg, "info", { timeout = 0 }) end
+function M.quick_notification(msg, type) astronvim.notify(msg, type or "info", { timeout = 0 }) end
 
 function M.vim_opt_toggle(opt, on, off, name)
   if on == nil then on = true end
@@ -48,6 +48,19 @@ function M.toggle_qf()
     vim.cmd.cclose()
   elseif not vim.tbl_isempty(vim.fn.getqflist()) then
     vim.cmd.copen()
+  end
+end
+
+function M.better_search(key)
+  return function()
+    local searched, error =
+      pcall(vim.cmd.normal, { args = { (vim.v.count > 0 and vim.v.count or "") .. key }, bang = true })
+    if searched then
+      pcall(vim.cmd.normal, "zzzv")
+    else
+      M.quick_notification(error, "error")
+    end
+    vim.opt.hlsearch = searched
   end
 end
 
