@@ -1,4 +1,4 @@
-require("nightfox").setup {
+return {
   options = {
     dim_inactive = true,
     styles = { comments = "italic" },

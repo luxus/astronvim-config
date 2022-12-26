@@ -5,7 +5,7 @@ return {
     dependencies = {
       ["andymass/vim-matchup"] = {},
       ["nvim-treesitter/nvim-treesitter-textobjects"] = {},
-      ["ziontee113/syntax-tree-surfer"] = { config = function() require "user.plugins.syntax-tree-surfer" end },
+      ["ziontee113/syntax-tree-surfer"] = { config = require "user.plugins.syntax-tree-surfer" },
     },
   },
   ["hrsh7th/nvim-cmp"] = {
@@ -18,8 +18,8 @@ return {
   },
   ["mfussenegger/nvim-dap"] = {
     dependencies = {
-      ["mxsdev/nvim-dap-vscode-js"] = { config = function() require "user.plugins.nvim-dap-vscode-js" end },
-      ["theHamsta/nvim-dap-virtual-text"] = { config = function() require "user.plugins.nvim-dap-virtual-text" end },
+      ["mxsdev/nvim-dap-vscode-js"] = { config = require "user.plugins.dap-vscode-js" },
+      ["theHamsta/nvim-dap-virtual-text"] = { config = true },
     },
   },
   ["nvim-telescope/telescope.nvim"] = {
@@ -39,17 +39,33 @@ return {
       telescope.load_extension "project"
     end,
   },
-
-  ["EdenEast/nightfox.nvim"] = { config = function() require "user.plugins.nightfox" end },
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    dependencies = {
+      ["jayp0521/mason-null-ls.nvim"] = {
+        config = function()
+          require "configs.mason-null-ls"
+          local null_ls = require "null-ls"
+          require("mason-null-ls").setup_handlers {
+            prettierd = function()
+              null_ls.register(
+                null_ls.builtins.formatting.prettierd.with { extra_filetypes = { "markdown", "rmd", "qmd" } }
+              )
+            end,
+          }
+        end,
+      },
+    },
+  },
+  ["EdenEast/nightfox.nvim"] = { config = require "user.plugins.nightfox" },
   ["arsham/indent-tools.nvim"] = {
     init = function() table.insert(astronvim.file_plugins, "indent-tools.nvim") end,
     dependencies = { ["arsham/arshlib.nvim"] = {} },
-    config = function() require "user.plugins.indent-tools" end,
+    config = function() require("indent-tools").config {} end,
   },
-  ["danymat/neogen"] = { cmd = "Neogen", config = function() require "user.plugins.neogen" end },
+  ["danymat/neogen"] = { cmd = "Neogen", config = require "user.plugins.neogen" },
   ["ethanholz/nvim-lastplace"] = {
     init = function() table.insert(astronvim.file_plugins, "nvim-lastplace") end,
-    config = function() require "user.plugins.nvim-lastplace" end,
+    config = require "user.plugins.nvim-lastplace",
   },
   ["jose-elias-alvarez/typescript.nvim"] = {
     dependencies = { "williamboman/mason-lspconfig.nvim" },
@@ -57,7 +73,7 @@ return {
     config = function() require "user.plugins.typescript" end,
   },
   ["junegunn/vim-easy-align"] = { init = function() table.insert(astronvim.file_plugins, "vim-easy-align") end },
-  ["lvimuser/lsp-inlayhints.nvim"] = { config = function() require "user.plugins.lsp-inlayhints" end },
+  ["lvimuser/lsp-inlayhints.nvim"] = { config = true },
   ["machakann/vim-sandwich"] = { init = function() table.insert(astronvim.file_plugins, "vim-sandwich") end },
   ["nanotee/sqls.nvim"] = {},
   ["p00f/clangd_extensions.nvim"] = {

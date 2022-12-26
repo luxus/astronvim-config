@@ -1,4 +1,4 @@
-require("neogen").setup {
+return {
   snippet_engine = "luasnip",
   languages = {
     lua = { template = { annotation_convention = "ldoc" } },
