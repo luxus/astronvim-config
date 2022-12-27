@@ -15,6 +15,5 @@ return {
   },
   g = {
     matchup_matchparen_deferred = 1,
-    lsp_handlers_enabled = false,
   },
 }
