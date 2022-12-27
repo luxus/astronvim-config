@@ -56,6 +56,7 @@ return {
       },
     },
   },
+
   ["EdenEast/nightfox.nvim"] = { config = require "user.plugins.nightfox" },
   ["arsham/indent-tools.nvim"] = {
     init = function() table.insert(astronvim.file_plugins, "indent-tools.nvim") end,
@@ -66,6 +67,27 @@ return {
   ["ethanholz/nvim-lastplace"] = {
     init = function() table.insert(astronvim.file_plugins, "nvim-lastplace") end,
     config = require "user.plugins.nvim-lastplace",
+  },
+  ["folke/noice.nvim"] = {
+    event = "VeryLazy",
+    config = function()
+      require("noice").setup {
+        lsp = {
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+        messages = { enabled = false },
+        presets = {
+          bottom_search = true,
+          command_palette = true,
+          long_message_to_split = true,
+          lsp_doc_border = "rounded",
+        },
+      }
+    end,
   },
   ["jose-elias-alvarez/typescript.nvim"] = {
     dependencies = { "williamboman/mason-lspconfig.nvim" },
