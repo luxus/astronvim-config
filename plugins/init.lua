@@ -1,6 +1,7 @@
 return {
   ["goolord/alpha-nvim"] = { enabled = false },
   ["max397574/better-escape.nvim"] = { enabled = false },
+
   ["nvim-treesitter/nvim-treesitter"] = {
     dependencies = {
       ["andymass/vim-matchup"] = {},
