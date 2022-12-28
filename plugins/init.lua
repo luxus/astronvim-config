@@ -6,7 +6,6 @@ return {
     dependencies = {
       ["andymass/vim-matchup"] = {},
       ["nvim-treesitter/nvim-treesitter-textobjects"] = {},
-      ["ziontee113/syntax-tree-surfer"] = { config = require "user.plugins.syntax-tree-surfer" },
     },
   },
   ["hrsh7th/nvim-cmp"] = {
