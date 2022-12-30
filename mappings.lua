@@ -88,7 +88,8 @@ local wk = require "which-key"
 wk.register({
   s = "which_key_ignore",
   r = { "<cmd>SendHere<cr>", "Set REPL" },
-  N = { "<cmd>tabnew<cr>", "New Buffer" },
+  n = { "<cmd>enew<cr>", "New File" },
+  N = { "<cmd>tabnew<cr>", "New Tab" },
   ["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
   ["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
 
