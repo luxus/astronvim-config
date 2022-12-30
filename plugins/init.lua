@@ -65,7 +65,7 @@ return {
   },
   ["danymat/neogen"] = { cmd = "Neogen", config = require "user.plugins.neogen" },
   ["ethanholz/nvim-lastplace"] = {
-    init = function() table.insert(astronvim.file_plugins, "nvim-lastplace") end,
+    event = "BufRead",
     config = require "user.plugins.nvim-lastplace",
   },
   ["jose-elias-alvarez/typescript.nvim"] = {
