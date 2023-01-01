@@ -11,6 +11,7 @@ local mappings = {
     ["<leader>fm"] = false,
     ["<leader>fn"] = false,
     ["<leader>fo"] = false,
+    ["<leader>s"] = false,
     ["<leader>sb"] = false,
     ["<leader>sc"] = false,
     ["<leader>sh"] = false,
@@ -86,7 +87,6 @@ end
 local utils = require "user.utils"
 local wk = require "which-key"
 wk.register({
-  s = "which_key_ignore",
   r = { "<cmd>SendHere<cr>", "Set REPL" },
   n = { "<cmd>enew<cr>", "New File" },
   N = { "<cmd>tabnew<cr>", "New Tab" },
