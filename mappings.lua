@@ -1,3 +1,4 @@
+local utils = require "user.utils"
 local mappings = {
   n = {
     -- disable default bindings
@@ -7,9 +8,6 @@ local mappings = {
     ["<C-Up>"] = false,
     ["<C-q>"] = false,
     ["<C-s>"] = false,
-    ["<leader>fh"] = false,
-    ["<leader>fm"] = false,
-    ["<leader>fn"] = false,
     ["<leader>fo"] = false,
     ["<leader>s"] = false,
     ["<leader>sb"] = false,
@@ -38,11 +36,96 @@ local mappings = {
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
     -- vim-sandwich
     ["s"] = "<Nop>",
+    ["<leader>r"] = { "<cmd>SendHere<cr>", desc = "Set REPL" },
+    ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
+    ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
+    ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
+    ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
+    -- neogen
+    ["<leader>a"] = { name = "Annotate" },
+    ["<leader>a<cr>"] = { function() require("neogen").generate() end, desc = "Current" },
+    ["<leader>ac"] = { function() require("neogen").generate { type = "class" } end, desc = "Class" },
+    ["<leader>af"] = { function() require("neogen").generate { type = "func" } end, desc = "Function" },
+    ["<leader>at"] = { function() require("neogen").generate { type = "type" } end, desc = "Type" },
+    ["<leader>aF"] = { function() require("neogen").generate { type = "file" } end, desc = "File" },
+    -- telescope
+    ["<leader>f"] = { name = "Telescope" },
+    ["<leader>f?"] = { "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
+    ["<leader>f'"] = { "<cmd>Telescope marks<cr>", desc = "Marks" },
+    ["<leader>fB"] = { "<cmd>Telescope bibtex<cr>", desc = "BibTeX" },
+    ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "Explorer" },
+    ["<leader>fh"] = { "<cmd>Telescope oldfiles<cr>", desc = "History" },
+    ["<leader>fk"] = { "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
+    ["<leader>fm"] = { "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+    ["<leader>fM"] = { "<cmd>Telescope media_files<cr>", desc = "Media" },
+    ["<leader>fn"] = { "<cmd>Telescope notify<cr>", desc = "Notifications" },
+    ["<leader>fp"] = { "<cmd>Telescope project<cr>", desc = "Projects" },
+    ["<leader>fr"] = { "<cmd>Telescope registers<cr>", desc = "Registers" },
+    ["<leader>ft"] = { "<cmd>Telescope colorscheme<cr>", desc = "Themes" },
+    -- compiler
+    ["<leader>m"] = { name = "Compiler" },
+    ["<leader>mk"] = {
+      function()
+        vim.cmd "silent! write"
+        local filename = vim.fn.expand "%:t"
+        utils.async_run(
+          { "compiler", vim.fn.expand "%:p" },
+          function() utils.quick_notification("Compiled " .. filename) end
+        )
+      end,
+      desc = "Compile",
+    },
+    ["<leader>ma"] = {
+      function()
+        vim.notify "Autocompile Started"
+        utils.async_run(
+          { "autocomp", vim.fn.expand "%:p" },
+          function() utils.quick_notification "Autocompile stopped" end
+        )
+      end,
+      desc = "Auto Compile",
+    },
+    ["<leader>mv"] = { function() vim.fn.jobstart { "opout", vim.fn.expand "%:p" } end, desc = "View Output" },
+    ["<leader>mb"] = {
+      function()
+        local filename = vim.fn.expand "%:t"
+        utils.async_run({
+          "pandoc",
+          vim.fn.expand "%",
+          "--pdf-engine=xelatex",
+          "--variable",
+          "urlcolor=blue",
+          "-t",
+          "beamer",
+          "-o",
+          vim.fn.expand "%:r" .. ".pdf",
+        }, function() utils.quick_notification("Compiled " .. filename) end)
+      end,
+      desc = "Compile Beamer",
+    },
+    ["<leader>mp"] = {
+      function()
+        local pdf_path = vim.fn.expand "%:r" .. ".pdf"
+        if vim.fn.filereadable(pdf_path) == 1 then vim.fn.jobstart { "pdfpc", pdf_path } end
+      end,
+      desc = "Present Output",
+    },
+    ["<leader>ml"] = { function() utils.toggle_qf() end, desc = "Logs" },
+    ["<leader>mt"] = { "<cmd>TexlabBuild<cr>", desc = "LaTeX" },
+    ["<leader>mf"] = { "<cmd>TexlabForward<cr>", desc = "Forward Search" },
   },
   i = {
     -- type template string
     ["<C-CR>"] = { "<++>", desc = "Insert template string" },
     ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
+    -- date/time input
+    ["<c-d>"] = { name = "Date/Time" },
+    ["<c-d>n"] = { "<c-r>=strftime('%Y-%m-%d')<cr>", desc = "Y-m-d" },
+    ["<c-d>x"] = { "<c-r>=strftime('%m/%d/%y')<cr>", desc = "m/d/y" },
+    ["<c-d>f"] = { "<c-r>=strftime('%B %d, %Y')<cr>", desc = "B d, Y" },
+    ["<c-d>X"] = { "<c-r>=strftime('%H:%M')<cr>", desc = "H:M" },
+    ["<c-d>F"] = { "<c-r>=strftime('%H:%M:%S')<cr>", desc = "H:M:S" },
+    ["<c-d>d"] = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", desc = "Y/m/d H:M:S -" },
   },
   v = {
     -- navigating wrapped lines
@@ -82,103 +165,5 @@ for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", 
       { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
   end
 end
-
---== WHICH-KEY MAPPINGS ==--
-local utils = require "user.utils"
-local wk = require "which-key"
-wk.register({
-  r = { "<cmd>SendHere<cr>", "Set REPL" },
-  n = { "<cmd>enew<cr>", "New File" },
-  N = { "<cmd>tabnew<cr>", "New Tab" },
-  ["<cr>"] = { '<esc>/<++><cr>"_c4l', "Next Template" },
-  ["."] = { "<cmd>cd %:p:h<cr>", "Set CWD" },
-
-  a = {
-    name = "Annotate",
-    ["<cr>"] = { function() require("neogen").generate() end, "Current" },
-    c = { function() require("neogen").generate { type = "class" } end, "Class" },
-    f = { function() require("neogen").generate { type = "func" } end, "Function" },
-    t = { function() require("neogen").generate { type = "type" } end, "Type" },
-    F = { function() require("neogen").generate { type = "file" } end, "File" },
-  },
-
-  f = {
-    name = "Telescope",
-    ["?"] = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    ["'"] = { "<cmd>Telescope marks<cr>", "Marks" },
-    B = { "<cmd>Telescope bibtex<cr>", "BibTeX" },
-    e = { "<cmd>Telescope file_browser<cr>", "Explorer" },
-    h = { "<cmd>Telescope oldfiles<cr>", "History" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    M = { "<cmd>Telescope media_files<cr>", "Media" },
-    n = { "<cmd>Telescope notify<cr>", "Notifications" },
-    p = { "<cmd>Telescope project<cr>", "Projects" },
-    r = { "<cmd>Telescope registers<cr>", "Registers" },
-    t = { "<cmd>Telescope colorscheme<cr>", "Themes" },
-  },
-
-  m = {
-    name = "Compiler",
-    k = {
-      function()
-        vim.cmd "silent! write"
-        local filename = vim.fn.expand "%:t"
-        utils.async_run(
-          { "compiler", vim.fn.expand "%:p" },
-          function() utils.quick_notification("Compiled " .. filename) end
-        )
-      end,
-      "Compile",
-    },
-    a = {
-      function()
-        vim.notify "Autocompile Started"
-        utils.async_run(
-          { "autocomp", vim.fn.expand "%:p" },
-          function() utils.quick_notification "Autocompile stopped" end
-        )
-      end,
-      "Auto Compile",
-    },
-    v = { function() vim.fn.jobstart { "opout", vim.fn.expand "%:p" } end, "View Output" },
-    b = {
-      function()
-        local filename = vim.fn.expand "%:t"
-        utils.async_run({
-          "pandoc",
-          vim.fn.expand "%",
-          "--pdf-engine=xelatex",
-          "--variable",
-          "urlcolor=blue",
-          "-t",
-          "beamer",
-          "-o",
-          vim.fn.expand "%:r" .. ".pdf",
-        }, function() utils.quick_notification("Compiled " .. filename) end)
-      end,
-      "Compile Beamer",
-    },
-    p = {
-      function()
-        local pdf_path = vim.fn.expand "%:r" .. ".pdf"
-        if vim.fn.filereadable(pdf_path) == 1 then vim.fn.jobstart { "pdfpc", pdf_path } end
-      end,
-      "Present Output",
-    },
-    l = { function() utils.toggle_qf() end, "Logs" },
-    t = { "<cmd>TexlabBuild<cr>", "LaTeX" },
-    f = { "<cmd>TexlabForward<cr>", "Forward Search" },
-  },
-}, { mode = "n", prefix = "<leader>" })
-
-wk.register({
-  n = { "<c-r>=strftime('%Y-%m-%d')<cr>", "Y-m-d" },
-  x = { "<c-r>=strftime('%m/%d/%y')<cr>", "m/d/y" },
-  f = { "<c-r>=strftime('%B %d, %Y')<cr>", "B d, Y" },
-  X = { "<c-r>=strftime('%H:%M')<cr>", "H:M" },
-  F = { "<c-r>=strftime('%H:%M:%S')<cr>", "H:M:S" },
-  d = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", "Y/m/d H:M:S -" },
-}, { mode = "i", prefix = "<c-d>" })
 
 return mappings
