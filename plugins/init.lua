@@ -1,4 +1,5 @@
 return {
+
   ["goolord/alpha-nvim"] = { enabled = false },
   ["max397574/better-escape.nvim"] = { enabled = false },
 
@@ -6,6 +7,11 @@ return {
     dependencies = {
       ["andymass/vim-matchup"] = {},
       ["nvim-treesitter/nvim-treesitter-textobjects"] = {},
+    },
+  },
+  ["neovim/nvim-lspconfig"] = {
+    dependencies = {
+      ["folke/neoconf.nvim"] = { cmd = "Neoconf", config = true },
     },
   },
   ["hrsh7th/nvim-cmp"] = {
