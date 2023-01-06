@@ -45,22 +45,18 @@ return {
       telescope.load_extension "project"
     end,
   },
-  ["jose-elias-alvarez/null-ls.nvim"] = {
-    dependencies = {
-      ["jayp0521/mason-null-ls.nvim"] = {
-        config = function()
-          require "configs.mason-null-ls"
-          local null_ls = require "null-ls"
-          require("mason-null-ls").setup_handlers {
-            prettierd = function()
-              null_ls.register(
-                null_ls.builtins.formatting.prettierd.with { extra_filetypes = { "markdown", "rmd", "qmd" } }
-              )
-            end,
-          }
+  ["jayp0521/mason-null-ls.nvim"] = {
+    config = function()
+      require "configs.mason-null-ls"
+      local null_ls = require "null-ls"
+      require("mason-null-ls").setup_handlers {
+        prettierd = function()
+          null_ls.register(
+            null_ls.builtins.formatting.prettierd.with { extra_filetypes = { "markdown", "rmd", "qmd" } }
+          )
         end,
-      },
-    },
+      }
+    end,
   },
 
   ["EdenEast/nightfox.nvim"] = { config = require "user.plugins.nightfox" },
