@@ -18,6 +18,11 @@ local mappings = {
     ["<leader>sn"] = false,
     ["<leader>sr"] = false,
     ["q:"] = "<Nop>",
+    -- better buffer navigation
+    ["]b"] = false,
+    ["[b"] = false,
+    ["<S-l>"] = { function() astronvim.nav_buf(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" },
+    ["<S-h>"] = { function() astronvim.nav_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer" },
     -- navigating wrapped lines
     j = { "gj", desc = "Navigate down" },
     k = { "gk", desc = "Navigate down" },
