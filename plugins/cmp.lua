@@ -1,5 +1,11 @@
 return {
   "hrsh7th/nvim-cmp",
+  dependencies = {
+    "hrsh7th/cmp-calc",
+    "hrsh7th/cmp-emoji",
+    "jc-doyle/cmp-pandoc-references",
+    "kdheepak/cmp-latex-symbols",
+  },
   opts = function(_, opts)
     local cmp = require "cmp"
     local luasnip = require "luasnip"
@@ -32,10 +38,4 @@ return {
       },
     }, opts)
   end,
-  dependencies = {
-    "hrsh7th/cmp-calc",
-    "hrsh7th/cmp-emoji",
-    "jc-doyle/cmp-pandoc-references",
-    "kdheepak/cmp-latex-symbols",
-  },
 }

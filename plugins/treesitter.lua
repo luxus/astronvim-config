@@ -1,5 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    "andymass/vim-matchup",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
   opts = {
     auto_install = vim.fn.executable "tree-sitter" == 1,
     highlight = { disable = { "help" } },
@@ -74,9 +78,5 @@ return {
         },
       },
     },
-  },
-  dependencies = {
-    "andymass/vim-matchup",
-    "nvim-treesitter/nvim-treesitter-textobjects",
   },
 }
