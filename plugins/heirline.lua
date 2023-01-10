@@ -20,8 +20,17 @@ return {
             args.sign = self.signs[sign]
             vim.api.nvim_set_current_win(args.mousepos.winid)
             vim.api.nvim_win_set_cursor(0, { args.mousepos.line, 0 })
+            vim.pretty_print(args)
             return args
           end,
+          handlers = {
+            number = function(args)
+              if args.button == "m" then
+                local dap_avail, dap = pcall(require, "dap")
+                if dap_avail then dap.toggle_breakpoint() end
+              end
+            end,
+          },
         },
         init = function(self)
           -- initialize sign lookup table
@@ -31,15 +40,17 @@ return {
           end
 
           -- setup sign handlers
-          if not self.sign_handlers then self.sign_handlers = {} end
+          if not self.handlers then self.handlers = {} end
+          -- gitsigns handlers
           local gitsigns = function(_)
             local gitsigns_avail, gitsigns = pcall(require, "gitsigns")
             if gitsigns_avail then vim.schedule(gitsigns.preview_hunk) end
           end
           for _, sign in ipairs { "Topdelete", "Untracked", "Add", "Changedelete", "Delete" } do
             local name = "GitSigns" .. sign
-            if not self.sign_handlers[name] then self.sign_handlers[name] = gitsigns end
+            if not self.handlers[name] then self.handlers[name] = gitsigns end
           end
+          -- diagnostic handlers
           local diagnostics = function(args)
             if args.button == "l" then
               vim.schedule(vim.diagnostic.open_float)
@@ -49,15 +60,16 @@ return {
           end
           for _, sign in ipairs { "Error", "Hint", "Info", "Warn" } do
             local name = "DiagnosticSign" .. sign
-            if not self.sign_handlers[name] then self.sign_handlers[name] = diagnostics end
+            if not self.handlers[name] then self.handlers[name] = diagnostics end
           end
+          -- DAP handlers
           local dap_breakpoint = function(_)
             local dap_avail, dap = pcall(require, "dap")
             if dap_avail then vim.schedule(dap.toggle_breakpoint) end
           end
           for _, sign in ipairs { "", "Rejected", "Condition" } do
             local name = "DapBreakpoint" .. sign
-            if not self.sign_handlers[name] then self.sign_handlers[name] = dap_breakpoint end
+            if not self.handlers[name] then self.handlers[name] = dap_breakpoint end
           end
         end,
         condition = function() return vim.opt.number:get() or vim.opt.relativenumber:get() end,
@@ -77,11 +89,7 @@ return {
           on_click = {
             name = "line_click",
             callback = function(self, ...)
-              local args = self.click_args(self, ...)
-              if args.button == "m" then
-                local dap_avail, dap = pcall(require, "dap")
-                if dap_avail then dap.toggle_breakpoint() end
-              end
+              if self.handlers.number then self.handlers.number(self.click_args(self, ...)) end
             end,
           },
         },
@@ -92,19 +100,13 @@ return {
             name = "sign_click",
             callback = function(self, ...)
               local args = self.click_args(self, ...)
-              if args.sign and args.sign.name and self.sign_handlers[args.sign.name] then
-                self.sign_handlers[args.sign.name](args)
+              if args.sign and args.sign.name and self.handlers[args.sign.name] then
+                self.handlers[args.sign.name](args)
               end
             end,
           },
         },
-        {
-          provider = "%C",
-          on_click = {
-            name = "fold_click",
-            callback = function(self, ...) local args = self.click_args(self, ...) end,
-          },
-        },
+        { provider = "%C" },
       }
     end
     return opts
