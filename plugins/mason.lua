@@ -21,7 +21,7 @@ return {
     },
   },
   {
-    "jayp0521/mason-null-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
     opts = {
       ensure_installed = {
         "shellcheck",
@@ -46,7 +46,7 @@ return {
     end,
   },
   {
-    "jayp0521/mason-nvim-dap.nvim",
+    "jay-babu/mason-nvim-dap.nvim",
     opts = {
       ensure_installed = {
         "bash",
