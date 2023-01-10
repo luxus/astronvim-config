@@ -3,7 +3,6 @@ return {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
   } },
   "nanotee/sqls.nvim",
-  { "lvimuser/lsp-inlayhints.nvim", config = true },
   {
     "jose-elias-alvarez/typescript.nvim",
     dependencies = { "mason-lspconfig.nvim" },
@@ -14,6 +13,6 @@ return {
     "p00f/clangd_extensions.nvim",
     dependencies = { "mason-lspconfig.nvim" },
     ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-    opts = function() return { server = astronvim.lsp.server_settings "clangd", extensions = { autoSetHints = false } } end,
+    opts = function() return { server = astronvim.lsp.server_settings "clangd" } end,
   },
 }
