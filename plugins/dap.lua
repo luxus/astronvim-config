@@ -4,7 +4,7 @@ return {
     { "mxsdev/nvim-dap-vscode-js", opts = { debugger_cmd = { "js-debug-adapter" }, adapters = { "pwa-node" } } },
     { "theHamsta/nvim-dap-virtual-text", config = true },
   },
-  config = function(plugin, opts)
+  config = function()
     local dap = require "dap"
 
     local attach_node = {
