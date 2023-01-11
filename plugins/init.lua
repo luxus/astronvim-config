@@ -7,6 +7,14 @@ return {
   { "akinsho/toggleterm.nvim", opts = { terminal_mappings = false } },
   { "folke/which-key.nvim", opts = { window = { border = "none" } } },
 
+  -- LSP Settings
+  "nanotee/sqls.nvim",
+  "jose-elias-alvarez/typescript.nvim",
+  "p00f/clangd_extensions.nvim",
+  { "neovim/nvim-lspconfig", dependencies = {
+    { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+  } },
+
   {
     "arsham/indent-tools.nvim",
     dependencies = { "arsham/arshlib.nvim" },
