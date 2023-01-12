@@ -44,12 +44,11 @@ local mappings = {
     ["<leader>af"] = { function() require("neogen").generate { type = "func" } end, desc = "Function" },
     ["<leader>at"] = { function() require("neogen").generate { type = "type" } end, desc = "Type" },
     ["<leader>aF"] = { function() require("neogen").generate { type = "file" } end, desc = "File" },
-    -- telescope
+    -- telescope plugin mappings
     ["<leader>fB"] = { "<cmd>Telescope bibtex<cr>", desc = "Find BibTeX" },
     ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
     ["<leader>fM"] = { "<cmd>Telescope media_files<cr>", desc = "Find media" },
     ["<leader>fp"] = { "<cmd>Telescope project<cr>", desc = "Find projects" },
-    ["<leader>ft"] = { "<cmd>Telescope colorscheme<cr>", desc = "Find themes" },
     -- compiler
     ["<leader>m"] = { name = "Compiler" },
     ["<leader>mk"] = {
