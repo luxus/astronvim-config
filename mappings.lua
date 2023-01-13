@@ -8,7 +8,7 @@ local mappings = {
     ["<C-Up>"] = false,
     ["<C-q>"] = false,
     ["<C-s>"] = false,
-    ["q:"] = "<Nop>",
+    ["q:"] = ":",
     -- better buffer navigation
     ["]b"] = false,
     ["[b"] = false,
