@@ -9,7 +9,7 @@ return {
   opts = function(_, opts)
     local cmp = require "cmp"
     local luasnip = require "luasnip"
-    return astronvim.default_tbl(opts, {
+    return astronvim.extend_tbl(opts, {
       sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
         { name = "luasnip", priority = 750 },
