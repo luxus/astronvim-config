@@ -19,7 +19,7 @@ return {
       local out = {}
       local i = 1
       for lhs, def in
-        pairs(astronvim.default_tbl({
+        pairs(astronvim.default_tbl(maps, {
           [prefix .. "q"] = { "<cmd>DiffviewClose<cr>", desc = "Quit Diffview" }, -- Toggle the file panel.
           ["]D"] = { actions.select_next_entry, desc = "Next Difference" }, -- Open the diff for the next file
           ["[D"] = { actions.select_prev_entry, desc = "Previous Difference" }, -- Open the diff for the previous file
@@ -29,7 +29,7 @@ return {
           ["Ct"] = { actions.listing_style, desc = "Cycle Tree Style" }, -- Cycle through available layouts.
           ["<leader>e"] = { actions.toggle_files, desc = "Toggle Explorer" }, -- Toggle the file panel.
           ["<leader>o"] = { actions.focus_files, desc = "Focus Explorer" }, -- Bring focus to the file panel
-        }, maps))
+        }))
       do
         local opts
         local rhs = def
