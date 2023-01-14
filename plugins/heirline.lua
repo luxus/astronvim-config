@@ -30,6 +30,21 @@ return {
                 if dap_avail then dap.toggle_breakpoint() end
               end
             end,
+            fold = function(args)
+              local lnum = args.mousepos.line
+
+              -- Only lines with a mark should be clickable
+              if vim.fn.foldlevel(lnum) <= vim.fn.foldlevel(lnum - 1) then return end
+
+              local state
+              if vim.fn.foldclosed(lnum) == -1 then
+                state = "close"
+              else
+                state = "open"
+              end
+
+              vim.cmd.execute("'" .. lnum .. "fold" .. state .. "'")
+            end,
           },
         },
         init = function(self)
@@ -106,7 +121,32 @@ return {
             end,
           },
         },
-        { provider = "%C" },
+        {
+          provider = function()
+            local lnum = vim.v.lnum
+            local icon = " "
+
+            -- Line isn't in folding range
+            if vim.fn.foldlevel(lnum) <= 0 then return icon end
+
+            -- Not the first line of folding range
+            if vim.fn.foldlevel(lnum) <= vim.fn.foldlevel(lnum - 1) then return icon end
+
+            if vim.fn.foldclosed(lnum) == -1 then
+              icon = ""
+            else
+              icon = ""
+            end
+
+            return icon .. " "
+          end,
+          on_click = {
+            name = "fold_click",
+            callback = function(self, ...)
+              if self.handlers.fold then self.handlers.fold(self.click_args(self, ...)) end
+            end,
+          },
+        },
       }
     end
     return opts
