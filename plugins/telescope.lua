@@ -6,6 +6,8 @@ return {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-media-files.nvim",
     "nvim-telescope/telescope-project.nvim",
+    "debugloop/telescope-undo.nvim",
+    "jvgrootveld/telescope-zoxide",
   },
   opts = function(_, opts)
     local telescope = require "telescope"
@@ -76,5 +78,7 @@ return {
     telescope.load_extension "file_browser"
     telescope.load_extension "media_files"
     telescope.load_extension "project"
+    telescope.load_extension "undo"
+    telescope.load_extension "zoxide"
   end,
 }

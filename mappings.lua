@@ -12,8 +12,22 @@ local mappings = {
     -- better buffer navigation
     ["]b"] = false,
     ["[b"] = false,
-    ["<S-l>"] = { function() astronvim.nav_buf(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" },
-    ["<S-h>"] = { function() astronvim.nav_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer" },
+
+    ["<S-l>"] = {
+      function() astronvim.nav_buf(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    ["<S-h>"] = {
+      function() astronvim.nav_buf(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
+    ["<CR>"] = { function() astronvim.ui.toggle_tabline() end, desc = "Toggle tabline" },
+    -- open buffers
+    ["<tab>"] = {
+      "<cmd>lua require('telescope.builtin').buffers({previewer = false, initial_mode='normal'})<cr>",
+    },
+    ["<leader>R"] = { ":IncRename ", desc = "Rename" },
+    ["<leader>v"] = { "<cmd>lua require('lsp_lines').toggle()<CR>", desc = "識LSP Lines" },
     -- navigating wrapped lines
     j = { "gj", desc = "Navigate down" },
     k = { "gk", desc = "Navigate down" },
@@ -24,14 +38,52 @@ local mappings = {
     ["-"] = { "<c-x>", desc = "Descrement number" },
     ["+"] = { "<c-a>", desc = "Increment number" },
     -- resize with arrows
-    ["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
-    ["<Down>"] = { function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
-    ["<Left>"] = { function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
-    ["<Right>"] = { function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
+    ["<Up>"] = {
+      function() require("smart-splits").resize_up(2) end,
+      desc = "Resize split up",
+    },
+    ["<Down>"] = {
+      function() require("smart-splits").resize_down(2) end,
+      desc = "Resize split down",
+    },
+    ["<Left>"] = {
+      function() require("smart-splits").resize_left(2) end,
+      desc = "Resize split left",
+    },
+    ["<Right>"] = {
+      function() require("smart-splits").resize_right(2) end,
+      desc = "Resize split right",
+    },
+    --FIX: looks like there is no "has"
+    -- ["gK"] = { vim.lsp.buf.signature_help, { desc = "Signature Help", has = "signatureHelp" } },
+
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
-    -- vim-sandwich
-    ["s"] = "<Nop>",
+    ["<leader> "] = {
+      function() require("grapple").popup_tags() end,
+      desc = "Grapple",
+    },
+    ["<leader>A"] = {
+      function() require("grapple").toggle() end,
+      desc = "Tag in Grapple",
+    },
+    ["<leader>1"] = {
+      function() require("grapple").select { key = 1 } end,
+      desc = "Grapple 1",
+    },
+    ["<leader>2"] = {
+      function() require("grapple").select { key = 2 } end,
+      desc = "Grapple 2",
+    },
+    ["<leader>3"] = {
+      function() require("grapple").select { key = 3 } end,
+      desc = "Grapple 3",
+    },
+    ["<leader>4"] = {
+      function() require("grapple").select { key = 4 } end,
+      desc = "Grapple 4",
+    },
+
     ["<leader>r"] = { "<cmd>SendHere<cr>", desc = "Set REPL" },
     ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
@@ -39,11 +91,26 @@ local mappings = {
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
     -- neogen
     ["<leader>a"] = { name = "Annotate" },
-    ["<leader>a<cr>"] = { function() require("neogen").generate() end, desc = "Current" },
-    ["<leader>ac"] = { function() require("neogen").generate { type = "class" } end, desc = "Class" },
-    ["<leader>af"] = { function() require("neogen").generate { type = "func" } end, desc = "Function" },
-    ["<leader>at"] = { function() require("neogen").generate { type = "type" } end, desc = "Type" },
-    ["<leader>aF"] = { function() require("neogen").generate { type = "file" } end, desc = "File" },
+    ["<leader>a<cr>"] = {
+      function() require("neogen").generate { type = "current" } end,
+      desc = "Current",
+    },
+    ["<leader>ac"] = {
+      function() require("neogen").generate { type = "class" } end,
+      desc = "Class",
+    },
+    ["<leader>af"] = {
+      function() require("neogen").generate { type = "func" } end,
+      desc = "Function",
+    },
+    ["<leader>at"] = {
+      function() require("neogen").generate { type = "type" } end,
+      desc = "Type",
+    },
+    ["<leader>aF"] = {
+      function() require("neogen").generate { type = "file" } end,
+      desc = "File",
+    },
     -- telescope plugin mappings
     ["<leader>fB"] = { "<cmd>Telescope bibtex<cr>", desc = "Find BibTeX" },
     ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
@@ -72,7 +139,10 @@ local mappings = {
       end,
       desc = "Auto Compile",
     },
-    ["<leader>mv"] = { function() vim.fn.jobstart { "opout", vim.fn.expand "%:p" } end, desc = "View Output" },
+    ["<leader>mv"] = {
+      function() vim.fn.jobstart { "opout", vim.fn.expand "%:p" } end,
+      desc = "View Output",
+    },
     ["<leader>mb"] = {
       function()
         local filename = vim.fn.expand "%:t"
@@ -97,11 +167,22 @@ local mappings = {
       end,
       desc = "Present Output",
     },
-    ["<leader>ml"] = { function() utils.toggle_qf() end, desc = "Logs" },
+    ["<leader>ml"] = {
+      function() utils.toggle_qf() end,
+      desc = "Logs",
+    },
     ["<leader>mt"] = { "<cmd>TexlabBuild<cr>", desc = "LaTeX" },
     ["<leader>mf"] = { "<cmd>TexlabForward<cr>", desc = "Forward Search" },
+    ["<leader>fu"] = { "<cmd>Telescope undo<cr>", desc = "Undo" },
+    ["<leader>fz"] = { "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
+    ["<C-h>"] = { "<CMD>NavigatorLeft<CR>", desc = "Navigate Left" },
+    ["<C-l>"] = { "<CMD>NavigatorRight<CR>", desc = "Navigate Right" },
+    ["<C-k>"] = { "<CMD>NavigatorUp<CR>", desc = "Navigate Up" },
+    ["<C-j>"] = { "<CMD>NavigatorDown<CR>", desc = "Navigate Down" },
+    ["<C-P>"] = { "<CMD>NavigatorPrevious<CR>", desc = "Navigate Previous" },
   },
   i = {
+    -- ["<c-k>"] = { vim.lsp.buf.signature_help, { desc = "Signature Help", has = "signatureHelp" } },
     -- type template string
     ["<C-CR>"] = { "<++>", desc = "Insert template string" },
     ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
@@ -128,13 +209,11 @@ local mappings = {
     -- better increment/decrement
     ["+"] = { "g<C-a>", desc = "Increment number" },
     ["-"] = { "g<C-x>", desc = "Descrement number" },
-    -- line text-objects
-    ["il"] = { "g_o^", desc = "Inside line text object" },
-    ["al"] = { "$o^", desc = "Around line text object" },
+    -- -- line text-objects
+    -- ["il"] = { "g_o^", desc = "Inside line text object" },
+    -- ["al"] = { "$o^", desc = "Around line text object" },
     -- Easy-Align
     ga = { "<Plug>(EasyAlign)", desc = "Easy Align" },
-    -- vim-sandwich
-    ["s"] = "<Nop>",
   },
   o = {
     -- line text-objects

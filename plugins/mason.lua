@@ -9,7 +9,7 @@ return {
         "html",
         "intelephense",
         "marksman",
-        "neocmake",
+        -- "neocmake",
         "jsonls",
         "pyright",
         "sqls",
@@ -19,6 +19,23 @@ return {
         "yamlls",
       },
     },
+  },
+  -- formatters
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = "BufReadPre",
+    dependencies = { "mason.nvim" },
+    opts = function()
+      local nls = require "null-ls"
+      return {
+        on_attach = astronvim.lsp.on_attach,
+        sources = {
+          nls.builtins.code_actions.statix,
+          nls.builtins.formatting.alejandra,
+          nls.builtins.diagnostics.deadnix,
+        },
+      }
+    end,
   },
   {
     "jay-babu/mason-null-ls.nvim",

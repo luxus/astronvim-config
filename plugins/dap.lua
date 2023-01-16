@@ -1,4 +1,6 @@
 return {
+  -- https://github.com/rcarriga/nvim-dap-ui
+  { "rcarriga/nvim-dap-ui", event = "BufRead", config = true },
   "mfussenegger/nvim-dap",
   dependencies = {
     { "mxsdev/nvim-dap-vscode-js", opts = { debugger_cmd = { "js-debug-adapter" }, adapters = { "pwa-node" } } },
