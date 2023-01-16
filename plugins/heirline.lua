@@ -89,6 +89,29 @@ return {
         end,
         condition = function() return vim.opt.number:get() or vim.opt.relativenumber:get() end,
         {
+          condition = function() return vim.opt.foldcolumn:get() ~= "0" end,
+          provider = function()
+            local lnum = vim.v.lnum
+            local icon = " "
+
+            if vim.fn.foldlevel(lnum) > vim.fn.foldlevel(lnum - 1) then
+              if vim.fn.foldclosed(lnum) == -1 then
+                icon = ""
+              else
+                icon = ""
+              end
+            end
+
+            return icon .. " "
+          end,
+          on_click = {
+            name = "fold_click",
+            callback = function(self, ...)
+              if self.handlers.fold then self.handlers.fold(self.click_args(self, ...)) end
+            end,
+          },
+        },
+        {
           provider = function()
             local str = "%="
             local num, relnum = vim.opt.number:get(), vim.opt.relativenumber:get()
@@ -108,9 +131,8 @@ return {
             end,
           },
         },
-        { provider = " " },
         {
-          provider = "%s",
+          provider = " %s",
           on_click = {
             name = "sign_click",
             callback = function(self, ...)
@@ -118,32 +140,6 @@ return {
               if args.sign and args.sign.name and self.handlers[args.sign.name] then
                 self.handlers[args.sign.name](args)
               end
-            end,
-          },
-        },
-        {
-          provider = function()
-            local lnum = vim.v.lnum
-            local icon = " "
-
-            -- Line isn't in folding range
-            if vim.fn.foldlevel(lnum) <= 0 then return icon end
-
-            -- Not the first line of folding range
-            if vim.fn.foldlevel(lnum) <= vim.fn.foldlevel(lnum - 1) then return icon end
-
-            if vim.fn.foldclosed(lnum) == -1 then
-              icon = ""
-            else
-              icon = ""
-            end
-
-            return icon .. " "
-          end,
-          on_click = {
-            name = "fold_click",
-            callback = function(self, ...)
-              if self.handlers.fold then self.handlers.fold(self.click_args(self, ...)) end
             end,
           },
         },
