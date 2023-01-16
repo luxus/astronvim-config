@@ -25,25 +25,15 @@ return {
           end,
           handlers = {
             number = function(args)
-              if args.button == "m" then
+              if args.mods:find "c" then
                 local dap_avail, dap = pcall(require, "dap")
-                if dap_avail then dap.toggle_breakpoint() end
+                if dap_avail then vim.schedule(dap.toggle_breakpoint) end
               end
             end,
             fold = function(args)
               local lnum = args.mousepos.line
-
-              -- Only lines with a mark should be clickable
               if vim.fn.foldlevel(lnum) <= vim.fn.foldlevel(lnum - 1) then return end
-
-              local state
-              if vim.fn.foldclosed(lnum) == -1 then
-                state = "close"
-              else
-                state = "open"
-              end
-
-              vim.cmd.execute("'" .. lnum .. "fold" .. state .. "'")
+              vim.cmd.execute("'" .. lnum .. "fold" .. (vim.fn.foldclosed(lnum) == -1 and "close" or "open") .. "'")
             end,
           },
         },
@@ -67,10 +57,10 @@ return {
           end
           -- diagnostic handlers
           local diagnostics = function(args)
-            if args.button == "l" then
-              vim.schedule(vim.diagnostic.open_float)
-            elseif args.button == "m" then
+            if args.mods:find "c" then
               vim.schedule(vim.lsp.buf.code_action)
+            else
+              vim.schedule(vim.diagnostic.open_float)
             end
           end
           for _, sign in ipairs { "Error", "Hint", "Info", "Warn" } do
@@ -87,22 +77,13 @@ return {
             if not self.handlers[name] then self.handlers[name] = dap_breakpoint end
           end
         end,
-        condition = function() return vim.opt.number:get() or vim.opt.relativenumber:get() end,
         {
           condition = function() return vim.opt.foldcolumn:get() ~= "0" end,
           provider = function()
             local lnum = vim.v.lnum
-            local icon = " "
-
-            if vim.fn.foldlevel(lnum) > vim.fn.foldlevel(lnum - 1) then
-              if vim.fn.foldclosed(lnum) == -1 then
-                icon = ""
-              else
-                icon = ""
-              end
-            end
-
-            return icon .. " "
+            return vim.fn.foldlevel(lnum) > vim.fn.foldlevel(lnum - 1)
+                and (vim.fn.foldclosed(lnum) == -1 and "" or "")
+              or " "
           end,
           on_click = {
             name = "fold_click",
@@ -112,6 +93,7 @@ return {
           },
         },
         {
+          condition = function() return vim.opt.number:get() or vim.opt.relativenumber:get() end,
           provider = function()
             local str = "%="
             local num, relnum = vim.opt.number:get(), vim.opt.relativenumber:get()
@@ -122,7 +104,7 @@ return {
             else
               str = str .. "%{v:relnum?v:relnum:v:lnum}"
             end
-            return str
+            return str .. " "
           end,
           on_click = {
             name = "line_click",
@@ -132,7 +114,7 @@ return {
           },
         },
         {
-          provider = " %s",
+          provider = "%s",
           on_click = {
             name = "sign_click",
             callback = function(self, ...)
