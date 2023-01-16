@@ -1,10 +1,6 @@
 return {
   opt = {
     conceallevel = 2, -- enable conceal
-    foldenable = true,
-    foldcolumn = "1",
-    foldlevel = 99,
-    foldlevelstart = 99,
     linebreak = true, -- linebreak soft wrap at words
     list = true, -- show whitespace characters
     listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
