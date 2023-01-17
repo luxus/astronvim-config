@@ -26,7 +26,7 @@ local mappings = {
     ["<tab>"] = {
       "<cmd>lua require('telescope.builtin').buffers({previewer = false, initial_mode='normal'})<cr>",
     },
-    ["<leader>R"] = { ":IncRename ", desc = "Rename" },
+    ["<leader>R"] = { "<cmd>IncRename<cr>", desc = "Rename" },
     ["<leader>v"] = { "<cmd>lua require('lsp_lines').toggle()<CR>", desc = "識LSP Lines" },
     -- navigating wrapped lines
     j = { "gj", desc = "Navigate down" },
@@ -34,9 +34,7 @@ local mappings = {
     -- better search
     n = { require("user.utils").better_search "n", desc = "Next search" },
     N = { require("user.utils").better_search "N", desc = "Previous search" },
-    -- better increment/decrement
-    ["-"] = { "<c-x>", desc = "Descrement number" },
-    ["+"] = { "<c-a>", desc = "Increment number" },
+
     -- resize with arrows
     ["<Up>"] = {
       function() require("smart-splits").resize_up(2) end,

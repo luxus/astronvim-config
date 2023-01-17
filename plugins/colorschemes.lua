@@ -7,6 +7,10 @@ return {
         "folke/tokyonight.nvim",
         opts = { style = "moon" },
       },
+      { "ray-x/starry.nvim" },
+      {
+        "echasnovski/mini.base16",
+      },
 
       -- catppuccin
       {
@@ -45,11 +49,11 @@ return {
     event = "VimEnter",
     config = function()
       require("sunset").setup {
-        latitude = 48.57417172487304,
-        longitude = 8.519202729579861,
+        latitude = 48.57,
+        longitude = 8.51,
         day_callback = function() vim.cmd "colorscheme dayfox" end,
         -- night_callback = function() vim.cmd "colorscheme tokyonight-moon" end,
-        night_callback = function() vim.cmd "colorscheme nightfox" end,
+        night_callback = function() vim.cmd "colorscheme middlenight_blue" end,
       }
     end,
   },

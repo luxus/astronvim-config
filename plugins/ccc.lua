@@ -4,5 +4,6 @@ return { -- switch from colorizer to ccc
     "uga-rosa/ccc.nvim",
     event = "BufRead",
     config = function() require("ccc").setup { highlighter = { auto_enable = true } } end,
+    keys = { { "<leader>C", "<cmd>CccPick<cr>", desc = "Toggle colorizer" } },
   },
 }
