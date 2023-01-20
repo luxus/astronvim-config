@@ -1,4 +1,11 @@
 return {
+  {
+    "onsails/lspkind.nvim",
+    opts = {
+      symbol_map = { Copilot = "" },
+      max_width = 50,
+    },
+  },
   -- snippets
   {
     "L3MON4D3/LuaSnip",
@@ -13,6 +20,7 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    enabled = true,
     dependencies = {
       {
         "zbirenbaum/copilot-cmp",
@@ -62,13 +70,7 @@ return {
           { name = "path", priority = 500 },
           { name = "buffer", priority = 250 },
         },
-        formatting = {
-          format = lspkind.cmp_format {
-            mode = "symbol",
-            max_width = 50,
-            symbol_map = { Copilot = "" },
-          },
-        },
+
         --FIX: for copilot, that it removes the old text
         mapping = {
           ["<C-n>"] = next_item,

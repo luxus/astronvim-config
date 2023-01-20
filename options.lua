@@ -15,6 +15,7 @@ return {
     termguicolors = true, -- True color support
     splitright = true, -- Put new windows right of current
     splitbelow = true, -- Put new windows below current
+    timeoutlen = 200,
   },
   g = {
     lsp_handlers_enabled = false,
