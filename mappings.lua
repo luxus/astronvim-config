@@ -80,14 +80,14 @@ local mappings = {
   },
 }
 
--- add more text objects for "in" and "around"
-for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
-  for _, mode in ipairs { "x", "o" } do
-    mappings[mode]["i" .. char] =
-      { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
-    mappings[mode]["a" .. char] =
-      { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
-  end
-end
+-- -- add more text objects for "in" and "around"
+-- for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
+--   for _, mode in ipairs { "x", "o" } do
+--     mappings[mode]["i" .. char] =
+--       { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
+--     mappings[mode]["a" .. char] =
+--       { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
+--   end
+-- end
 
 return mappings
