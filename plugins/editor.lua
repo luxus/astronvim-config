@@ -1,14 +1,19 @@
 return {
-  { "akinsho/toggleterm.nvim", opts = { terminal_mappings = false } },
-  { "folke/which-key.nvim", opts = { window = { border = "none" } } },
+
+  -- disable some stuff
   { "numToStr/Comment.nvim", enabled = false },
   { "windwp/nvim-autopairs", enabled = false },
   { "max397574/better-escape.nvim", enabled = false },
+  { "machakann/vim-sandwich", enabled = false },
   {
-    "machakann/vim-sandwich",
-    enabled = false,
-    init = function() table.insert(astronvim.file_plugins, "vim-sandwich") end,
+    "akinsho/toggleterm.nvim",
+    keys = {
+      { "<C-q>", mode = { "t" }, "<C-\\><C-n>", desc = "Terminal normal mode" },
+      { "<esc><esc>", mode = { "t" }, "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
+    },
+    opts = { terminal_mappings = false },
   },
+  { "folke/which-key.nvim", opts = { window = { border = "none" } } },
   --Jumping between the idents
   {
     "arsham/indent-tools.nvim",
@@ -30,11 +35,17 @@ return {
     "smjonas/inc-rename.nvim",
     cmd = "IncRename",
     config = true,
+    keys = {
+      {
+        "<leader>R",
+        "<cmd>IncRename<cr>",
+        desc = "Rename",
+      },
+    },
   },
   -- better increase/descrease
   {
     "monaqa/dial.nvim",
-    -- stylua: ignore
     keys = {
       { "<C-a>", function() return require("dial.map").inc_normal() end, expr = true, desc = "Increment" },
       { "<C-x>", function() return require("dial.map").dec_normal() end, expr = true, desc = "Decrement" },
@@ -71,6 +82,14 @@ return {
     "cbochs/grapple.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "VeryLazy",
+    keys = {
+      { "<leader> ", function() require("grapple").popup_tags() end, desc = "Grapple" },
+      { "<leader>A", function() require("grapple").toggle() end, desc = "Tag in Grapple" },
+      { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "Grapple 1" },
+      { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "Grapple 2" },
+      { "<leader>3", function() require("grapple").select { key = 3 } end, desc = "Grapple 3" },
+      { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "Grapple 4" },
+    },
   },
 
   -- auto pairs
@@ -123,12 +142,32 @@ return {
         typescriptreact = { template = { annotation_convention = "tsdoc" } },
       },
     },
+    keys = {
+      {
+        "<leader>a<cr>",
+        function() require("neogen").generate { type = "current" } end,
+        desc = "Current",
+      },
+      { "<leader>ac", function() require("neogen").generate { type = "class" } end, desc = "Class" },
+      { "<leader>af", function() require("neogen").generate { type = "func" } end, desc = "Function" },
+      { "<leader>at", function() require("neogen").generate { type = "type" } end, desc = "Type" },
+      { "<leader>aF", function() require("neogen").generate { type = "file" } end, desc = "File" },
+    },
   },
+  -- Looks like oil does support ssh without netman
+  -- { "miversen33/netman.nvim" },
   -- navigate splits including tmux and wezterm
   {
     "numToStr/Navigator.nvim",
     config = true,
     event = "VeryLazy",
+    keys = {
+      { "<C-h>", "<CMD>NavigatorLeft<CR>", desc = "Navigate Left" },
+      { "<C-l>", "<CMD>NavigatorRight<CR>", desc = "Navigate Right" },
+      { "<C-k>", "<CMD>NavigatorUp<CR>", desc = "Navigate Up" },
+      { "<C-j>", "<CMD>NavigatorDown<CR>", desc = "Navigate Down" },
+      { "<C-P>", "<CMD>NavigatorPrevious<CR>", desc = "Navigate Previous" },
+    },
   },
   -- better quick fix
   -- https://github.com/kevinhwang91/nvim-bqf
@@ -140,7 +179,13 @@ return {
   { "ThePrimeagen/refactoring.nvim", event = "BufRead", config = true },
   -- https://github.com/AckslD/nvim-neoclip.lua
   { "AckslD/nvim-neoclip.lua", event = "BufRead", config = true },
-  { "junegunn/vim-easy-align", init = function() table.insert(astronvim.file_plugins, "vim-easy-align") end },
+  {
+    "junegunn/vim-easy-align",
+    init = function() table.insert(astronvim.file_plugins, "vim-easy-align") end,
+    keys = {
+      { "ga", mode = { "x" }, "<Plug>(EasyAlign)", desc = "Easy Align" },
+    },
+  },
 
   {
     "m-demare/hlargs.nvim",
@@ -209,7 +254,6 @@ return {
     },
   },
   {
-    --FIX: keybindings are not working
     "echasnovski/mini.move",
     event = "VeryLazy",
     config = function(_, opts) require("mini.move").setup(opts) end,
@@ -244,8 +288,10 @@ return {
       require("mini.indentscope").setup(opts)
     end,
   },
+  -- still not using quickfix 😆
   -- https://github.com/kevinhwang91/nvim-bqf
-  { "kevinhwang91/nvim-bqf", event = "BufEnter", config = true },
+  -- { "kevinhwang91/nvim-bqf", event = "BufEnter", config = true },
+  -- don't use it yet
   -- https://github.com/ThePrimeagen/refactoring.nvim
   { "ThePrimeagen/refactoring.nvim", event = "BufRead", config = true },
   -- https://github.com/AckslD/nvim-neoclip.lua

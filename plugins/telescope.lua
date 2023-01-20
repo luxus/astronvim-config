@@ -9,6 +9,20 @@ return {
     "debugloop/telescope-undo.nvim",
     "jvgrootveld/telescope-zoxide",
   },
+  keys = {
+    -- telescope plugin mappings
+    { "<leader>fB", "<cmd>Telescope bibtex<cr>", desc = "Find BibTeX" },
+    { "<leader>fe", "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
+    { "<leader>fM", "<cmd>Telescope media_files<cr>", desc = "Find media" },
+    { "<leader>fp", "<cmd>Telescope project<cr>", desc = "Find projects" },
+    { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo" },
+    { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
+    -- open buffers
+    {
+      "<tab>",
+      "<cmd>lua require('telescope.builtin').buffers({previewer = false, initial_mode='normal'})<cr>",
+    },
+  },
   opts = function(_, opts)
     local telescope = require "telescope"
     local actions = require "telescope.actions"
