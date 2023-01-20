@@ -8,9 +8,9 @@ return {
         opts = { style = "moon" },
       },
       -- { "ray-x/starry.nvim" },
-      -- {
-      --   "echasnovski/mini.base16",
-      -- },
+      {
+        "echasnovski/mini.base16",
+      },
 
       -- catppuccin
       -- {
