@@ -166,9 +166,11 @@ return {
   -- Looks like oil does support ssh without netman
   -- { "miversen33/netman.nvim" },
   -- navigate splits including tmux and wezterm
+  -- TODO: maybe use it again when it supports splits.
   {
     "numToStr/Navigator.nvim",
     config = true,
+    enabled = false,
     event = "VeryLazy",
     keys = {
       { "<C-h>", mode = { "n", "t" }, "<CMD>NavigatorLeft<CR>", desc = "Navigate Left" },
