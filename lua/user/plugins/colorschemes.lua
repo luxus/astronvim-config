@@ -1,6 +1,7 @@
 return {
   {
     "JManch/sunset.nvim",
+    priority = 1000,
     dependencies = {
       -- tokyonight
       {
@@ -53,7 +54,7 @@ return {
         latitude = 48.57,
         longitude = 8.51,
         day_callback = function() vim.cmd "colorscheme tokyonight-day" end,
-        night_callback = function() vim.cmd "colorscheme tokyonight-moon" end,
+        night_callback = function() vim.cmd "colorscheme tokyonight" end,
         -- night_callback = function() vim.cmd "colorscheme middlenight_blue" end,
       }
     end,

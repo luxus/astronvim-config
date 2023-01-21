@@ -8,6 +8,7 @@ return {
     "nvim-telescope/telescope-project.nvim",
     "debugloop/telescope-undo.nvim",
     "jvgrootveld/telescope-zoxide",
+    "tsakirist/telescope-lazy.nvim",
   },
   keys = {
     -- telescope plugin mappings
@@ -17,6 +18,8 @@ return {
     { "<leader>fp", "<cmd>Telescope project<cr>", desc = "Find projects" },
     { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo" },
     { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
+    { "<leader>fl", "<cmd>Telescope lazy<cr>", desc = "Lazy" },
+
     -- open buffers
     {
       "<tab>",
@@ -94,5 +97,6 @@ return {
     telescope.load_extension "project"
     telescope.load_extension "undo"
     telescope.load_extension "zoxide"
+    telescope.load_extension "lazy"
   end,
 }

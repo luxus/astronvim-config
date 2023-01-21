@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    event = "LspAttach",
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     },
@@ -10,17 +11,20 @@ return {
 
   {
     "nanotee/sqls.nvim",
+    event = "LspAttach",
   },
-  { "lvimuser/lsp-inlayhints.nvim", config = true },
+  { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach", config = true },
   {
     "jose-elias-alvarez/typescript.nvim",
+    event = "LspAttach",
   },
   {
     "p00f/clangd_extensions.nvim",
+    event = "LspAttach",
   },
   {
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    event = "BufRead",
+    event = "LspAttach",
     enabled = true,
     config = true,
     keys = {
@@ -30,7 +34,7 @@ return {
   { "lvimuser/lsp-inlayhints.nvim", config = true },
   {
     "j-hui/fidget.nvim",
-    event = "VeryLazy",
+    event = "LspAttach",
     enabled = false,
     config = true,
   },

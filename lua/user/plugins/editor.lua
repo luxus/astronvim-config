@@ -1,5 +1,6 @@
 return {
-
+  { "NvChad/nvim-colorizer.lua", enabled = false },
+  { "nvim-neo-tree/neo-tree.nvim", version = false, branch = "main" }, -- use mainline neo-tree for testing new fix
   -- disable some stuff
   { "numToStr/Comment.nvim", enabled = false },
   { "windwp/nvim-autopairs", enabled = false },
@@ -67,7 +68,7 @@ return {
   { "tpope/vim-repeat", event = "VeryLazy" },
   {
     "ggandor/leap.nvim",
-    event = "VeryLazy",
+    init = function() table.insert(astronvim.file_plugins, "leap.nvim") end,
     dependencies = { { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } } },
     config = function(_, opts)
       local leap = require "leap"
@@ -80,8 +81,10 @@ return {
   -- harpooon inspired
   {
     "cbochs/grapple.nvim",
+    lazy = true,
+    enabled = true,
+    module = "grapple",
     dependencies = { "nvim-lua/plenary.nvim" },
-    event = "VeryLazy",
     keys = {
       { "<leader> ", function() require("grapple").popup_tags() end, desc = "Grapple" },
       { "<leader>A", function() require("grapple").toggle() end, desc = "Tag in Grapple" },
@@ -142,6 +145,12 @@ return {
         typescriptreact = { template = { annotation_convention = "tsdoc" } },
       },
     },
+    config = function()
+      require("which-key").register {
+        ["<leader>a"] = { name = "+Annotation" },
+      }
+    end,
+
     keys = {
       {
         "<leader>a<cr>",
@@ -162,23 +171,14 @@ return {
     config = true,
     event = "VeryLazy",
     keys = {
-      { "<C-h>", "<CMD>NavigatorLeft<CR>", desc = "Navigate Left" },
-      { "<C-l>", "<CMD>NavigatorRight<CR>", desc = "Navigate Right" },
-      { "<C-k>", "<CMD>NavigatorUp<CR>", desc = "Navigate Up" },
-      { "<C-j>", "<CMD>NavigatorDown<CR>", desc = "Navigate Down" },
-      { "<C-P>", "<CMD>NavigatorPrevious<CR>", desc = "Navigate Previous" },
+      { "<C-h>", mode = { "n", "t" }, "<CMD>NavigatorLeft<CR>", desc = "Navigate Left" },
+      { "<C-l>", mode = { "n", "t" }, "<CMD>NavigatorRight<CR>", desc = "Navigate Right" },
+      { "<C-k>", mode = { "n", "t" }, "<CMD>NavigatorUp<CR>", desc = "Navigate Up" },
+      { "<C-j>", mode = { "n", "t" }, "<CMD>NavigatorDown<CR>", desc = "Navigate Down" },
+      { "<C-P>", mode = { "n", "t" }, "<CMD>NavigatorPrevious<CR>", desc = "Navigate Previous" },
     },
   },
-  -- better quick fix
-  -- https://github.com/kevinhwang91/nvim-bqf
-  { "kevinhwang91/nvim-bqf", event = "BufEnter", config = true },
-  -- dap IU
-  -- https://github.com/rcarriga/nvim-dap-ui
-  { "rcarriga/nvim-dap-ui", event = "BufRead", config = true },
-  -- https://github.com/ThePrimeagen/refactoring.nvim
-  { "ThePrimeagen/refactoring.nvim", event = "BufRead", config = true },
-  -- https://github.com/AckslD/nvim-neoclip.lua
-  { "AckslD/nvim-neoclip.lua", event = "BufRead", config = true },
+
   {
     "junegunn/vim-easy-align",
     init = function() table.insert(astronvim.file_plugins, "vim-easy-align") end,
@@ -290,11 +290,19 @@ return {
   },
   -- still not using quickfix 😆
   -- https://github.com/kevinhwang91/nvim-bqf
-  -- { "kevinhwang91/nvim-bqf", event = "BufEnter", config = true },
+  { "kevinhwang91/nvim-bqf", event = "BufReadPost", config = true },
   -- don't use it yet
   -- https://github.com/ThePrimeagen/refactoring.nvim
   { "ThePrimeagen/refactoring.nvim", event = "BufRead", config = true },
   -- https://github.com/AckslD/nvim-neoclip.lua
   -- yank history
   { "AckslD/nvim-neoclip.lua", event = "BufRead", config = true },
+  {
+    "uga-rosa/ccc.nvim",
+    -- event = "BufRead",
+    lazy = true,
+    init = function() table.insert(astronvim.file_plugins, "ccc.nvim") end,
+    config = function() require("ccc").setup { highlighter = { auto_enable = true } } end,
+    keys = { { "<leader>C", "<cmd>CccPick<cr>", desc = "Toggle colorizer" } },
+  },
 }

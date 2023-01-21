@@ -1,7 +1,8 @@
 return {
   "kevinhwang91/nvim-ufo",
   dependencies = { "kevinhwang91/promise-async" },
-  event = "BufEnter",
+  init = function() table.insert(astronvim.file_plugins, "nvim-ufo") end,
+  lazy = true,
   opts = {
     provider_selector = function(_, filetype, buftype)
       if filetype == "" or buftype == "nofile" then

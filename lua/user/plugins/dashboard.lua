@@ -20,10 +20,10 @@ return {
         evaluate_single = true,
         header = logo,
         items = {
-          new_section("Find file", "Telescope find_files", "Telescope"),
+          new_section("Find file", "Telescope git_files", "Telescope"),
           new_section("Recent files", "Telescope oldfiles", "Telescope"),
           new_section("Grep text", "Telescope live_grep", "Telescope"),
-          new_section("Config ", "e ~/projects/user", "Config"),
+          new_section("Config ", "e ~/.config/astronvim", "Config"),
           new_section("Restore Session", "SessionManager! load_last_session", "Built-in"),
           new_section("Lazy", "Lazy", "Config"),
           new_section("New file", "ene | startinsert", "Built-in"),

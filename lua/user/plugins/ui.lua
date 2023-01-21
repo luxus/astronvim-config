@@ -1,6 +1,15 @@
 return {
   -- { "folke/which-key.nvim", enabled = false },
-
+  -- { "ibhagwan/fzf-lua",
+  --   config = true,
+  --   keys = {
+  --     {
+  --       "<leader> ",
+  --       "<cmd>lua require('fzf-lua').files()<CR>",
+  --       desc = "fzf-lua",
+  --     },
+  --   },
+  -- },
   {
     "b0o/incline.nvim",
     event = "VeryLazy",
@@ -80,7 +89,7 @@ return {
   },
   {
     "echasnovski/mini.animate",
-    event = "VeryLazy",
+    lazy = true,
     config = function()
       local mouse_scrolled = false
       for _, scroll in ipairs { "Up", "Down" } do
@@ -112,4 +121,10 @@ return {
       }
     end,
   },
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    config = true,
+  },
+  { "andweeb/presence.nvim", event = "VeryLazy" },
 }

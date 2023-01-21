@@ -47,7 +47,6 @@ local mappings = {
       function() require("smart-splits").resize_right(2) end,
       desc = "Resize split right",
     },
-    ["<leader>a"] = { name = "Annotate" },
     ["<leader>r"] = { "<cmd>SendHere<cr>", desc = "Set REPL" },
     ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
