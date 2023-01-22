@@ -17,6 +17,9 @@ return {
         "texlab",
         "tsserver",
         "yamlls",
+        --Rust
+        "taplo",
+        "rust_analyzer",
       },
     },
   },
