@@ -14,6 +14,20 @@ return {
     },
     opts = { terminal_mappings = false },
   },
+  {
+    "Wansmer/treesj",
+    keys = { "<leader>J", "<leader>j" },
+    cmd = {
+      "TSJToggle",
+      "TSJSplit",
+      "TSJJoin",
+    },
+    init = function()
+      vim.keymap.set("n", "<leader>J", function() vim.cmd [[TSJToggle]] end, { desc = "Spread: Expand" })
+      vim.keymap.set("n", "<leader>j", function() vim.cmd [[TSJJoin]] end, { desc = "Spread: Combine" })
+    end,
+    config = true,
+  },
   { "folke/which-key.nvim", opts = { window = { border = "none" } } },
   --Jumping between the idents
   {
