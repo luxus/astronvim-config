@@ -8,7 +8,7 @@ return {
         "folke/tokyonight.nvim",
         opts = { style = "moon" },
       },
-      -- { "ray-x/starry.nvim" },
+      { "ray-x/starry.nvim" },
       {
         "echasnovski/mini.base16",
       },
@@ -53,8 +53,8 @@ return {
       require("sunset").setup {
         latitude = 48.57,
         longitude = 8.51,
-        day_callback = function() vim.cmd "colorscheme tokyonight-day" end,
-        night_callback = function() vim.cmd "colorscheme tokyonight" end,
+        day_callback = function() vim.cmd "colorscheme mariana_lighter" end,
+        night_callback = function() vim.cmd "colorscheme mariana" end,
         -- night_callback = function() vim.cmd "colorscheme middlenight_blue" end,
       }
     end,
