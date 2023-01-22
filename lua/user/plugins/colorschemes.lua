@@ -4,14 +4,12 @@ return {
     priority = 1000,
     dependencies = {
       -- tokyonight
-      {
-        "folke/tokyonight.nvim",
-        opts = { style = "moon" },
-      },
+      -- {
+      --   "folke/tokyonight.nvim",
+      --   opts = { style = "moon" },
+      -- },
       { "ray-x/starry.nvim" },
-      {
-        "echasnovski/mini.base16",
-      },
+      -- { "echasnovski/mini.base16" },
 
       -- catppuccin
       -- {
