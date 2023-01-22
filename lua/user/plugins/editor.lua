@@ -310,7 +310,11 @@ return {
   { "kevinhwang91/nvim-bqf", event = "BufReadPost", config = true },
   -- don't use it yet
   -- https://github.com/ThePrimeagen/refactoring.nvim
-  { "ThePrimeagen/refactoring.nvim", event = "BufRead", config = true },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    ft = { "typescript", "javascript", "lua", "c", "cpp", "go", "python", "java", "php" },
+    config = true,
+  },
   -- https://github.com/AckslD/nvim-neoclip.lua
   -- yank history
   { "AckslD/nvim-neoclip.lua", event = "BufRead", config = true },
