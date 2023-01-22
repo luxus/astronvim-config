@@ -43,11 +43,7 @@ return {
       },
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-emoji",
-      {
-        "Saecki/crates.nvim",
-        -- config = true,
-        config = function() require("crates").setup() end,
-      },
+      "jc-doyle/cmp-pandoc-references",
       -- "kdheepak/cmp-latex-symbols",
     },
     opts = function(_, opts)
@@ -67,10 +63,10 @@ return {
 
       return astronvim.extend_tbl(opts, {
         sources = cmp.config.sources {
-          { name = "crates", priority = 1002 },
           { name = "copilot", priority = 1001 },
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
+          { name = "pandoc_references", priority = 725 },
           -- { name = "latex_symbols", priority = 700 },
           { name = "emoji", priority = 700 },
           { name = "calc", priority = 650 },
