@@ -12,6 +12,8 @@ return {
         -- "neocmake",
         "jsonls",
         "pyright",
+        "taplo",
+        "rust_analyzer",
         "sqls",
         "sumneko_lua",
         "texlab",
