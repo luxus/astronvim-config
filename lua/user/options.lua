@@ -8,9 +8,9 @@ return {
     listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
     showbreak = "↪ ",
     guifont = "MonoLisa Nerd Font:h15",
-    spellfile = vim.fn.expand "~/.config/nvim/lua/user/spell/en.utf-8.add",
+    spellfile = vim.fn.expand "~/.config/astronvim/lua/user/spell/en.utf-8.add",
     swapfile = false,
-    thesaurus = vim.fn.expand "~/.config/nvim/lua/user/spell/mthesaur.txt",
+    thesaurus = vim.fn.expand "~/.config/astronvim/lua/user/spell/mthesaur.txt",
     wrap = false, -- don't wrap lines
     termguicolors = true, -- True color support
     splitright = true, -- Put new windows right of current
