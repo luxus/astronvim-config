@@ -3,7 +3,7 @@ return {
   { "nvim-neo-tree/neo-tree.nvim", version = false, branch = "main" }, -- use mainline neo-tree for testing new fix
   -- disable some stuff
   { "numToStr/Comment.nvim", enabled = false },
-  { "windwp/nvim-autopairs", enabled = false },
+  -- { "windwp/nvim-autopairs", enabled = false },
   { "max397574/better-escape.nvim", enabled = false },
   { "machakann/vim-sandwich", enabled = false },
   {
@@ -98,6 +98,7 @@ return {
   -- auto pairs
   {
     "echasnovski/mini.pairs",
+    enabled = false,
     event = "VeryLazy",
     config = function(_, opts) require("mini.pairs").setup(opts) end,
   },
