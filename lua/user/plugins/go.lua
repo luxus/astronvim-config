@@ -19,4 +19,18 @@ return {
     config = function() require("dap-go").setup() end,
     ft = { "go", "gomod" },
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = { "go" },
+    },
+  },
+
+  -- correctly setup mason lsp / dap extensions
+  {
+    "williamboman/mason.nvim",
+    opts = { ensure_installed = {
+      "gopls",
+    } },
+  },
 }
