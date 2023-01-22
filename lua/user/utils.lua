@@ -1,3 +1,4 @@
+--TODO: stuff imported from mehalter
 M = {}
 
 function M.quick_notification(msg, type) astronvim.notify(msg, type or "info", { timeout = 0 }) end

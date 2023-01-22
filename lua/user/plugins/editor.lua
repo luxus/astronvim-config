@@ -1,19 +1,5 @@
 return {
-  { "NvChad/nvim-colorizer.lua", enabled = false },
-  { "nvim-neo-tree/neo-tree.nvim", version = false, branch = "main" }, -- use mainline neo-tree for testing new fix
-  -- disable some stuff
-  { "numToStr/Comment.nvim", enabled = false },
-  -- { "windwp/nvim-autopairs", enabled = false },
-  { "max397574/better-escape.nvim", enabled = false },
-  { "machakann/vim-sandwich", enabled = false },
-  {
-    "akinsho/toggleterm.nvim",
-    keys = {
-      { "<C-q>", mode = { "t" }, "<C-\\><C-n>", desc = "Terminal normal mode" },
-      { "<esc><esc>", mode = { "t" }, "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
-    },
-    opts = { terminal_mappings = false },
-  },
+
   {
     "Wansmer/treesj",
     keys = { "<leader>J", "<leader>j" },
@@ -28,7 +14,7 @@ return {
     end,
     config = true,
   },
-  { "folke/which-key.nvim", opts = { window = { border = "none" } } },
+
   --Jumping between the idents
   {
     "arsham/indent-tools.nvim",

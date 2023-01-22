@@ -1,1 +1,1 @@
-return "tokyonight-moon"
+return "mariana"

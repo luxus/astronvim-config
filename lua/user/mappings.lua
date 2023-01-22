@@ -1,4 +1,4 @@
-local mappings = {
+return {
   n = {
     -- disable default bindings
     ["<C-Down>"] = false,
@@ -78,15 +78,3 @@ local mappings = {
     ["al"] = { ":normal val<cr>", desc = "Around line text object" },
   },
 }
-
--- -- add more text objects for "in" and "around"
--- for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
---   for _, mode in ipairs { "x", "o" } do
---     mappings[mode]["i" .. char] =
---       { string.format(":<C-u>silent! normal! f%sF%slvt%s<CR>", char, char, char), desc = "between " .. char }
---     mappings[mode]["a" .. char] =
---       { string.format(":<C-u>silent! normal! f%sF%svf%s<CR>", char, char, char), desc = "around " .. char }
---   end
--- end
-
-return mappings

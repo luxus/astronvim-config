@@ -1,3 +1,5 @@
+--TODO: Stuff from mehalter
+
 return function()
   local function yaml_ft(path, bufnr)
     -- get content of buffer as string
