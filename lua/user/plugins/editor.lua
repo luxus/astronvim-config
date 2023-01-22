@@ -108,15 +108,6 @@ return {
       { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "Grapple 4" },
     },
   },
-
-  -- auto pairs
-  {
-    "echasnovski/mini.pairs",
-    enabled = false,
-    event = "VeryLazy",
-    config = function(_, opts) require("mini.pairs").setup(opts) end,
-  },
-
   -- surround text
   {
     "echasnovski/mini.surround",
@@ -182,19 +173,19 @@ return {
   -- { "miversen33/netman.nvim" },
   -- navigate splits including tmux and wezterm
   -- TODO: maybe use it again when it supports splits.
-  {
-    "numToStr/Navigator.nvim",
-    config = true,
-    enabled = false,
-    event = "VeryLazy",
-    keys = {
-      { "<C-h>", mode = { "n", "t" }, "<CMD>NavigatorLeft<CR>", desc = "Navigate Left" },
-      { "<C-l>", mode = { "n", "t" }, "<CMD>NavigatorRight<CR>", desc = "Navigate Right" },
-      { "<C-k>", mode = { "n", "t" }, "<CMD>NavigatorUp<CR>", desc = "Navigate Up" },
-      { "<C-j>", mode = { "n", "t" }, "<CMD>NavigatorDown<CR>", desc = "Navigate Down" },
-      { "<C-P>", mode = { "n", "t" }, "<CMD>NavigatorPrevious<CR>", desc = "Navigate Previous" },
-    },
-  },
+  -- {
+  --   "numToStr/Navigator.nvim",
+  --   config = true,
+  --   enabled = false,
+  --   event = "VeryLazy",
+  --   keys = {
+  --     { "<C-h>", mode = { "n", "t" }, "<CMD>NavigatorLeft<CR>", desc = "Navigate Left" },
+  --     { "<C-l>", mode = { "n", "t" }, "<CMD>NavigatorRight<CR>", desc = "Navigate Right" },
+  --     { "<C-k>", mode = { "n", "t" }, "<CMD>NavigatorUp<CR>", desc = "Navigate Up" },
+  --     { "<C-j>", mode = { "n", "t" }, "<CMD>NavigatorDown<CR>", desc = "Navigate Down" },
+  --     { "<C-P>", mode = { "n", "t" }, "<CMD>NavigatorPrevious<CR>", desc = "Navigate Previous" },
+  --   },
+  -- },
 
   {
     "junegunn/vim-easy-align",
@@ -259,52 +250,7 @@ return {
       ai.setup(opts)
     end,
   },
-  -- indent guides for Neovim
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
-    opts = {
-      char = "│",
-      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-      show_trailing_blankline_indent = false,
-      show_current_context = false,
-    },
-  },
-  {
-    "echasnovski/mini.move",
-    event = "VeryLazy",
-    config = function(_, opts) require("mini.move").setup(opts) end,
-    -- Module mappings. Use `''` (empty string) to disable one.
-    -- mappings = {
-    --   -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
-    --   left = "<M-h>",
-    --   right = "<M-l>",
-    --   down = "<M-j>",
-    --   up = "<M-k>",
-    --
-    --   -- Move current line in Normal mode
-    --   line_left = "<M-h>",
-    --   line_right = "<M-l>",
-    --   line_down = "<M-j>",
-    --   line_up = "<M-k>",
-    -- },
-  },
-  {
-    "echasnovski/mini.indentscope",
-    -- version = false, -- wait till new 0.7.0 release to put it back on semver
-    event = "BufReadPre",
-    opts = {
-      symbol = "│",
-      options = { try_as_border = true },
-    },
-    config = function(_, opts)
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
-        callback = function() vim.b.miniindentscope_disable = true end,
-      })
-      require("mini.indentscope").setup(opts)
-    end,
-  },
+
   -- still not using quickfix 😆
   -- https://github.com/kevinhwang91/nvim-bqf
   { "kevinhwang91/nvim-bqf", event = "BufReadPost", config = true },
@@ -318,6 +264,11 @@ return {
   -- https://github.com/AckslD/nvim-neoclip.lua
   -- yank history
   { "AckslD/nvim-neoclip.lua", event = "BufRead", config = true },
+  {
+    "echasnovski/mini.move",
+    event = "VeryLazy",
+    config = function(_, opts) require("mini.move").setup(opts) end,
+  },
   {
     "uga-rosa/ccc.nvim",
     -- event = "BufRead",

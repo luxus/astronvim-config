@@ -91,9 +91,37 @@ return {
       excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "neo-tree" },
     },
   },
+  -- indent guides for Neovim
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
+    opts = {
+      char = "│",
+      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
+      show_trailing_blankline_indent = false,
+      show_current_context = false,
+    },
+  },
+  {
+    "echasnovski/mini.indentscope",
+    version = false, -- wait till new 0.7.0 release to put it back on semver
+    event = "BufReadPre",
+    opts = {
+      symbol = "│",
+      options = { try_as_border = true },
+    },
+    config = function(_, opts)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "starter", "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
+        callback = function() vim.b.miniindentscope_disable = true end,
+      })
+      require("mini.indentscope").setup(opts)
+    end,
+  },
+
   {
     "echasnovski/mini.animate",
-    lazy = true,
+    event = "VeryLazy",
     config = function()
       local mouse_scrolled = false
       for _, scroll in ipairs { "Up", "Down" } do
