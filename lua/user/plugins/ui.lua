@@ -1,21 +1,9 @@
 return {
-  -- { "folke/which-key.nvim", enabled = false },
-  -- { "ibhagwan/fzf-lua",
-  --   config = true,
-  --   keys = {
-  --     {
-  --       "<leader> ",
-  --       "<cmd>lua require('fzf-lua').files()<CR>",
-  --       desc = "fzf-lua",
-  --     },
-  --   },
-  -- },
   {
     "b0o/incline.nvim",
     event = "VeryLazy",
     config = true,
   },
-  { "nvim-treesitter/nvim-treesitter-context", event = "VeryLazy", config = true },
   -- noicer ui
   {
     "folke/noice.nvim",
@@ -31,7 +19,8 @@ return {
       },
       messages = { enabled = false },
       presets = {
-        bottom_search = true,
+        inc_rename = true,
+        bottom_search = false,
         command_palette = true,
         long_message_to_split = true,
         lsp_doc_border = "rounded",
@@ -71,22 +60,6 @@ return {
     "petertriho/nvim-scrollbar",
     event = "BufReadPost",
     config = true,
-    -- config = function()
-    --   local scrollbar = require "scrollbar"
-    --   local colors = require("tokyonight.colors").setup()
-    --   scrollbar.setup {
-    --     handle = { color = colors.bg_highlight },
-    --     excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify" },
-    --     marks = {
-    --       Search = { color = colors.orange },
-    --       Error = { color = colors.error },
-    --       Warn = { color = colors.warning },
-    --       Info = { color = colors.info },
-    --       Hint = { color = colors.hint },
-    --       Misc = { color = colors.purple },
-    --     },
-    --   }
-    -- end,
     opts = {
       excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "neo-tree" },
     },
@@ -119,28 +92,28 @@ return {
     end,
   },
 
-  {
+    {
     "echasnovski/mini.animate",
     event = "VeryLazy",
-    config = function()
+    opts = function()
+      -- don't use animate when scrolling with the mouse
       local mouse_scrolled = false
-      for _, scroll in ipairs { "Up", "Down" } do
+      for _, scroll in ipairs({ "Up", "Down" }) do
         local key = "<ScrollWheel" .. scroll .. ">"
-        vim.keymap.set("", key, function()
+        vim.keymap.set({ "", "i" }, key, function()
           mouse_scrolled = true
           return key
         end, { expr = true })
       end
 
-      local animate = require "mini.animate"
-
-      animate.setup {
+      local animate = require("mini.animate")
+      return {
         resize = {
-          timing = animate.gen_timing.linear { duration = 100, unit = "total" },
+          timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
         },
         scroll = {
-          timing = animate.gen_timing.linear { duration = 150, unit = "total" },
-          subscroll = animate.gen_subscroll.equal {
+          timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
+          subscroll = animate.gen_subscroll.equal({
             predicate = function(total_scroll)
               if mouse_scrolled then
                 mouse_scrolled = false
@@ -148,9 +121,12 @@ return {
               end
               return total_scroll > 1
             end,
-          },
+          }),
         },
       }
+    end,
+    config = function(_, opts)
+      require("mini.animate").setup(opts)
     end,
   },
   {

@@ -78,6 +78,31 @@ return {
       leap.add_default_mappings(true)
     end,
   },
+  --FIX: running out of shortcuts.
+   {
+    "LeonHeidelbach/trailblazer.nvim",
+    enabled = false,
+    config = function()
+        require("trailblazer").setup({
+            mappings = {
+              nv = { -- Mode union: normal & visual mode. Can be extended by adding i, x, ...
+                motions = {
+                  new_trail_mark = '<A-l>',
+                  track_back = '<A-b>',
+                  peek_move_next_down = '<A-J>',
+                  peek_move_previous_up = '<A-K>',
+                },
+                actions = {
+                  delete_all_trail_marks = '<A-L>',
+                  paste_at_last_trail_mark = '<A-p>',
+                  paste_at_all_trail_marks = '<A-P>',
+                  set_trail_mark_select_mode = '<A-t>',
+                },
+              },
+            },
+        })
+    end,
+  },
   -- harpooon inspired
   {
     "cbochs/grapple.nvim",
@@ -253,6 +278,7 @@ return {
   {
     "echasnovski/mini.move",
     event = "VeryLazy",
+    enabled = true,
     config = function(_, opts) require("mini.move").setup(opts) end,
   },
   {
