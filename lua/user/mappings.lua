@@ -11,9 +11,6 @@ return {
     ["]b"] = false,
     ["[b"] = false,
 
-    -- navigating wrapped lines
-    j = { "gj", desc = "Navigate down" },
-    k = { "gk", desc = "Navigate down" },
 
     --astro core bindings
     ["<S-l>"] = {
@@ -47,7 +44,6 @@ return {
       function() require("smart-splits").resize_right(2) end,
       desc = "Resize split right",
     },
-    ["<leader>r"] = { "<cmd>SendHere<cr>", desc = "Set REPL" },
     ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
@@ -66,11 +62,6 @@ return {
     ["<c-d>X"] = { "<c-r>=strftime('%H:%M')<cr>", desc = "H:M" },
     ["<c-d>F"] = { "<c-r>=strftime('%H:%M:%S')<cr>", desc = "H:M:S" },
     ["<c-d>d"] = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", desc = "Y/m/d H:M:S -" },
-  },
-  v = {
-    -- navigating wrapped lines
-    j = { "gj", desc = "Navigate down" },
-    k = { "gk", desc = "Navigate down" },
   },
   o = {
     -- line text-objects
