@@ -38,8 +38,10 @@ return {
     config = true,
     keys = {
       {
-        "<leader>R",
-        "<cmd>IncRename<cr>",
+        "<leader>R", function() return ":IncRename " .. vim.fn.expand("<cword>")
+        end,
+        --FIX: what does this means? 
+        -- expr = true ,
         desc = "Rename",
       },
     },
