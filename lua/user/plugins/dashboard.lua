@@ -3,6 +3,7 @@ return {
   {
     "echasnovski/mini.starter",
     event = "VimEnter",
+    -- enabled = false,
     opts = function()
       local logo = table.concat({
         " █████  ███████ ████████ ██████   ██████     ███    ██ ██    ██ ██ ███    ███",

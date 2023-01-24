@@ -67,11 +67,11 @@ return {
     end,
   },
   -- makes some plugins dot-repeatable like leap
-  { "tpope/vim-repeat", event = "VeryLazy" },
   {
     "ggandor/leap.nvim",
     init = function() table.insert(astronvim.file_plugins, "leap.nvim") end,
-    dependencies = { { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } } },
+    dependencies = {{"tpope/vim-repeat" },
+ { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } } },
     config = function(_, opts)
       local leap = require "leap"
       for k, v in pairs(opts) do
@@ -108,9 +108,7 @@ return {
   -- harpooon inspired
   {
     "cbochs/grapple.nvim",
-    lazy = true,
     enabled = true,
-    module = "grapple",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
       { "<leader> ", function() require("grapple").popup_tags() end, desc = "Grapple" },
@@ -211,16 +209,17 @@ return {
   {
     "m-demare/hlargs.nvim",
     config = true,
-    event = "VeryLazy",
+    init = function() table.insert(astronvim.file_plugins, "hlargs.nvim") end,
     enabled = true,
   },
-  { "stevearc/oil.nvim", config = true, enabled = true, event = "VeryLazy" },
-  { "folke/todo-comments.nvim", event = "BufRead", config = true },
+  { "stevearc/oil.nvim", config = true, enabled = true, cmd = "Oil" },
+  { "folke/todo-comments.nvim", config = true,
+      init = function() table.insert(astronvim.file_plugins, "todo-comments.nvim") end,
+},
   -- comments
-  { "JoosepAlviste/nvim-ts-context-commentstring" },
   {
     "echasnovski/mini.comment",
-    event = "VeryLazy",
+     keys = { "gc" },
     opts = {
       hooks = {
         pre = function() require("ts_context_commentstring.internal").update_commentstring {} end,
@@ -236,6 +235,7 @@ return {
       { "i", mode = { "x", "o" } },
     },
     dependencies = {
+{ "JoosepAlviste/nvim-ts-context-commentstring" },
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
         init = function()
@@ -266,7 +266,9 @@ return {
 
   -- still not using quickfix 😆
   -- https://github.com/kevinhwang91/nvim-bqf
-  { "kevinhwang91/nvim-bqf", event = "BufReadPost", config = true },
+  { "kevinhwang91/nvim-bqf",
+    init = function() table.insert(astronvim.file_plugins, "nvim-bqf") end,
+ enabled = false, config = true },
   -- don't use it yet
   -- https://github.com/ThePrimeagen/refactoring.nvim
   {
@@ -279,14 +281,18 @@ return {
   { "AckslD/nvim-neoclip.lua", event = "BufRead", config = true },
   {
     "echasnovski/mini.move",
-    event = "VeryLazy",
+    -- init = function() table.insert(astronvim.file_plugins, "mini.move") end,
     enabled = true,
+    keys = {
+      "<A-j>",
+      "<A-k>"
+    },
     config = function(_, opts) require("mini.move").setup(opts) end,
   },
   {
     "uga-rosa/ccc.nvim",
     -- event = "BufRead",
-    lazy = true,
+    --FIX: not loading sometimes on the first try
     init = function() table.insert(astronvim.file_plugins, "ccc.nvim") end,
     config = function() require("ccc").setup { highlighter = { auto_enable = true } } end,
     keys = { { "<leader>C", "<cmd>CccPick<cr>", desc = "Toggle colorizer" } },

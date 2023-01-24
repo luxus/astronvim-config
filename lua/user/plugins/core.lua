@@ -15,7 +15,7 @@ return {
     opts = { terminal_mappings = false },
   },
   { "folke/which-key.nvim", opts = { window = { border = "none" } } },
-  { "nvim-treesitter/nvim-treesitter-context", event = "VeryLazy", config = true },
+  { "nvim-treesitter/nvim-treesitter-context", config = true },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --

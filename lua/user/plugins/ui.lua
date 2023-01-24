@@ -1,14 +1,14 @@
 return {
   {
     "b0o/incline.nvim",
-    event = "VeryLazy",
+    init = function() table.insert(astronvim.file_plugins, "incline.nvim") end,
     config = true,
   },
   -- noicer ui
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    enabled = true,
+    -- enabled = false,
     opts = {
       lsp = {
         override = {
@@ -48,7 +48,7 @@ return {
   {
     "folke/drop.nvim",
     event = "VeryLazy",
-    enabled = true,
+    -- enabled = false,
     config = function()
       math.randomseed(os.time())
       local theme = ({ "stars", "snow" })[math.random(1, 3)]
@@ -58,7 +58,7 @@ return {
   -- scrollbar
   {
     "petertriho/nvim-scrollbar",
-    event = "BufReadPost",
+    init = function() table.insert(astronvim.file_plugins, "nvim-scrollbar") end,
     config = true,
     opts = {
       excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "neo-tree" },
@@ -67,7 +67,7 @@ return {
   -- indent guides for Neovim
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
+    init = function() table.insert(astronvim.file_plugins, "indent-blankline.nvim") end,
     opts = {
       char = "│",
       filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
@@ -78,7 +78,7 @@ return {
   {
     "echasnovski/mini.indentscope",
     version = false, -- wait till new 0.7.0 release to put it back on semver
-    event = "BufReadPre",
+    init = function() table.insert(astronvim.file_plugins, "mini.indentscope") end,
     opts = {
       symbol = "│",
       options = { try_as_border = true },
@@ -95,6 +95,7 @@ return {
     {
     "echasnovski/mini.animate",
     event = "VeryLazy",
+    -- enabled = false,
     opts = function()
       -- don't use animate when scrolling with the mouse
       local mouse_scrolled = false
@@ -134,5 +135,9 @@ return {
     cmd = "ZenMode",
     config = true,
   },
-  { "andweeb/presence.nvim", event = "VeryLazy" },
+  {
+    "andweeb/presence.nvim",
+    -- enabled = false,
+    event = "VeryLazy",
+  },
 }

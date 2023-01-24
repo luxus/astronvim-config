@@ -9,12 +9,12 @@ return {
       astronvim.status.component.mode(),
       astronvim.status.component.git_branch(),
       -- -- Custom component for grapple
-      astronvim.status.component.builder {
-        { provider = status.grapple },
-        surround = {
-          separator = "left",
-        },
-      },
+      -- astronvim.status.component.builder {
+      --   { provider = status.grapple },
+      --   surround = {
+      --     separator = "left",
+      --   },
+      -- },
       astronvim.status.component.file_info { filetype = {}, filename = false, file_modified = false },
       astronvim.status.component.git_diff(),
       astronvim.status.component.diagnostics(),

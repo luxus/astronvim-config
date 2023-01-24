@@ -2,6 +2,7 @@ return {
   {
     "JManch/sunset.nvim",
     priority = 1000,
+    -- enabled = false,
     lazy = false,
     dependencies = {
       -- tokyonight
@@ -12,26 +13,26 @@ return {
       -- { "ray-x/starry.nvim" },
       -- { "echasnovski/mini.base16" },
       "sainnhe/everforest" ,
-      "AlexvZyl/nordic.nvim",
-      {"AstroNvim/astrotheme",
-        -- enabled = false,
-        -- opts = {
-        --   terminal_colors = false,
-        --   palette = {
-        --     astrodark = {
-        --       -- bg = "#000000",
-        --       purple = "#f3ddb7",
-        --       -- red = "#A6FCFF",
-        --     }
-        --   },
-        --   highlights = {
-        --     astrodark = {
-        --       Comment = { italic = true },
-        --       -- CursorLine = { bg = "#233228" },
-        --     }
-        --   },
-        -- },
-      },
+      -- "AlexvZyl/nordic.nvim",
+      -- {"AstroNvim/astrotheme",
+      --   -- enabled = false,
+      --   -- opts = {
+      --   --   terminal_colors = false,
+      --   --   palette = {
+      --   --     astrodark = {
+      --   --       -- bg = "#000000",
+      --   --       purple = "#f3ddb7",
+      --   --       -- red = "#A6FCFF",
+      --   --     }
+      --   --   },
+      --   --   highlights = {
+      --   --     astrodark = {
+      --   --       Comment = { italic = true },
+      --   --       -- CursorLine = { bg = "#233228" },
+      --   --     }
+      --   --   },
+      --   -- },
+      -- },
 
       -- catppuccin
       -- {

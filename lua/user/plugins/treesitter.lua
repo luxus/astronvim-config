@@ -5,6 +5,7 @@ return {
     -- { "HiPhish/nvim-ts-rainbow2", lazy = false },
     "andymass/vim-matchup",
     "nvim-treesitter/nvim-treesitter-textobjects",
+  { "nvim-treesitter/nvim-treesitter-context", config = true },
   },
   opts = {
     -- rainbow = {
