@@ -28,14 +28,10 @@ return {
 
     ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
     ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
-    ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
   },
 
   i = {
-    -- type template string
-    ["<C-CR>"] = { "<++>", desc = "Insert template string" },
-    ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
     -- date/time input
     ["<c-d>"] = { name = "Date/Time" },
     ["<c-d>n"] = { "<c-r>=strftime('%Y-%m-%d')<cr>", desc = "Y-m-d" },
