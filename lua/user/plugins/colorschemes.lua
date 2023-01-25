@@ -5,69 +5,57 @@ return {
     -- enabled = false,
     lazy = false,
     dependencies = {
-      -- tokyonight
-      -- {
-      --   "folke/tokyonight.nvim",
-      --   opts = { style = "moon" },
-      -- },
-      -- { "ray-x/starry.nvim" },
-      -- { "echasnovski/mini.base16" },
-      "sainnhe/everforest" ,
-      -- "AlexvZyl/nordic.nvim",
-      -- {"AstroNvim/astrotheme",
-      --   -- enabled = false,
-      --   -- opts = {
-      --   --   terminal_colors = false,
-      --   --   palette = {
-      --   --     astrodark = {
-      --   --       -- bg = "#000000",
-      --   --       purple = "#f3ddb7",
-      --   --       -- red = "#A6FCFF",
-      --   --     }
-      --   --   },
-      --   --   highlights = {
-      --   --     astrodark = {
-      --   --       Comment = { italic = true },
-      --   --       -- CursorLine = { bg = "#233228" },
-      --   --     }
-      --   --   },
-      --   -- },
-      -- },
-
-      -- catppuccin
-      -- {
-      --   "catppuccin/nvim",
-      --   name = "catppuccin",
-      --
-      -- },
-
-      -- {
-      --   "EdenEast/nightfox.nvim",
-      --   opts = {
-      --     options = {
-      --       dim_inactive = true,
-      --       styles = { comments = "italic" },
-      --       module_default = false,
-      --       modules = {
-      --         aerial = true,
-      --         cmp = true,
-      --         ["dap-ui"] = true,
-      --         diagnostic = true,
-      --         gitsigns = true,
-      --         hop = true,
-      --         native_lsp = true,
-      --         neotree = true,
-      --         notify = true,
-      --         telescope = true,
-      --         treesitter = true,
-      --         tsrainbow = true,
-      --         noice = true,
-      --         whichkey = true,
-      --       },
-      --     },
-      --     groups = { all = { NormalFloat = { link = "Normal" } } },
-      --   },
-      -- },
+      "sainnhe/everforest",
+      "AlexvZyl/nordic.nvim",
+      -- "ray-x/starry.nvim",
+      -- "echasnovski/mini.base16",
+      {
+        "AstroNvim/astrotheme",
+        enabled = false,
+        opts = {
+          palette = {
+            astrodark = {
+              -- bg = "#000000",
+              purple = "#f3ddb7",
+              -- red = "#A6FCFF",
+            },
+          },
+          highlights = {
+            astrodark = {
+              Comment = { italic = true },
+              -- CursorLine = { bg = "#233228" },
+            },
+          },
+        },
+      },
+      {
+        "EdenEast/nightfox.nvim",
+        enabled = false,
+        opts = {
+          options = {
+            dim_inactive = true,
+            styles = { comments = "italic" },
+            module_default = false,
+            modules = {
+              aerial = true,
+              cmp = true,
+              ["dap-ui"] = true,
+              diagnostic = true,
+              gitsigns = true,
+              hop = true,
+              native_lsp = true,
+              neotree = true,
+              notify = true,
+              telescope = true,
+              treesitter = true,
+              tsrainbow = true,
+              noice = true,
+              whichkey = true,
+            },
+          },
+          groups = { all = { NormalFloat = { link = "Normal" } } },
+        },
+      },
     },
     config = function()
       require("sunset").setup {
