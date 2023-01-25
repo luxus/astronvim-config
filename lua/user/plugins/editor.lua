@@ -118,6 +118,23 @@ return {
       { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "Grapple 4" },
     },
   },
+  -- yanky
+  {
+    "gbprod/yanky.nvim",
+    config = true,
+    keys = {
+      { "p", mode = { "n", "x" }, "<Plug>(YankyPutAfter)", desc = "Put after" },
+      { "P", mode = { "n", "x" }, "<Plug>(YankyPutBefore)", desc = "Put before" },
+      { "gp", mode = { "n", "x" }, "<Plug>(YankyGPutAfter)", desc = "GPut after" },
+      { "gP", mode = { "n", "x" }, "<Plug>(YankyGPutBefore)", desc = "GPut before" },
+    },
+    -- dependencies = { "kkharji/sqlite.lua" },
+    -- opts = {
+    -- ring = {
+    -- storage = "sqlite",
+    -- },
+    -- },
+  },
   -- surround text
   {
     "echasnovski/mini.surround",
