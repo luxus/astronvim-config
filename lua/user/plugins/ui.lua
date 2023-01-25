@@ -4,6 +4,23 @@ return {
     init = function() table.insert(astronvim.file_plugins, "incline.nvim") end,
     config = true,
   },
+  {
+    "mrjones2014/smart-splits.nvim",
+    keys = {
+      { "<A-h>", function() require("smart-splits").move_cursor_left() end, desc = "Left Pane" },
+      { "<A-j>", function() require("smart-splits").move_cursor_down() end, desc = "Down Pane" },
+      { "<A-k>", function() require("smart-splits").move_cursor_up() end, desc = "Up Pane" },
+      { "<A-l>", function() require("smart-splits").move_cursor_right() end, desc = "Right Pane" },
+      { "<Up>", function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
+      { "<Down>", function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
+      { "<Left>", function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
+      {
+        "<Right>",
+        function() require("smart-splits").resize_right(2) end,
+        desc = "Resize split right",
+      },
+    },
+  },
   -- noicer ui
   {
     "folke/noice.nvim",
@@ -92,14 +109,14 @@ return {
     end,
   },
 
-    {
+  {
     "echasnovski/mini.animate",
     event = "VeryLazy",
     -- enabled = false,
     opts = function()
       -- don't use animate when scrolling with the mouse
       local mouse_scrolled = false
-      for _, scroll in ipairs({ "Up", "Down" }) do
+      for _, scroll in ipairs { "Up", "Down" } do
         local key = "<ScrollWheel" .. scroll .. ">"
         vim.keymap.set({ "", "i" }, key, function()
           mouse_scrolled = true
@@ -107,14 +124,14 @@ return {
         end, { expr = true })
       end
 
-      local animate = require("mini.animate")
+      local animate = require "mini.animate"
       return {
         resize = {
-          timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
+          timing = animate.gen_timing.linear { duration = 100, unit = "total" },
         },
         scroll = {
-          timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
-          subscroll = animate.gen_subscroll.equal({
+          timing = animate.gen_timing.linear { duration = 150, unit = "total" },
+          subscroll = animate.gen_subscroll.equal {
             predicate = function(total_scroll)
               if mouse_scrolled then
                 mouse_scrolled = false
@@ -122,13 +139,11 @@ return {
               end
               return total_scroll > 1
             end,
-          }),
+          },
         },
       }
     end,
-    config = function(_, opts)
-      require("mini.animate").setup(opts)
-    end,
+    config = function(_, opts) require("mini.animate").setup(opts) end,
   },
   {
     "folke/zen-mode.nvim",

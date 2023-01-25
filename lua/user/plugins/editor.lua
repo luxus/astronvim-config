@@ -38,9 +38,9 @@ return {
     config = true,
     keys = {
       {
-        "<leader>R", function() return ":IncRename " .. vim.fn.expand("<cword>")
-        end,
-        --FIX: what does this means? 
+        "<leader>R",
+        function() return ":IncRename " .. vim.fn.expand "<cword>" end,
+        --FIX: what does this means?
         -- expr = true ,
         desc = "Rename",
       },
@@ -70,8 +70,7 @@ return {
   {
     "ggandor/leap.nvim",
     init = function() table.insert(astronvim.file_plugins, "leap.nvim") end,
-    dependencies = {{"tpope/vim-repeat" },
- { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } } },
+    dependencies = { { "tpope/vim-repeat" }, { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } } },
     config = function(_, opts)
       local leap = require "leap"
       for k, v in pairs(opts) do
@@ -81,28 +80,28 @@ return {
     end,
   },
   --FIX: running out of shortcuts.
-   {
+  {
     "LeonHeidelbach/trailblazer.nvim",
     enabled = false,
     config = function()
-        require("trailblazer").setup({
-            mappings = {
-              nv = { -- Mode union: normal & visual mode. Can be extended by adding i, x, ...
-                motions = {
-                  new_trail_mark = '<A-l>',
-                  track_back = '<A-b>',
-                  peek_move_next_down = '<A-J>',
-                  peek_move_previous_up = '<A-K>',
-                },
-                actions = {
-                  delete_all_trail_marks = '<A-L>',
-                  paste_at_last_trail_mark = '<A-p>',
-                  paste_at_all_trail_marks = '<A-P>',
-                  set_trail_mark_select_mode = '<A-t>',
-                },
-              },
+      require("trailblazer").setup {
+        mappings = {
+          nv = { -- Mode union: normal & visual mode. Can be extended by adding i, x, ...
+            motions = {
+              new_trail_mark = "<A-l>",
+              track_back = "<A-b>",
+              peek_move_next_down = "<A-J>",
+              peek_move_previous_up = "<A-K>",
             },
-        })
+            actions = {
+              delete_all_trail_marks = "<A-L>",
+              paste_at_last_trail_mark = "<A-p>",
+              paste_at_all_trail_marks = "<A-P>",
+              set_trail_mark_select_mode = "<A-t>",
+            },
+          },
+        },
+      }
     end,
   },
   -- harpooon inspired
@@ -182,21 +181,6 @@ return {
   },
   -- Looks like oil does support ssh without netman
   -- { "miversen33/netman.nvim" },
-  -- navigate splits including tmux and wezterm
-  -- TODO: maybe use it again when it supports splits.
-  -- {
-  --   "numToStr/Navigator.nvim",
-  --   config = true,
-  --   enabled = false,
-  --   event = "VeryLazy",
-  --   keys = {
-  --     { "<C-h>", mode = { "n", "t" }, "<CMD>NavigatorLeft<CR>", desc = "Navigate Left" },
-  --     { "<C-l>", mode = { "n", "t" }, "<CMD>NavigatorRight<CR>", desc = "Navigate Right" },
-  --     { "<C-k>", mode = { "n", "t" }, "<CMD>NavigatorUp<CR>", desc = "Navigate Up" },
-  --     { "<C-j>", mode = { "n", "t" }, "<CMD>NavigatorDown<CR>", desc = "Navigate Down" },
-  --     { "<C-P>", mode = { "n", "t" }, "<CMD>NavigatorPrevious<CR>", desc = "Navigate Previous" },
-  --   },
-  -- },
 
   {
     "junegunn/vim-easy-align",
@@ -213,13 +197,15 @@ return {
     enabled = true,
   },
   { "stevearc/oil.nvim", config = true, enabled = true, cmd = "Oil" },
-  { "folke/todo-comments.nvim", config = true,
-      init = function() table.insert(astronvim.file_plugins, "todo-comments.nvim") end,
-},
+  {
+    "folke/todo-comments.nvim",
+    config = true,
+    init = function() table.insert(astronvim.file_plugins, "todo-comments.nvim") end,
+  },
   -- comments
   {
     "echasnovski/mini.comment",
-     keys = { "gc" },
+    keys = { "gc" },
     opts = {
       hooks = {
         pre = function() require("ts_context_commentstring.internal").update_commentstring {} end,
@@ -235,7 +221,7 @@ return {
       { "i", mode = { "x", "o" } },
     },
     dependencies = {
-{ "JoosepAlviste/nvim-ts-context-commentstring" },
+      { "JoosepAlviste/nvim-ts-context-commentstring" },
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
         init = function()
@@ -266,9 +252,12 @@ return {
 
   -- still not using quickfix 😆
   -- https://github.com/kevinhwang91/nvim-bqf
-  { "kevinhwang91/nvim-bqf",
+  {
+    "kevinhwang91/nvim-bqf",
     init = function() table.insert(astronvim.file_plugins, "nvim-bqf") end,
- enabled = false, config = true },
+    enabled = false,
+    config = true,
+  },
   -- don't use it yet
   -- https://github.com/ThePrimeagen/refactoring.nvim
   {
@@ -285,7 +274,7 @@ return {
     enabled = true,
     keys = {
       "<A-j>",
-      "<A-k>"
+      "<A-k>",
     },
     config = function(_, opts) require("mini.move").setup(opts) end,
   },
