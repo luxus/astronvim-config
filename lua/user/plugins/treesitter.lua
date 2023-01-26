@@ -1,11 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-    --FIX: rainbow2 does not load?
-    -- { "HiPhish/nvim-ts-rainbow2", lazy = false },
-    "andymass/vim-matchup",
+    -- "andymass/vim-matchup",
     "nvim-treesitter/nvim-treesitter-textobjects",
-  { "nvim-treesitter/nvim-treesitter-context", config = true },
+    { "nvim-treesitter/nvim-treesitter-context", config = true },
   },
   opts = {
     -- rainbow = {
@@ -22,24 +20,35 @@ return {
     auto_install = vim.fn.executable "tree-sitter" == 1,
     highlight = { disable = { "help" } },
     indent = { enable = true, disable = { "python" } },
-    matchup = { enable = true, disable = { "julia" } },
+    -- matchup = { enable = true, disable = { "julia" } },
     textobjects = {
       select = {
         enable = true,
         lookahead = true,
         keymaps = {
+          aA = "@attribute.outer",
+          iA = "@attribute.inner",
           aB = "@block.outer",
           iB = "@block.inner",
-          aC = "@conditional.outer",
-          iC = "@conditional.inner",
+          aD = "@conditional.outer",
+          iD = "@conditional.inner",
           aF = "@function.outer",
           iF = "@function.inner",
           aL = "@loop.outer",
           iL = "@loop.inner",
           aP = "@parameter.outer",
           iP = "@parameter.inner",
+          aR = "@regex.outer",
+          iR = "@regex.inner",
           aX = "@class.outer",
           iX = "@class.inner",
+
+          aS = "@statement.outer",
+          iS = "@statement.outer",
+          aN = "@number.inner",
+          iN = "@number.inner",
+          aC = "@comment.outer",
+          iC = "@comment.outer",
         },
       },
       move = {
@@ -50,24 +59,28 @@ return {
           ["]f"] = { query = "@function.outer", desc = "Next function start" },
           ["]p"] = { query = "@parameter.outer", desc = "Next parameter start" },
           ["]x"] = { query = "@class.outer", desc = "Next class start" },
+          ["]c"] = { query = "@comment.outer", desc = "Next comment start" },
         },
         goto_next_end = {
           ["]B"] = { query = "@block.outer", desc = "Next block end" },
           ["]F"] = { query = "@function.outer", desc = "Next function end" },
           ["]P"] = { query = "@parameter.outer", desc = "Next parameter end" },
           ["]X"] = { query = "@class.outer", desc = "Next class end" },
+          ["]C"] = { query = "@comment.outer", desc = "Next comment end" },
         },
         goto_previous_start = {
           ["[b"] = { query = "@block.outer", desc = "Previous block start" },
           ["[f"] = { query = "@function.outer", desc = "Previous function start" },
           ["[p"] = { query = "@parameter.outer", desc = "Previous parameter start" },
           ["[x"] = { query = "@class.outer", desc = "Previous class start" },
+          ["[c"] = { query = "@comment.outer", desc = "Previous comment start" },
         },
         goto_previous_end = {
           ["[B"] = { query = "@block.outer", desc = "Previous block end" },
           ["[F"] = { query = "@function.outer", desc = "Previous function end" },
           ["[P"] = { query = "@parameter.outer", desc = "Previous parameter end" },
           ["[X"] = { query = "@class.outer", desc = "Previous class end" },
+          ["[C"] = { query = "@comment.outer", desc = "Previous comment end" },
         },
       },
       swap = {
