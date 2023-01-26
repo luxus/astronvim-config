@@ -202,11 +202,6 @@ return {
         typescriptreact = { template = { annotation_convention = "tsdoc" } },
       },
     },
-    config = function()
-      require("which-key").register {
-        ["<leader>a"] = { name = "+Annotation" },
-      }
-    end,
 
     keys = {
       {
