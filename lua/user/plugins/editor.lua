@@ -162,7 +162,8 @@ return {
   -- surround text
   {
     "echasnovski/mini.surround",
-    keys = { "gz" },
+    -- keys = { "gz" },
+    init = function() table.insert(astronvim.file_plugins, "mini.surround") end,
     opts = {
       mappings = {
         add = "gza", -- Add surrounding in Normal and Visual modes
@@ -241,7 +242,7 @@ return {
   -- comments
   {
     "echasnovski/mini.comment",
-    keys = { "gc" },
+    init = function() table.insert(astronvim.file_plugins, "mini.comment") end,
     opts = {
       hooks = {
         pre = function() require("ts_context_commentstring.internal").update_commentstring {} end,
