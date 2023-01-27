@@ -22,8 +22,9 @@ return {
 
     -- open buffers
     {
-      "<tab>",
+      "<leader>b ",
       "<cmd>lua require('telescope.builtin').buffers({previewer = false, initial_mode='normal'})<cr>",
+      desc = "Open buffers",
     },
   },
   opts = function(_, opts)
