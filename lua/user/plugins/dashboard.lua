@@ -1,7 +1,14 @@
 return {
-  { "goolord/alpha-nvim", enabled = false },
+  {
+    "goolord/alpha-nvim",
+    enabled = true,
+    opts = function(_, opts) -- override the options using lazy.nvim
+      opts.section.header.val = require("user.plugins.alpha.banners").dashboard()
+    end,
+  },
   {
     "echasnovski/mini.starter",
+    enabled = false,
     event = "VimEnter",
     -- enabled = false,
     opts = function()
