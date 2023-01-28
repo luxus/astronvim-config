@@ -1,16 +1,16 @@
 return {
   {
-    "onsails/lspkind.nvim",
-    opts = {
-      symbol_map = { Copilot = "" },
-      max_width = 50,
-    },
-  },
-  {
     "hrsh7th/nvim-cmp",
     enabled = true,
     event = "InsertEnter",
     dependencies = {
+      {
+        "onsails/lspkind.nvim",
+        opts = {
+          symbol_map = { Copilot = "" },
+          max_width = 50,
+        },
+      },
       -- snippets
       {
         "L3MON4D3/LuaSnip",
@@ -60,7 +60,7 @@ return {
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-emoji",
       "jc-doyle/cmp-pandoc-references",
-      -- "kdheepak/cmp-latex-symbols",
+      "kdheepak/cmp-latex-symbols",
     },
     opts = function(_, opts)
       local cmp = require "cmp"
@@ -84,7 +84,7 @@ return {
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
           { name = "pandoc_references", priority = 725 },
-          -- { name = "latex_symbols", priority = 700 },
+          { name = "latex_symbols", priority = 700 },
           { name = "emoji", priority = 700 },
           { name = "calc", priority = 650 },
           { name = "path", priority = 500 },
