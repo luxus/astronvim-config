@@ -44,6 +44,7 @@ return {
       },
     },
   },
+  { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach", config = true },
   {
     "j-hui/fidget.nvim",
     event = "LspAttach",
