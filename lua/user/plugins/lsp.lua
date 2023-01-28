@@ -17,6 +17,7 @@ return {
     "simrat39/rust-tools.nvim",
     event = "LspAttach",
   },
+  { "ray-x/go.nvim", enabled = true, event = "LspAttach", config = true, dependencies = { "ray-x/guihua.lua" } },
   {
     "nanotee/sqls.nvim",
     event = "LspAttach",
@@ -36,10 +37,13 @@ return {
     enabled = true,
     config = true,
     keys = {
-      { "<leader>v", "<cmd>lua require('lsp_lines').toggle()<CR>", desc = "識LSP Lines" },
+      {
+        "<leader>v",
+        "<cmd>lua require('lsp_lines').toggle()<CR>",
+        desc = "識LSP Lines",
+      },
     },
   },
-  { "lvimuser/lsp-inlayhints.nvim", config = true },
   {
     "j-hui/fidget.nvim",
     event = "LspAttach",

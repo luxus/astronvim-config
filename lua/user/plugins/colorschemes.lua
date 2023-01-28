@@ -5,28 +5,30 @@ return {
     -- enabled = false,
     lazy = false,
     dependencies = {
+      -- { "dharmx/nvim-colo", config = true },
       "sainnhe/everforest",
-      "AlexvZyl/nordic.nvim",
+      { "AlexvZyl/nordic.nvim", dev = true },
+      -- "rockerBOO/boo-colorscheme-nvim",
       -- "ray-x/starry.nvim",
       -- "echasnovski/mini.base16",
       {
         "AstroNvim/astrotheme",
         enabled = false,
-        opts = {
-          palette = {
-            astrodark = {
-              -- bg = "#000000",
-              purple = "#f3ddb7",
-              -- red = "#A6FCFF",
-            },
-          },
-          highlights = {
-            astrodark = {
-              Comment = { italic = true },
-              -- CursorLine = { bg = "#233228" },
-            },
-          },
-        },
+        -- opts = {
+        -- palette = {
+        -- astrodark = {
+        -- bg = "#000000",
+        -- purple = "#f3ddb7",
+        -- red = "#A6FCFF",
+        -- },
+        -- },
+        -- highlights = {
+        -- astrodark = {
+        -- Comment = { italic = true },
+        -- CursorLine = { bg = "#233228" },
+        -- },
+        -- },
+        -- },
       },
       {
         "EdenEast/nightfox.nvim",

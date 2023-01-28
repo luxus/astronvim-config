@@ -4,6 +4,7 @@ vim.api.nvim_create_autocmd(
   { "BufRead", "BufNewFile" },
   { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
 )
+-- neovide config
 if vim.g.neovide then
   vim.g.neovide_transparency = 0.9
   vim.g.neovide_input_macos_alt_is_meta = true

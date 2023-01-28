@@ -1,4 +1,15 @@
 return {
+  {
+    --TODO: not tested yet
+    "pwntester/octo.nvim",
+    enabled = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function() require("octo").setup() end,
+  },
 
   {
     "Wansmer/treesj",
@@ -41,8 +52,7 @@ return {
         "<leader>R",
         function() return ":IncRename " .. vim.fn.expand "<cword>" end,
         --FIX: what does this means?
-        -- expr = true ,
-        desc = "Rename",
+        { expr = true, desc = "Rename" },
       },
     },
   },
