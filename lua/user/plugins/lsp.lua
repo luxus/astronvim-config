@@ -8,11 +8,7 @@ return {
   },
   --FIX: looks like there is no "has"
   -- ["gK"] = { vim.lsp.buf.signature_help, { desc = "Signature Help", has = "signatureHelp" } },
-  {
-    "Saecki/crates.nvim",
-    event = { "BufRead Cargo.toml" },
-    config = true,
-  },
+
   {
     "simrat39/rust-tools.nvim",
     event = "LspAttach",

@@ -24,6 +24,22 @@ return {
         },
       },
       {
+        "Saecki/crates.nvim",
+        -- config = true,
+        config = function()
+          local null_ls = require "null-ls"
+          require("crates").setup {
+            popup = {
+              autofocus = true,
+            },
+            null_ls = {
+              enabled = true,
+              name = "crates",
+            },
+          }
+        end,
+      },
+      {
         "zbirenbaum/copilot-cmp",
         config = function()
           require("copilot_cmp").setup {
@@ -63,6 +79,7 @@ return {
 
       return astronvim.extend_tbl(opts, {
         sources = cmp.config.sources {
+          { name = "crates", priority = 1002 },
           { name = "copilot", priority = 1001 },
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
