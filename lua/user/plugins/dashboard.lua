@@ -6,7 +6,7 @@ return {
       --FIX: startup time says 0ms, alpha maybe needs to refresh like mini.starter does.
       local stats = require("lazy").stats()
       local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-      opts.section.header.val = require("user.plugins.alpha.banners").dashboard()
+      opts.section.header.val = require("user.plugins.dashboard.banners").dashboard()
       opts.section.footer.val =
         { " ", " ", " ", "AstroNvim loaded " .. require("lazy").stats().count .. " plugins  in " .. ms .. "ms" }
     end,
@@ -16,30 +16,6 @@ return {
     enabled = true,
     event = "VimEnter",
     opts = function()
-      local logo = table.concat({
-        "                   ██          ██                    ",
-        "                 ██▒▒██      ██▒▒██                  ",
-        "                 ██▒▒▓▓██████▓▓▒▒██                  ",
-        "               ██▓▓▒▒▒▒▓▓▓▓▓▓▒▒▒▒▓▓██                ",
-        "               ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                ",
-        "             ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██              ",
-        "             ██▒▒▒▒██▒▒▒▒██▒▒▒▒██▒▒▒▒██              ",
-        "             ██▒▒▒▒▒▒▒▒██▒▒██▒▒▒▒▒▒▒▒██              ",
-        "           ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██            ",
-        "           ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██            ",
-        "           ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██            ",
-        "           ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██            ",
-        "         ██▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓██          ",
-        "         ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██          ",
-        "         ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██    ████  ",
-        "         ██▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓██  ██▒▒▒▒██",
-        "         ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██    ██▓▓██",
-        "         ██▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒▒▒▒██    ██▒▒██",
-        "         ██▓▓▒▒▒▒██▒▒██▒▒▒▒▒▒██▒▒██▒▒▒▒▓▓██████▒▒▒▒██",
-        "           ██▓▓▒▒██▒▒██▒▒▒▒▒▒██▒▒██▒▒▓▓██▒▒▒▒▓▓▒▒██  ",
-        "             ██████▒▒██████████▒▒████████████████    ",
-        "                 ██████      ██████                  ",
-      }, "\n")
       local pad = string.rep(" ", 0)
       local function new_section(name, action, section)
         return { name = name, action = action, section = pad .. section }
@@ -47,8 +23,7 @@ return {
       local starter = require "mini.starter"
       local config = {
         evaluate_single = true,
-        -- header = require("user.plugins.alpha.banners2").dashboard(),
-        header = logo,
+        header = require("user.plugins.dashboard.banners_starter").dashboard(),
         items = {
           starter.sections.recent_files(5, true, false),
           new_section("Find file", "Telescope git_files", "Telescope"),
