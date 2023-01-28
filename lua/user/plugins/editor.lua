@@ -11,6 +11,7 @@ return {
     config = function() require("octo").setup() end,
   },
 
+  { "tjdevries/sg.nvim", config = true, build = "cargo build --workspace", dependencies = { "nvim-lua/plenary.nvim" } },
   {
     "Wansmer/treesj",
     keys = { "<leader>J", "<leader>j" },
@@ -51,7 +52,6 @@ return {
       {
         "<leader>R",
         function() return ":IncRename " .. vim.fn.expand "<cword>" end,
-        --FIX: what does this means?
         { expr = true, desc = "Rename" },
       },
     },
