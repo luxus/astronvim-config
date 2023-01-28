@@ -7,7 +7,7 @@ return {
     dependencies = {
       -- { "dharmx/nvim-colo", config = true },
       "sainnhe/everforest",
-      { "AlexvZyl/nordic.nvim", dev = true },
+      -- { "AlexvZyl/nordic.nvim", dev = true },
       -- "rockerBOO/boo-colorscheme-nvim",
       -- "ray-x/starry.nvim",
       -- "echasnovski/mini.base16",
