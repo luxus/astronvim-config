@@ -4,6 +4,8 @@ return {
     event = "LspAttach",
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+      "mason-lspconfig.nvim",
+      "nlsp-settings.nvim",
     },
   },
   --FIX: looks like there is no "has"
