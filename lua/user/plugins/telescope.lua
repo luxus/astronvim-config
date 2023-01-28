@@ -1,5 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
+  event = "VeryLazy", -- this will load it after the dashboard
   dependencies = {
     "nvim-telescope/telescope-hop.nvim",
     "nvim-telescope/telescope-bibtex.nvim",
