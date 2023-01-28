@@ -33,4 +33,5 @@ return {
       "gopls",
     } },
   },
+  { "ray-x/go.nvim", enabled = true, event = "LspAttach", config = true, dependencies = { "ray-x/guihua.lua" } },
 }

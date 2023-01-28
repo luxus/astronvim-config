@@ -3,7 +3,6 @@ return {
     "mfussenegger/nvim-dap",
     event = "BufEnter *.ts",
     enabled = true,
-    -- event = "BufReadPre",
 
     dependencies = {
       { "mxsdev/nvim-dap-vscode-js", opts = { debugger_cmd = { "js-debug-adapter" }, adapters = { "pwa-node" } } },
