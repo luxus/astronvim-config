@@ -1,38 +1,62 @@
 return {
   {
     "goolord/alpha-nvim",
-    enabled = true,
+    enabled = false,
     opts = function(_, opts) -- override the options using lazy.nvim
+      --FIX: startup time says 0ms, alpha maybe needs to refresh like mini.starter does.
+      local stats = require("lazy").stats()
+      local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
       opts.section.header.val = require("user.plugins.alpha.banners").dashboard()
+      opts.section.footer.val =
+        { " ", " ", " ", "AstroNvim loaded " .. require("lazy").stats().count .. " plugins  in " .. ms .. "ms" }
     end,
   },
   {
     "echasnovski/mini.starter",
-    enabled = false,
+    enabled = true,
     event = "VimEnter",
-    -- enabled = false,
     opts = function()
       local logo = table.concat({
-        " █████  ███████ ████████ ██████   ██████     ███    ██ ██    ██ ██ ███    ███",
-        "██   ██ ██         ██    ██   ██ ██    ██    ████   ██ ██    ██ ██ ████  ████",
-        "███████ ███████    ██    ██████  ██    ██    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "██   ██      ██    ██    ██   ██ ██    ██    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "██   ██ ███████    ██    ██   ██  ██████     ██   ████   ████   ██ ██      ██",
+        "                   ██          ██                    ",
+        "                 ██▒▒██      ██▒▒██                  ",
+        "                 ██▒▒▓▓██████▓▓▒▒██                  ",
+        "               ██▓▓▒▒▒▒▓▓▓▓▓▓▒▒▒▒▓▓██                ",
+        "               ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██                ",
+        "             ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██              ",
+        "             ██▒▒▒▒██▒▒▒▒██▒▒▒▒██▒▒▒▒██              ",
+        "             ██▒▒▒▒▒▒▒▒██▒▒██▒▒▒▒▒▒▒▒██              ",
+        "           ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██            ",
+        "           ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██            ",
+        "           ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██            ",
+        "           ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██            ",
+        "         ██▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓██          ",
+        "         ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██          ",
+        "         ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██    ████  ",
+        "         ██▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓██  ██▒▒▒▒██",
+        "         ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓██    ██▓▓██",
+        "         ██▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▒▒▒▒▒▒██    ██▒▒██",
+        "         ██▓▓▒▒▒▒██▒▒██▒▒▒▒▒▒██▒▒██▒▒▒▒▓▓██████▒▒▒▒██",
+        "           ██▓▓▒▒██▒▒██▒▒▒▒▒▒██▒▒██▒▒▓▓██▒▒▒▒▓▓▒▒██  ",
+        "             ██████▒▒██████████▒▒████████████████    ",
+        "                 ██████      ██████                  ",
       }, "\n")
-      local pad = string.rep(" ", 33)
+      local pad = string.rep(" ", 0)
       local function new_section(name, action, section)
         return { name = name, action = action, section = pad .. section }
       end
       local starter = require "mini.starter"
       local config = {
         evaluate_single = true,
+        -- header = require("user.plugins.alpha.banners2").dashboard(),
         header = logo,
         items = {
+          starter.sections.recent_files(5, true, false),
           new_section("Find file", "Telescope git_files", "Telescope"),
-          new_section("Recent files", "Telescope oldfiles", "Telescope"),
-          new_section("Grep text", "Telescope live_grep", "Telescope"),
-          new_section("Config ", "e ~/.config/astronvim", "Config"),
+          new_section("Old files(Recent)", "Telescope oldfiles", "Telescope"),
+          new_section("Word grep", "Telescope live_grep", "Telescope"),
+          new_section("Config", "e ~/.config/astronvim", "Config"),
           new_section("Restore Session", "SessionManager! load_last_session", "Built-in"),
+          new_section("Sessions", "SessionManager! load_session", "Built-in"),
           new_section("Lazy", "Lazy", "Config"),
           new_section("New file", "ene | startinsert", "Built-in"),
           new_section("Quit", "qa", "Built-in"),
@@ -62,7 +86,7 @@ return {
         callback = function()
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-          local pad_footer = string.rep(" ", 18)
+          local pad_footer = string.rep(" ", 0)
           starter.config.footer = pad_footer .. "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
           pcall(starter.refresh)
         end,
