@@ -20,7 +20,6 @@ return {
         "Saecki/crates.nvim",
         -- config = true,
         config = function()
-          local null_ls = require "null-ls"
           require("crates").setup {
             popup = {
               autofocus = true,

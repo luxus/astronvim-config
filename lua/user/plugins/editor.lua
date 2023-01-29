@@ -49,6 +49,7 @@ return {
       lastplace_open_folds = true,
     },
   },
+  --visually rename functions
   {
     "smjonas/inc-rename.nvim",
     cmd = "IncRename",
@@ -82,7 +83,6 @@ return {
     end,
   },
   {
-    --TODO: let use Internal register for some mappings
     "gbprod/cutlass.nvim",
     keys = {
       "x",
@@ -99,6 +99,7 @@ return {
       }
     end,
   },
+  -- jump around
   {
     "ggandor/leap.nvim",
     init = function() table.insert(astronvim.file_plugins, "leap.nvim") end,
@@ -112,7 +113,7 @@ return {
     end,
   },
 
-  -- yanky
+  -- yanky more options for put
   {
     "gbprod/yanky.nvim",
     config = true,
@@ -130,29 +131,7 @@ return {
     --   },
     -- },
   },
-  {
-    "kevinhwang91/nvim-ufo",
-    dependencies = { "kevinhwang91/promise-async" },
-    init = function() table.insert(astronvim.file_plugins, "nvim-ufo") end,
-    lazy = true,
-    opts = {
-      provider_selector = function(_, filetype, buftype)
-        if filetype == "" or buftype == "nofile" then
-          return "indent"
-        else
-          return { "treesitter", "indent" }
-        end
-      end,
-    },
-    config = function(_, opts)
-      require("ufo").setup(opts)
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-      vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
-      vim.keymap.set("n", "zp", require("ufo").peekFoldedLinesUnderCursor, { desc = "Peek Fold" })
-    end,
-  },
+
   -- surround text
   {
     "echasnovski/mini.surround",
