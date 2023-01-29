@@ -51,4 +51,8 @@ return {
       }
     end,
   },
+  {
+    "jose-elias-alvarez/typescript.nvim",
+    event = "LspAttach",
+  },
 }

@@ -11,7 +11,12 @@ return {
     config = function() require("octo").setup() end,
   },
 
-  { "tjdevries/sg.nvim", config = true, build = "cargo build --workspace", dependencies = { "nvim-lua/plenary.nvim" } },
+  {
+    "tjdevries/sg.nvim",
+    build = "cargo build --workspace",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = "VeryLazy",
+  },
   {
     "Wansmer/treesj",
     keys = { "<leader>J", "<leader>j" },
@@ -104,29 +109,7 @@ return {
       leap.add_default_mappings(true)
     end,
   },
-  -- harpooon inspired
-  {
-    "cbochs/portal.nvim",
-    keys = {
-      { "<leader>o", function() require("portal").jump_backward {} end, desc = "Portal Jump backward" },
-      { "<leader>i", function() require("portal").jump_forward {} end, desc = "Portal Jump forward" },
-    },
-    dependencies = {
-      {
-        "cbochs/grapple.nvim",
-        enabled = true,
-        dependencies = { "nvim-lua/plenary.nvim" },
-        keys = {
-          { "<leader> ", function() require("grapple").popup_tags() end, desc = "Grapple" },
-          { "<leader>A", function() require("grapple").toggle() end, desc = "Tag in Grapple" },
-          { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "Grapple 1" },
-          { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "Grapple 2" },
-          { "<leader>3", function() require("grapple").select { key = 3 } end, desc = "Grapple 3" },
-          { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "Grapple 4" },
-        },
-      },
-    },
-  },
+
   -- yanky
   {
     "gbprod/yanky.nvim",
