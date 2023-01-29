@@ -1,5 +1,6 @@
 return {
   opt = {
+    cursorline = true, -- highlight current line
     conceallevel = 2, -- enable conceal
     linebreak = true, -- linebreak soft wrap at words
     list = true, -- show whitespace characters

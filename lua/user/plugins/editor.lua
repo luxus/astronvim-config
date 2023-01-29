@@ -1,23 +1,5 @@
 return {
   {
-    --TODO: not tested yet
-    "pwntester/octo.nvim",
-    enabled = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function() require("octo").setup() end,
-  },
-
-  {
-    "tjdevries/sg.nvim",
-    build = "cargo build --workspace",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    event = "VeryLazy",
-  },
-  {
     "Wansmer/treesj",
     keys = { "<leader>J", "<leader>j" },
     cmd = {
@@ -82,23 +64,7 @@ return {
       }
     end,
   },
-  {
-    "gbprod/cutlass.nvim",
-    keys = {
-      "x",
-      "d",
-      "c",
-      "X",
-      "D",
-      "C",
-    },
-    config = function()
-      require("cutlass").setup {
-        exclude = { "ns", "nS" },
-        cut_key = "m",
-      }
-    end,
-  },
+
   -- jump around
   {
     "ggandor/leap.nvim",

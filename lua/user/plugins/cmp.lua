@@ -16,21 +16,6 @@ return {
           delete_check_events = "TextChanged",
         },
       },
-      {
-        "Saecki/crates.nvim",
-        -- config = true,
-        config = function()
-          require("crates").setup {
-            popup = {
-              autofocus = true,
-            },
-            null_ls = {
-              enabled = true,
-              name = "crates",
-            },
-          }
-        end,
-      },
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-emoji",
       "jc-doyle/cmp-pandoc-references",
@@ -53,7 +38,6 @@ return {
 
       return astronvim.extend_tbl(opts, {
         sources = cmp.config.sources {
-          { name = "crates", priority = 1002 },
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
           { name = "pandoc_references", priority = 725 },
