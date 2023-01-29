@@ -82,6 +82,7 @@ return {
     end,
   },
   {
+    --TODO: let use Internal register for some mappings
     "gbprod/cutlass.nvim",
     keys = {
       "x",
