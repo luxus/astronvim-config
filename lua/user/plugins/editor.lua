@@ -155,8 +155,6 @@ return {
       { "<leader>aF", function() require("neogen").generate { type = "file" } end, desc = "File" },
     },
   },
-  -- Looks like oil does support ssh without netman
-  -- { "miversen33/netman.nvim" },
 
   {
     "junegunn/vim-easy-align",
@@ -214,26 +212,6 @@ return {
       ai.setup(opts)
     end,
   },
-
-  -- still not using quickfix 😆
-  -- https://github.com/kevinhwang91/nvim-bqf
-  {
-    "kevinhwang91/nvim-bqf",
-    init = function() table.insert(astronvim.file_plugins, "nvim-bqf") end,
-    enabled = false,
-    config = true,
-  },
-  -- don't use it yet
-  -- https://github.com/ThePrimeagen/refactoring.nvim
-  {
-    "ThePrimeagen/refactoring.nvim",
-    ft = { "typescript", "javascript", "lua", "c", "cpp", "go", "python", "java", "php" },
-    config = true,
-    enabled = false,
-  },
-  -- https://github.com/AckslD/nvim-neoclip.lua
-  -- yank history
-  -- { "AckslD/nvim-neoclip.lua", event = "BufRead", config = true },
   {
     "echasnovski/mini.move",
     config = function(_, opts) require("mini.move").setup(opts) end,
