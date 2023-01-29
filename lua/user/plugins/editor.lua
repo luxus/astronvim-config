@@ -95,7 +95,7 @@ return {
     config = function()
       require("cutlass").setup {
         exclude = { "ns", "nS" },
-        cut_key = "x",
+        cut_key = "m",
       }
     end,
   },
