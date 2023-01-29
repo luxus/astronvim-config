@@ -152,7 +152,6 @@ return {
       vim.keymap.set("n", "zp", require("ufo").peekFoldedLinesUnderCursor, { desc = "Peek Fold" })
     end,
   },
-  { "wakatime/vim-wakatime", init = function() table.insert(astronvim.file_plugins, "vim-wakatime") end },
   -- surround text
   {
     "echasnovski/mini.surround",
@@ -227,7 +226,6 @@ return {
     init = function() table.insert(astronvim.file_plugins, "hlargs.nvim") end,
     enabled = true,
   },
-  { "stevearc/oil.nvim", config = true, enabled = true, cmd = "Oil" },
   {
     "folke/todo-comments.nvim",
     config = true,

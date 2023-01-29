@@ -14,11 +14,7 @@ return {
       { "<Up>", function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
       { "<Down>", function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
       { "<Left>", function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
-      {
-        "<Right>",
-        function() require("smart-splits").resize_right(2) end,
-        desc = "Resize split right",
-      },
+      { "<Right>", function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
     },
   },
 
@@ -38,16 +34,6 @@ return {
         animation = { enable = false, duration = 150 },
       }
     end,
-  },
-
-  -- scrollbar
-  {
-    "petertriho/nvim-scrollbar",
-    init = function() table.insert(astronvim.file_plugins, "nvim-scrollbar") end,
-    config = true,
-    opts = {
-      excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "neo-tree" },
-    },
   },
   -- indent guides for Neovim
   {
