@@ -245,6 +245,7 @@ return {
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
         init = function()
+          --FIX: i guess this is not working
           -- no need to load the plugin, since we only need its queries
           require("lazy.core.loader").disable_rtp_plugin "nvim-treesitter-textobjects"
         end,
@@ -291,12 +292,25 @@ return {
   -- { "AckslD/nvim-neoclip.lua", event = "BufRead", config = true },
   {
     "echasnovski/mini.move",
-    -- init = function() table.insert(astronvim.file_plugins, "mini.move") end,
+    config = function(_, opts) require("mini.move").setup(opts) end,
     enabled = true,
     keys = {
-      "<A-j>",
-      "<A-k>",
+      { "<S-left>", mode = { "n", "v" } },
+      { "<S-right>", mode = { "n", "v" } },
+      { "<S-down>", mode = { "n", "v" } },
+      { "<S-up>", mode = { "n", "v" } },
     },
-    config = function(_, opts) require("mini.move").setup(opts) end,
+    opts = {
+      mappings = {
+        left = "<S-left>",
+        right = "<S-right>",
+        down = "<S-down>",
+        up = "<S-up>",
+        line_left = "<S-left>",
+        line_right = "<S-right>",
+        line_down = "<S-down>",
+        line_up = "<S-up>",
+      },
+    },
   },
 }
