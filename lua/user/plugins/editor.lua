@@ -244,9 +244,9 @@ return {
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
         init = function()
-          --FIX: i guess this is not working
+          --TODO: i did this in lazy.lua, not sure how to do it here
           -- no need to load the plugin, since we only need its queries
-          require("lazy.core.loader").disable_rtp_plugin "nvim-treesitter-textobjects"
+          -- require("lazy.core.loader").disable_rtp_plugin "nvim-treesitter-textobjects"
         end,
       },
     },
