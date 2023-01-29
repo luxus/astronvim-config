@@ -1,8 +1,8 @@
 return {
   {
     "zbirenbaum/copilot.lua",
-    config = true,
     event = "VeryLazy",
-    opts = { panel = { enabled = false } },
+    cmd = "Copilot",
+    opts = { suggestion = { auto_trigger = true }, panel = { enabled = false } },
   },
 }

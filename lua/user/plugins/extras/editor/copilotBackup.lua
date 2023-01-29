@@ -1,3 +1,4 @@
+-- just keep as a backup. not used
 return {
   {
     "hrsh7th/nvim-cmp",
