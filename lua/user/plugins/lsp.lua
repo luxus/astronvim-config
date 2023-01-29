@@ -5,7 +5,7 @@ return {
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       "mason-lspconfig.nvim",
-      "nlsp-settings.nvim",
+      "tamago324/nlsp-settings.nvim",
     },
   },
   { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach", config = true },
