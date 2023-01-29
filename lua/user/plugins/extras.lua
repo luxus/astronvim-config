@@ -11,7 +11,7 @@ return {
   require "user.plugins.extras.editor.minicomment",
   require "user.plugins.extras.editor.grapple+portal",
   require "user.plugins.extras.editor.copilot",
-  { "stevearc/oil.nvim", config = true, enabled = true, cmd = "Oil" },
+  require "user.plugins.extras.tools.oil",
   { "andweeb/presence.nvim", event = "VeryLazy" },
   { "wakatime/vim-wakatime", init = function() table.insert(astronvim.file_plugins, "vim-wakatime") end },
 }
