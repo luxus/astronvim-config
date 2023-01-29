@@ -1,11 +1,16 @@
--- just keep as a backup. not used
-
 return {
   {
     "hrsh7th/nvim-cmp",
     enabled = true,
     event = "InsertEnter",
     dependencies = {
+      {
+        "onsails/lspkind.nvim",
+        opts = {
+          symbol_map = { Copilot = "" },
+          max_width = 50,
+        },
+      },
       -- snippets
       {
         "L3MON4D3/LuaSnip",
@@ -34,6 +39,24 @@ return {
           }
         end,
       },
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup {
+            method = "getCompletionsCycling",
+            formatters = {
+              insert_text = require("copilot_cmp.format").remove_existing,
+            },
+          }
+        end,
+        dependencies = {
+          {
+            "zbirenbaum/copilot.lua",
+            config = true,
+            opts = { panel = { enabled = false } },
+          },
+        },
+      },
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-emoji",
       "jc-doyle/cmp-pandoc-references",
@@ -57,6 +80,7 @@ return {
       return astronvim.extend_tbl(opts, {
         sources = cmp.config.sources {
           { name = "crates", priority = 1002 },
+          { name = "copilot", priority = 1001 },
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
           { name = "pandoc_references", priority = 725 },

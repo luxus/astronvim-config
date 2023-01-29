@@ -232,17 +232,7 @@ return {
     config = true,
     init = function() table.insert(astronvim.file_plugins, "todo-comments.nvim") end,
   },
-  -- comments
-  {
-    "echasnovski/mini.comment",
-    init = function() table.insert(astronvim.file_plugins, "mini.comment") end,
-    opts = {
-      hooks = {
-        pre = function() require("ts_context_commentstring.internal").update_commentstring {} end,
-      },
-    },
-    config = function(_, opts) require("mini.comment").setup(opts) end,
-  },
+
   -- better text-objects
   {
     "echasnovski/mini.ai",
@@ -307,13 +297,5 @@ return {
       "<A-k>",
     },
     config = function(_, opts) require("mini.move").setup(opts) end,
-  },
-  {
-    "uga-rosa/ccc.nvim",
-    -- event = "BufRead",
-    --FIX: not loading sometimes on the first try
-    init = function() table.insert(astronvim.file_plugins, "ccc.nvim") end,
-    config = function() require("ccc").setup { highlighter = { auto_enable = true } } end,
-    keys = { { "<leader>C", "<cmd>CccPick<cr>", desc = "Toggle colorizer" } },
   },
 }

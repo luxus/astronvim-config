@@ -2,14 +2,6 @@ return {
   {
     "goolord/alpha-nvim",
     enabled = false,
-    opts = function(_, opts) -- override the options using lazy.nvim
-      --FIX: startup time says 0ms, alpha maybe needs to refresh like mini.starter does.
-      local stats = require("lazy").stats()
-      local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-      opts.section.header.val = require("user.plugins.dashboard.banners").dashboard()
-      opts.section.footer.val =
-        { " ", " ", " ", "AstroNvim loaded " .. require("lazy").stats().count .. " plugins  in " .. ms .. "ms" }
-    end,
   },
   {
     "echasnovski/mini.starter",
@@ -23,7 +15,7 @@ return {
       local starter = require "mini.starter"
       local config = {
         evaluate_single = true,
-        header = require("user.plugins.dashboard.banners_starter").dashboard(),
+        header = require("user.plugins.extras.ui.ministarter_banner").dashboard(),
         items = {
           starter.sections.recent_files(5, true, false),
           new_section("Find file", "Telescope git_files", "Telescope"),

@@ -21,32 +21,7 @@ return {
       },
     },
   },
-  -- noicer ui
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    },
-    -- enabled = false,
-    opts = {
-      lsp = {
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
-        },
-      },
-      messages = { enabled = false },
-      presets = {
-        inc_rename = true,
-        bottom_search = false,
-        command_palette = true,
-        long_message_to_split = true,
-        lsp_doc_border = "rounded",
-      },
-    },
-  },
+
   -- auto-resize windows
   {
     "anuvyklack/windows.nvim",
@@ -64,17 +39,7 @@ return {
       }
     end,
   },
-  -- silly drops
-  {
-    "folke/drop.nvim",
-    event = "VeryLazy",
-    -- enabled = false,
-    config = function()
-      math.randomseed(os.time())
-      local theme = ({ "stars", "snow" })[math.random(1, 3)]
-      require("drop").setup { theme = theme }
-    end,
-  },
+
   -- scrollbar
   {
     "petertriho/nvim-scrollbar",
@@ -112,42 +77,6 @@ return {
     end,
   },
 
-  {
-    "echasnovski/mini.animate",
-    event = "VeryLazy",
-    -- enabled = false,
-    opts = function()
-      -- don't use animate when scrolling with the mouse
-      local mouse_scrolled = false
-      for _, scroll in ipairs { "Up", "Down" } do
-        local key = "<ScrollWheel" .. scroll .. ">"
-        vim.keymap.set({ "", "i" }, key, function()
-          mouse_scrolled = true
-          return key
-        end, { expr = true })
-      end
-
-      local animate = require "mini.animate"
-      return {
-        resize = {
-          timing = animate.gen_timing.linear { duration = 100, unit = "total" },
-        },
-        scroll = {
-          timing = animate.gen_timing.linear { duration = 150, unit = "total" },
-          subscroll = animate.gen_subscroll.equal {
-            predicate = function(total_scroll)
-              if mouse_scrolled then
-                mouse_scrolled = false
-                return false
-              end
-              return total_scroll > 1
-            end,
-          },
-        },
-      }
-    end,
-    config = function(_, opts) require("mini.animate").setup(opts) end,
-  },
   {
     "folke/zen-mode.nvim",
     cmd = "ZenMode",
