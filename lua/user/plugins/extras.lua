@@ -11,6 +11,7 @@ return {
   require "user.plugins.extras.editor.minicomment",
   require "user.plugins.extras.editor.grapple+portal",
   require "user.plugins.extras.editor.copilot",
+  -- require "user.plugins.extras.editor.copilot-cmp",
   require "user.plugins.extras.editor.cutlass",
   require "user.plugins.extras.tools.oil",
   -- require "user.plugins.extras.tools.octo",
