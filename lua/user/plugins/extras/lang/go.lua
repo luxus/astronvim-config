@@ -15,9 +15,17 @@ return {
     ft = { "go", "gomod" },
   },
   {
-    "leoluz/nvim-dap-go",
-    config = function() require("dap-go").setup() end,
-    ft = { "go", "gomod" },
+    "rcarriga/nvim-dap-ui",
+    config = true,
+    dependencies = {
+      { "mfussenegger/nvim-dap", event = "BufEnter *.go" },
+      { "theHamsta/nvim-dap-virtual-text", config = true },
+      {
+        "leoluz/nvim-dap-go",
+        config = true,
+        ft = { "go", "gomod" },
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -30,8 +38,10 @@ return {
   {
     "williamboman/mason.nvim",
     opts = { ensure_installed = {
+      "gomodifytags",
+      "impl",
+      "iferr",
       "gopls",
     } },
   },
-  { "ray-x/go.nvim", enabled = true, event = "LspAttach", config = true, dependencies = { "ray-x/guihua.lua" } },
 }
