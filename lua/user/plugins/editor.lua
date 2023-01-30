@@ -88,14 +88,14 @@ return {
       { "P", mode = { "n", "x" }, "<Plug>(YankyPutBefore)", desc = "Put before" },
       { "gp", mode = { "n", "x" }, "<Plug>(YankyGPutAfter)", desc = "GPut after" },
       { "gP", mode = { "n", "x" }, "<Plug>(YankyGPutBefore)", desc = "GPut before" },
+      { "<c-n>", mode = { "n", "x" }, "<Plug>(YankyCycleForward)", desc = "Yank Cycle Forward" },
+      { "<c-p>", mode = { "n", "x" }, "<Plug>(YankyCycleBackward)", desc = "Yank Cycle Backward" },
     },
-    --FIXME: this is not working
-    -- dependencies = { "kkharji/sqlite.lua" },
-    -- opts = {
-    --   ring = {
-    --     storage = "sqlite",
-    --   },
-    -- },
+    opts = {
+      highlight = {
+        timer = 200,
+      },
+    },
   },
 
   -- surround text

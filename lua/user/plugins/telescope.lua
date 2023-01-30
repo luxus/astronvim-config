@@ -24,6 +24,7 @@ return {
     { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo" },
     { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
     { "<leader>fl", "<cmd>Telescope lazy<cr>", desc = "Lazy" },
+    { "<leader>fy", "<cmd>Telescope yank_history<cr>", desc = "Yank History" },
 
     -- open buffers
     {
@@ -130,5 +131,6 @@ return {
     telescope.load_extension "zoxide"
     telescope.load_extension "lazy"
     telescope.load_extension "fzf"
+    telescope.load_extension "yank_history"
   end,
 }
