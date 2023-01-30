@@ -34,20 +34,45 @@ return {
     local fb_actions = require("telescope").extensions.file_browser.actions
     local hop = telescope.extensions.hop
     return astronvim.extend_tbl(opts, {
+      live_grep = {
+        border = true,
+        previewer = false,
+        shorten_path = false,
+        layout_strategy = "flex",
+        layout_config = {
+          width = 0.9,
+          height = 0.8,
+          horizontal = { width = { padding = 0.15 } },
+          vertical = { preview_height = 0.75 },
+        },
+        file_ignore_patterns = {
+          "vendor/*",
+          "node_modules",
+          "%.jpg",
+          "%.jpeg",
+          "%.png",
+          "%.svg",
+          "%.otf",
+          "%.ttf",
+          "spell/*",
+        },
+      },
       defaults = {
         selection_caret = "  ",
         layout_config = {
           width = 0.90,
           height = 0.85,
           preview_cutoff = 120,
+          prompt_position = "bottom",
           horizontal = {
-            preview_width = 0.6,
+            preview_width = function(_, cols, _) return math.floor(cols * 0.6) end,
           },
           vertical = {
             width = 0.9,
             height = 0.95,
             preview_height = 0.5,
           },
+
           flex = {
             horizontal = {
               preview_width = 0.9,
