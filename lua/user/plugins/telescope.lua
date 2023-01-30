@@ -10,6 +10,10 @@ return {
     "debugloop/telescope-undo.nvim",
     "jvgrootveld/telescope-zoxide",
     "tsakirist/telescope-lazy.nvim",
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+    },
   },
   keys = {
     -- telescope plugin mappings
@@ -125,5 +129,6 @@ return {
     telescope.load_extension "undo"
     telescope.load_extension "zoxide"
     telescope.load_extension "lazy"
+    telescope.load_extension "fzf"
   end,
 }
