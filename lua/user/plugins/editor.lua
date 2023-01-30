@@ -1,4 +1,5 @@
 return {
+  -- spread or combine code
   {
     "Wansmer/treesj",
     keys = { "<leader>J", "<leader>j" },
@@ -130,31 +131,6 @@ return {
       "antoinemadec/FixCursorHold.nvim",
     },
   },
-  -- Neogen is a better annotation generator.
-  {
-    "danymat/neogen",
-    cmd = "Neogen",
-    opts = {
-      snippet_engine = "luasnip",
-      languages = {
-        lua = { template = { annotation_convention = "ldoc" } },
-        typescript = { template = { annotation_convention = "tsdoc" } },
-        typescriptreact = { template = { annotation_convention = "tsdoc" } },
-      },
-    },
-
-    keys = {
-      {
-        "<leader>a<cr>",
-        function() require("neogen").generate { type = "current" } end,
-        desc = "Current",
-      },
-      { "<leader>ac", function() require("neogen").generate { type = "class" } end, desc = "Class" },
-      { "<leader>af", function() require("neogen").generate { type = "func" } end, desc = "Function" },
-      { "<leader>at", function() require("neogen").generate { type = "type" } end, desc = "Type" },
-      { "<leader>aF", function() require("neogen").generate { type = "file" } end, desc = "File" },
-    },
-  },
 
   {
     "junegunn/vim-easy-align",
@@ -170,6 +146,7 @@ return {
     init = function() table.insert(astronvim.file_plugins, "hlargs.nvim") end,
     enabled = true,
   },
+  -- make todo, fix etc stand out
   {
     "folke/todo-comments.nvim",
     config = true,
@@ -212,6 +189,7 @@ return {
       ai.setup(opts)
     end,
   },
+  -- move lines or selections in all directions
   {
     "echasnovski/mini.move",
     config = function(_, opts) require("mini.move").setup(opts) end,

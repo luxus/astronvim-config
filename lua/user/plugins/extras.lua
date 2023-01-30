@@ -14,6 +14,7 @@ return {
   require "user.plugins.extras.editor.copilot",
   -- require "user.plugins.extras.editor.copilot-cmp",
   require "user.plugins.extras.editor.cutlass",
+  require "user.plugins.extras.editor.neogen",
   -- require "user.plugins.extras.editor.bqf",
   require "user.plugins.extras.tools.oil",
   -- require "user.plugins.extras.tools.refactoring",
