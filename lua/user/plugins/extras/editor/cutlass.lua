@@ -8,6 +8,7 @@ return {
       "X",
       "D",
       "C",
+      "m",
     },
     config = function()
       require("cutlass").setup {
