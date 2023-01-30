@@ -2,13 +2,13 @@ return {
   {
     "gbprod/cutlass.nvim",
     keys = {
-      "x",
-      "d",
-      "c",
-      "X",
-      "D",
-      "C",
-      "m",
+      { "x", mode = { "n", "x" } },
+      { "d", mode = { "n", "x" } },
+      { "c", mode = { "n", "x" } },
+      { "m", mode = { "n", "x" } },
+      { "X", mode = { "n", "x" } },
+      { "D", mode = { "n", "x" } },
+      { "C", mode = { "n", "x" } },
     },
     config = function()
       require("cutlass").setup {
