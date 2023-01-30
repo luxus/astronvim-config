@@ -2,13 +2,8 @@ return {
   {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
-      local cmp = require "cmp"
-      return astronvim.extend_tbl(
-        opts,
-        { sources = cmp.config.sources {
-          { name = "copilot", priority = 1002 },
-        } }
-      )
+      table.insert(opts.sources, { name = "copilot", priority = 1002 })
+      return opts
     end,
     dependencies = {
       "zbirenbaum/copilot-cmp",
