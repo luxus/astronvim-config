@@ -18,7 +18,7 @@ return {
   require "user.plugins.extras.tools.oil",
   -- require "user.plugins.extras.tools.refactoring",
   -- require "user.plugins.extras.tools.octo",
-  -- require "user.plugins.extras.tools.sg",
+  require "user.plugins.extras.tools.sg",
   { "andweeb/presence.nvim", event = "VeryLazy" },
   -- { "mawkler/modicator.nvim", event = "VeryLazy", config = true }, --FIX: error about cursorline
   { "wakatime/vim-wakatime", init = function() table.insert(astronvim.file_plugins, "vim-wakatime") end },
