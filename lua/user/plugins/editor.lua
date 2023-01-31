@@ -156,10 +156,12 @@ return {
   -- better text-objects
   {
     "echasnovski/mini.ai",
-    keys = {
-      { "a", mode = { "x", "o" } },
-      { "i", mode = { "x", "o" } },
-    },
+    event = "VeryLazy",
+    -- keys = {
+    --   { "a", mode = { "x", "o" } },
+    --   { "i", mode = { "x", "o" } },
+    --   { "g" },
+    -- },
     dependencies = {
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
@@ -173,6 +175,18 @@ return {
     opts = function()
       local ai = require "mini.ai"
       return {
+        mappings = {
+          -- Main textobject prefixes
+          around = "a",
+          inside = "i",
+          around_next = "an",
+          inside_next = "in",
+          around_last = "al",
+          inside_last = "il",
+          -- Move cursor to corresponding edge of `a` textobject
+          goto_left = "g[",
+          goto_right = "g]",
+        },
         n_lines = 500,
         custom_textobjects = {
           o = ai.gen_spec.treesitter({
@@ -184,10 +198,7 @@ return {
         },
       }
     end,
-    config = function(_, opts)
-      local ai = require "mini.ai"
-      ai.setup(opts)
-    end,
+    config = function(_, opts) require("mini.ai").setup(opts) end,
   },
   -- move lines or selections in all directions
   {
