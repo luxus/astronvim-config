@@ -53,8 +53,8 @@ return {
         "shellcheck",
       },
     },
-    config = function(plugin, opts)
-      plugin.default_config(opts)
+    config = function(...)
+      require "plugins.configs.mason-null-ls"(...)
       local null_ls = require "null-ls"
       require("mason-null-ls").setup_handlers {
         prettierd = function()

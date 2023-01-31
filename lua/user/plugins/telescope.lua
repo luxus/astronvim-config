@@ -20,7 +20,11 @@ return {
     { "<leader>fB", "<cmd>Telescope bibtex<cr>", desc = "Find BibTeX" },
     { "<leader>fe", "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
     { "<leader>fM", "<cmd>Telescope media_files<cr>", desc = "Find media" },
-    { "<leader>fp", "<cmd>Telescope project<cr>", desc = "Find projects" },
+    {
+      "<leader>fp",
+      function() require("telescope").extensions.project.project { display_type = "full" } end,
+      desc = "Find projects",
+    },
     { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo" },
     { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
     { "<leader>fl", "<cmd>Telescope lazy<cr>", desc = "Lazy" },
@@ -113,6 +117,12 @@ return {
           },
         },
       },
+      project = {
+        base_dirs = {
+          { vim.fn.getenv "GIT_PATH", max_depth = 4 },
+        },
+        search_by = "path",
+      },
       pickers = {
         find_files = {
           hidden = true,
@@ -120,8 +130,8 @@ return {
       },
     })
   end,
-  config = function(plugin, opts)
-    plugin.default_config(opts)
+  config = function(...)
+    require "plugins.configs.telescope"(...)
     local telescope = require "telescope"
     telescope.load_extension "bibtex"
     telescope.load_extension "file_browser"
