@@ -15,7 +15,7 @@ return {
     "folke/which-key.nvim",
     opts = { window = { border = "none" } },
     config = function(...)
-      require "plugins.configs.which-key"(...)
+      -- require "plugins.configs.which-key"(...)
       -- Add bindings which show up as group name
       local wk = require "which-key"
       wk.register({
