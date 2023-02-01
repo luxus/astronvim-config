@@ -1,39 +1,31 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = { "go" },
+    },
+  },
+  {
     "olexsmir/gopher.nvim",
-    config = function()
-      require("gopher").setup {
-        commands = {
-          go = "go",
-          gomodifytags = "gomodifytags",
-          gotests = "gotests",
-          impl = "impl",
-          iferr = "iferr",
-        },
-      }
-    end,
+    config = true,
     ft = { "go", "gomod" },
   },
   {
     "rcarriga/nvim-dap-ui",
     config = true,
     dependencies = {
-      { "mfussenegger/nvim-dap", event = "BufEnter *.go" },
+      { "mfussenegger/nvim-dap" },
       { "theHamsta/nvim-dap-virtual-text", config = true },
       {
         "leoluz/nvim-dap-go",
         config = true,
-        ft = { "go", "gomod" },
       },
     },
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = { "go" },
-    },
+    "williamboman/mason-lspconfig.nvim",
+    opts = { ensure_installed = { "gopls" } },
   },
-
   -- correctly setup mason lsp / dap extensions
   {
     "williamboman/mason.nvim",
@@ -41,7 +33,6 @@ return {
       "gomodifytags",
       "impl",
       "iferr",
-      "gopls",
     } },
   },
 }

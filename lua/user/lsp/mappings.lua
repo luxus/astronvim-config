@@ -12,8 +12,8 @@ local function show_documentation()
 end
 -- easily add or disable built in mappings added during LSP attaching
 return {
-  n = {
-    K = { show_documentation, desc = "Show Documentation" },
-    -- ["<leader>lf"] = false -- disable formatting keymap
-  },
+  -- n = {
+  --   K = { show_documentation, desc = "Show Documentation" },
+  --   -- ["<leader>lf"] = false -- disable formatting keymap
+  -- },
 }

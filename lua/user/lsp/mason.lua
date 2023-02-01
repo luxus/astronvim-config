@@ -2,47 +2,21 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
+      automatic_installation = true,
       ensure_installed = {
-        "clangd",
         "cssls",
-        "gopls",
-        "html",
         "intelephense",
         "marksman",
-        -- "neocmake",
-        "jsonls",
-        "pyright",
-        "sqls",
         "sumneko_lua",
-        "texlab",
-        "tsserver",
         "yamlls",
-        --Rust
-        "taplo",
-        "rust_analyzer",
       },
+
     },
-  },
-  -- formatters
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "BufReadPre",
-    dependencies = { "mason.nvim" },
-    opts = function()
-      local nls = require "null-ls"
-      return {
-        on_attach = astronvim.lsp.on_attach,
-        sources = {
-          nls.builtins.code_actions.statix,
-          nls.builtins.formatting.alejandra,
-          nls.builtins.diagnostics.deadnix,
-        },
-      }
-    end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
     opts = {
+      automatic_installation = true,
       ensure_installed = {
         "shellcheck",
         "stylua",

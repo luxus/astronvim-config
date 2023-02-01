@@ -54,5 +54,6 @@ return {
   {
     "jose-elias-alvarez/typescript.nvim",
     event = "LspAttach",
+    opts = function() return { server = astronvim.lsp.config "tsserver" } end,
   },
 }

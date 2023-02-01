@@ -1,12 +1,17 @@
 return {
   {
-    { "simrat39/rust-tools.nvim", opts = function() return { server = astronvim.lsp.config "rust_analyzer" } end },
+    {
+      "simrat39/rust-tools.nvim",
+      ft = { "rs" },
+      opts = function() return { server = astronvim.lsp.config "rust_analyzer" } end,
+    },
     {
       "williamboman/mason-lspconfig.nvim",
-      opts = { ensure_installed = { "rust_analyzer" } },
+      opts = { automatic_installation = { "rust_analyzer", "taplo" } },
     },
     {
       "Saecki/crates.nvim",
+      ft = { "toml" },
       opts = {
         null_ls = {
           enabled = true,
