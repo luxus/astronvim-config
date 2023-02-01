@@ -62,10 +62,4 @@ return {
       require("mini.indentscope").setup(opts)
     end,
   },
-
-  {
-    "folke/zen-mode.nvim",
-    cmd = "ZenMode",
-    config = true,
-  },
 }
