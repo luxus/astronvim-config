@@ -9,6 +9,8 @@ return {
   require "user.plugins.extras.ui.drop",
   require "user.plugins.extras.ui.minianimate",
   require "user.plugins.extras.ui.noice",
+  require "user.plugins.extras.ui.zen-mode",
+  -- require "user.plugins.extras.ui.modicator",
   -- require "user.plugins.extras.ui.scrollbar",
   require "user.plugins.extras.editor.minicomment",
   require "user.plugins.extras.editor.grapple+portal",
@@ -23,8 +25,8 @@ return {
   -- require "user.plugins.extras.tools.refactoring",
   -- require "user.plugins.extras.tools.octo",
   require "user.plugins.extras.tools.sg",
-  require "user.plugins.extras.ui.zen-mode",
+  require "user.plugins.extras.tools.spectre",
   { "andweeb/presence.nvim", event = "VeryLazy" },
-  -- { "mawkler/modicator.nvim", event = "VeryLazy", config = true }, --FIX: error about cursorline
+
   { "wakatime/vim-wakatime", init = function() table.insert(astronvim.file_plugins, "vim-wakatime") end },
 }

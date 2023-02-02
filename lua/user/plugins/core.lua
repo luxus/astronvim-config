@@ -14,11 +14,11 @@ return {
   {
     "folke/which-key.nvim",
     opts = { window = { border = "none" } },
-    config = function(...)
-      -- require "plugins.configs.which-key"(...)
+    config = function(_)
       -- Add bindings which show up as group name
       local wk = require "which-key"
       wk.register({
+        s = { name = "Search/Replace" },
         a = { name = "Annotation" },
       }, { mode = "n", prefix = "<leader>" })
     end,
