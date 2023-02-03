@@ -1,3 +1,8 @@
 return {
-  { "lervag/vimtex", config = true },
+  {
+    "lervag/vimtex",
+    config = function() vim.cmd "call vimtex#init()" end,
+    ft = { "tex", "bib" },
+    lazy = false,
+  },
 }
