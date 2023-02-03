@@ -18,7 +18,7 @@ return {
       {
         "<leader>v",
         "<cmd>lua require('lsp_lines').toggle()<CR>",
-        desc = "識LSP Lines",
+        desc = "LSP Lines",
       },
     },
   },
