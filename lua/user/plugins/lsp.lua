@@ -4,7 +4,7 @@ return {
     event = "LspAttach",
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      "mason-lspconfig.nvim",
+      { "mason-lspconfig.nvim", config = true, opts = { automatic_installation = true } },
       "tamago324/nlsp-settings.nvim",
     },
   },
