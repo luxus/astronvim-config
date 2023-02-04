@@ -14,7 +14,6 @@ return {
     splitright = true, -- Put new windows right of current
     splitbelow = true, -- Put new windows below current
     timeoutlen = 200,
-    shell = "/bin/sh",
   },
   g = {
     lsp_handlers_enabled = false,
