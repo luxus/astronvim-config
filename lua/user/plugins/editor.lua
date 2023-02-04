@@ -35,13 +35,12 @@ return {
   --visually rename functions
   {
     "smjonas/inc-rename.nvim",
-    cmd = "IncRename",
     config = true,
     keys = {
       {
-        "<leader>R",
+        "<leader>sr",
         function() return ":IncRename " .. vim.fn.expand "<cword>" end,
-        { expr = true, desc = "Rename" },
+        desc = "Inc Rename",
       },
     },
   },
