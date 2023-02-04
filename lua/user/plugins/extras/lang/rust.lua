@@ -6,12 +6,16 @@ return {
       opts = function() return { server = astronvim.lsp.config "rust_analyzer" } end,
     },
     {
+      "williamboman/mason.nvim",
+      opts = { ensure_installed = { "rust_analyzer", "taplo" } },
+    },
+    {
       "williamboman/mason-lspconfig.nvim",
-      opts = { automatic_installation = { "rust_analyzer", "taplo" } },
+      opts = { ensure_installed = { "rust_analyzer", "taplo" } },
     },
     {
       "Saecki/crates.nvim",
-      ft = { "toml" },
+      event = { "BufRead Cargo.toml" },
       opts = {
         null_ls = {
           enabled = true,
