@@ -9,10 +9,6 @@ return {
     ["<C-s>"] = false,
     ["<leader>o"] = false, -- focus neo-tree
     ["q:"] = ":",
-    ["<S-h>"] = false,
-    ["<S-j>"] = false,
-    ["<S-k>"] = false,
-    ["<S-l>"] = false,
     -- better search
     n = { require("user.utils").better_search "n", desc = "Next search" },
     N = { require("user.utils").better_search "N", desc = "Previous search" },

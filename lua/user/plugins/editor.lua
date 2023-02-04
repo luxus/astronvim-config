@@ -130,28 +130,4 @@ return {
     config = true,
     init = function() table.insert(astronvim.file_plugins, "todo-comments.nvim") end,
   },
-  -- move lines or selections in all directions
-  {
-    "echasnovski/mini.move",
-    config = function(_, opts) require("mini.move").setup(opts) end,
-    enabled = true,
-    keys = {
-      { "<S-h>", mode = { "n", "v" } },
-      { "<S-j>", mode = { "n", "v" } },
-      { "<S-k>", mode = { "n", "v" } },
-      { "<S-l>", mode = { "n", "v" } },
-    },
-    opts = {
-      mappings = {
-        left = "<S-h>",
-        right = "<S-j>",
-        down = "<S-k>",
-        up = "<S-l>",
-        left_line = "<S-h>",
-        right_line = "<S-j>",
-        down_line = "<S-k>",
-        up_line = "<S-l>",
-      },
-    },
-  },
 }

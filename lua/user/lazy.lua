@@ -20,6 +20,7 @@ return function(config)
     -- { import =  "user.plugins.extras.editor.textobjects" },
     { import = "user.plugins.extras.editor.miniai" },
     { import = "user.plugins.extras.editor.minisurround" },
+    { import = "user.plugins.extras.editor.minimove" },
     -- { import =  "user.plugins.extras.editor.copilot-cmp" },
     { import = "user.plugins.extras.editor.cutlass" },
     { import = "user.plugins.extras.editor.neogen" },
