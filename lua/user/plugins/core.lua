@@ -2,7 +2,6 @@ return {
   -- disable some stuff
   { "nvim-neo-tree/neo-tree.nvim", version = false, branch = "main" }, -- use mainline neo-tree for testing new fix
   { "max397574/better-escape.nvim", enabled = false },
-  { "machakann/vim-sandwich", enabled = false },
   {
     "akinsho/toggleterm.nvim",
     keys = {
