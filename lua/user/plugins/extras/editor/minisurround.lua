@@ -1,10 +1,18 @@
 return {
 
   { "machakann/vim-sandwich", enabled = false },
+  {
+    "folke/which-key.nvim",
+    opts = function()
+      require("which-key").register {
+        ["gz"] = { name = "+Surround" },
+      }
+    end,
+  },
+
   -- surround text
   {
     "echasnovski/mini.surround",
-    -- keys = { "gz" },
     init = function() table.insert(astronvim.file_plugins, "mini.surround") end,
     opts = {
       mappings = {

@@ -1,5 +1,12 @@
 return {
-  -- Neogen is a better annotation generator.
+  {
+    "folke/which-key.nvim",
+    opts = function()
+      require("which-key").register {
+        ["<leader>a"] = { name = "+Annotation" },
+      }
+    end,
+  }, -- Neogen is a better annotation generator.
   {
     "danymat/neogen",
     cmd = "Neogen",
