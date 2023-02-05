@@ -1,5 +1,4 @@
 return {
-
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
@@ -18,12 +17,10 @@ return {
       automatic_installation = true,
       ensure_installed = {
         "shellcheck",
-        "stylua",
         "black",
         "isort",
         "prettierd",
         "shfmt",
-        "shellcheck",
       },
     },
     config = function(_, opts)
@@ -44,14 +41,6 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
     opts = {
       automatic_setup = true,
-      ensure_installed = {
-        "bash",
-        "cppdbg",
-        "delve",
-        "js",
-        "php",
-        "python",
-      },
     },
   },
 }

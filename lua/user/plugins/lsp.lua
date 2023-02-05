@@ -1,13 +1,13 @@
 return {
-  {
-    "neovim/nvim-lspconfig",
-    event = "LspAttach",
-    dependencies = {
-      { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      { "mason-lspconfig.nvim", config = true, opts = { automatic_installation = true } },
-      "tamago324/nlsp-settings.nvim",
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   event = "LspAttach",
+  --   dependencies = {
+  --     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+  --     { "mason-lspconfig.nvim", config = true, opts = { automatic_installation = true } },
+  --     "tamago324/nlsp-settings.nvim",
+  --   },
+  -- },
   { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach", config = true },
   {
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -22,13 +22,13 @@ return {
       },
     },
   },
-  {
-    "nanotee/sqls.nvim",
-    event = "LspAttach",
-  },
-
-  {
-    "p00f/clangd_extensions.nvim",
-    event = "LspAttach",
-  },
+  -- {
+  --   "nanotee/sqls.nvim",
+  --   event = "LspAttach",
+  -- },
+  --
+  -- {
+  --   "p00f/clangd_extensions.nvim",
+  --   event = "LspAttach",
+  -- },
 }
