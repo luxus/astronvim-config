@@ -1,6 +1,6 @@
-result {
-    {
-      "williamboman/mason-lspconfig.nvim",
-      opts = { ensure_installed = { "svelte" } },
-    },
+return {
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = { ensure_installed = { "svelte" } },
+  },
 }

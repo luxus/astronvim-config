@@ -42,8 +42,6 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
     opts = {
       ensure_installed = { "delve" },
-      automatic_installation = true,
-      automatic_setup = true,
     },
   },
 }
