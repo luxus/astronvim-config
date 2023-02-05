@@ -13,4 +13,20 @@ return {
       }
     end,
   },
+  {
+    --FIX: nil_ls doesn't get installed
+    "williamboman/mason-lspconfig.nvim",
+    -- opts = { ensure_installed = { "rnix" } },
+    opts = { ensure_installed = { "nil_ls" } },
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    opts = {
+      ensure_installed = {
+        "statix",
+        "alejandra",
+        "deadnix",
+      },
+    },
+  },
 }
