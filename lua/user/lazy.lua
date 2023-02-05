@@ -4,6 +4,7 @@ return function(config)
     { import = "user.plugins.extras.lang.go" },
     { import = "user.plugins.extras.lang.rust" },
     { import = "user.plugins.extras.lang.nix" },
+    { import = "user.plugins.extras.lang.lua" },
     -- { import =  "user.plugins.extras.lang.typescript" },
     -- { import =  "user.plugins.extras.lang.tex" },
     { import = "user.plugins.extras.ui.ministarter" },

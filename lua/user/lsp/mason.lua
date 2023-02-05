@@ -1,4 +1,5 @@
 return {
+
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
@@ -7,8 +8,6 @@ return {
         "cssls",
         "intelephense",
         "marksman",
-        "sumneko_lua",
-        "taplo",
         "yamlls",
       },
     },

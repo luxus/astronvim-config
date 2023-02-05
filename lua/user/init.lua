@@ -39,19 +39,10 @@ return {
     skip_prompts = false, -- skip prompts about breaking changes
     show_changelog = true, -- show the changelog after performing an update
     auto_quit = false, -- automatically quit the current session after a successful update
-    -- remotes = { -- easily add new remotes to track
-    --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
-    --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
-    --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
-    -- },
   },
   mappings = {
     n = {
       -- disable default bindings
-      ["<C-Down>"] = false,
-      ["<C-Left>"] = false,
-      ["<C-Right>"] = false,
-      ["<C-Up>"] = false,
       ["<C-q>"] = false,
       ["<C-s>"] = false,
       ["<leader>o"] = false, -- focus neo-tree
