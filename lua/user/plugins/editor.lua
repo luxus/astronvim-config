@@ -2,16 +2,8 @@ return {
   -- spread or combine code
   {
     "Wansmer/treesj",
-    keys = { "<leader>J", "<leader>j" },
-    cmd = {
-      "TSJToggle",
-      "TSJSplit",
-      "TSJJoin",
-    },
-    init = function()
-      vim.keymap.set("n", "<leader>J", function() vim.cmd [[TSJToggle]] end, { desc = "Spread: Expand" })
-      vim.keymap.set("n", "<leader>j", function() vim.cmd [[TSJJoin]] end, { desc = "Spread: Combine" })
-    end,
+    keys = { "<leader>m", "TJToggle", desc = "Toggle Treesitter Join" },
+    cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
     config = true,
   },
 
