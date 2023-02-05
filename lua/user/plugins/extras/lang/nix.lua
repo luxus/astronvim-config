@@ -1,5 +1,21 @@
 return {
   {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = { "nil_ls" },
+    },
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    opts = {
+      ensure_installed = {
+        "statix",
+        "alejandra",
+        "deadnix",
+      },
+    },
+  },
+  {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function()
       local nls = require "null-ls"
@@ -12,19 +28,5 @@ return {
         },
       }
     end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = { ensure_installed = { "nil_ls" } },
-  },
-  {
-    "jay-babu/mason-null-ls.nvim",
-    opts = {
-      ensure_installed = {
-        "statix",
-        "alejandra",
-        "deadnix",
-      },
-    },
   },
 }

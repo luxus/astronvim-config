@@ -1,8 +1,9 @@
 -- Configure require("lazy").setup() options
 return function(config)
   vim.list_extend(config.spec, {
-    { import = "user.plugins.extras.lang.go" },
-    { import = "user.plugins.extras.lang.rust" },
+    -- { import = "user.plugins.extras.lang.go" },
+    -- { import = "user.plugins.extras.lang.rust" },
+    -- { import = "user.plugins.extras.lang.python" },
     { import = "user.plugins.extras.lang.nix" },
     { import = "user.plugins.extras.lang.lua" },
     -- { import =  "user.plugins.extras.lang.typescript" },
@@ -24,15 +25,15 @@ return function(config)
     { import = "user.plugins.extras.editor.minimove" },
     -- { import =  "user.plugins.extras.editor.copilot-cmp" },
     { import = "user.plugins.extras.editor.cutlass" },
-    { import = "user.plugins.extras.editor.neogen" },
+    -- { import = "user.plugins.extras.editor.neogen" },
     -- { import =  "user.plugins.extras.editor.bqf" },
     { import = "user.plugins.extras.tools.oil" },
     { import = "user.plugins.extras.tools.presence" },
     { import = "user.plugins.extras.tools.wakatime" },
-    { import = "user.plugins.extras.tools.iron" },
+    -- { import = "user.plugins.extras.tools.iron" },
     -- { import =  "user.plugins.extras.tools.refactoring" },
     -- { import =  "user.plugins.extras.tools.octo" },
-    { import = "user.plugins.extras.tools.sg" },
+    -- { import = "user.plugins.extras.tools.sg" },
     { import = "user.plugins.extras.tools.spectre" },
   })
   return astronvim.extend_tbl(config, {
