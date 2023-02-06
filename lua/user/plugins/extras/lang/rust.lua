@@ -1,12 +1,22 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then vim.list_extend(opts.ensure_installed, { "rust", "toml" }) end
+    end,
+  },
+  {
     "simrat39/rust-tools.nvim",
     ft = { "rs" },
     opts = function() return { server = astronvim.lsp.config "rust_analyzer" } end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = { ensure_installed = { "rust_analyzer", "taplo" } },
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "rust_analyzer", "taplo" })
+      end
+    end,
   },
   {
     "Saecki/crates.nvim",

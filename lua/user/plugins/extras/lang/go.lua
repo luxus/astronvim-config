@@ -1,6 +1,20 @@
 return {
   -- Golang support
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then vim.list_extend(opts.ensure_installed, { "go" }) end
+    end,
+  },
+  {
+    "leoluz/nvim-dap-go",
+    config = true,
+    ft = "go",
+    dependencies = {
+      { "mfussenegger/nvim-dap" },
+    },
+  },
+  {
     "olexsmir/gopher.nvim",
     opts = function() return { server = astronvim.lsp.config "gopls" } end,
     ft = "go",
@@ -12,36 +26,23 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    opts = { ensure_installed = { "gopls", "gomodifytags", "gofumpt", "iferr", "impl", "goimports" } },
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" })
+      end
+    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = { ensure_installed = { "gopls" } },
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then vim.list_extend(opts.ensure_installed, { "gopls" }) end
+    end,
   },
-  {
-    "rcarriga/nvim-dap-ui",
-    config = true,
-    ft = "go",
-  },
-  { "theHamsta/nvim-dap-virtual-text", ft = "go", config = true },
-  {
-    "leoluz/nvim-dap-go",
-    config = true,
-    ft = "go",
-    dependencies = {
-      { "mfussenegger/nvim-dap" },
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = { "go" },
-    },
-  },
+
   {
     "jay-babu/mason-nvim-dap.nvim",
-    opts = {
-      ensure_installed = { "delve" },
-    },
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then vim.list_extend(opts.ensure_installed, { "delve" }) end
+    end,
   },
 }

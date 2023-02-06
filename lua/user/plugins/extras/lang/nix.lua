@@ -8,33 +8,22 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, {
-          "nil_ls",
-        })
-      end
-    end,
-  },
-  {
-    "jay-babu/mason-null-ls.nvim",
-    opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "statix", "alejandra", "deadnix" })
-      end
+      vim.list_extend(opts.ensure_installed, {
+        "rnix",
+      })
     end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    opts = function()
+    opts = function(_, opts)
       local nls = require "null-ls"
-      return {
-        on_attach = astronvim.lsp.on_attach,
-        sources = {
+      if type(opts.sources) == "table" then
+        vim.list_extend(opts.sources, {
           nls.builtins.code_actions.statix,
           nls.builtins.formatting.alejandra,
           nls.builtins.diagnostics.deadnix,
-        },
-      }
+        })
+      end
     end,
   },
 }
