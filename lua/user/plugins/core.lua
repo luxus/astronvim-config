@@ -80,8 +80,9 @@ return {
         query = "rainbow-parens",
         max_file_lines = 3000,
       },
+      ensure_installed = {},
       auto_install = vim.fn.executable "tree-sitter" == 1,
-      highlight = { disable = { "help" } },
+      highlight = { disable = { "help", "latex" } },
       indent = { enable = true, disable = { "python" } },
       matchup = { enable = true, disable = { "julia" } },
     },
@@ -108,5 +109,58 @@ return {
       vim.keymap.set("n", "zm", require("ufo").closeFoldsWith)
       vim.keymap.set("n", "zp", require("ufo").peekFoldedLinesUnderCursor, { desc = "Peek Fold" })
     end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      automatic_installation = true,
+      ensure_installed = {},
+    },
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    opts = {
+      automatic_installation = true,
+      ensure_installed = {
+        "prettierd",
+      },
+      config = function(_, opts)
+        local mason_null_ls = require "mason-null-ls"
+        local null_ls = require "null-ls"
+        mason_null_ls.setup(opts)
+        mason_null_ls.setup_handlers {
+          taplo = function() end, -- disable taplo in null-ls, it's taken care of by lspconfig
+          prettierd = function()
+            null_ls.register(
+              null_ls.builtins.formatting.prettierd.with { extra_filetypes = { "markdown", "rmd", "qmd" } }
+            )
+          end,
+        }
+      end,
+    },
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = {
+      automatic_setup = true,
+      automatic_installation = true,
+      ensure_installed = {},
+    },
+  },
+  {
+    "mfussenegger/nvim-dap",
+    ft = {},
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    config = true,
+  },
+  { "theHamsta/nvim-dap-virtual-text", config = true },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = {
+      sources = {},
+      on_attach = astronvim.lsp.on_attach,
+    },
   },
 }

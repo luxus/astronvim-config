@@ -1,4 +1,5 @@
 return {
+  -- you have to change the colorscheme in init.lua as well
   {
     "AstroNvim/astrotheme",
     enabled = false,
