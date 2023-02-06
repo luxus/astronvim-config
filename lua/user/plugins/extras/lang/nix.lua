@@ -1,19 +1,21 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then vim.list_extend(opts.ensure_installed, { "nix" }) end
+    end,
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = { "nil_ls" },
-    },
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
+        "nil_ls",
+      })
+    end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
-    opts = {
-      ensure_installed = {
-        "statix",
-        "alejandra",
-        "deadnix",
-      },
-    },
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "statix", "alejandra", "deadnix" }) end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
