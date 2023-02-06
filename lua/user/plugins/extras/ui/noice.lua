@@ -1,5 +1,14 @@
 return {
   -- noicer ui
+  -- install treesitter for checkhealth happyness
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "bash", "markdown", "markdown_inline", "regex", "vim" })
+      end
+    end,
+  },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
