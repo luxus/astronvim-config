@@ -8,14 +8,20 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "nil_ls",
-      })
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, {
+          "nil_ls",
+        })
+      end
     end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "statix", "alejandra", "deadnix" }) end,
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "statix", "alejandra", "deadnix" })
+      end
+    end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
