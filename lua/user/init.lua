@@ -45,6 +45,10 @@ return {
       -- disable default bindings
       ["<C-q>"] = false,
       ["<C-s>"] = false,
+      ["<C-h>"] = false,
+      ["<C-j>"] = false,
+      ["<C-k>"] = false,
+      ["<C-l>"] = false,
       ["<leader>o"] = false, -- focus neo-tree
       ["q:"] = ":",
       -- better search
