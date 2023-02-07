@@ -2,7 +2,11 @@ return {
   {
     "b0o/incline.nvim",
     init = function() table.insert(astronvim.file_plugins, "incline.nvim") end,
-    config = true,
+    opts = {
+      hide = {
+        focused_win = false,
+      },
+    },
   },
   {
     "mrjones2014/smart-splits.nvim",

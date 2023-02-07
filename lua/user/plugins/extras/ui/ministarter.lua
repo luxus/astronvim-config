@@ -5,7 +5,7 @@ return {
   },
   {
     "echasnovski/mini.starter",
-    enabled = true,
+    version = false,
     event = "VimEnter",
     opts = function()
       local pad = string.rep(" ", 0)
@@ -18,7 +18,7 @@ return {
         header = require("user.plugins.extras.ui.ministarter_banner").dashboard(),
         items = {
           starter.sections.recent_files(5, true, false),
-          new_section("Find file", "Telescope git_files", "Telescope"),
+          new_section("Find Git file", "Telescope git_files", "Telescope"),
           new_section("Old files(Recent)", "Telescope oldfiles", "Telescope"),
           new_section("Word grep", "Telescope live_grep", "Telescope"),
           new_section("Config", "e ~/.config/astronvim", "Config"),
