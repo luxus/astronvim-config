@@ -1,5 +1,5 @@
 return {
-  colorscheme = { "everforest" },
+  colorscheme = { "onigiri" },
   diagnostics = {
     virtual_lines = false,
     virtual_text = false,

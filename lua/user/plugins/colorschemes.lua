@@ -9,6 +9,7 @@ return {
     priority = 1000,
     lazy = false,
     dependencies = {
+      "kaiuri/onigiri.nvim",
       "sainnhe/everforest",
     },
     config = function()
