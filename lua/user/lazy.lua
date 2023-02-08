@@ -33,6 +33,7 @@ return function(config)
     -- { import = "user.plugins.extras.editor.neogen" },
     -- { import =  "user.plugins.extras.editor.bqf" },
     { import = "user.plugins.extras.tools.oil" },
+    { import = "user.plugins.extras.tools.overseer" },
     { import = "user.plugins.extras.tools.presence" },
     { import = "user.plugins.extras.tools.wakatime" },
     -- { import = "user.plugins.extras.tools.iron" },
