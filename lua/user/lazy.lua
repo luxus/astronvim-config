@@ -13,6 +13,7 @@ return function(config)
     -- Animation plugins
     { import = "user.plugins.extras.ui.minianimate", enabled = GUI() },
     { import = "user.plugins.extras.ui.noice", enabled = GUI() },
+    --
     -- Language plugins
     { import = "user.plugins.extras.lang.go" },
     { import = "user.plugins.extras.lang.rust" },
@@ -44,6 +45,7 @@ return function(config)
     { import = "user.plugins.extras.editor.cutlass" },
     -- { import = "user.plugins.extras.editor.neogen" },
     -- { import =  "user.plugins.extras.editor.bqf" },
+    { import = "user.plugins.extras.tools.chatGPT", enabled = false },
     { import = "user.plugins.extras.tools.oil" },
     { import = "user.plugins.extras.tools.overseer" },
     { import = "user.plugins.extras.tools.presence" },
