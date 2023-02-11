@@ -22,6 +22,7 @@ return function(config)
     -- { import =  "user.plugins.extras.ui.modicator" },
     -- { import =  "user.plugins.extras.ui.scrollbar" },
     { import = "user.plugins.extras.editor.minicomment" },
+    -- { import = "user.plugins.extras.editor.lsplines" },
     { import = "user.plugins.extras.editor.grapple+portal" },
     { import = "user.plugins.extras.editor.copilot" },
     -- { import =  "user.plugins.extras.editor.textobjects" },
@@ -46,7 +47,6 @@ return function(config)
   return require("core.utils").extend_tbl(config, {
     -- whatever else you want to override with just a simple table merge
     defaults = { lazy = true },
-    install = { colorscheme = { "everforest" } },
     checker = { enabled = true }, -- automatically check for plugin updates
     performance = {
       rtp = {

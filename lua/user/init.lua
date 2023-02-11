@@ -1,8 +1,6 @@
 return {
   colorscheme = { "onigiri" },
   diagnostics = {
-    virtual_lines = false,
-    virtual_text = false,
     signs = true,
     underline = true,
   },
