@@ -13,6 +13,7 @@ return {
       linebreak = true, -- linebreak soft wrap at words
       list = true, -- show whitespace characters
       listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
+      showtabline = 1,
       showbreak = "↪ ",
       spellfile = vim.fn.expand "~/.config/astronvim/lua/user/spell/en.utf-8.add",
       swapfile = false,
@@ -28,7 +29,10 @@ return {
       matchup_matchparen_deferred = 1,
     },
   },
-  polish = { require "user.autocmds" },
+  polish = {
+    require "user.autocmds",
+  },
+
   updater = {
     remote = "origin", -- remote to use
     channel = "nightly", -- "stable" or "nightly"

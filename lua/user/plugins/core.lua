@@ -13,32 +13,44 @@ return {
   {
     "rebelot/heirline.nvim",
     opts = function(_, opts)
-      opts.winbar = nil
-      -- opts.statusline[9] = astronvim.status.component.lsp { lsp_progress = false }
+      local status = require "core.utils.status"
+      -- opts.statusline[9] = status.component.lsp { lsp_progress = false }
       opts.statusline = { -- statusline
         hl = { fg = "fg", bg = "bg" },
-        astronvim.status.component.mode(),
-        astronvim.status.component.git_branch(),
+        status.component.mode(),
+        status.component.git_branch(),
         -- -- Custom component for grapple
-        -- astronvim.status.component.builder {
+        -- status.component.builder {
         --   { provider = status.grapple },
         --   surround = {
         --     separator = "left",
         --   },
         -- },
-        astronvim.status.component.file_info { filetype = {}, filename = false, file_modified = false },
-        astronvim.status.component.git_diff(),
-        astronvim.status.component.diagnostics(),
-        astronvim.status.component.breadcrumbs(),
-        astronvim.status.component.fill(),
-        astronvim.status.component.cmd_info(),
-        astronvim.status.component.fill(),
-        astronvim.status.component.nav(),
-        astronvim.status.component.mode { surround = { separator = "right" } },
+        status.component.file_info { filetype = {}, filename = false, file_modified = false },
+        status.component.git_diff(),
+        status.component.diagnostics(),
+        status.component.breadcrumbs(),
+        status.component.fill(),
+        status.component.cmd_info(),
+        status.component.fill(),
+        status.component.nav(),
+        status.component.mode { surround = { separator = "right" } },
       }
 
-      opts.tabline[2] =
-        astronvim.status.heirline.make_buflist(astronvim.status.component.tabline_file_info { close_button = false })
+      opts.tabline[2] = status.heirline.make_buflist(status.component.tabline_file_info { close_button = false })
+      opts.winbar[3] = {
+        status.component.file_info { -- add file_info to breadcrumbs
+          unique_path = {},
+          file_icon = { hl = status.hl.filetype_color },
+          file_modified = false,
+          file_read_only = false,
+          hl = status.hl.get_attributes("winbar", true),
+          surround = false,
+          update = "BufEnter",
+        },
+        opts.winbar[3],
+      }
+      opts.winbar = nil
     end,
   },
   {
@@ -160,7 +172,6 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     opts = {
       sources = {},
-      on_attach = astronvim.lsp.on_attach,
     },
   },
 }

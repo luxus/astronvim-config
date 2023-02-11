@@ -18,7 +18,7 @@ return function(config)
     { import = "user.plugins.extras.ui.minianimate" },
     { import = "user.plugins.extras.ui.noice" },
     { import = "user.plugins.extras.ui.zen-mode" },
-    -- { import = "user.plugins.extras.ui.shade" },
+    { import = "user.plugins.extras.ui.shade" },
     -- { import =  "user.plugins.extras.ui.modicator" },
     -- { import =  "user.plugins.extras.ui.scrollbar" },
     { import = "user.plugins.extras.editor.minicomment" },
@@ -43,7 +43,7 @@ return function(config)
     -- { import = "user.plugins.extras.tools.sg" },
     { import = "user.plugins.extras.tools.spectre" },
   })
-  return astronvim.extend_tbl(config, {
+  return require("core.utils").extend_tbl(config, {
     -- whatever else you want to override with just a simple table merge
     defaults = { lazy = true },
     install = { colorscheme = { "everforest" } },

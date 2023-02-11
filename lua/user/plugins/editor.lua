@@ -104,18 +104,6 @@ return {
 
   { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach", config = true },
   {
-    url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    event = "LspAttach",
-    config = true,
-    keys = {
-      {
-        "<leader>v",
-        "<cmd>lua require('lsp_lines').toggle()<CR>",
-        desc = "LSP Lines",
-      },
-    },
-  },
-  {
     "junegunn/vim-easy-align",
     init = function() table.insert(astronvim.file_plugins, "vim-easy-align") end,
     keys = {

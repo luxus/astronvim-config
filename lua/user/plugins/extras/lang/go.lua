@@ -16,7 +16,7 @@ return {
   },
   {
     "olexsmir/gopher.nvim",
-    opts = function() return { server = astronvim.lsp.config "gopls" } end,
+    opts = function() return { server = require("core.utils.lsp").config "gopls" } end,
     ft = "go",
     dependencies = {
       "nvim-lua/plenary.nvim",

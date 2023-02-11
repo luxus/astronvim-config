@@ -8,7 +8,7 @@ return {
   {
     "simrat39/rust-tools.nvim",
     ft = { "rs" },
-    opts = function() return { server = astronvim.lsp.config "rust_analyzer" } end,
+    opts = function() return { server = require("core.utils.lsp").config "rust_analyzer" } end,
   },
   {
     "williamboman/mason-lspconfig.nvim",

@@ -42,7 +42,7 @@ return {
     local actions = require "telescope.actions"
     local fb_actions = require("telescope").extensions.file_browser.actions
     local hop = telescope.extensions.hop
-    return astronvim.extend_tbl(opts, {
+    return require("core.utils").extend_tbl(opts, {
       live_grep = {
         border = true,
         previewer = false,
