@@ -48,6 +48,7 @@ return function(config)
   return require("core.utils").extend_tbl(config, {
     -- whatever else you want to override with just a simple table merge
     defaults = { lazy = true },
+        install = { colorscheme = { "onigiri" } },
     checker = { enabled = true }, -- automatically check for plugin updates
     performance = {
       rtp = {
