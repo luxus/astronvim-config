@@ -36,6 +36,7 @@ return function(config)
     -- { import =  "user.plugins.extras.editor.bqf" },
     { import = "user.plugins.extras.tools.oil" },
     { import = "user.plugins.extras.tools.overseer" },
+    { import = "user.plugins.extras.tools.sniprun" },
     { import = "user.plugins.extras.tools.presence" },
     { import = "user.plugins.extras.tools.wakatime" },
     -- { import = "user.plugins.extras.tools.iron" },
@@ -48,7 +49,8 @@ return function(config)
   return require("core.utils").extend_tbl(config, {
     -- whatever else you want to override with just a simple table merge
     defaults = { lazy = true },
-        install = { colorscheme = { "onigiri" } },
+    install = { colorscheme = { "onigiri" } },
+
     checker = { enabled = true }, -- automatically check for plugin updates
     performance = {
       rtp = {
