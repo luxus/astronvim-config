@@ -15,28 +15,27 @@ return {
     opts = function(_, opts)
       local status = require "core.utils.status"
       opts.statusline[9] = status.component.lsp { lsp_progress = false }
-      -- opts.statusline = { -- statusline
-      --   hl = { fg = "fg", bg = "bg" },
-      --   status.component.mode(),
-      --   status.component.git_branch(),
-      --   -- -- Custom component for grapple
-      --   -- status.component.builder {
-      --   --   { provider = status.grapple },
-      --   --   surround = {
-      --   --     separator = "left",
-      --   --   },
-      --   -- },
-      --   status.component.file_info { filetype = {}, filename = false, file_modified = false },
-      --   status.component.git_diff(),
-      --   status.component.diagnostics(),
-      --   status.component.breadcrumbs(),
-      --   status.component.fill(),
-      --   status.component.cmd_info(),
-      --   status.component.fill(),
-      --   status.component.nav(),
-      --   status.component.mode { surround = { separator = "right" } },
-      -- }
-      --
+      opts.statusline = { -- statusline
+        hl = { fg = "fg", bg = "bg" },
+        status.component.mode(),
+        status.component.git_branch(),
+        -- -- Custom component for grapple
+        -- status.component.builder {
+        --   { provider = status.grapple },
+        --   surround = {
+        --     separator = "left",
+        --   },
+        -- },
+        status.component.file_info { filetype = {}, filename = false, file_modified = false },
+        status.component.git_diff(),
+        status.component.diagnostics(),
+        status.component.breadcrumbs(),
+        status.component.fill(),
+        status.component.cmd_info(),
+        status.component.fill(),
+        status.component.nav(),
+        status.component.mode { surround = { separator = "right" } },
+      }
       opts.tabline[2] = status.heirline.make_buflist(status.component.tabline_file_info { close_button = false })
       opts.winbar[3] = {
         status.component.file_info { -- add file_info to breadcrumbs
@@ -50,7 +49,7 @@ return {
         },
         opts.winbar[3],
       }
-      -- opts.winbar = nil
+      opts.winbar = nil
     end,
   },
   {
