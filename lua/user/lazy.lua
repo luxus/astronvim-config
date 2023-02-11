@@ -43,6 +43,7 @@ return function(config)
     -- { import =  "user.plugins.extras.tools.octo" },
     -- { import = "user.plugins.extras.tools.sg" },
     { import = "user.plugins.extras.tools.spectre" },
+    { import = "user.plugins.extras.tools.fzf" },
   })
   return require("core.utils").extend_tbl(config, {
     -- whatever else you want to override with just a simple table merge
