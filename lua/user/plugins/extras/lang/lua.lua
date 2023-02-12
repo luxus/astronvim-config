@@ -8,7 +8,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then vim.list_extend(opts.ensure_installed, { "sumneko_lua" }) end
+      if type(opts.ensure_installed) == "table" then vim.list_extend(opts.ensure_installed, { "lua_ls" }) end
     end,
   },
   {
