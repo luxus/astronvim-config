@@ -1,6 +1,20 @@
+-- Check if nvim has been opened with neovide
+function GUI()
+  if vim.g.neovide then
+    return false
+  else
+    return true
+  end
+end
+
 -- Configure require("lazy").setup() options
 return function(config)
   vim.list_extend(config.spec, {
+    -- Animation plugins
+    { import = "user.plugins.extras.ui.minianimate", enabled = GUI() },
+    { import = "user.plugins.extras.ui.noice", enabled = GUI() },
+    --
+    -- Language plugins
     { import = "user.plugins.extras.lang.go" },
     { import = "user.plugins.extras.lang.rust" },
     { import = "user.plugins.extras.lang.python" },
@@ -15,8 +29,6 @@ return function(config)
     { import = "user.plugins.extras.ui.ministarter" },
     { import = "user.plugins.extras.ui.ccc" },
     { import = "user.plugins.extras.ui.drop" },
-    { import = "user.plugins.extras.ui.minianimate" },
-    { import = "user.plugins.extras.ui.noice" },
     { import = "user.plugins.extras.ui.zen-mode" },
     { import = "user.plugins.extras.ui.shade" },
     -- { import =  "user.plugins.extras.ui.modicator" },
@@ -34,6 +46,7 @@ return function(config)
     { import = "user.plugins.extras.editor.cutlass" },
     -- { import = "user.plugins.extras.editor.neogen" },
     -- { import =  "user.plugins.extras.editor.bqf" },
+    { import = "user.plugins.extras.tools.chatGPT", enabled = false },
     { import = "user.plugins.extras.tools.oil" },
     { import = "user.plugins.extras.tools.overseer" },
     { import = "user.plugins.extras.tools.sniprun" },
