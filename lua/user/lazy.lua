@@ -19,7 +19,6 @@ return function(config)
     { import = "user.plugins.extras.ui.noice" },
     { import = "user.plugins.extras.ui.zen-mode" },
     -- { import = "user.plugins.extras.ui.shade" },
-    -- { import =  "user.plugins.extras.ui.modicator" },
     -- { import =  "user.plugins.extras.ui.scrollbar" },
     { import = "user.plugins.extras.editor.minicomment" },
     -- { import = "user.plugins.extras.editor.lsplines" },
