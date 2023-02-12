@@ -15,12 +15,12 @@ return {
   },
   {
     "echasnovski/mini.ai",
-    event = "VeryLazy",
-    -- keys = {
-    --   { "a", mode = { "x", "o" } },
-    --   { "i", mode = { "x", "o" } },
-    --   { "g" },
-    -- },
+    -- event = "VeryLazy",
+    keys = {
+      { "a", mode = { "x", "o" } },
+      { "i", mode = { "x", "o" } },
+      { "g" },
+    },
     dependencies = {
       {
         "nvim-treesitter/nvim-treesitter-textobjects",

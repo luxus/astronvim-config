@@ -7,7 +7,7 @@ return {
   },
   {
     "simrat39/rust-tools.nvim",
-    ft = { "rs" },
+    ft = { "rust" },
     opts = function() return { server = require("core.utils.lsp").config "rust_analyzer" } end,
   },
   {

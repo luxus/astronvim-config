@@ -7,7 +7,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    event = "BufEnter *.ts",
+    ft = { "ts", "js", "tsx", "jsx" },
     enabled = true,
 
     dependencies = {
