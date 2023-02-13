@@ -1,4 +1,3 @@
 return {
-  breadcrumbs = " ",
   tab = { "", "" },
 }

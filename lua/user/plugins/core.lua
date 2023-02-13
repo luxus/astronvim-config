@@ -47,7 +47,11 @@ return {
           surround = false,
           update = "BufEnter",
         },
-        opts.winbar[3],
+        status.component.breadcrumbs {
+          hl = status.hl.get_attributes("winbar", true),
+          prefix = true,
+          padding = { left = 0 },
+        },
       }
       opts.winbar = nil
     end,
