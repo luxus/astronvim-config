@@ -2,9 +2,13 @@ return {
   -- spread or combine code
   {
     "Wansmer/treesj",
-    keys = { "<leader>m", "TJToggle", desc = "Toggle Treesitter Join" },
+    keys = {
+      { "<leader>m", "<CMD>TSJToggle<CR>", desc = "Toggle Treesitter Join" },
+    },
     cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
-    config = true,
+    opts = {
+      use_default_keymaps = false,
+    },
   },
 
   --Jumping between the idents
