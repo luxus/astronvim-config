@@ -59,7 +59,7 @@ return {
   },
   {
     "jose-elias-alvarez/typescript.nvim",
-    event = "LspAttach",
+    ft = { "ts", "js", "tsx", "jsx" },
     opts = function() return { server = require("core.utils.lsp").config "tsserver" } end,
   },
 }
