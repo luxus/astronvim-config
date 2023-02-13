@@ -31,7 +31,7 @@ return function(config)
     { import = "user.plugins.extras.editor.neoconf" },
     -- { import =  "user.plugins.extras.editor.copilot-cmp" },
     { import = "user.plugins.extras.editor.cutlass" },
-    -- { import = "user.plugins.extras.editor.neogen" },
+    { import = "user.plugins.extras.editor.neogen" },
     -- { import =  "user.plugins.extras.editor.bqf" },
     { import = "user.plugins.extras.tools.oil" },
     { import = "user.plugins.extras.tools.overseer" },

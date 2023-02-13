@@ -1,15 +1,9 @@
 return {
-  {
-    "folke/which-key.nvim",
-    opts = function()
-      require("which-key").register {
-        ["<leader>a"] = { name = "+Annotation" },
-      }
-    end,
-  }, -- Neogen is a better annotation generator.
+  -- Neogen is a better annotation generator.
   {
     "danymat/neogen",
     cmd = "Neogen",
+    init = function() require("which-key").register({ ["<leader>a"] = { name = "Annotation" } }, { mode = "n" }) end,
     opts = {
       snippet_engine = "luasnip",
       languages = {
