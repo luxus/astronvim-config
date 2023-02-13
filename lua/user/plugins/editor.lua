@@ -86,6 +86,18 @@ return {
       { "gP", mode = { "n", "x" }, "<Plug>(YankyGPutBefore)", desc = "GPut before" },
       { "<c-n>", mode = { "n", "x" }, "<Plug>(YankyCycleForward)", desc = "Yank Cycle Forward" },
       { "<c-p>", mode = { "n", "x" }, "<Plug>(YankyCycleBackward)", desc = "Yank Cycle Backward" },
+      { "]p", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put Indent After Linewise" },
+      { "[p", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put Indent Before Linewise" },
+      { "]P", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put Indent After Linewise" },
+      { "[P", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put Indent Before Linewise" },
+
+      { ">p", "<Plug>(YankyPutIndentAfterShiftRight)", desc = "Put Indent After Shift Right" },
+      { "<p", "<Plug>(YankyPutIndentAfterShiftLeft)", desc = "Put Indent After Shift Left" },
+      { ">P", "<Plug>(YankyPutIndentBeforeShiftRight)", desc = "Put Indent Before Shift Right" },
+      { "<P", "<Plug>(YankyPutIndentBeforeShiftLeft)", desc = "Put Indent Before Shift Left" },
+
+      { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put After Filter" },
+      { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put Before Filter" },
     },
     opts = {
       highlight = {
