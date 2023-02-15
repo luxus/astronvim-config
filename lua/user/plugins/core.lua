@@ -5,7 +5,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     keys = {
-      { "<C-q>", mode = { "t" }, "<C-\\><C-n>", desc = "Terminal normal mode" },
+      { "<C-BS>", mode = { "t" }, "<C-\\><C-n>", desc = "Terminal normal mode" },
       { "<esc><esc>", mode = { "t" }, "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
     },
     opts = { terminal_mappings = false },
