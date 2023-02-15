@@ -38,9 +38,9 @@ return {
       }
       opts.tabline[2] = status.heirline.make_buflist(status.component.tabline_file_info { close_button = false })
       opts.winbar[3] = {
+        status.component.separated_path(),
         status.component.file_info { -- add file_info to breadcrumbs
-          unique_path = {},
-          file_icon = { hl = status.hl.filetype_color },
+          file_icon = { hl = status.hl.filetype_color, padding = { left = 0 } },
           file_modified = false,
           file_read_only = false,
           hl = status.hl.get_attributes("winbar", true),
