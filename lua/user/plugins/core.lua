@@ -1,6 +1,5 @@
 return {
   -- disable some stuff
-  { "nvim-neo-tree/neo-tree.nvim", version = false, branch = "main" }, -- use mainline neo-tree for testing new fix
   { "max397574/better-escape.nvim", enabled = false },
   {
     "akinsho/toggleterm.nvim",
@@ -9,6 +8,26 @@ return {
       { "<esc><esc>", mode = { "t" }, "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
     },
     opts = { terminal_mappings = false },
+  },
+  {
+    "onsails/lspkind.nvim",
+    opts = function(_, opts)
+      -- use codicons preset
+      opts.preset = "codicons"
+      -- set some missing symbol types
+      opts.symbol_map = {
+        Array = "",
+        Boolean = "",
+        Key = "",
+        Namespace = "",
+        Null = "",
+        Number = "",
+        Object = "",
+        Package = "",
+        String = "",
+      }
+      return opts
+    end,
   },
   {
     "rebelot/heirline.nvim",
@@ -63,20 +82,6 @@ return {
     dependencies = {
       {
         "andymass/vim-matchup",
-        init = function()
-          vim.g.matchup_matchparen_deferred = 1
-
-          vim.api.nvim_create_autocmd("FileType", {
-            desc = "Disable matchup for julia",
-            group = vim.api.nvim_create_augroup("julia_matchup", { clear = true }),
-            pattern = "julia",
-            callback = function()
-              vim.g.matchup_matchparen_enabled = 0
-              vim.g.matchup_motion_enabled = 0
-              vim.g.matchup_text_obj_enabled = 0
-            end,
-          })
-        end,
       },
       "HiPhish/nvim-ts-rainbow2",
       { "nvim-treesitter/nvim-treesitter-context", config = true },
@@ -91,17 +96,12 @@ return {
           node_decremental = "<bs>",
         },
       },
-      rainbow = {
-        enable = true,
-        disable = { "jsx", "cpp" },
-        query = "rainbow-parens",
-        max_file_lines = 3000,
-      },
+      matchup = { enable = true },
+      rainbow = { enable = true },
       ensure_installed = {},
       auto_install = vim.fn.executable "tree-sitter" == 1,
       highlight = { disable = { "help", "latex" } },
       indent = { enable = true, disable = { "python" } },
-      matchup = { enable = true, disable = { "julia" } },
     },
   },
   {

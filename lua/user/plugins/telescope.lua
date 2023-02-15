@@ -16,6 +16,9 @@ return {
     {
       "ahmedkhalf/project.nvim",
       config = function(_, opts) require("project_nvim").setup(opts) end,
+      opts = {
+        ignore_lsp = { "lua_ls" },
+      },
     },
   },
   keys = {
@@ -35,9 +38,11 @@ return {
 
     -- open buffers
     {
-      "<leader>b ",
-      "<cmd>lua require('telescope.builtin').buffers({previewer = false, initial_mode='normal'})<cr>",
-      desc = "Open buffers",
+      "<Tab>",
+      function()
+        if #vim.t.bufs > 1 then require("telescope.builtin").buffers { previewer = false, sort_lastused = true } end
+      end,
+      desc = "Switch Buffers",
     },
   },
   opts = function(_, opts)
@@ -124,6 +129,12 @@ return {
       pickers = {
         find_files = {
           hidden = true,
+        },
+        buffers = {
+          mappings = {
+            i = { ["<c-d>"] = actions.delete_buffer },
+            n = { ["d"] = actions.delete_buffer },
+          },
         },
       },
     })
