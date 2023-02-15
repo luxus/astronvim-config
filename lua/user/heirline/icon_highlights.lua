@@ -1,1 +1,0 @@
-return { breadcrumbs = true }
