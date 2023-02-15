@@ -13,6 +13,10 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
     },
+    {
+      "ahmedkhalf/project.nvim",
+      config = function(_, opts) require("project_nvim").setup(opts) end,
+    },
   },
   keys = {
     -- telescope plugin mappings
@@ -21,7 +25,7 @@ return {
     { "<leader>fM", "<cmd>Telescope media_files<cr>", desc = "Find media" },
     {
       "<leader>fp",
-      function() require("telescope").extensions.project.project { display_type = "full" } end,
+      function() require("telescope").extensions.projects.projects {} end,
       desc = "Find projects",
     },
     { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo" },
@@ -116,12 +120,7 @@ return {
           },
         },
       },
-      project = {
-        base_dirs = {
-          { vim.fn.getenv "GIT_PATH", max_depth = 4 },
-        },
-        search_by = "path",
-      },
+
       pickers = {
         find_files = {
           hidden = true,
@@ -135,7 +134,7 @@ return {
     telescope.load_extension "bibtex"
     telescope.load_extension "file_browser"
     telescope.load_extension "media_files"
-    telescope.load_extension "project"
+    telescope.load_extension "projects"
     telescope.load_extension "undo"
     telescope.load_extension "zoxide"
     telescope.load_extension "lazy"
