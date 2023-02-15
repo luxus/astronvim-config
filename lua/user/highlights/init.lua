@@ -6,6 +6,7 @@ return function()
   local green = get_hlgroup("String").fg
   local red = get_hlgroup("Error").fg
   return {
+    CursorLineFold = { link = "CursorLineNr" },
     HighlightURL = { underline = true },
     TelescopeBorder = { fg = bg_alt, bg = bg },
     TelescopeNormal = { bg = bg },

@@ -26,7 +26,7 @@ return {
         --     separator = "left",
         --   },
         -- },
-        status.component.file_info { filetype = {}, filename = false, file_modified = false },
+        status.component.file_info { filetype = {}, filename = false },
         status.component.git_diff(),
         status.component.diagnostics(),
         status.component.breadcrumbs(),
