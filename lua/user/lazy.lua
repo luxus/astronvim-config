@@ -57,7 +57,6 @@ return function(config)
       rtp = {
         -- customize default disabled vim plugins
         disabled_plugins = {
-          "nvim-treesitter-textobjects",
           "tohtml",
           "gzip",
           "matchit",
