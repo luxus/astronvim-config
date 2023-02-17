@@ -131,6 +131,7 @@ return {
           hidden = true,
         },
         buffers = {
+          path_display = { "smart" },
           mappings = {
             i = { ["<c-d>"] = actions.delete_buffer },
             n = { ["d"] = actions.delete_buffer },
