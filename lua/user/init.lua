@@ -6,7 +6,6 @@ return {
       tab = { "", "" },
     },
   },
-  colorscheme = { "onigiri" },
   diagnostics = {
     signs = true,
     underline = true,
