@@ -59,13 +59,6 @@ return {
         hl = { fg = "fg", bg = "bg" },
         status.component.mode(),
         status.component.git_branch(),
-        -- -- Custom component for grapple
-        -- status.component.builder {
-        --   { provider = status.grapple },
-        --   surround = {
-        --     separator = "left",
-        --   },
-        -- },
         status.component.git_diff(),
         status.component.diagnostics { padding = { left = 0 } },
 
@@ -74,11 +67,7 @@ return {
           path_func = status.provider.filename { modify = ":.:h" },
         },
         status.component.file_info { -- add file_info to breadcrumbs
-          file_icon = { padding = { left = 0 } },
-          file_modified = false,
-          file_read_only = false,
-          surround = false,
-          update = "BufEnter",
+          file_icon = { padding = { left = 0, right = 0 } },
         },
         status.component.breadcrumbs {
           icon = { hl = true },
