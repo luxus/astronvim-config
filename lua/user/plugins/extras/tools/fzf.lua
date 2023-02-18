@@ -31,7 +31,7 @@ return {
           winopts = {
             border = "none",
             preview = {
-              -- default = "bat",
+              default = "bat",
               scrollbar = false,
               winopts = { -- builtin previewer window options
                 number = false,
