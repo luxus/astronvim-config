@@ -1,28 +1,25 @@
+local prefix = "<leader>s"
 return {
-  {
-    "folke/which-key.nvim",
-    opts = function()
-      require("which-key").register {
-        ["<leader>s"] = { name = "+Search/Replace" },
-      }
-    end,
-  },
   {
     "mehalter/nvim-spectre", -- move to main repo after https://github.com/nvim-pack/nvim-spectre/pull/104
     -- "nvim-pack/nvim-spectre",
+    init = function()
+      require("which-key").register {
+        [prefix] = { name = "+Search/Replace" },
+      }
+    end,
     cmd = "Spectre",
     keys = {
-      { "<leader>ss", function() require("spectre").open() end, desc = "Spectre" },
+      { prefix .. "s", function() require("spectre").open() end, desc = "Spectre" },
       {
-        "<leader>sw",
+        prefix .. "w",
         function() require("spectre").open_visual { select_word = true } end,
         desc = "Spectre (current word)",
       },
-      { "<leader>sf", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
+      { prefix .. "f", function() require("spectre").open_file_search() end, desc = "Spectre (current file)" },
     },
 
     opts = function()
-      local prefix = "<leader>s"
       return {
         mapping = {
           send_to_qf = { map = prefix .. "q" },
