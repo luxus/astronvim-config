@@ -1,5 +1,7 @@
 return {
   -- disable some stuff
+  { "famiu/bufdelete.nvim", enabled = true },
+
   { "max397574/better-escape.nvim", enabled = false },
   {
     "akinsho/toggleterm.nvim",
@@ -27,6 +29,25 @@ return {
         String = "",
       }
       return opts
+    end,
+  },
+  {
+    "zbirenbaum/neodim",
+    event = "LspAttach",
+    opts = function()
+      require("neodim").setup {
+        alpha = 0.75,
+        blend_color = "#000000",
+        update_in_insert = {
+          enable = true,
+          delay = 100,
+        },
+        hide = {
+          virtual_text = true,
+          signs = true,
+          underline = true,
+        },
+      }
     end,
   },
   {
