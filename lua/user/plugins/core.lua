@@ -68,10 +68,11 @@ return {
         },
         status.component.file_info { -- add file_info to breadcrumbs
           file_icon = { padding = { left = 0 } },
+          padding = { left = 0 },
         },
         status.component.breadcrumbs {
           icon = { hl = true },
-          prefix = true,
+          prefix = false,
           padding = { left = 0 },
         },
         status.component.fill(),
@@ -113,17 +114,14 @@ return {
   },
   {
     "kevinhwang91/nvim-ufo",
-    dependencies = { "kevinhwang91/promise-async" },
-    init = function() table.insert(astronvim.file_plugins, "nvim-ufo") end,
-    opts = {
-      provider_selector = function(_, filetype, buftype)
-        if filetype == "" or buftype == "nofile" then
-          return "indent"
-        else
-          return { "treesitter", "indent" }
-        end
-      end,
-    },
+    init = function()
+      table.insert(astronvim.file_plugins, "nvim-ufo")
+      vim.o.foldcolumn = "1" -- '0' is not bad
+      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+    end,
     keys = {
       { "zR", require("ufo").openAllFolds },
       { "zM", require("ufo").closeAllFolds },
