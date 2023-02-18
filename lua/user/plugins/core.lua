@@ -67,7 +67,7 @@ return {
           path_func = status.provider.filename { modify = ":.:h" },
         },
         status.component.file_info { -- add file_info to breadcrumbs
-          file_icon = { padding = { left = 0, right = 0 } },
+          file_icon = { padding = { left = 0 } },
         },
         status.component.breadcrumbs {
           icon = { hl = true },
