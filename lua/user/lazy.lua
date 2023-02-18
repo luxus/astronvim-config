@@ -46,6 +46,7 @@ return function(config)
     { import = "user.plugins.extras.editor.neogen", enabled = false },
     { import = "user.plugins.extras.editor.bqf", enabled = false },
     { import = "user.plugins.extras.tools.presence", enabled = true },
+    { import = "user.plugins.extras.tools.chatgpt", enabled = true },
     { import = "user.plugins.extras.tools.wakatime", enabled = true },
     { import = "user.plugins.extras.tools.spectre", enabled = true },
     { import = "user.plugins.extras.tools.iron", enabled = false },
