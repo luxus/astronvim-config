@@ -31,6 +31,9 @@ return {
             end,
           },
         },
+        cursor = {
+          timing = animate.gen_timing.linear { duration = 80, unit = "total" },
+        },
       }
     end,
     config = function(_, opts) require("mini.animate").setup(opts) end,
