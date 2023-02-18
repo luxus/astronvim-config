@@ -1,8 +1,7 @@
 return { -- scrollbar
   {
-    "petertriho/nvim-scrollbar",
-    init = function() table.insert(astronvim.file_plugins, "nvim-scrollbar") end,
-    config = true,
+    "lewis6991/satellite.nvim",
+    init = function() table.insert(astronvim.file_plugins, "satellite.nvim") end,
     opts = {
       excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "neo-tree" },
     },

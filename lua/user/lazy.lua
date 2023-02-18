@@ -20,7 +20,7 @@ return function(config)
     { import = "user.plugins.extras.ui.pets" },
     { import = "user.plugins.extras.ui.zen-mode" },
     -- { import = "user.plugins.extras.ui.shade" },
-    -- { import =  "user.plugins.extras.ui.scrollbar" },
+    { import = "user.plugins.extras.ui.scrollbar" },
     { import = "user.plugins.extras.editor.minicomment" },
     -- { import = "user.plugins.extras.editor.lsplines" },
     { import = "user.plugins.extras.editor.grapple+portal" },
