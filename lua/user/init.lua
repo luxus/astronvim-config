@@ -60,10 +60,6 @@ return {
       ["<C-l>"] = false,
       ["<leader>o"] = false, -- focus neo-tree
       ["q:"] = ":",
-      -- better search
-      n = { require("user.utils").better_search "n", desc = "Next search" },
-      N = { require("user.utils").better_search "N", desc = "Previous search" },
-
       ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
       ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
       ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
