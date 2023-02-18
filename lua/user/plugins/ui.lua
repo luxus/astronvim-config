@@ -4,7 +4,7 @@ return {
     init = function() table.insert(astronvim.file_plugins, "incline.nvim") end,
     opts = {
       hide = {
-        focused_win = false,
+        focused_win = true,
       },
     },
   },

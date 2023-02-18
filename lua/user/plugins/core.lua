@@ -45,14 +45,29 @@ return {
         --     separator = "left",
         --   },
         -- },
-        status.component.file_info { filetype = {}, filename = false },
         status.component.git_diff(),
-        status.component.diagnostics(),
-        status.component.breadcrumbs(),
+        status.component.diagnostics { padding = { left = 0 } },
+
+        status.component.separated_path {
+          padding = { left = 0 },
+          path_func = status.provider.filename { modify = ":.:h" },
+        },
+        status.component.file_info { -- add file_info to breadcrumbs
+          file_icon = { padding = { left = 0 } },
+          file_modified = false,
+          file_read_only = false,
+          surround = false,
+          update = "BufEnter",
+        },
+        status.component.breadcrumbs {
+          icon = { hl = true },
+          prefix = true,
+          padding = { left = 0 },
+        },
         status.component.fill(),
         status.component.cmd_info(),
         status.component.fill(),
-        status.component.nav(),
+        status.component.nav { percentage = false, scrollbar = false },
         status.component.mode { surround = { separator = "right" } },
       }
       opts.tabline[2] = status.heirline.make_buflist(status.component.tabline_file_info { close_button = false })
