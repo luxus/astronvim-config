@@ -1,10 +1,11 @@
+local prefix = "<leader>r"
 return {
   {
     "michaelb/sniprun",
-    init = function() require("which-key").register({ ["<leader>r"] = { name = "Run" } }, { mode = "n", "v" }) end,
     keys = {
-      { "<leader>rr", function() require("sniprun").run() end, desc = "Sniprun" },
-      { "<leader>rr", mode = { "x" }, function() require("sniprun").run "v" end, desc = "Sniprun" },
+      { prefix, desc = "Sniprun" },
+      { prefix .. "r", function() require("sniprun").run() end, desc = "Sniprun" },
+      { prefix .. "r", mode = { "x" }, function() require("sniprun").run "v" end, desc = "Sniprun" },
     },
     opts = {
       live_mode_toggle = "enable",

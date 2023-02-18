@@ -1,15 +1,10 @@
 local prefix = "<leader>s"
 return {
   {
-    "mehalter/nvim-spectre", -- move to main repo after https://github.com/nvim-pack/nvim-spectre/pull/104
-    -- "nvim-pack/nvim-spectre",
-    init = function()
-      require("which-key").register {
-        [prefix] = { name = "+Search/Replace" },
-      }
-    end,
+    "nvim-pack/nvim-spectre",
     cmd = "Spectre",
     keys = {
+      { prefix, desc = "Search / Replace" },
       { prefix .. "s", function() require("spectre").open() end, desc = "Spectre" },
       {
         prefix .. "w",

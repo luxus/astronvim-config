@@ -5,10 +5,9 @@ return {
   -- surround text
   {
     "echasnovski/mini.surround",
-    init = function()
-      table.insert(astronvim.file_plugins, "mini.surround")
-      require("which-key").register({ [prefix] = { name = "Surround" } }, { mode = "n" })
-    end,
+    keys = {
+      { prefix, desc = "Surround" },
+    },
     opts = {
       mappings = {
         add = prefix .. "a", -- Add surrounding in Normal and Visual modes
