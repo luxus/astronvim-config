@@ -20,5 +20,9 @@ return function()
     TelescopeResultsBorder = { fg = bg, bg = bg },
     TelescopeResultsNormal = { bg = bg },
     TelescopeResultsTitle = { fg = bg, bg = bg },
+    NeoTreeTabInactive = { fg = bg_alt, bg = bg },
+    NeoTreeTabSeparatorActive = { fg = fg, bg = bg_alt },
+    NeoTreeTabSeparatorInactive = { fg = bg_alt, bg = bg },
+    NeoTreeTabActive = { fg = fg, bg = bg_alt },
   }
 end
