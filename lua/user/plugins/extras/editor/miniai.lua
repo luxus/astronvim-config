@@ -7,7 +7,6 @@ return {
     keys = {
       { "a", mode = { "x", "o" } },
       { "i", mode = { "x", "o" } },
-      { "g" },
     },
     dependencies = {
       {
