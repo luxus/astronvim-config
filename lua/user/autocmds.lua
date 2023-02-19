@@ -63,6 +63,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- remember folds
+vim.cmd [[
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter *.* silent! loadview
+augroup END
+]]
 -- create directories when needed, when saving a file
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("auto_create_dir", { clear = true }),
