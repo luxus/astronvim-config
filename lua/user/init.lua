@@ -6,6 +6,7 @@ return {
       tab = { "", "" },
     },
   },
+  colorscheme = false,
   diagnostics = {
     signs = true,
     underline = true,

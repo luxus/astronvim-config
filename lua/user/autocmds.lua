@@ -1,16 +1,3 @@
---TODO: stuff imported from mehalter
---
-
--- only show tabline when more than one tab
--- vim.api.nvim_create_autocmd("User", {
---   desc = "Hide tabline when only one buffer and one tab",
---   pattern = "AstroBufsUpdated",
---   group = vim.api.nvim_create_augroup("hidetabline", { clear = true }),
---   callback = function()
---     local new_showtabline = #vim.t.bufs > 1 and 2 or 1
---     if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
---   end,
--- })
 vim.api.nvim_create_autocmd(
   { "BufRead", "BufNewFile" },
   { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" }
@@ -64,13 +51,9 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- remember folds
-vim.cmd [[
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave *.* mkview
-  autocmd BufWinEnter *.* silent! loadview
-augroup END
-]]
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, { command = "mkview" })
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, { command = "silent! loadview" })
+
 -- create directories when needed, when saving a file
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("auto_create_dir", { clear = true }),

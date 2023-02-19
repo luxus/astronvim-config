@@ -113,24 +113,6 @@ return {
     },
   },
   {
-    "kevinhwang91/nvim-ufo",
-    init = function()
-      table.insert(astronvim.file_plugins, "nvim-ufo")
-      vim.o.foldcolumn = "1" -- '0' is not bad
-      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-      vim.o.foldlevelstart = -1
-      vim.o.foldenable = true
-      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-    end,
-    keys = {
-      { "zR", require("ufo").openAllFolds },
-      { "zM", require("ufo").closeAllFolds },
-      { "zr", require("ufo").openFoldsExceptKinds },
-      { "zm", require("ufo").closeFoldsWith },
-      { "zp", require("ufo").peekFoldedLinesUnderCursor, desc = "Peek Fold" },
-    },
-  },
-  {
     "williamboman/mason-lspconfig.nvim",
     opts = {
       automatic_installation = true,
