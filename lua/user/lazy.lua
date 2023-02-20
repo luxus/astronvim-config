@@ -51,6 +51,7 @@ return function(config)
     { import = "user.plugins.extras.tools.wakatime", enabled = true },
     { import = "user.plugins.extras.tools.spectre", enabled = true },
     { import = "user.plugins.extras.tools.iron", enabled = false },
+    { import = "user.plugins.extras.tools.neural", enabled = true },
     { import = "user.plugins.extras.tools.refactoring", enabled = false },
     { import = "user.plugins.extras.tools.octo", enabled = false },
     { import = "user.plugins.extras.tools.sg", enabled = false },
