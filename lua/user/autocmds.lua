@@ -14,11 +14,11 @@ vim.api.nvim_create_autocmd(
 )
 -- neovide config
 if vim.g.neovide then
-  vim.g.neovide_transparency = 0.9
+  vim.g.neovide_transparency = 0.95
   vim.g.neovide_input_macos_alt_is_meta = true
-  vim.cmd [[set guifont=MonoLisa,FiraCode\ Nerd\ Font,mini-file-icons]]
+  vim.cmd [[set guifont=MonoLisa,Symbols\ Nerd\ Font]]
   vim.g.neovide_cursor_vfx_mode = "railgun"
-  vim.g.transparency = 0.9
+  vim.g.transparency = 0.95
 end
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
