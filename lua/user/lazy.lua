@@ -29,7 +29,7 @@ return function(config)
     { import = "user.plugins.extras.ui.glow", enabled = false },
     { import = "user.plugins.extras.ui.pets", enabled = true },
     { import = "user.plugins.extras.ui.zen-mode", enabled = true },
-    { import = "user.plugins.extras.ui.tint", enabled = true },
+    { import = "user.plugins.extras.ui.tint", enabled = false },
     { import = "user.plugins.extras.ui.scrollbar", enabled = true },
     { import = "user.plugins.extras.ui.smartcolumn", enabled = true },
     { import = "user.plugins.extras.editor.minicomment", enabled = true },
