@@ -23,7 +23,7 @@ return function(config)
     { import = "user.plugins.extras.lang.tex", enabled = false },
     { import = "user.plugins.extras.ui.ministarter", enabled = true },
     { import = "user.plugins.extras.ui.ccc", enabled = false },
-    { import = "user.plugins.extras.ui.drop", enabled = true },
+    { import = "user.plugins.extras.ui.drop", enabled = GUI() },
     { import = "user.plugins.extras.ui.minianimate", enabled = GUI() },
     { import = "user.plugins.extras.ui.noice", enabled = GUI() },
     { import = "user.plugins.extras.ui.glow", enabled = false },
