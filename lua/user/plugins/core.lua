@@ -2,7 +2,15 @@ return {
   -- disable some stuff
   { "famiu/bufdelete.nvim", enabled = true },
   { "max397574/better-escape.nvim", enabled = false },
-  { "folke/which-key.nvim", opts = { window = { border = "none" } } },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      icons = {
+        separator = "→",
+      },
+      window = { border = "none" },
+    },
+  },
 
   {
     "akinsho/toggleterm.nvim",
