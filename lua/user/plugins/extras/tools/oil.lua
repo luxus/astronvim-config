@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/oil.nvim",
-    config = true,
+    opts = {},
     enabled = true,
     cmd = "Oil",
     keys = {
