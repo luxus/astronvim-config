@@ -6,7 +6,7 @@ return {
       tab = { "", "" },
     },
   },
-  colorscheme = false,
+  colorscheme = "catppuccin",
   diagnostics = {
     signs = true,
     underline = true,
