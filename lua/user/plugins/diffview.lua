@@ -3,7 +3,7 @@ return {
   init = function() table.insert(astronvim.git_plugins, "diffview.nvim") end,
   config = function()
     local actions = require "diffview.actions"
-    local utils = require "core.utils"
+    local utils = require "astronvim.utils"
     local prefix = "<leader>D"
 
     utils.set_mappings {

@@ -48,9 +48,10 @@ return {
   opts = function(_, opts)
     local telescope = require "telescope"
     local actions = require "telescope.actions"
+    local previewers = require "telescope.previewers"
     local fb_actions = require("telescope").extensions.file_browser.actions
     local hop = telescope.extensions.hop
-    return require("core.utils").extend_tbl(opts, {
+    return require("astronvim.utils").extend_tbl(opts, {
       live_grep = {
         border = true,
         previewer = false,

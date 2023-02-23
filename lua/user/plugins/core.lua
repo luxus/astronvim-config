@@ -62,7 +62,7 @@ return {
   {
     "rebelot/heirline.nvim",
     opts = function(_, opts)
-      local status = require "core.utils.status"
+      local status = require "astronvim.utils.status"
       opts.statusline[9] = status.component.lsp { lsp_progress = false }
       opts.statusline = { -- statusline
         hl = { fg = "fg", bg = "bg" },
@@ -154,7 +154,6 @@ return {
     opts = {
       automatic_setup = true,
       automatic_installation = true,
-      ensure_installed = {},
     },
   },
   {
