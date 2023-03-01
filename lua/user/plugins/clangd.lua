@@ -1,4 +1,1 @@
-return {
-  "p00f/clangd_extensions.nvim",
-  event = "LspAttach",
-}
+return { "p00f/clangd_extensions.nvim", event = "LspAttach" }
