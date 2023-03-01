@@ -2,32 +2,18 @@ return {
   heirline = {
     separators = {
       breadcrumbs = "  ",
-      path = "  ",
+      path = "/",
       tab = { "", "" },
     },
   },
-  colorscheme = "catppuccin",
-  diagnostics = {
-    signs = true,
-    underline = true,
-  },
+  colorscheme = "oxocarbon",
+  -- diagnostics = {
+  --   signs = true,
+  --   underline = true,
+  -- },
   options = {
     opt = {
-      cursorline = true, -- highlight current line
-      conceallevel = 2, -- enable conceal
-      linebreak = true, -- linebreak soft wrap at words
-      list = true, -- show whitespace characters
-      listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
-      showtabline = 0,
-      showbreak = "↪ ",
-      spellfile = vim.fn.expand "~/.config/astronvim/lua/user/spell/en.utf-8.add",
-      swapfile = false,
-      thesaurus = vim.fn.expand "~/.config/astronvim/lua/user/spell/mthesaur.txt",
-      wrap = false, -- don't wrap lines
-      termguicolors = true, -- True color support
-      splitright = true, -- Put new windows right of current
-      splitbelow = true, -- Put new windows below current
-      timeoutlen = 200,
+      timeoutlen = 250,
     },
     g = {
       lsp_handlers_enabled = false,
@@ -60,9 +46,17 @@ return {
       ["<C-l>"] = false,
       ["<leader>o"] = false, -- focus neo-tree
       ["q:"] = ":",
+
       ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
       ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
       ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
+      -- tabs
+      ["<leader><tab>"] = { name = "󰓩 Tab Managment" },
+      ["<leader><tab>l"] = { "<cmd>tablast<cr>", desc = "Last Tab" },
+      ["<leader><tab>f"] = { "<cmd>tabfirst<cr>", desc = "First Tab" },
+      ["<leader><tab><tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
+      ["<leader><tab>]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" },
+      ["<leader><tab>["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" },
     },
     i = {
       -- date/time input

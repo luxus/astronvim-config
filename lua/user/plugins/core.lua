@@ -1,19 +1,14 @@
 return {
   -- disable some stuff
-  { "famiu/bufdelete.nvim", enabled = true },
-  { "max397574/better-escape.nvim", enabled = false },
-  {
-    "folke/which-key.nvim",
-    opts = {
-      icons = {
-        separator = "→",
-      },
-      window = { border = "none" },
-    },
-  },
+  { "bufdelete.nvim", enabled = true },
+  { "better-escape.nvim", enabled = false },
+  { "smart-splits.nvim", enabled = false },
+  { "mason.nvim", opts = { PATH = "append" } }, -- Mason bins will have the lowest priority
+  { "mason-nvim-dap.nvim", opts = { automatic_installation = true } },
+  { "theHamsta/nvim-dap-virtual-text", opts = {} },
 
   {
-    "akinsho/toggleterm.nvim",
+    "toggleterm.nvim",
     keys = {
       { "<C-BS>", mode = { "t" }, "<C-\\><C-n>", desc = "Terminal normal mode" },
       { "<esc><esc>", mode = { "t" }, "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
@@ -21,7 +16,7 @@ return {
     opts = { terminal_mappings = false },
   },
   {
-    "onsails/lspkind.nvim",
+    "lspkind.nvim",
     opts = function(_, opts)
       -- use codicons preset
       opts.preset = "codicons"
@@ -43,24 +38,22 @@ return {
   {
     "zbirenbaum/neodim",
     event = "LspAttach",
-    opts = function()
-      require("neodim").setup {
-        alpha = 0.75,
-        blend_color = "#000000",
-        update_in_insert = {
-          enable = true,
-          delay = 100,
-        },
-        hide = {
-          virtual_text = true,
-          signs = true,
-          underline = true,
-        },
-      }
-    end,
+    opts = {
+      alpha = 0.75,
+      blend_color = "#000000",
+      update_in_insert = {
+        enable = true,
+        delay = 100,
+      },
+      hide = {
+        virtual_text = true,
+        signs = true,
+        underline = true,
+      },
+    },
   },
   {
-    "rebelot/heirline.nvim",
+    "heirline.nvim",
     opts = function(_, opts)
       local status = require "astronvim.utils.status"
       opts.statusline[9] = status.component.lsp { lsp_progress = false }
@@ -68,14 +61,19 @@ return {
         hl = { fg = "fg", bg = "bg" },
         status.component.mode(),
         status.component.git_branch(),
-        status.component.git_diff(),
         status.component.diagnostics { padding = { left = 0 } },
+        status.component.file_info { -- add file_info to breadcrumbs
+          file_icon = { padding = { left = 0 } },
+          filename = false,
+          padding = { left = 0 },
+        },
         status.component.separated_path {
           padding = { left = 0 },
           path_func = status.provider.filename { modify = ":.:h" },
         },
         status.component.file_info { -- add file_info to breadcrumbs
-          file_icon = { padding = { left = 0 } },
+          file_icon = false,
+          file_modified = false,
           padding = { left = 0 },
         },
         status.component.breadcrumbs {
@@ -86,15 +84,18 @@ return {
         status.component.fill(),
         status.component.cmd_info(),
         status.component.fill(),
-        status.component.nav { percentage = false, scrollbar = false },
-        status.component.mode { surround = { separator = "right" } },
+        status.component.git_diff {
+          padding = { right = 0 },
+        },
+        status.component.nav { padding = { left = 0, right = 0 }, percentage = false, scrollbar = false },
+        status.component.mode { padding = { left = 0, right = 0 }, surround = { separator = "right" } },
       }
       opts.tabline[2] = status.heirline.make_buflist(status.component.tabline_file_info { close_button = false })
       opts.winbar = nil
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter",
     dependencies = {
       {
         "andymass/vim-matchup",
@@ -121,14 +122,7 @@ return {
     },
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    opts = {
-      automatic_installation = true,
-      ensure_installed = {},
-    },
-  },
-  {
-    "jay-babu/mason-null-ls.nvim",
+    "mason-null-ls.nvim",
     opts = {
       automatic_installation = true,
       ensure_installed = {
@@ -147,28 +141,6 @@ return {
           end,
         }
       end,
-    },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    opts = {
-      automatic_setup = true,
-      automatic_installation = true,
-    },
-  },
-  {
-    "mfussenegger/nvim-dap",
-    ft = {},
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    config = true,
-  },
-  { "theHamsta/nvim-dap-virtual-text", config = true },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = {
-      sources = {},
     },
   },
 }

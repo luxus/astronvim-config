@@ -8,19 +8,6 @@ return {
       },
     },
   },
-  {
-    "mrjones2014/smart-splits.nvim",
-    keys = {
-      { "<C-h>", function() require("smart-splits").move_cursor_left() end, desc = "Left Pane" },
-      { "<C-j>", function() require("smart-splits").move_cursor_down() end, desc = "Down Pane" },
-      { "<C-k>", function() require("smart-splits").move_cursor_up() end, desc = "Up Pane" },
-      { "<C-l>", function() require("smart-splits").move_cursor_right() end, desc = "Right Pane" },
-      { "<C-Up>", function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
-      { "<C-Down>", function() require("smart-splits").resize_down(2) end, desc = "Resize split down" },
-      { "<C-Left>", function() require("smart-splits").resize_left(2) end, desc = "Resize split left" },
-      { "<C-Right>", function() require("smart-splits").resize_right(2) end, desc = "Resize split right" },
-    },
-  },
 
   -- -- auto-resize windows
   -- {

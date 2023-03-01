@@ -34,7 +34,6 @@ return {
     { "<leader>fu", "<cmd>Telescope undo<cr>", desc = "Undo" },
     { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
     { "<leader>fl", "<cmd>Telescope lazy<cr>", desc = "Lazy" },
-    { "<leader>fy", "<cmd>Telescope yank_history<cr>", desc = "Yank History" },
 
     -- open buffers
     {
@@ -76,6 +75,9 @@ return {
         },
       },
       defaults = {
+        file_previewer = previewers.cat.new,
+        grep_previewer = previewers.vimgrep.new,
+        qflist_previewer = previewers.qflist.new,
         selection_caret = "  ",
         layout_config = {
           width = 0.90,
@@ -152,6 +154,5 @@ return {
     telescope.load_extension "zoxide"
     telescope.load_extension "lazy"
     telescope.load_extension "fzf"
-    telescope.load_extension "yank_history"
   end,
 }

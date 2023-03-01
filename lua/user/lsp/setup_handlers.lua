@@ -7,5 +7,4 @@ return {
   tsserver = function(...) fallback_setup("typescript", ...) end,
   clangd = function(...) fallback_setup("clangd_extensions", ...) end,
   rust_analyzer = function(...) fallback_setup("rust-tools", ...) end,
-  -- gopls = function(...) fallback_setup("gopher", ...) end,
 }
