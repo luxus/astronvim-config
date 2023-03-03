@@ -1,7 +1,7 @@
 function GUI() return vim.g.neovide and false or true end
 return {
   -- { "luxus/astroluxus", dev = true }, -- loading my plugins
-  { "AstroNvim/astrocommunity", dev = true }, -- loading community plugins
+  { "AstroNvim/astrocommunity" }, -- loading community plugins
   -- colorschemes
   { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
   {
@@ -207,6 +207,7 @@ return {
   { import = "astrocommunity.editing-support.dial-nvim", enabled = true },
   { import = "astrocommunity.editing-support.treej", enabled = true },
   { import = "astrocommunity.editing-support.neogen", enabled = false },
+  { import = "astrocommunity.editing-support.nvim-regexplainer", enabled = true },
   { import = "astrocommunity.comment.mini-comment", enabled = true },
   { import = "astrocommunity.bars-and-lines.scope-nvim", enabled = true },
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim", enabled = true },
