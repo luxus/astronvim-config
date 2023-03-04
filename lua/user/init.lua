@@ -1,3 +1,4 @@
+local tabpre = "<leader><tab>"
 return {
   heirline = { separators = { breadcrumbs = "  ", path = "/", tab = { "", "" } } },
   colorscheme = "oxocarbon",
@@ -6,7 +7,11 @@ return {
     g = { lsp_handlers_enabled = false, matchup_matchparen_deferred = 1 },
   },
   polish = { require "user.autocmds" },
-
+  diagnostics = {
+    virtual_text = true,
+    signs = true,
+    underline = true,
+  },
   updater = { channel = "nightly", skip_prompts = true },
   mappings = {
     n = {
@@ -24,12 +29,12 @@ return {
       ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
       ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
       -- tabs
-      ["<leader><tab>"] = { name = "󰓩 Tab Managment" },
-      ["<leader><tab>l"] = { "<cmd>tablast<cr>", desc = "Last Tab" },
-      ["<leader><tab>f"] = { "<cmd>tabfirst<cr>", desc = "First Tab" },
-      ["<leader><tab><tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
-      ["<leader><tab>]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" },
-      ["<leader><tab>["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" },
+      [tabpre] = { name = "󰓩 Tab Managment" },
+      [tabpre .. "l"] = { "<cmd>tablast<cr>", desc = "Last Tab" },
+      [tabpre .. "f"] = { "<cmd>tabfirst<cr>", desc = "First Tab" },
+      [tabpre .. "<tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
+      [tabpre .. "]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" },
+      [tabpre .. "["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" },
     },
     i = {
       -- date/time input

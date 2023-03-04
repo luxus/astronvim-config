@@ -3,7 +3,7 @@ return {
   { "bufdelete.nvim", enabled = true },
   { "better-escape.nvim", enabled = false },
   { "smart-splits.nvim", enabled = false },
-  { "mason.nvim", opts = { PATH = "append" } }, -- Mason bins will have the lowest priority
+  { "mason.nvim", opts = { PATH = "append" } }, -- Mason binaries will have the lowest priority
   { "mason-nvim-dap.nvim", opts = { automatic_installation = true } },
   { "theHamsta/nvim-dap-virtual-text", opts = {} },
   {
@@ -47,23 +47,6 @@ return {
       }
       return opts
     end,
-  },
-  {
-    "zbirenbaum/neodim",
-    event = "LspAttach",
-    opts = {
-      alpha = 0.75,
-      blend_color = "#000000",
-      update_in_insert = {
-        enable = true,
-        delay = 100,
-      },
-      hide = {
-        virtual_text = true,
-        signs = true,
-        underline = true,
-      },
-    },
   },
   {
     "heirline.nvim",
