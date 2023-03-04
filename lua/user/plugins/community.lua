@@ -22,7 +22,6 @@ return {
     },
   },
   { import = "astrocommunity.motion.mini-bracketed", enabled = true },
-  { import = "astrocommunity.motion.mini-basics", enabled = true },
   { import = "astrocommunity.colorscheme.everforest", enabled = false },
   { import = "astrocommunity.colorscheme.nightfox", enabled = false },
   { import = "astrocommunity.colorscheme.kanagawa", enabled = true },
@@ -63,17 +62,6 @@ return {
   { import = "astrocommunity.media.presence-nvim", enabled = true },
   { import = "astrocommunity.media.vim-wakatime", enabled = true },
   { import = "astrocommunity.scrolling.mini-animate", enabled = GUI() },
-  {
-    "mini.basics",
-    opts = {
-      options = {
-        -- Basic options ('termguicolors', 'number', 'ignorecase', and many more)
-        basic = true,
-        -- Extra UI features ('winblend', 'cmdheight=0', ...)
-        extra_ui = true,
-      },
-    },
-  },
   { import = "astrocommunity.scrolling.satellite-nvim", enabled = true },
   { import = "astrocommunity.color.tint-nvim", enabled = true },
   { import = "astrocommunity.media.drop-nvim", enabled = GUI() },

@@ -2,7 +2,6 @@ return {
   -- disable some stuff
   { "bufdelete.nvim", enabled = true },
   { "better-escape.nvim", enabled = false },
-  { "smart-splits.nvim", enabled = false },
   { "mason.nvim", opts = { PATH = "append" } }, -- Mason binaries will have the lowest priority
   { "mason-nvim-dap.nvim", opts = { automatic_installation = true } },
   { "theHamsta/nvim-dap-virtual-text", opts = {} },
@@ -18,6 +17,15 @@ return {
         mode = "virtualtext",
         tailwind = true,
       },
+    },
+  },
+  {
+    "nvim-notify",
+    opts = {
+      stages = "slide",
+      timeout = 3000,
+      max_height = function() return math.floor(vim.o.lines * 0.75) end,
+      max_width = function() return math.floor(vim.o.columns * 0.75) end,
     },
   },
   {
