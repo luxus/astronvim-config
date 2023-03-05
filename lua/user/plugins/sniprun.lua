@@ -3,7 +3,7 @@ return {
   {
     "michaelb/sniprun",
     keys = {
-      { prefix, desc = "Sniprun" },
+      { prefix, desc = "Code runners" },
       { prefix .. "r", function() require("sniprun").run() end, desc = "Sniprun" },
       { prefix .. "r", mode = { "x" }, function() require("sniprun").run "v" end, desc = "Sniprun" },
     },

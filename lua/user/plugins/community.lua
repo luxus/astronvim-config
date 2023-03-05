@@ -21,16 +21,17 @@ return {
       },
     },
   },
-  { import = "astrocommunity.motion.mini-bracketed", enabled = true },
   { import = "astrocommunity.colorscheme.everforest", enabled = false },
   { import = "astrocommunity.colorscheme.nightfox", enabled = false },
-  { import = "astrocommunity.colorscheme.kanagawa", enabled = true },
+  { import = "astrocommunity.colorscheme.kanagawa", enabled = false },
   { import = "astrocommunity.colorscheme.oxocarbon", enabled = true },
-  { import = "astrocommunity.colorscheme.rose-pine", enabled = true },
+  { import = "astrocommunity.colorscheme.rose-pine", enabled = false },
   { import = "astrocommunity.colorscheme.onigiri", enabled = false },
   { import = "astrocommunity.colorscheme.tokyonight", enabled = true },
+  { "tokyonight.nvim", opts = { style = "night", light_style = "storm" } },
   { import = "astrocommunity.colorscheme.mini-base16", enabled = false },
   { import = "astrocommunity.utility.neodim", enabled = true },
+  { import = "astrocommunity.motion.mini-bracketed", enabled = true },
   { import = "astrocommunity.completion.copilot-lua", enabled = true },
   {
     "copilot.lua",
@@ -154,7 +155,7 @@ return {
   { import = "astrocommunity.markdown-and-latex.glow", enabled = false },
   {
     "b0o/incline.nvim",
-    init = function() table.insert(astronvim.file_plugins, "incline.nvim") end,
+    event = "User AstroFile",
     opts = { hide = { focused_win = true } },
   },
   {
@@ -174,7 +175,7 @@ return {
   },
   { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach", config = true },
 
-  { "m-demare/hlargs.nvim", opts = {}, init = function() table.insert(astronvim.file_plugins, "hlargs.nvim") end },
+  { "m-demare/hlargs.nvim", opts = {}, event = "User AstroFile" },
   {
     "cbochs/grapple.nvim",
     enabled = true,
@@ -218,7 +219,7 @@ return {
   {
     "folke/todo-comments.nvim",
     opts = {},
-    init = function() table.insert(astronvim.file_plugins, "todo-comments.nvim") end,
+    event = "User AstroFile",
     keys = {
       -- { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
       -- { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },

@@ -25,11 +25,7 @@ return {
     g = { lsp_handlers_enabled = false, matchup_matchparen_deferred = 1 },
   },
   polish = { require "user.autocmds" },
-  diagnostics = {
-    virtual_text = true,
-    signs = true,
-    underline = true,
-  },
+  diagnostics = { update_in_insert = false },
   updater = { channel = "nightly" },
   mappings = {
     n = {
