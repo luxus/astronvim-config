@@ -2,19 +2,26 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then vim.list_extend(opts.ensure_installed, { "lua" }) end
+      -- Ensure that opts.ensure_installed exists and is a table or string "all".
+      if not opts.ensure_installed then
+        opts.ensure_installed = {}
+      elseif opts.ensure_installed == "all" then
+        return
+      end
+      -- Add the language to opts.ensure_installed.
+      vim.list_extend(opts.ensure_installed, { "lua", "luap" })
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then vim.list_extend(opts.ensure_installed, { "lua_ls" }) end
+      if type(opts.ensure_installed) == "table" then table.insert(opts.ensure_installed, { "lua_ls" }) end
     end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then vim.list_extend(opts.ensure_installed, { "stylua" }) end
+      if type(opts.ensure_installed) == "table" then table.insert(opts.ensure_installed, { "stylua" }) end
     end,
   },
 }
