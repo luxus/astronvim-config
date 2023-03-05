@@ -15,13 +15,17 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then table.insert(opts.ensure_installed, { "lua_ls" }) end
+      -- Ensure that opts.ensure_installed exists and is a table.
+      if not opts.ensure_installed then opts.ensure_installed = {} end
+      table.insert(opts.ensure_installed, "lua_ls")
     end,
   },
   {
     "jay-babu/mason-null-ls.nvim",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then table.insert(opts.ensure_installed, { "stylua" }) end
+      -- Ensure that opts.ensure_installed exists and is a table.
+      if not opts.ensure_installed then opts.ensure_installed = {} end
+      table.insert(opts.ensure_installed, "stylua")
     end,
   },
 }
