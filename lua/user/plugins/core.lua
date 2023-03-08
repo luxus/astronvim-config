@@ -92,6 +92,9 @@ return {
           padding = { right = 0 },
         },
         status.component.nav { padding = { left = 0, right = 0 }, percentage = false, scrollbar = false },
+        {
+          provider = function() return "  " .. os.date "%R" end,
+        },
         status.component.mode { padding = { left = 0, right = 0 }, surround = { separator = "right" } },
       }
       opts.tabline[2] = status.heirline.make_buflist(status.component.tabline_file_info { close_button = false })
