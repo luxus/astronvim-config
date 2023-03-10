@@ -1,7 +1,7 @@
 local tabpre = "<leader><tab>"
 return {
-  heirline = { separators = { breadcrumbs = "  ", path = "/", tab = { "", "" } } },
-  colorscheme = "oxocarbon",
+  heirline = { separators = { breadcrumbs = "  ", path = "/" } },
+  colorscheme = false,
   options = {
     opt = {
       -- clipboard = "", -- Remove connection to the system clipboard
@@ -15,7 +15,7 @@ return {
       pumblend = 10, -- Make builtin completion menus slightly transparent
       winblend = 10, -- Make floating windows slightly transparent
       listchars = "extends:…,precedes:…,nbsp:␣", -- Define which helper symbols to show
-      list = true, -- Show some helper symbols
+      list = false, -- Show some helper symbols
     },
     g = { lsp_handlers_enabled = false, matchup_matchparen_deferred = 1 },
   },

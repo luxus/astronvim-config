@@ -25,7 +25,7 @@ return {
   { import = "astrocommunity.colorscheme.nightfox", enabled = false },
   { import = "astrocommunity.colorscheme.kanagawa", enabled = false },
   { import = "astrocommunity.colorscheme.oxocarbon", enabled = true },
-  { import = "astrocommunity.colorscheme.rose-pine", enabled = false },
+  { import = "astrocommunity.colorscheme.rose-pine", enabled = true },
   { import = "astrocommunity.colorscheme.onigiri", enabled = false },
   { import = "astrocommunity.colorscheme.tokyonight", enabled = true },
   { "tokyonight.nvim", opts = { style = "night", light_style = "storm" } },
@@ -54,8 +54,12 @@ return {
   { import = "astrocommunity.pack.go", enabled = false },
   { import = "astrocommunity.pack.nix", enabled = true },
   { import = "astrocommunity.pack.rust", enabled = true },
-  { import = "astrocommunity.pack.typescript", enabled = false },
+  { import = "astrocommunity.pack.typescript", enabled = true },
   { import = "astrocommunity.pack.python", enabled = false },
+  { import = "astrocommunity.pack.lua", enabled = true },
+  { import = "astrocommunity.pack.bash", enabled = true },
+  { import = "astrocommunity.pack.svelte", enabled = true },
+  { import = "astrocommunity.pack.json", enabled = true },
   { import = "astrocommunity.indent.indent-blankline-nvim", enabled = true },
   { import = "astrocommunity.indent.mini-indentscope", enabled = true },
 
@@ -79,6 +83,22 @@ return {
   { import = "astrocommunity.project.nvim-spectre", enabled = true },
   { import = "astrocommunity.color.ccc-nvim", enabled = false },
   { import = "astrocommunity.motion.portal-nvim", enabled = true },
+  {
+    "cbochs/portal.nvim",
+    dependencies = {
+      "cbochs/grapple.nvim",
+      enabled = true,
+      dependencies = { "nvim-lua/plenary.nvim" },
+      keys = {
+        { "<leader> ", function() require("grapple").popup_tags() end, desc = "Grapple" },
+        { "<leader>A", function() require("grapple").toggle() end, desc = "Tag in Grapple" },
+        { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "Grapple 1" },
+        { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "Grapple 2" },
+        { "<leader>3", function() require("grapple").select { key = 3 } end, desc = "Grapple 3" },
+        { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "Grapple 4" },
+      },
+    },
+  },
   { import = "astrocommunity.motion.mini-ai", enabled = true },
   { import = "astrocommunity.motion.mini-move", enabled = true },
   { import = "astrocommunity.motion.mini-surround", enabled = true },
@@ -144,7 +164,7 @@ return {
   { import = "astrocommunity.editing-support.refactoring-nvim", enabled = false },
   { import = "astrocommunity.editing-support.zen-mode-nvim", enabled = true },
   { import = "astrocommunity.editing-support.dial-nvim", enabled = true },
-  { import = "astrocommunity.editing-support.treej", enabled = true },
+  { import = "astrocommunity.editing-support.mini-splitjoin", enabled = true },
   { import = "astrocommunity.editing-support.neogen", enabled = false },
   { import = "astrocommunity.editing-support.nvim-regexplainer", enabled = true },
   { import = "astrocommunity.comment.mini-comment", enabled = true },
@@ -176,19 +196,7 @@ return {
   { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach", config = true },
 
   { "m-demare/hlargs.nvim", opts = {}, event = "User AstroFile" },
-  {
-    "cbochs/grapple.nvim",
-    enabled = true,
-    dependencies = { "nvim-lua/plenary.nvim" },
-    keys = {
-      { "<leader> ", function() require("grapple").popup_tags() end, desc = "Grapple" },
-      { "<leader>A", function() require("grapple").toggle() end, desc = "Tag in Grapple" },
-      { "<leader>1", function() require("grapple").select { key = 1 } end, desc = "Grapple 1" },
-      { "<leader>2", function() require("grapple").select { key = 2 } end, desc = "Grapple 2" },
-      { "<leader>3", function() require("grapple").select { key = 3 } end, desc = "Grapple 3" },
-      { "<leader>4", function() require("grapple").select { key = 4 } end, desc = "Grapple 4" },
-    },
-  },
+
   {
     "ggandor/flit.nvim",
     keys = function()
