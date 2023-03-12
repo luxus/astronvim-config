@@ -21,7 +21,7 @@ return {
       },
     },
   },
-  { import = "astrocommunity.colorscheme.everforest", enabled = false },
+  { import = "astrocommunity.colorscheme.everforest", enabled = true },
   { import = "astrocommunity.colorscheme.nightfox", enabled = false },
   { import = "astrocommunity.colorscheme.kanagawa", enabled = false },
   { import = "astrocommunity.colorscheme.oxocarbon", enabled = true },
