@@ -21,10 +21,33 @@ return {
       },
     },
   },
-  { import = "astrocommunity.colorscheme.everforest", enabled = false },
+  {
+    "luxus/carbonclone.nvim", -- oxicarbon edition :D
+    dev = true,
+    config = function()
+      vim.g.carbonclone_h = 50
+      vim.g.carbonclone_s = 10
+      vim.g.carbonclone_l = 20
+      vim.g.carbonclone_contrast = 100
+
+      vim.g.carbonclone_fg = "#ffffff"
+      vim.g.carbonclone_bg = "#161616"
+
+      vim.g.carbonclone_constant = "#ff7eb6"
+      vim.g.carbonclone_identifier = "#dde1e6"
+      vim.g.carbonclone_statement = "#3dddb9"
+      vim.g.carbonclone_error = "#ee5396"
+      vim.g.carbonclone_warning = "#82cfff"
+      vim.g.carbonclone_success = "#be95ff"
+      vim.g.carbonclone_info = "#f2f4f8"
+    end,
+    dependencies = "rktjmp/lush.nvim",
+  },
+  { import = "astrocommunity.colorscheme.everforest", enabled = true },
+  { import = "astrocommunity.colorscheme.gruvbox", enabled = true },
   { import = "astrocommunity.colorscheme.nightfox", enabled = false },
   { import = "astrocommunity.colorscheme.kanagawa", enabled = false },
-  { import = "astrocommunity.colorscheme.oxocarbon", enabled = true },
+  { import = "astrocommunity.colorscheme.oxocarbon", enabled = false },
   { import = "astrocommunity.colorscheme.rose-pine", enabled = true },
   { import = "astrocommunity.colorscheme.onigiri", enabled = false },
   { import = "astrocommunity.colorscheme.tokyonight", enabled = true },
@@ -50,7 +73,22 @@ return {
     },
   },
   { import = "astrocommunity.completion.copilot-cmp", enabled = false },
-
+  {
+    "luxus/colorful-times-nvim",
+    lazy = false,
+    dev = true,
+    opts = {
+      default = {
+        theme = "everforest", -- the default theme to use if no timeframes match
+        bg = "dark", -- the default background to use
+      },
+      timeframes = { -- the timeframes to use
+        { theme = "rose-pine", start = "19:36", stop = "20:10" },
+        { theme = "everforest", start = "20:10", stop = "16:44" },
+        { theme = "tokyonight", start = "16:45", stop = "19:35", bg = "dark" },
+      },
+    },
+  },
   { import = "astrocommunity.pack.go", enabled = false },
   { import = "astrocommunity.pack.nix", enabled = true },
   { import = "astrocommunity.pack.rust", enabled = true },
@@ -59,7 +97,11 @@ return {
   { import = "astrocommunity.pack.lua", enabled = true },
   { import = "astrocommunity.pack.bash", enabled = true },
   { import = "astrocommunity.pack.svelte", enabled = true },
+  { import = "astrocommunity.pack.yaml", enabled = true },
+  { import = "astrocommunity.pack.markdown", enabled = true },
+  { import = "astrocommunity.pack.php", enabled = false },
   { import = "astrocommunity.pack.json", enabled = true },
+
   { import = "astrocommunity.indent.indent-blankline-nvim", enabled = true },
   { import = "astrocommunity.indent.mini-indentscope", enabled = true },
 
@@ -171,8 +213,11 @@ return {
   { import = "astrocommunity.bars-and-lines.scope-nvim", enabled = false },
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim", enabled = true },
   { "smartcolumn.nvim", opts = { colorcolumn = 120, disabled_filetypes = { "help" } } },
-  { import = "astrocommunity.code-runner.overseer-nvim", enabled = false },
+  { import = "astrocommunity.code-runner.overseer-nvim", enabled = true },
   { import = "astrocommunity.markdown-and-latex.glow", enabled = false },
+  { import = "astrocommunity.terminal-integration.flatten-nvim", enabled = true },
+  { import = "astrocommunity.syntax.hlargs-nvim", enabled = true },
+  { import = "astrocommunity.editing-support.todo-comments-nvim", enabled = true },
   {
     "b0o/incline.nvim",
     event = "User AstroFile",
@@ -225,9 +270,7 @@ return {
     },
   },
   {
-    "folke/todo-comments.nvim",
-    opts = {},
-    event = "User AstroFile",
+    "todo-comments.nvim",
     keys = {
       -- { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
       -- { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
