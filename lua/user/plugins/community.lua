@@ -209,6 +209,7 @@ return {
   { import = "astrocommunity.editing-support.mini-splitjoin", enabled = true },
   { import = "astrocommunity.editing-support.neogen", enabled = false },
   { import = "astrocommunity.editing-support.nvim-regexplainer", enabled = true },
+  { import = "astrocommunity.editing-support.nvim-ts-rainbow2", enabled = true },
   { import = "astrocommunity.comment.mini-comment", enabled = true },
   { import = "astrocommunity.bars-and-lines.scope-nvim", enabled = false },
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim", enabled = true },
