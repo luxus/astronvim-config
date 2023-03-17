@@ -57,15 +57,15 @@ return {
       ["<M-j>"] = { "<Down>", noremap = false, desc = "Down" },
       ["<M-k>"] = { "<Up>", noremap = false, desc = "Up" },
       ["<M-l>"] = { "<Right>", noremap = false, desc = "Right" },
-      ["gp"] = { '"+P', desc = "Paste from system clipboard" },
-      ["gy"] = { '"+y', desc = "Copy to system clipboard" },
-      ["gV"] = { '"`[" . strpart(getregtype(), 0, 1) . "`]"', expr = true, desc = "Visually select changed text" },
     },
     v = {
+
       -- Search inside visually highlighted text. Use `silent = false` for it to
       -- make effect immediately.
       ["g/"] = { "<esc>/\\%V", silent = false, desc = "Search inside visual selection" },
-
+      ["gV"] = { '"`[" . strpart(getregtype(), 0, 1) . "`]"', expr = true, desc = "Visually select changed text" },
+      ["gy"] = { '"+y', desc = "Copy to system clipboard" },
+      ["gp"] = { '"+p', desc = "Paste from system clipboard" },
       -- Search visually selected text (slightly better than builtins in Neovim>=0.8)
       ["*"] = { [[y/\V<C-R>=escape(@", '/\')<CR><CR>]] },
       ["#"] = { [[y?\V<C-R>=escape(@", '?\')<CR><CR>]] },
