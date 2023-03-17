@@ -5,6 +5,7 @@ return {
   { "mason.nvim", opts = { PATH = "append" } }, -- Mason binaries will have the lowest priority
   { "mason-nvim-dap.nvim", opts = { automatic_installation = true } },
   { "theHamsta/nvim-dap-virtual-text", opts = {} },
+  { "which-key.nvim", opts = { window = { winblend = 10 } } },
   {
     "NvChad/nvim-colorizer.lua",
     opts = {

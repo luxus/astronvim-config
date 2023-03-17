@@ -15,7 +15,7 @@ return {
       pumblend = 10, -- Make builtin completion menus slightly transparent
       winblend = 10, -- Make floating windows slightly transparent
       listchars = "extends:…,precedes:…,nbsp:␣", -- Define which helper symbols to show
-      list = false, -- Show some helper symbols
+      list = true, -- Show some helper symbols
     },
     g = { lsp_handlers_enabled = false, matchup_matchparen_deferred = 1 },
   },
@@ -31,7 +31,7 @@ return {
       ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
       ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
       -- tabs
-      [tabpre] = { name = "󰓩 Tab Managment" },
+      [tabpre] = { desc = "󰓩 Tab Managment" },
       [tabpre .. "l"] = { "<cmd>tablast<cr>", desc = "Last Tab" },
       [tabpre .. "f"] = { "<cmd>tabfirst<cr>", desc = "First Tab" },
       [tabpre .. "<tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
@@ -43,7 +43,7 @@ return {
     },
     i = {
       -- date/time input
-      ["<c-d>"] = { name = "Date/Time" },
+      ["<c-d>"] = { desc = "Date/Time" },
       ["<c-d>n"] = { "<c-r>=strftime('%Y-%m-%d')<cr>", desc = "Y-m-d" },
       ["<c-d>x"] = { "<c-r>=strftime('%m/%d/%y')<cr>", desc = "m/d/y" },
       ["<c-d>f"] = { "<c-r>=strftime('%B %d, %Y')<cr>", desc = "B d, Y" },
