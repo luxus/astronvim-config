@@ -76,7 +76,10 @@ return {
   {
     "luxus/colorful-times-nvim",
     lazy = false,
-    dev = true,
+    dev = false,
+    keys = {
+      { "<leader>uT", function() require("colorful-times-nvim").toggle() end, desc = "Toggle Themeswitch" },
+    },
     opts = {
       default = {
         theme = "everforest", -- the default theme to use if no timeframes match
