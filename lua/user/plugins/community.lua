@@ -241,8 +241,6 @@ return {
   },
   { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach", config = true },
 
-  { "m-demare/hlargs.nvim", opts = {}, event = "User AstroFile" },
-
   {
     "ggandor/flit.nvim",
     keys = function()
