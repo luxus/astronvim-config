@@ -8,6 +8,10 @@ return {
   { "theHamsta/nvim-dap-virtual-text", opts = {} },
   { "which-key.nvim", opts = { window = { winblend = 10 } } },
   {
+    "astrotheme",
+    opts = { highlights = { global = { modify_hl_groups = function(hl) hl.Comment.italic = true end } } },
+  },
+  {
     "NvChad/nvim-colorizer.lua",
     opts = {
       filetypes = {
