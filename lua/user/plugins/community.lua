@@ -278,4 +278,12 @@ return {
       { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
     },
   },
+  {
+    "utilyre/sentiment.nvim",
+    version = "*",
+    event = "User AstroFile",
+    opts = {
+      -- config
+    },
+  },
 }
