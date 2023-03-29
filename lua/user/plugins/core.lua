@@ -106,9 +106,7 @@ return {
   {
     "nvim-treesitter",
     dependencies = {
-      {
-        "andymass/vim-matchup",
-      },
+
       { "nvim-treesitter/nvim-treesitter-context", config = true },
     },
     opts = {
@@ -121,7 +119,6 @@ return {
           node_decremental = "<bs>",
         },
       },
-      matchup = { enable = true },
       ensure_installed = {},
       auto_install = vim.fn.executable "tree-sitter" == 1,
       highlight = { disable = { "help", "latex" } },
