@@ -16,14 +16,25 @@ return {
         neotest = true,
         cmp = true,
         overseer = true,
+        headlines = true,
         lsp_trouble = true,
         ts_rainbow2 = true,
       },
     },
   },
   {
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    ft = "markdown",
+    opts = {},
+  },
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    event = { "WinNew" },
+    opts = {},
+  },
+  {
     "luxus/carbonclone.nvim", -- oxicarbon edition :D
-    dev = true,
     config = function()
       vim.g.carbonclone_h = 50
       vim.g.carbonclone_s = 10
