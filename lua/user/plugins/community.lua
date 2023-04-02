@@ -281,6 +281,7 @@ return {
       -- config
     },
   },
+  { "Bekaboo/deadcolumn.nvim", event = "User AstroFile" },
   {
     "gaoDean/autolist.nvim",
     ft = {
