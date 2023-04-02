@@ -102,6 +102,15 @@ return {
       },
     },
   },
+  {
+    "gitsigns.nvim",
+    opts = {
+      signcolumn = false,
+      numhl = true,
+      current_line_blame = true,
+      current_line_blame_opts = { ignore_whitespace = true },
+    },
+  },
   { import = "astrocommunity.pack.go", enabled = false },
   { import = "astrocommunity.pack.nix", enabled = true },
   { import = "astrocommunity.pack.rust", enabled = true },
