@@ -4,7 +4,7 @@ return {
   colorscheme = false,
   options = {
     opt = {
-      -- clipboard = "", -- Remove connection to the system clipboard
+      clipboard = "", -- Remove connection to the system clipboard
       timeoutlen = 250,
       backup = false, -- Don't store backup while overwriting the file
       ruler = false, -- Don't show cursor position in command line

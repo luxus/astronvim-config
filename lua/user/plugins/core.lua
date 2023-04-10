@@ -4,7 +4,6 @@ return {
   { "better-escape.nvim", enabled = false },
   { "nvim-autopairs", enabled = false },
   { "mason.nvim", opts = { PATH = "append" } }, -- Mason binaries will have the lowest priority
-  { "mason-nvim-dap.nvim", opts = { automatic_installation = true } },
   { "theHamsta/nvim-dap-virtual-text", opts = {} },
   { "which-key.nvim", opts = { window = { winblend = 10 } } },
   {
@@ -67,7 +66,8 @@ return {
     opts = function(_, opts)
       local status = require "astronvim.utils.status"
       opts.statusline[9] = status.component.lsp { lsp_progress = false }
-      opts.statusline = { -- statusline
+      opts.statusline = {
+        -- statusline
         hl = { fg = "fg", bg = "bg" },
         status.component.mode(),
         status.component.git_branch(),
@@ -123,32 +123,9 @@ return {
           node_decremental = "<bs>",
         },
       },
-      ensure_installed = {},
       auto_install = vim.fn.executable "tree-sitter" == 1,
       highlight = { disable = { "help", "latex" } },
-      indent = { enable = true, disable = { "python" } },
-    },
-  },
-  {
-    "mason-null-ls.nvim",
-    opts = {
-      automatic_installation = true,
-      ensure_installed = {
-        "prettierd",
-      },
-      config = function(_, opts)
-        local mason_null_ls = require "mason-null-ls"
-        local null_ls = require "null-ls"
-        mason_null_ls.setup(opts)
-        mason_null_ls.setup_handlers {
-          taplo = function() end, -- disable taplo in null-ls, it's taken care of by lspconfig
-          prettierd = function()
-            null_ls.register(
-              null_ls.builtins.formatting.prettierd.with { extra_filetypes = { "markdown", "rmd", "qmd" } }
-            )
-          end,
-        }
-      end,
+      indent = { enable = true },
     },
   },
   {
@@ -168,9 +145,9 @@ return {
           delete_check_events = "TextChanged",
         },
       },
-      "hrsh7th/cmp-calc",
-      "hrsh7th/cmp-emoji",
-      "jc-doyle/cmp-pandoc-references",
+      -- "hrsh7th/cmp-calc",
+      -- "hrsh7th/cmp-emoji",
+      -- "jc-doyle/cmp-pandoc-references",
       -- "kdheepak/cmp-latex-symbols",
     },
     opts = function(_, opts)
@@ -193,13 +170,11 @@ return {
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
           { name = "pandoc_references", priority = 725 },
-          { name = "latex_symbols", priority = 700 },
           { name = "emoji", priority = 700 },
           { name = "calc", priority = 650 },
           { name = "path", priority = 500 },
           { name = "buffer", priority = 250 },
         },
-
         mapping = {
           ["<C-n>"] = next_item,
           ["<C-j>"] = next_item,
