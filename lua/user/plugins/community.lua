@@ -236,6 +236,7 @@ return {
   { "smartcolumn.nvim", opts = { colorcolumn = 120, disabled_filetypes = { "help" } } },
   { import = "astrocommunity.code-runner.overseer-nvim", enabled = true },
   { import = "astrocommunity.markdown-and-latex.glow-nvim", enabled = true },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim", enabled = true },
   { import = "astrocommunity.terminal-integration.flatten-nvim", enabled = true },
   { import = "astrocommunity.syntax.hlargs-nvim", enabled = true },
   { import = "astrocommunity.editing-support.todo-comments-nvim", enabled = true },
