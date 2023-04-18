@@ -29,11 +29,6 @@ return {
     opts = {},
   },
   {
-    "nvim-zh/colorful-winsep.nvim",
-    event = { "WinNew" },
-    opts = {},
-  },
-  {
     "luxus/carbonclone.nvim", -- oxicarbon edition :D
     config = function()
       vim.g.carbonclone_h = 50
