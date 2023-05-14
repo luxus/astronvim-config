@@ -40,6 +40,7 @@ return {
       -- Copy/paste with system clipboard
       ["gy"] = { '"+y', desc = "Copy to system clipboard" },
       ["gp"] = { '"+p', desc = "Paste from system clipboard" },
+      ["gP"] = { '"+P', desc = "Paste from system clipboard" },
     },
     i = {
       -- date/time input
@@ -66,6 +67,7 @@ return {
       ["gV"] = { '"`[" . strpart(getregtype(), 0, 1) . "`]"', expr = true, desc = "Visually select changed text" },
       ["gy"] = { '"+y', desc = "Copy to system clipboard" },
       ["gp"] = { '"+p', desc = "Paste from system clipboard" },
+      ["gP"] = { '"+P', desc = "Paste from system clipboard" },
       -- Search visually selected text (slightly better than builtins in Neovim>=0.8)
       ["*"] = { [[y/\V<C-R>=escape(@", '/\')<CR><CR>]] },
       ["#"] = { [[y?\V<C-R>=escape(@", '?\')<CR><CR>]] },
