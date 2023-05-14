@@ -8,6 +8,10 @@ return {
   { "theHamsta/nvim-dap-virtual-text", opts = {} },
   { "which-key.nvim", opts = { window = { winblend = 10 } } },
   {
+    "smart-splits.nvim",
+    opts = function(_, opts) opts.at_edge = require("smart-splits.types").AtEdgeBehavior.stop end,
+  },
+  {
     "astrotheme",
     opts = { highlights = { global = { modify_hl_groups = function(hl) hl.Comment.italic = true end } } },
   },
