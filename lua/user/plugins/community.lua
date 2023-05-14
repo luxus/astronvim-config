@@ -263,23 +263,8 @@ return {
     event = "User AstroFile",
     opts = { hide = { focused_win = true } },
   },
-  {
-    "smjonas/inc-rename.nvim",
-    opts = {},
-    keys = {
-      {
-        "<leader>sr",
-        function()
-          require "inc_rename"
-          return ":IncRename " .. vim.fn.expand "<cword>"
-        end,
-        expr = true,
-        desc = "Inc Rename",
-      },
-    },
-  },
+  { import = "astrocommunity.lsp.inc-rename", enabled = true },
   { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach", config = true },
-
   {
     "todo-comments.nvim",
     keys = {

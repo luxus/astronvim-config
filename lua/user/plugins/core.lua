@@ -173,9 +173,10 @@ return {
           delete_check_events = "TextChanged",
         },
       },
-      "hrsh7th/cmp-calc",
-      "hrsh7th/cmp-emoji",
-      "jc-doyle/cmp-pandoc-references",
+      -- "hrsh7th/cmp-calc",
+      -- "hrsh7th/cmp-emoji",
+      -- "jc-doyle/cmp-pandoc-references",
+      -- "kdheepak/cmp-latex-symbols",
     },
     opts = function(_, opts)
       local cmp = require "cmp"
