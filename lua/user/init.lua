@@ -1,7 +1,7 @@
 local tabpre = "<leader><tab>"
 return {
   heirline = { separators = { breadcrumbs = "  ", path = "/" } },
-  colorscheme = false,
+  colorscheme = "github_dark_high_contrast",
   options = {
     opt = {
       clipboard = "", -- Remove connection to the system clipboard

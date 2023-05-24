@@ -9,6 +9,7 @@ return {
     },
     opts = {
       live_mode_toggle = "enable",
+      repl_enable = { "Python3_original" },
       live_display = { "VirtualText", "TerminalOk" },
     },
     build = "bash ./install.sh 1",

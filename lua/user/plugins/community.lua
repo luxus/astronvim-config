@@ -4,6 +4,7 @@ return {
   { "AstroNvim/astrocommunity" }, -- loading community plugins
   -- colorschemes
   { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
+  { import = "astrocommunity.colorscheme.github-nvim-theme", enabled = true },
   {
     "catppuccin",
     opts = {
@@ -42,43 +43,16 @@ return {
       },
     },
   },
-  {
-    "nvim-zh/colorful-winsep.nvim",
-    event = { "WinNew" },
-    opts = {},
-  },
-  {
-    "luxus/carbonclone.nvim", -- oxicarbon edition :D
-    config = function()
-      vim.g.carbonclone_h = 50
-      vim.g.carbonclone_s = 10
-      vim.g.carbonclone_l = 20
-      vim.g.carbonclone_contrast = 100
-
-      vim.g.carbonclone_fg = "#ffffff"
-      vim.g.carbonclone_bg = "#161616"
-
-      vim.g.carbonclone_constant = "#ff7eb6"
-      vim.g.carbonclone_identifier = "#dde1e6"
-      vim.g.carbonclone_statement = "#3dddb9"
-      vim.g.carbonclone_error = "#ee5396"
-      vim.g.carbonclone_warning = "#82cfff"
-      vim.g.carbonclone_success = "#be95ff"
-      vim.g.carbonclone_info = "#f2f4f8"
-    end,
-    dependencies = "rktjmp/lush.nvim",
-  },
-  { import = "astrocommunity.colorscheme.everforest", enabled = true },
-  { import = "astrocommunity.colorscheme.gruvbox", enabled = true },
+  { import = "astrocommunity.colorscheme.everforest", enabled = false },
+  { import = "astrocommunity.colorscheme.gruvbox", enabled = false },
   { import = "astrocommunity.colorscheme.nightfox", enabled = false },
-  { import = "astrocommunity.colorscheme.kanagawa", enabled = false },
+  { import = "astrocommunity.colorscheme.kanagawa", enabled = true },
   { import = "astrocommunity.colorscheme.oxocarbon", enabled = false },
-  { import = "astrocommunity.colorscheme.rose-pine", enabled = true },
+  { import = "astrocommunity.colorscheme.rose-pine", enabled = false },
   { import = "astrocommunity.colorscheme.onigiri", enabled = false },
-  { import = "astrocommunity.colorscheme.tokyonight", enabled = true },
-  { "tokyonight.nvim", opts = { style = "night", light_style = "storm" } },
+  { import = "astrocommunity.colorscheme.tokyonight", enabled = false },
   { import = "astrocommunity.colorscheme.mini-base16", enabled = false },
-  { import = "astrocommunity.utility.neodim", enabled = true },
+  { import = "astrocommunity.utility.neodim", enabled = false },
   { import = "astrocommunity.completion.copilot-lua", enabled = true },
   {
     "copilot.lua",
@@ -98,25 +72,6 @@ return {
   },
   { import = "astrocommunity.completion.copilot-cmp", enabled = false },
   {
-    "luxus/colorful-times-nvim",
-    lazy = false,
-    dev = false,
-    keys = {
-      { "<leader>uT", function() require("colorful-times-nvim").toggle() end, desc = "Toggle Themeswitch" },
-    },
-    opts = {
-      default = {
-        theme = "everforest", -- the default theme to use if no timeframes match
-        bg = "dark", -- the default background to use
-      },
-      timeframes = { -- the timeframes to use
-        { theme = "rose-pine", start = "19:36", stop = "20:10" },
-        { theme = "everforest", start = "20:10", stop = "16:44" },
-        { theme = "tokyonight", start = "16:45", stop = "19:35", bg = "dark" },
-      },
-    },
-  },
-  {
     "gitsigns.nvim",
     opts = {
       signcolumn = false,
@@ -126,13 +81,13 @@ return {
     },
   },
   { import = "astrocommunity.pack.go", enabled = false },
-  { import = "astrocommunity.pack.nix", enabled = true },
+  { import = "astrocommunity.pack.nix", enabled = false },
   { import = "astrocommunity.pack.rust", enabled = true },
   { import = "astrocommunity.pack.typescript", enabled = true },
-  { import = "astrocommunity.pack.python", enabled = false },
+  { import = "astrocommunity.pack.python", enabled = true },
   { import = "astrocommunity.pack.lua", enabled = true },
   { import = "astrocommunity.pack.bash", enabled = true },
-  { import = "astrocommunity.pack.svelte", enabled = true },
+  { import = "astrocommunity.pack.svelte", enabled = false },
   { import = "astrocommunity.pack.yaml", enabled = true },
   { import = "astrocommunity.pack.markdown", enabled = true },
   { import = "astrocommunity.pack.php", enabled = false },
@@ -145,8 +100,8 @@ return {
   { import = "astrocommunity.media.presence-nvim", enabled = true },
   { import = "astrocommunity.media.vim-wakatime", enabled = true },
   { import = "astrocommunity.scrolling.mini-animate", enabled = GUI() },
-  { import = "astrocommunity.scrolling.satellite-nvim", enabled = true },
-  { import = "astrocommunity.color.tint-nvim", enabled = true },
+  { import = "astrocommunity.scrolling.satellite-nvim", enabled = false },
+  { import = "astrocommunity.color.tint-nvim", enabled = false },
   { import = "astrocommunity.media.drop-nvim", enabled = GUI() },
   { import = "astrocommunity.diagnostics.trouble-nvim", enabled = true },
   { import = "astrocommunity.test.neotest", enabled = false },
@@ -245,7 +200,7 @@ return {
   { import = "astrocommunity.editing-support.refactoring-nvim", enabled = false },
   { import = "astrocommunity.editing-support.zen-mode-nvim", enabled = true },
   { import = "astrocommunity.editing-support.dial-nvim", enabled = true },
-  { import = "astrocommunity.editing-support.mini-splitjoin", enabled = true },
+  { import = "astrocommunity.editing-support.mini-splitjoin", enabled = false },
   { import = "astrocommunity.editing-support.neogen", enabled = false },
   { import = "astrocommunity.editing-support.nvim-regexplainer", enabled = true },
   { import = "astrocommunity.editing-support.nvim-ts-rainbow2", enabled = true },
@@ -254,10 +209,12 @@ return {
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim", enabled = true },
   { "smartcolumn.nvim", opts = { colorcolumn = 120, disabled_filetypes = { "help" } } },
   { import = "astrocommunity.code-runner.overseer-nvim", enabled = true },
-  { import = "astrocommunity.markdown-and-latex.glow", enabled = false },
+  { import = "astrocommunity.markdown-and-latex.glow-nvim", enabled = true },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim", enabled = false },
   { import = "astrocommunity.terminal-integration.flatten-nvim", enabled = true },
   { import = "astrocommunity.syntax.hlargs-nvim", enabled = true },
   { import = "astrocommunity.editing-support.todo-comments-nvim", enabled = true },
+  { import = "astrocommunity.git.octo", enabled = false },
   {
     "b0o/incline.nvim",
     event = "User AstroFile",
@@ -305,5 +262,11 @@ return {
       autolist.create_mapping_hook("n", "<C-r>", autolist.force_recalculate)
       autolist.create_mapping_hook("n", "<leader>x", autolist.invert_entry, "")
     end,
+  },
+  {
+    "dmmulroy/tsc.nvim",
+    filetype = "typescript",
+    event = "User AstroFile",
+    config = function() require("tsc").setup() end,
   },
 }
