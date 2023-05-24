@@ -221,7 +221,7 @@ return {
     opts = { hide = { focused_win = true } },
   },
   { import = "astrocommunity.lsp.inc-rename", enabled = true },
-  { "lvimuser/lsp-inlayhints.nvim", event = "LspAttach", config = true },
+  { import = "astrocommunity.lsp.lsp-inlayhints-nvim", enabled = true },
   {
     "todo-comments.nvim",
     keys = {
