@@ -1124,8 +1124,13 @@ return {
           new_section("Old files(Recent)", "Telescope oldfiles", "Telescope"),
           new_section("Word grep", "Telescope live_grep", "Telescope"),
           new_section("Config", "e ~/.config/astronvim", "Config"),
-          new_section("Restore Session", "SessionManager! load_last_session", "Built-in"),
-          new_section("Sessions", "SessionManager! load_session", "Built-in"),
+          new_section(
+            "Directory Session",
+            function() require("resession").load(vim.fn.getcwd(), { dir = "dirsession" }) end,
+            "Built-in"
+          ),
+          new_section("Last Session", function() require("resession").load "Last Session" end, "Built-in"),
+          new_section("Sessions", function() require("resession").load() end, "Built-in"),
           new_section("Lazy", "Lazy", "Config"),
           new_section("New file", "ene | startinsert", "Built-in"),
           new_section("Quit", "qa", "Built-in"),
