@@ -7,11 +7,16 @@ else
     { import = "astrocommunity.pack.rust", enabled = true },
     { import = "astrocommunity.pack.typescript", enabled = false },
     { import = "astrocommunity.pack.python", enabled = false },
+    { "package-info.nvim", opts = {
+      package_manager = "pnpm",
+    } },
+    { import = "astrocommunity.diagnostics.lsp_lines-nvim", enabled = true },
+    { import = "astrocommunity.startup.fsplash-nvim", enabled = true },
     {
-      "dmmulroy/tsc.nvim",
-      filetype = "typescript",
-      event = "User AstroFile",
-      config = function() require("tsc").setup() end,
+      "lsp_lines.nvim",
+      --FIXME: virtual_text didn't work here.. it gets reanabled somewhere else
+      init = function() vim.diagnostic.config { virtual_lines = false } end,
+      keys = { { "<leader>v", "<cmd>lua require('lsp_lines').toggle()<CR>", desc = "Toggle LSP Lines" } },
     },
     {
       "gaoDean/autolist.nvim",

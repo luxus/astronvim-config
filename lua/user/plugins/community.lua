@@ -23,28 +23,8 @@ return {
       },
     },
   },
-  { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
-  { import = "astrocommunity.colorscheme.rose-pine", enabled = true },
-  { import = "astrocommunity.colorscheme.kanagawa", enabled = true },
   { import = "astrocommunity.colorscheme.github-nvim-theme", enabled = true },
-  {
-    "catppuccin",
-    opts = {
-      integrations = {
-        sandwich = false,
-        noice = true,
-        mini = true,
-        leap = true,
-        markdown = true,
-        neotest = true,
-        cmp = true,
-        overseer = true,
-        headlines = true,
-        lsp_trouble = true,
-        ts_rainbow2 = true,
-      },
-    },
-  },
+
   {
     "gitsigns.nvim",
     opts = {
@@ -121,7 +101,6 @@ return {
   { import = "astrocommunity.media.vim-wakatime", enabled = true },
   { import = "astrocommunity.project.nvim-spectre", enabled = true },
   { import = "astrocommunity.diagnostics.trouble-nvim", enabled = true },
-  { import = "astrocommunity.scrolling.mini-animate" },
   { import = "astrocommunity.code-runner.sniprun", enabled = true },
   { import = "astrocommunity.editing-support.dial-nvim", enabled = true },
   { import = "astrocommunity.editing-support.text-case-nvim", enabled = true },
@@ -135,14 +114,16 @@ return {
   { import = "astrocommunity.motion.mini-surround", enabled = true },
   { import = "astrocommunity.motion.mini-bracketed", enabled = true },
   { import = "astrocommunity.motion.leap-nvim", enabled = true },
-  { import = "astrocommunity.test.neotest", enabled = false },
+  { import = "astrocommunity.test.neotest", enabled = true },
+  { import = "astrocommunity.scrolling.mini-animate" },
   { import = "astrocommunity.editing-support.refactoring-nvim", enabled = false },
   { import = "astrocommunity.editing-support.zen-mode-nvim", enabled = false },
   { import = "astrocommunity.editing-support.neogen", enabled = false },
   { import = "astrocommunity.git.neogit", enabled = false },
   { import = "astrocommunity.bars-and-lines.scope-nvim", enabled = false },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim", enabled = true },
   { import = "astrocommunity.code-runner.overseer-nvim", enabled = false },
-  { import = "astrocommunity.git.octo", enabled = false },
+  { import = "astrocommunity.git.octo", enabled = true },
   {
     "todo-comments.nvim",
     keys = {

@@ -1,3 +1,4 @@
+local get_icon = require("astronvim.utils").get_icon
 local user = vim.env.USER
 if user and user ~= "luxus" then
   return {}
@@ -10,8 +11,31 @@ else
     { import = "astrocommunity.motion.portal-nvim", enabled = true },
     { import = "astrocommunity.editing-support.mini-splitjoin", enabled = true },
     { import = "astrocommunity.markdown-and-latex.glow-nvim", enabled = true },
-    { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim", enabled = true },
     { import = "astrocommunity.editing-support.nvim-regexplainer", enabled = true },
+    --{ import = "astrocommunity.bars-and-lines.dropbar-nvim", enabled = true },
+
+    { import = "astrocommunity.colorscheme.mellow-nvim", enabled = true },
+    { import = "astrocommunity.colorscheme.rose-pine", enabled = true },
+    { import = "astrocommunity.colorscheme.kanagawa-nvim", enabled = true },
+    { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
+    {
+      "catppuccin",
+      opts = {
+        integrations = {
+          sandwich = false,
+          noice = true,
+          mini = true,
+          leap = true,
+          markdown = true,
+          neotest = true,
+          cmp = true,
+          overseer = true,
+          headlines = true,
+          lsp_trouble = true,
+          ts_rainbow2 = true,
+        },
+      },
+    },
     {
       "portal.nvim",
       dependencies = {
@@ -50,6 +74,7 @@ else
     },
     { "mrjones2014/op.nvim", build = "make install", opts = {}, cmd = { "OpSidebar", "OpSignin", "OpNote" } },
     -- { "HampusHauffman/bionic.nvim", cmd = "Bionic" },
+
     {
       "luxus/colorful-times-nvim",
       lazy = false,
@@ -74,14 +99,35 @@ else
       "b0o/incline.nvim",
       event = "User AstroFile",
       opts = { hide = { focused_win = true } },
-    }, -- {
-    --   "neo-tree.nvim",
-    --   dependencies = {
-    --     {
-    --       "adelarsq/image_preview.nvim",
-    --       opts = {},
-    --     },
-    --   },
-    -- },
+    },
+    {
+      "neo-tree.nvim",
+      dependencies = {
+        "miversen33/netman.nvim",
+        {
+          "adelarsq/image_preview.nvim",
+          opts = {},
+        },
+      },
+      opts = {
+        sources = {
+          "filesystem",
+          "netman.ui.neo-tree",
+          "git_status",
+        },
+        source_selector = {
+          sources = {
+            { source = "filesystem", display_name = get_icon "FolderClosed" .. " File" },
+            { source = "remote", display_name = "󰒍 Remote" },
+            { source = "git_status", display_name = get_icon "Git" .. " Git" },
+          },
+        },
+        filesystem = {
+          filtered_items = {
+            always_show = { ".github", ".gitignore" },
+          },
+        },
+      },
+    },
   }
 end
