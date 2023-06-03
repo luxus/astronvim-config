@@ -12,7 +12,7 @@ else
     { import = "astrocommunity.editing-support.mini-splitjoin", enabled = true },
     { import = "astrocommunity.markdown-and-latex.glow-nvim", enabled = true },
     { import = "astrocommunity.editing-support.nvim-regexplainer", enabled = true },
-    --{ import = "astrocommunity.bars-and-lines.dropbar-nvim", enabled = true },
+    { import = "astrocommunity.bars-and-lines.dropbar-nvim", enabled = true },
 
     { import = "astrocommunity.colorscheme.mellow-nvim", enabled = true },
     { import = "astrocommunity.colorscheme.rose-pine", enabled = true },
@@ -21,19 +21,44 @@ else
     {
       "catppuccin",
       opts = {
+        dim_inactive = { enabled = true, percentage = 0.25 },
         integrations = {
-          sandwich = false,
+          nvimtree = false,
+          ts_rainbow = false,
+          aerial = true,
+          dap = { enabled = true, enable_ui = true },
+          headlines = true,
+          mason = true,
+          neotree = true,
           noice = true,
+          notify = true,
+          octo = true,
+          sandwich = false,
+          semantic_tokens = true,
+          symbols_outline = true,
+          telescope = true,
+          which_key = true,
           mini = true,
           leap = true,
-          markdown = true,
-          neotest = true,
           cmp = true,
+          neotest = true,
           overseer = true,
-          headlines = true,
           lsp_trouble = true,
           ts_rainbow2 = true,
+          markdown = true,
         },
+        custom_highlights = function(colors)
+          return {
+            -- disable italics  for treesitter highlights
+            TabLineFill = { link = "StatusLine" },
+            ["@parameter"] = { style = {} },
+            ["@type.builtin"] = { style = {} },
+            ["@namespace"] = { style = {} },
+            ["@text.uri"] = { style = { "underline" } },
+            ["@tag.attribute"] = { style = {} },
+            ["@tag.attribute.tsx"] = { style = {} },
+          }
+        end,
       },
     },
     {
@@ -123,6 +148,7 @@ else
           },
         },
         filesystem = {
+          hijack_netrw_behavior = "open_default",
           filtered_items = {
             always_show = { ".github", ".gitignore" },
           },
