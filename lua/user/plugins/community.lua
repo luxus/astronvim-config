@@ -107,7 +107,7 @@ return {
   { import = "astrocommunity.terminal-integration.flatten-nvim", enabled = true },
   { import = "astrocommunity.syntax.hlargs-nvim", enabled = true },
   { import = "astrocommunity.editing-support.todo-comments-nvim", enabled = true },
-  { import = "astrocommunity.lsp.inc-rename", enabled = true },
+  { import = "astrocommunity.lsp.inc-rename-nvim", enabled = true },
   { import = "astrocommunity.lsp.lsp-inlayhints-nvim", enabled = true },
   { import = "astrocommunity.project.neoconf-nvim", enabled = true },
   { import = "astrocommunity.motion.mini-move", enabled = true },
@@ -123,7 +123,7 @@ return {
   { import = "astrocommunity.bars-and-lines.scope-nvim", enabled = false },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim", enabled = true },
   { import = "astrocommunity.code-runner.overseer-nvim", enabled = false },
-  { import = "astrocommunity.git.octo", enabled = true },
+  { import = "astrocommunity.git.octo-nvim", enabled = true },
   {
     "todo-comments.nvim",
     keys = {
