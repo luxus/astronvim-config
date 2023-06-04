@@ -11,12 +11,11 @@ else
     { import = "astrocommunity.motion.portal-nvim", enabled = true },
     { import = "astrocommunity.editing-support.mini-splitjoin", enabled = true },
     { import = "astrocommunity.markdown-and-latex.glow-nvim", enabled = true },
-    { import = "astrocommunity.editing-support.nvim-regexplainer", enabled = true },
-    { import = "astrocommunity.bars-and-lines.dropbar-nvim", enabled = true },
+    { import = "astrocommunity.editing-support.nvim-regexplainer", enabled = false },
 
-    { import = "astrocommunity.colorscheme.mellow-nvim", enabled = true },
+    { import = "astrocommunity.colorscheme.mellow-nvim", enabled = false },
     { import = "astrocommunity.colorscheme.rose-pine", enabled = true },
-    { import = "astrocommunity.colorscheme.kanagawa-nvim", enabled = true },
+    { import = "astrocommunity.colorscheme.kanagawa-nvim", enabled = false },
     { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
     {
       "catppuccin",
