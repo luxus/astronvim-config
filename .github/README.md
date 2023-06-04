@@ -35,7 +35,7 @@ git clone -b nightly https://github.com/AstroNvim/AstroNvim.git ~/.config/nvim
 - Install these user settings
 
 ```sh
-git clone https://github.com/luxus/AstroNvim_user ~/.config/astronvim
+git clone https://github.com/luxus/astronvim.git ~/.config/astronvim
 ```
 
 - Initialize AstroVim
