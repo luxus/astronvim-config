@@ -4,9 +4,122 @@ if user and user ~= "luxus" then
   return {}
 else
   return {
+    {
+      "neo-tree.nvim",
+      dependencies = {
+        "miversen33/netman.nvim",
+        {
+          "adelarsq/image_preview.nvim",
+          opts = {},
+        },
+      },
+      opts = {
+        sources = {
+          "filesystem",
+          "netman.ui.neo-tree",
+          "git_status",
+        },
+        source_selector = {
+          winbar = false,
+          statusline = false,
+          sources = {
+            { source = "filesystem", display_name = get_icon "FolderClosed" .. " File" },
+            { source = "remote", display_name = "󰒍 Remote" },
+            { source = "git_status", display_name = get_icon "Git" .. " Git" },
+          },
+        },
+        filesystem = {
+          hijack_netrw_behavior = "open_default",
+          filtered_items = {
+            always_show = { ".github", ".gitignore" },
+          },
+        },
+      },
+    },
+    {
+      "folke/edgy.nvim",
+      event = "VeryLazy",
+      keys = {
+      -- stylua: ignore
+      { "<leader>ue", function() require("edgy").select() end, desc = "Edgy Select Window" },
+      },
+      opts = {
+        animate = { enabled = false },
+        bottom = {
+          "Trouble",
+          { ft = "qf", title = "QuickFix" },
+          {
+            ft = "help",
+            size = { height = 20 },
+            -- don't open help files in edgy that we're editing
+            filter = function(buf) return vim.bo[buf].buftype == "help" end,
+          },
+          { ft = "spectre_panel", title = "Search/Replace", size = { height = 0.4 } },
+        },
+        left = {
+          {
+            title = "Files",
+            ft = "neo-tree",
+            filter = function(buf) return vim.b[buf].neo_tree_source == "filesystem" end,
+            size = { height = 0.5 },
+          },
+          {
+            title = "Remote Files",
+            ft = "neo-tree",
+            filter = function(buf) return vim.b[buf].neo_tree_source == "remote" end,
+            pinned = true,
+            open = "Neotree position=top remote",
+          },
+          {
+            title = "Git",
+            ft = "neo-tree",
+            filter = function(buf) return vim.b[buf].neo_tree_source == "git_status" end,
+            pinned = true,
+            open = "Neotree position=right git_status",
+          },
+          "neo-tree",
+        },
+        right = {
+          {
+            ft = "aerial",
+            title = "Symbols",
+            pinned = true,
+            open = "AerialOpen",
+          },
+        },
+      },
+    },
     { import = "astrocommunity.pack.nix", enabled = true },
     { import = "astrocommunity.pack.svelte", enabled = true },
     { import = "astrocommunity.pack.tailwindcss", enabled = true },
+    { import = "astrocommunity.pack.rust", enabled = true },
+    {
+      "simrat39/rust-tools.nvim",
+      opts = {
+        tools = {
+          hover_actions = {
+            auto_focus = true,
+          },
+        },
+        server = {
+          on_attach = function(client, bufnr)
+            -- override here. call lsp on attach and then add own custom logic.
+            require("astronvim.utils.lsp").on_attach(client, bufnr)
+            local rt = require "rust-tools"
+
+            local utils = require "astronvim.utils"
+
+            utils.set_mappings({
+              n = {
+                ["<leader>r"] = { name = " Rust Tools" },
+                ["<leader>rr"] = { rt.hover_actions.hover_actions, desc = "Rust Hover Actions" },
+                ["<leader>ra"] = { rt.code_action_group.code_action_group, desc = "Rust Code Actions" },
+              },
+            }, { buffer = bufnr })
+          end,
+        },
+      },
+    },
     { import = "astrocommunity.motion.mini-ai", enabled = true },
     { import = "astrocommunity.motion.portal-nvim", enabled = true },
     { import = "astrocommunity.editing-support.mini-splitjoin", enabled = true },
@@ -98,7 +211,14 @@ else
     },
     { "mrjones2014/op.nvim", build = "make install", opts = {}, cmd = { "OpSidebar", "OpSignin", "OpNote" } },
     -- { "HampusHauffman/bionic.nvim", cmd = "Bionic" },
-
+    {
+      "TobinPalmer/rayso.nvim",
+      cmd = { "Rayso" },
+      keys = {},
+      opts = {
+        open_cmd = "safari",
+      },
+    },
     {
       "luxus/colorful-times-nvim",
       lazy = false,
@@ -123,36 +243,6 @@ else
       "b0o/incline.nvim",
       event = "User AstroFile",
       opts = { hide = { focused_win = true } },
-    },
-    {
-      "neo-tree.nvim",
-      dependencies = {
-        "miversen33/netman.nvim",
-        {
-          "adelarsq/image_preview.nvim",
-          opts = {},
-        },
-      },
-      opts = {
-        sources = {
-          "filesystem",
-          "netman.ui.neo-tree",
-          "git_status",
-        },
-        source_selector = {
-          sources = {
-            { source = "filesystem", display_name = get_icon "FolderClosed" .. " File" },
-            { source = "remote", display_name = "󰒍 Remote" },
-            { source = "git_status", display_name = get_icon "Git" .. " Git" },
-          },
-        },
-        filesystem = {
-          hijack_netrw_behavior = "open_default",
-          filtered_items = {
-            always_show = { ".github", ".gitignore" },
-          },
-        },
-      },
     },
   }
 end
