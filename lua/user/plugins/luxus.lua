@@ -44,7 +44,7 @@ else
       { "<leader>ue", function() require("edgy").select() end, desc = "Edgy Select Window" },
       },
       opts = {
-        animate = { enabled = false },
+        animate = { enabled = true },
         bottom = {
           "Trouble",
           { ft = "qf", title = "QuickFix" },
@@ -133,10 +133,11 @@ else
     {
       "catppuccin",
       opts = {
-        dim_inactive = { enabled = true, percentage = 0.25 },
+        -- dim_inactive = { enabled = true, percentage = 0.25 },
+        transparent_background = true,
         integrations = {
           nvimtree = false,
-          ts_rainbow = false,
+          ts_rainbow = true,
           aerial = true,
           dap = { enabled = true, enable_ui = true },
           headlines = true,

@@ -17,7 +17,7 @@ return {
       listchars = "extends:…,precedes:…,nbsp:␣", -- Define which helper symbols to show
       list = true, -- Show some helper symbols
     },
-    g = { resession_enabled = true },
+    g = { inlay_hints_enabled = true, resession_enabled = true },
   },
   polish = { require "user.autocmds" },
   diagnostics = { update_in_insert = false },
