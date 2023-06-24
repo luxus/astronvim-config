@@ -43,14 +43,6 @@ return {
       ["gP"] = { '"+P', desc = "Paste from system clipboard" },
     },
     i = {
-      -- date/time input
-      ["<c-d>"] = { desc = "Date/Time" },
-      ["<c-d>n"] = { "<c-r>=strftime('%Y-%m-%d')<cr>", desc = "Y-m-d" },
-      ["<c-d>x"] = { "<c-r>=strftime('%m/%d/%y')<cr>", desc = "m/d/y" },
-      ["<c-d>f"] = { "<c-r>=strftime('%B %d, %Y')<cr>", desc = "B d, Y" },
-      ["<c-d>X"] = { "<c-r>=strftime('%H:%M')<cr>", desc = "H:M" },
-      ["<c-d>F"] = { "<c-r>=strftime('%H:%M:%S')<cr>", desc = "H:M:S" },
-      ["<c-d>d"] = { "<c-r>=strftime('%Y/%m/%d %H:%M:%S -')<cr>", desc = "Y/m/d H:M:S -" },
       -- Move with alt in insert, terminal and command
       -- Don't `noremap` in insert mode to have these keybindings behave exactly
       -- like arrows (crucial inside TelescopePrompt)
@@ -127,4 +119,13 @@ return {
     Selected = "",
     TabClose = "",
   },
+  ia = vim.fn.has "nvim-0.10" and {
+    mktemp = { function() return "<++>" end, desc = "Insert <++>", expr = true },
+    ldate = { function() return os.date "%Y/%m/%d %H:%M:%S -" end, desc = "Y/m/d H:M:S -", expr = true },
+    ndate = { function() return os.date "%Y-%m-%d" end, desc = "Y-m-d", expr = true },
+    xdate = { function() return os.date "%m/%d/%y" end, desc = "m/d/y", expr = true },
+    fdate = { function() return os.date "%B %d, %Y" end, desc = "B d, Y", expr = true },
+    Xdate = { function() return os.date "%H:%M" end, desc = "H:M", expr = true },
+    Fdate = { function() return os.date "%H:%M:%S" end, desc = "H:M:S", expr = true },
+  } or nil,
 }
