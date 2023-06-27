@@ -6,6 +6,7 @@ else
   return {
     {
       "neo-tree.nvim",
+      enabled = false,
       dependencies = {
         "miversen33/netman.nvim",
         {
@@ -44,6 +45,28 @@ else
     { import = "astrocommunity.motion.mini-ai", enabled = true },
     { import = "astrocommunity.motion.portal-nvim", enabled = true },
     { import = "astrocommunity.editing-support.mini-splitjoin", enabled = true },
+    {
+      "echasnovski/mini.files",
+      keys = {
+        {
+          "<leader>e",
+          function() require("mini.files").open() end,
+          desc = "Explorer",
+        },
+      },
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+      },
+      init = function()
+        vim.api.nvim_create_autocmd("User", {
+          pattern = "MiniFilesBufferCreate",
+          callback = function(args)
+            vim.keymap.set("n", "<ESC>", function() require("mini.files").close() end, { buffer = args.buf_id })
+          end,
+        })
+      end,
+      opts = {},
+    },
     { import = "astrocommunity.split-and-window.edgy-nvim", enabled = true },
     {
       "folke/flash.nvim",
@@ -93,12 +116,14 @@ else
           mason = true,
           neotree = true,
           noice = true,
+          telescope = { enabled = true, style = "nvchad" },
           notify = true,
           octo = true,
           sandwich = false,
           semantic_tokens = true,
           symbols_outline = true,
           which_key = true,
+          native_lsp = { enabled = true, inlay_hints = { background = false } },
           mini = true,
           leap = true,
           cmp = true,
@@ -107,18 +132,17 @@ else
           lsp_trouble = true,
           markdown = true,
         },
-        custom_highlights = function(colors)
-          return {
-            -- disable italics  for treesitter highlights
-            TabLineFill = { link = "StatusLine" },
-            ["@parameter"] = { style = {} },
-            ["@type.builtin"] = { style = {} },
-            ["@namespace"] = { style = {} },
-            ["@text.uri"] = { style = { "underline" } },
-            ["@tag.attribute"] = { style = {} },
-            ["@tag.attribute.tsx"] = { style = {} },
-          }
-        end,
+        custom_highlights = {
+          -- disable italics  for treesitter highlights
+          TabLineFill = { link = "StatusLine" },
+          LspInlayHint = { style = { "italic" } },
+          ["@parameter"] = { style = {} },
+          ["@type.builtin"] = { style = {} },
+          ["@namespace"] = { style = {} },
+          ["@text.uri"] = { style = { "underline" } },
+          ["@tag.attribute"] = { style = {} },
+          ["@tag.attribute.tsx"] = { style = {} },
+        },
       },
     },
     {

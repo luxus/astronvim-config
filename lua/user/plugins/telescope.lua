@@ -75,9 +75,9 @@ return {
         },
       },
       defaults = {
-        file_previewer = previewers.cat.new,
-        grep_previewer = previewers.vimgrep.new,
-        qflist_previewer = previewers.qflist.new,
+        -- file_previewer = previewers.cat.new,
+        -- grep_previewer = previewers.vimgrep.new,
+        -- qflist_previewer = previewers.qflist.new,
         selection_caret = "  ",
         layout_config = {
           width = 0.90,

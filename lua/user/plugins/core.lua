@@ -1,6 +1,5 @@
 return {
   -- disable some stuff
-  { "bufdelete.nvim", enabled = true },
   { "better-escape.nvim", enabled = false },
   { "nvim-autopairs", enabled = false },
   { "mason.nvim", opts = { PATH = "append" } }, -- Mason binaries will have the lowest priority
