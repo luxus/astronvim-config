@@ -96,7 +96,8 @@ return {
   },
   { import = "astrocommunity.indent.indent-blankline-nvim", enabled = true },
   { import = "astrocommunity.indent.mini-indentscope", enabled = true },
-  { import = "astrocommunity.editing-support.nvim-ts-rainbow2", enabled = true },
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim", enabled = true },
+  
   { import = "astrocommunity.comment.mini-comment", enabled = true },
   { import = "astrocommunity.media.vim-wakatime", enabled = true },
   { import = "astrocommunity.project.nvim-spectre", enabled = true },
