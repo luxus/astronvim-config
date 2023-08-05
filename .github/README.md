@@ -1,4 +1,6 @@
 # AstroNvim User Configuration
+*OUTDATED:*
+i switched to AstroNvim v4 https://github.com/luxus/nvim
 
 My personal user folder for AstroVim
 [Inspired](https://quoteinvestigator.com/2013/03/06/artists-steal/) from [mehalter](https://github.com/mehalter) config.
