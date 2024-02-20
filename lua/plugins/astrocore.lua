@@ -1,10 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
--- Configuration documentation can be found with `:h astrocore`
--- NOTE: We highly recommend settig up the Lua Language Server (lua_ls) as this provides autocomplete and documentation while editing
-
----@type LazySpec
+local tabpre = "<leader><tab>"
 return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
@@ -17,7 +11,6 @@ return {
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
-    -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
         relativenumber = true, -- sets vim.opt.relativenumber
@@ -25,48 +18,73 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
+        clipboard = "", -- Remove connection to the system clipboard
+        backup = false, -- Don't store backup while overwriting the file
+        ruler = false, -- Don't show cursor position in command line
+        incsearch = true, -- Show search results while typing
+        completeopt = "menuone,noinsert,noselect", -- Customize completions
+        listchars = "extends:…,precedes:…,nbsp:␣", -- Define which helper symbols to show
+        formatoptions = "qjl1", -- Don't autoformat comments
+        splitkeep = "screen", -- Reduce scroll during window
+        pumblend = 10, -- Make builtin completion menus slightly transparent
+        winblend = 10, -- Make floating windows slightly transparent
+        list = true, -- Show some helper symbols
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
-        -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
       },
     },
-    -- Mappings can be configured through AstroCore as well.
-    -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
-      -- first key is the mode
       n = {
-        -- second key is the lefthand side of the map
+        ["<leader>o"] = false, -- focus neo-tree
+        ["q:"] = ":",
 
-        -- navigate buffer tabs with `H` and `L`
-        -- L = {
-        --   function() require("astrocore.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-        --   desc = "Next buffer",
-        -- },
-        -- H = {
-        --   function() require("astrocore.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-        --   desc = "Previous buffer",
-        -- },
-
-        -- mappings seen under group name "Buffer"
-        ["<Leader>bD"] = {
-          function()
-            require("astroui.status.heirline").buffer_picker(
-              function(bufnr) require("astrocore.buffer").close(bufnr) end
-            )
-          end,
-          desc = "Pick to close",
-        },
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        ["<Leader>b"] = { desc = "Buffers" },
-        -- quick save
-        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
+        ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
+        ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
+        -- tabs
+        [tabpre] = { desc = "󰓩 Tab Managment" },
+        [tabpre .. "l"] = { "<cmd>tablast<cr>", desc = "Last Tab" },
+        [tabpre .. "f"] = { "<cmd>tabfirst<cr>", desc = "First Tab" },
+        [tabpre .. "<tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
+        [tabpre .. "]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" },
+        [tabpre .. "["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" },
+        -- Copy/paste with system clipboard
+        ["gy"] = { '"+y', desc = "Copy to system clipboard" },
+        ["gp"] = { '"+p', desc = "Paste from system clipboard" },
+        ["gP"] = { '"+P', desc = "Paste from system clipboard" },
+      },
+      i = {
+        -- Move with alt in insert, terminal and command
+        -- Don't `noremap` in insert mode to have these keybindings behave exactly
+        -- like arrows (crucial inside TelescopePrompt)
+        ["<M-h>"] = { "<Left>", noremap = false, desc = "Left" },
+        ["<M-j>"] = { "<Down>", noremap = false, desc = "Down" },
+        ["<M-k>"] = { "<Up>", noremap = false, desc = "Up" },
+        ["<M-l>"] = { "<Right>", noremap = false, desc = "Right" },
+      },
+      v = {
+        -- Search inside visually highlighted text. Use `silent = false` for it to
+        -- make effect immediately.
+        ["g/"] = { "<esc>/\\%V", silent = false, desc = "Search inside visual selection" },
+        ["gV"] = { '"`[" . strpart(getregtype(), 0, 1) . "`]"', expr = true, desc = "Visually select changed text" },
+        ["gy"] = { '"+y', desc = "Copy to system clipboard" },
+        ["gp"] = { '"+p', desc = "Paste from system clipboard" },
+        ["gP"] = { '"+P', desc = "Paste from system clipboard" },
+        -- Search visually selected text (slightly better than builtins in Neovim>=0.8)
+        ["*"] = { [[y/\V<C-R>=escape(@", '/\')<CR><CR>]] },
+        ["#"] = { [[y?\V<C-R>=escape(@", '?\')<CR><CR>]] },
       },
       t = {
-        -- setting a mapping to false will disable it
-        -- ["<esc>"] = false,
+        ["<M-h>"] = { "<Left>", desc = "Left" },
+        ["<M-j>"] = { "<Down>", desc = "Down" },
+        ["<M-k>"] = { "<Up>", desc = "Up" },
+        ["<M-l>"] = { "<Right>", desc = "Right" },
+      },
+      c = {
+        ["<M-h>"] = { "<Left>", silent = false, desc = "Left" },
+        ["<M-l>"] = { "<Right>", silent = false, desc = "Right" },
       },
     },
   },
