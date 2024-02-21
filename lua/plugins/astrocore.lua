@@ -13,6 +13,7 @@ return {
     },
     options = {
       opt = { -- vim.opt.<key>
+        conceallevel = 1, -- enable conceal
         relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
@@ -33,6 +34,30 @@ return {
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- This can be found in the `lua/lazy_setup.lua` file
+      },
+    },
+    autocmds = {
+      auto_spell = {
+        {
+          event = "FileType",
+          desc = "Enable wrap and spell for text like documents",
+          pattern = { "gitcommit", "markdown", "text", "plaintex" },
+          callback = function()
+            vim.opt_local.wrap = true
+            vim.opt_local.spell = true
+          end,
+        },
+      },
+      autohide_tabline = {
+        {
+          event = "User",
+          desc = "Auto hide tabline",
+          pattern = "AstroBufsUpdated",
+          callback = function()
+            local new_showtabline = #vim.t.bufs > 1 and 2 or 1
+            if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
+          end,
+        },
       },
     },
     mappings = {

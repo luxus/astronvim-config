@@ -33,6 +33,7 @@ return {
   { import = "astrocommunity.motion.mini-surround", enabled = true },
   { import = "astrocommunity.motion.mini-bracketed", enabled = true },
   { import = "astrocommunity.motion.mini-ai" },
+  -- { import = "astrocommunity.editing-support.cloak-nvim" },
   -- { import = "astrocommunity.indent.mini-indentscope", enabled = true },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim", enabled = true },
   -- { import = "astrocommunity.comment.mini-comment", enabled = true },
