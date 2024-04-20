@@ -109,6 +109,8 @@ return {
         ["gy"] = { '"+y', desc = "Copy to system clipboard" },
         ["gp"] = { '"+p', desc = "Paste from system clipboard" },
         ["gP"] = { '"+P', desc = "Paste from system clipboard" },
+        L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
       },
       i = {
         -- Move with alt in insert, terminal and command
