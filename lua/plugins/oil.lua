@@ -3,9 +3,9 @@ return {
   {
     "refractalize/oil-git-status.nvim",
     opts = {},
-    cmd = "Oil",
     dependencies = {
       "stevearc/oil.nvim",
+      cmd = "Oil",
       init = function() -- start oil on startup lazily if necessary
         if vim.fn.argc() == 1 then
           local arg = vim.fn.argv(0)
@@ -96,11 +96,11 @@ return {
         win_options = {
           signcolumn = "yes:2",
         },
-        git = {
-          add = true,
-          mv = true,
-          rm = true,
-        },
+        -- git = {
+        --   add = true,
+        --   mv = true,
+        --   rm = true,
+        -- },
         skip_confirm_for_simple_edits = true,
         experimental_watch_for_changes = true,
         keymaps = {
