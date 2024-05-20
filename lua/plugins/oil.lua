@@ -16,7 +16,11 @@ return {
         end
       end,
       dependencies = {
-        { "nvim-neo-tree/neo-tree.nvim", opts = { filesystem = { hijack_netrw_behavior = "disabled" } } },
+        {
+          "nvim-neo-tree/neo-tree.nvim",
+          enabled = false,
+          opts = { filesystem = { hijack_netrw_behavior = "disabled" } },
+        },
         {
           "AstroNvim/astrocore",
           opts = {
@@ -62,7 +66,7 @@ return {
             },
             mappings = {
               n = {
-                ["<Tab>"] = { "<Cmd>Oil<CR>", desc = "Oil Filebrowser" },
+                ["<Leader>e"] = { "<Cmd>Oil<CR>", desc = "Oil Filebrowser" },
               },
             },
           },
@@ -104,7 +108,7 @@ return {
         skip_confirm_for_simple_edits = true,
         experimental_watch_for_changes = true,
         keymaps = {
-          ["<Tab>"] = "actions.close",
+          ["<Esc>"] = "actions.close",
         },
       },
     },
