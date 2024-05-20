@@ -1,4 +1,4 @@
-local tabpre = "<leader><tab>"
+-- local tabpre = "<leader><tab>"
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -95,17 +95,16 @@ return {
         ["q:"] = ":",
 
         ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
-        ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
+        -- ["<leader>N"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
         ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
-        -- tabs
-        [tabpre] = { desc = "󰓩 Tab Managment" },
-        [tabpre .. "l"] = { "<cmd>tablast<cr>", desc = "Last Tab" },
-        [tabpre .. "f"] = { "<cmd>tabfirst<cr>", desc = "First Tab" },
-        [tabpre .. "<tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
-        [tabpre .. "]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" },
-        [tabpre .. "["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" },
+        -- -- tabs
+        -- [tabpre] = { desc = "󰓩 Tab Managment" },
+        -- [tabpre .. "l"] = { "<cmd>tablast<cr>", desc = "Last Tab" },
+        -- [tabpre .. "f"] = { "<cmd>tabfirst<cr>", desc = "First Tab" },
+        -- [tabpre .. "<tab>"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
+        -- [tabpre .. "]"] = { "<cmd>tabnext<cr>", desc = "Next Tab" },
+        -- [tabpre .. "["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" },
         -- Copy/paste with system clipboard
-        [tabpre .. "["] = { "<cmd>tabprevious<cr>", desc = "Previous Tab" },
         ["gy"] = { '"+y', desc = "Copy to system clipboard" },
         ["gp"] = { '"+p', desc = "Paste from system clipboard" },
         ["gP"] = { '"+P', desc = "Paste from system clipboard" },
