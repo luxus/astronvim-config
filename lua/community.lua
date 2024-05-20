@@ -46,7 +46,7 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.editing-support.undotree" },
   -- { import = "astrocommunity.motion.grapple-nvim" },
-  { import = "astrocommunity.editing-support.cloak-nvim" },
+  -- { import = "astrocommunity.editing-support.cloak-nvim" },
   -- { import = "astrocommunity.indent.mini-indentscope", enabled = true },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim", enabled = true },
   { import = "astrocommunity.comment.mini-comment", enabled = true },
