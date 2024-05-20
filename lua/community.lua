@@ -32,6 +32,7 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.editing-support.todo-comments-nvim", enabled = true },
   { import = "astrocommunity.lsp.inc-rename-nvim", enabled = true },
+  { import = "astrocommunity.keybinding.mini-clue", enabled = true },
   { import = "astrocommunity.color.headlines-nvim" },
   { import = "astrocommunity.media.cord-nvim" },
   -- { import = "astrocommunity.motion.mini-move", enabled = true },
