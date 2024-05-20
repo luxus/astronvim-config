@@ -27,7 +27,6 @@ return {
   { import = "astrocommunity.media.vim-wakatime", enable = (vim.fn.hostname() == host) },
   -- { import = "astrocommunity.git.fugit2-nvim", enable = (vim.fn.hostname() == host) },
   -- { import = "astrocommunity.code-runner.sniprun", enable = (vim.fn.hostname() == host) },
-  { import = "astrocommunity.pack.lua" },
   -- { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.bash", enabled = false },
