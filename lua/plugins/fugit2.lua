@@ -1,3 +1,4 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   { import = "astrocommunity.git.diffview-nvim" }, -- optional dependency
   { import = "astrocommunity.git.nvim-tinygit" }, -- optional dependency
