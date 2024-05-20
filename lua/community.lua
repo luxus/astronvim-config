@@ -22,6 +22,8 @@ return {
 
   { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
   { import = "astrocommunity.colorscheme.nightfox-nvim", enabled = true },
+  -- { import = "astrocommunity.completion.copilot-lua", enable = (vim.fn.hostname() == host) },
+  { import = "astrocommunity.completion.copilot-cmp", enable = (vim.fn.hostname() == host) },
   { import = "astrocommunity.media.vim-wakatime", enable = (vim.fn.hostname() == host) },
   -- { import = "astrocommunity.git.fugit2-nvim", enable = (vim.fn.hostname() == host) },
   -- { import = "astrocommunity.code-runner.sniprun", enable = (vim.fn.hostname() == host) },
@@ -35,7 +37,7 @@ return {
   { import = "astrocommunity.keybinding.mini-clue", enabled = true },
   { import = "astrocommunity.color.headlines-nvim" },
   { import = "astrocommunity.media.cord-nvim" },
-  -- { import = "astrocommunity.motion.mini-move", enabled = true },
+  { import = "astrocommunity.motion.mini-move", enabled = true },
   { import = "astrocommunity.motion.mini-surround", enabled = true },
   { import = "astrocommunity.motion.mini-bracketed", enabled = true },
   { import = "astrocommunity.bars-and-lines.vim-illuminate", enabled = true },
