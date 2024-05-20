@@ -55,8 +55,8 @@ return {
         showbreak = "↪",
         showtabline = (vim.t.bufs and #vim.t.bufs > 1) and 2 or 1,
         completeopt = "menuone,noinsert,noselect", -- Customize completions
-        pumblend = 10, -- Make builtin completion menus slightly transparent
-        winblend = 10, -- Make floating windows slightly transparent
+        -- pumblend = 10, -- Make builtin completion menus slightly transparent
+        -- winblend = 10, -- Make floating windows slightly transparent
         list = true, -- Show some helper symbols
       },
       g = { -- vim.g.<key>
