@@ -21,7 +21,7 @@ return {
   -- { import = "astrocommunity.editing-support.yanky-nvim", enable = (vim.fn.hostname() == host) },
 
   { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
-  { import = "astrocommunity.completion.copilot-lua", enable = (vim.fn.hostname() == host) },
+  { import = "astrocommunity.colorscheme.nightfox-nvim", enabled = true },
   { import = "astrocommunity.media.vim-wakatime", enable = (vim.fn.hostname() == host) },
   -- { import = "astrocommunity.git.fugit2-nvim", enable = (vim.fn.hostname() == host) },
   -- { import = "astrocommunity.code-runner.sniprun", enable = (vim.fn.hostname() == host) },

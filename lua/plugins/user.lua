@@ -3,6 +3,23 @@ return {
   { "better-escape.nvim", enabled = false },
   { "LuaSnip", enabled = false },
   {
+    "nightfox.nvim",
+    optional = true,
+    opts = {
+      options = {
+        dim_inactive = false,
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          types = "italic,bold",
+        },
+        inverse = { -- Inverse highlight for different types
+          match_paren = true,
+        },
+      },
+    },
+  },
+  {
     "gitsigns.nvim",
     opts = {
       current_line_blame = true,
