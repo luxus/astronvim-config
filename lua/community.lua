@@ -56,6 +56,7 @@ return {
   { import = "astrocommunity.fuzzy-finder.telescope-zoxide", enabled = false },
   -- { import = "astrocommunity.git.neogit" },
   { import = "astrocommunity.motion.portal-nvim", enabled = true },
+  { import = "astrocommunity.recipes.vscode", enabled = true },
   { import = "astrocommunity.editing-support.mini-splitjoin", enabled = true },
   -- { import = "astrocommunity.workflow.hardtime-nvim", enabled = true },
   { import = "astrocommunity.file-explorer.oil-nvim", enabled = true },
