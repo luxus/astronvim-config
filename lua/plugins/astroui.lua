@@ -9,7 +9,9 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "nightfox",
+    colorscheme = "night-owl",
+    -- colorscheme = "astrotheme",
+    -- colorscheme = "duskfox",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes

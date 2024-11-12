@@ -44,7 +44,7 @@ return {
         incsearch = true, -- Show search results while typing
         listchars = {
           trail = "·",
-          tab = "│→",
+          tab = " →",
           -- eol = "⤶",
           extends = "⟩",
           precedes = "⟨",

@@ -1,4 +1,4 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "ibhagwan/fzf-lua",
   cmd = "FzfLua",
@@ -51,7 +51,7 @@ return {
           { function() fzf.files { cwd = vim.fn.stdpath "config" } end, desc = "Find config files" }
       end,
     },
-    { "nvim-tree/nvim-web-devicons" },
+    "echasnovski/mini.icons",
   },
-  opts = {},
+  opts = { fzf_colors = true },
 }

@@ -1,8 +1,3 @@
--- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
--- Configuration documentation can be found with `:h astrolsp`
--- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
-
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -10,6 +5,7 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
+      signature_help = true,
       autoformat = true, -- enable or disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
       inlay_hints = false, -- enable/disable inlay hints on start
@@ -42,9 +38,12 @@ return {
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
-    config = {
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
-    },
+    -- config = {
+    --   vtsls = {
+    --     experimental = { maxInlayHintLength = 10 },
+    --   },
+    -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+    -- },
     -- customize how language servers are attached
     handlers = {
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server

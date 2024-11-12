@@ -19,6 +19,10 @@ return {
           maps.n[prefix .. "x"] = { "<CMD>Grapple reset<CR>", desc = "Clear tags from current project" }
           maps.n["<C-n>"] = { "<CMD>Grapple cycle forward<CR>", desc = "Select next tag" }
           maps.n["<C-p>"] = { "<CMD>Grapple cycle backward<CR>", desc = "Select previous tag" }
+          maps.n["<Leader>1"] = { "<CMD>Grapple select index=1<CR>", desc = "Select tag 1" }
+          maps.n["<Leader>2"] = { "<CMD>Grapple select index=2<CR>", desc = "Select tag 2" }
+          maps.n["<Leader>3"] = { "<CMD>Grapple select index=3<CR>", desc = "Select tag 3" }
+          maps.n["<Leader>4"] = { "<CMD>Grapple select index=4<CR>", desc = "Select tag 4" }
         end,
       },
     },
