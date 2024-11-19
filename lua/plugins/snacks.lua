@@ -7,9 +7,39 @@ return {
     local astrocore = require "astrocore"
     return astrocore.extend_tbl(opts, {
       bigfile = { enabled = not vim.tbl_get(astrocore.config, "autocmds", "large_buf_settings") },
+      lazygit = { configure = not vim.tbl_get(require("astroui").config, "lazygit") },
       notifier = {
         enabled = not astrocore.is_available "nvim-notify",
         timeout = 3000,
+      },
+      dashboard = {
+        enabled = true,
+        sections = {
+          { section = "header" },
+          {
+            pane = 2,
+            section = "terminal",
+            cmd = "colorscript -e square",
+            height = 5,
+            padding = 1,
+          },
+          { section = "keys", gap = 1, padding = 1 },
+          { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+          { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+          {
+            pane = 2,
+            icon = " ",
+            title = "Git Status",
+            section = "terminal",
+            enabled = vim.fn.isdirectory ".git" == 1,
+            cmd = "hub status --short --branch --renames",
+            height = 5,
+            padding = 1,
+            ttl = 5 * 60,
+            indent = 3,
+          },
+          { section = "startup" },
+        },
       },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
@@ -23,6 +53,8 @@ return {
   end,
   specs = {
     { "rcarriga/nvim-notify", enabled = false },
+    { "akinsho/toggleterm.nvim", enabled = false },
+    { "alpha-nvim", enabled = false }, -- disable starter
     { "RRethy/vim-illuminate", enabled = false },
     {
       "rebelot/heirline.nvim",
@@ -33,6 +65,11 @@ return {
         end
       end,
     },
+    {
+      "AstroNvim/astroui",
+      ---@type AstroUIOpts
+      opts = { lazygit = false },
+    },
   },
   dependencies = {
     {
@@ -40,6 +77,7 @@ return {
       opts = function(_, opts)
         local Snacks = require "snacks"
         local maps = opts.mappings
+        local astro = require "astrocore"
 
         opts.autocmds.snacks_toggle = {
           event = "User",
@@ -69,32 +107,32 @@ return {
         maps.n["<Leader>un"] = { function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" }
         maps.n["<Leader>bd"] = { function() Snacks.bufdelete() end, desc = "Delete Buffer" }
         maps.n["<Leader>gg"] = { function() Snacks.lazygit() end, desc = "Lazygit" }
+        maps.n["<Leader>tl"] = { function() Snacks.lazygit() end, desc = "Lazygit" }
         maps.n["<Leader>gb"] = { function() Snacks.git.blame_line() end, desc = "Git Blame Line" }
+        if vim.fn.executable "node" == 1 then
+          maps.n["<Leader>tn"] = { function() Snacks.terminal "node" end, desc = "ToggleTerm node" }
+        end
+        local python = vim.fn.executable "python" == 1 and "python" or vim.fn.executable "python3" == 1 and "python3"
+        if python then
+          maps.n["<Leader>tp"] = { function() Snacks.terminal "python" end, desc = "ToggleTerm python" }
+        end
+        if vim.fn.executable "btm" == 1 then
+          maps.n["<Leader>tb"] = { function() Snacks.terminal "btm" end, desc = "ToggleTerm bottom" }
+        end
+        local gdu = vim.fn.has "mac" == 1 and "gdu-go" or "gdu"
+        if vim.fn.has "win32" == 1 and vim.fn.executable(gdu) ~= 1 then gdu = "gdu_windows_amd64.exe" end
+        if vim.fn.executable(gdu) == 1 then
+          maps.n["<Leader>tu"] = { function() Snacks.terminal { "gdu" } end, desc = "ToggleTerm gdu" }
+        end
         maps.n["<Leader>gB"] = { function() Snacks.gitbrowse() end, desc = "Git Browse" }
         maps.n["<Leader>gf"] = { function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" }
         maps.n["<Leader>gl"] = { function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" }
         maps.n["<Leader>cR"] = { function() Snacks.rename() end, desc = "Rename File" }
-        maps.n["<c-/>"] = { function() Snacks.terminal() end, desc = "Toggle Terminal" }
-        maps.n["<c-_>"] = { function() Snacks.terminal() end, desc = "which_key_ignore" }
+        maps.n["<Leader>th"] = { function() Snacks.terminal() end, desc = "Toggle Terminal" }
+        maps.n["<Leader>tf"] = { function() Snacks.terminal() end, desc = "Toggle Terminal Float" }
+        maps.n["<Leader>to"] = { function() Snacks.terminal() end, desc = "Toggle Terminal" }
         maps.n["]r"] = { function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" }
         maps.n["[r"] = { function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" }
-        maps.n["<Leader>N"] = {
-          function()
-            Snacks.win {
-              file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-              width = 0.6,
-              height = 0.6,
-              wo = {
-                spell = false,
-                wrap = false,
-                signcolumn = "yes",
-                statuscolumn = " ",
-                conceallevel = 3,
-              },
-            }
-          end,
-          desc = "Neovim News",
-        }
       end,
     },
   },

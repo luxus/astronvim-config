@@ -17,7 +17,12 @@ return {
   --     table.insert(opts.sources, { name = "supermaven" })
   --   end,
   -- },
-
+  {
+    "wnkz/monoglow.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
   { "render-markdown.nvim", opts = { file_types = { "markdown", "mdx" } } },
   {
     "max397574/better-escape.nvim",
@@ -31,12 +36,12 @@ return {
       },
     },
   },
-  {
-    "oxfist/night-owl.nvim",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    opts = {},
-  },
+  -- {
+  --   "oxfist/night-owl.nvim",
+  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   opts = {},
+  -- },
   {
     "MysticalDevil/inlay-hints.nvim",
     event = "LspAttach",
