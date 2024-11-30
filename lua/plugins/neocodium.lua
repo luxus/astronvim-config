@@ -1,4 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "monkoose/neocodeium",
   cmd = "NeoCodeium",
@@ -66,9 +65,9 @@ return {
     },
   },
   opts = {
-    enabled = true,
-    manual = false,
-    silent = false,
+    enabled = false,
+    manual = true,
+    silent = true,
     filetypes = {
       TelescopePrompt = false,
       ["dap-repl"] = false,

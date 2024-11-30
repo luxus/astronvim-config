@@ -1,3 +1,4 @@
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "folke/snacks.nvim",
   priority = 10000,
@@ -42,7 +43,7 @@ return {
         },
       },
       quickfile = { enabled = true },
-      statuscolumn = { enabled = true },
+      -- statuscolumn = { enabled = true },
       words = { enabled = not astrocore.is_available "vim-illuminate" },
       styles = {
         notification = {
@@ -56,15 +57,15 @@ return {
     { "akinsho/toggleterm.nvim", enabled = false },
     { "alpha-nvim", enabled = false }, -- disable starter
     { "RRethy/vim-illuminate", enabled = false },
-    {
-      "rebelot/heirline.nvim",
-      optional = true,
-      opts = function(_, opts)
-        if vim.tbl_get(require("astrocore").plugin_opts "snacks.nvim", "statuscolumn", "enabled") then
-          opts.statuscolumn = false
-        end
-      end,
-    },
+    -- {
+    --   "rebelot/heirline.nvim",
+    --   optional = true,
+    --   opts = function(_, opts)
+    --     if vim.tbl_get(require("astrocore").plugin_opts "snacks.nvim", "statuscolumn", "enabled") then
+    --       opts.statuscolumn = false
+    --     end
+    --   end,
+    -- },
     {
       "AstroNvim/astroui",
       ---@type AstroUIOpts
@@ -77,8 +78,6 @@ return {
       opts = function(_, opts)
         local Snacks = require "snacks"
         local maps = opts.mappings
-        local astro = require "astrocore"
-
         opts.autocmds.snacks_toggle = {
           event = "User",
           pattern = "VeryLazy",
