@@ -1,6 +1,8 @@
 return {
   "monkoose/neocodeium",
   cmd = "NeoCodeium",
+  event = "User AstroFile",
+
   dependencies = {
     {
       "AstroNvim/astrocore",
@@ -65,7 +67,7 @@ return {
     },
   },
   opts = {
-    enabled = false,
+    enabled = true,
     manual = true,
     silent = true,
     filetypes = {
