@@ -13,6 +13,19 @@ return {
         enabled = not astrocore.is_available "nvim-notify",
         timeout = 3000,
       },
+      scroll = {
+        enabled = true,
+        -- your input configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      input = {
+        enabled = true,
+        -- your input configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      indent = { enabled = true },
       dashboard = {
         enabled = true,
         sections = {
@@ -53,6 +66,7 @@ return {
     } --[[ @type snacks.Config ]])
   end,
   specs = {
+    { "indent-blankline.nvim", enabled = false },
     { "rcarriga/nvim-notify", enabled = false },
     { "akinsho/toggleterm.nvim", enabled = false },
     { "alpha-nvim", enabled = false }, -- disable starter
@@ -132,6 +146,8 @@ return {
         maps.n["<Leader>to"] = { function() Snacks.terminal() end, desc = "Toggle Terminal" }
         maps.n["]r"] = { function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" }
         maps.n["[r"] = { function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" }
+        maps.n["<Leader>z"] = { function() Snacks.zen() end, desc = "Toggle Zen Mode" }
+        maps.n["<Leader>Z"] = { function() Snacks.zen.zoom() end, desc = "Toggle Zoom" }
       end,
     },
   },
