@@ -11,6 +11,11 @@ return {
       notifier = {
         enabled = not astrocore.is_available "nvim-notify",
         timeout = 3000,
+        style = "minimal",
+        width = { min = 60, max = 0.4 },
+        height = { min = 1, max = 0.6 },
+        padding = true,
+        margin = { top = 0, right = 1, bottom = 0 },
       },
       scroll = {
         enabled = true,
