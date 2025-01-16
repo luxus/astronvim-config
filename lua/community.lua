@@ -34,6 +34,8 @@ return {
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.completion.blink-cmp" },
+  -- { import = "astrocommunity.fuzzy-finder.fzf-lua" },
+  { import = "astrocommunity.completion.codeium-nvim" },
   --NOTE: disabled because manual installs
   -- { import = "astrocommunity.file-explorer.oil-nvim" },
   -- { import = "astrocommunity.utility.noice-nvim" },

@@ -1,10 +1,11 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   {
     "aweis89/aider.nvim",
     event = "User AstroFile",
     dependencies = {
       -- { "nvim-telescope/telescope.nvim" },
-      { "ibhagwan/fzf-lua" },
+      -- { "ibhagwan/fzf-lua" },
       "willothy/flatten.nvim", -- required for /editor command functionality
       {
         "AstroNvim/astrocore",

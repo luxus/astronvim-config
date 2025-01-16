@@ -1,14 +1,15 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "monkoose/neocodeium",
   cmd = "NeoCodeium",
-  event = "User AstroFile",
+  event = "User AstromFile",
 
   dependencies = {
     {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local maps = opts.mappings
-        maps.n["<Leader>u!"] = { function() require("neocodeium.commands").toggle() end, desc = "Toggle AI assistant" }
+        maps.n["<Leader>uc"] = { function() require("neocodeium.commands").toggle() end, desc = "Toggle AI assistant" }
         maps.n["<M-CR>"] = { function() require("neocodeium").chat() end }
         maps.i["<M-]>"] = { function() require("neocodeium").cycle_or_complete() end }
         maps.i["<M-\\>"] = maps.i["<M-]>"]
