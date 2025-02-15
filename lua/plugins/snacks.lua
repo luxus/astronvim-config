@@ -72,6 +72,7 @@ return {
   specs = {
     { "indent-blankline.nvim", enabled = false },
     { "rcarriga/nvim-notify", enabled = false },
+    { "neo-tree.nvim", enabled = false },
     -- { "akinsho/toggleterm.nvim", enabled = false },
     { "alpha-nvim", enabled = false }, -- disable starter
     { "RRethy/vim-illuminate", enabled = false },
@@ -104,7 +105,6 @@ return {
             _G.dd = function(...) Snacks.debug.inspect(...) end
             _G.bt = function() Snacks.debug.backtrace() end
             vim.print = _G.dd -- Override print to use snacks for `:=` command
-
             -- Create some toggle mappings
             Snacks.toggle.option("spell", { name = "Spelling" }):map "<Leader>us"
             Snacks.toggle.option("wrap", { name = "Wrap" }):map "<Leader>uw"
@@ -152,6 +152,7 @@ return {
         maps.n["[r"] = { function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" }
         maps.n["<Leader>z"] = { function() Snacks.zen() end, desc = "Toggle Zen Mode" }
         maps.n["<Leader>Z"] = { function() Snacks.zen.zoom() end, desc = "Toggle Zoom" }
+        maps.n["<Leader>e"] = { function() Snacks.picker.explorer() end, desc = "Explorer" }
       end,
     },
   },

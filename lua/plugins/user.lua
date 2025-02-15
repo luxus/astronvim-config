@@ -1,8 +1,15 @@
 ---@type LazySpec
 return {
   --FIX: remove after 5.0 release
-  { "AstroNvim/astrocore", version = false, branch = "v2" },
-  { "AstroNvim/astrolsp", version = false, branch = "v3" },
-  { "AstroNvim/astroui", version = false, branch = "v3" },
+  { "astrocore", version = false, branch = "v2" },
+  { "astrolsp", version = false, branch = "v3" },
+  { "astroui", version = false, branch = "v3" },
+  -- { "telescope.nvim", enabled = false },
   { "markview.nvim", opts = { filetypes = { "markdown", "markdown.mdx", "quarto", "typst" } } },
+  { "augmentcode/augment.vim" },
+  {
+    "vyfor/cord.nvim",
+    build = ":Cord update",
+    opts = { editor = { client = "astronvim" } },
+  },
 }
