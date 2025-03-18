@@ -1,37 +1,18 @@
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
   "folke/snacks.nvim",
-  priority = 10000,
-  lazy = false,
   ---@param opts snacks.Config
   opts = function(_, opts)
     local astrocore = require "astrocore"
     return astrocore.extend_tbl(opts, {
-      bigfile = { enabled = not vim.tbl_get(astrocore.config, "autocmds", "large_buf_settings") },
-      -- lazygit = { configure = not vim.tbl_get(require("astroui").config, "lazygit") },
-      notifier = {
-        enabled = not astrocore.is_available "nvim-notify",
-        timeout = 3000,
-        style = "minimal",
-        width = { min = 60, max = 0.4 },
-        height = { min = 1, max = 0.6 },
-        padding = true,
-        margin = { top = 0, right = 1, bottom = 0 },
-      },
       scroll = {
         enabled = true,
-        -- your input configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
       },
+      image = { enabled = true },
       input = {
         enabled = true,
-        -- your input configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
       },
-      indent = { enabled = true },
       dashboard = {
-        enabled = true,
         sections = {
           { section = "header" },
           {
@@ -59,22 +40,12 @@ return {
           { section = "startup" },
         },
       },
-      quickfile = { enabled = true },
-      -- statuscolumn = { enabled = true },
       words = { enabled = not astrocore.is_available "vim-illuminate" },
-      styles = {
-        notification = {
-          wo = { wrap = true }, -- Wrap notifications
-        },
-      },
     } --[[ @type snacks.Config ]])
   end,
   specs = {
-    { "indent-blankline.nvim", enabled = false },
-    { "rcarriga/nvim-notify", enabled = false },
     { "neo-tree.nvim", enabled = false },
-    -- { "akinsho/toggleterm.nvim", enabled = false },
-    { "alpha-nvim", enabled = false }, -- disable starter
+    { "akinsho/toggleterm.nvim", enabled = false },
     { "RRethy/vim-illuminate", enabled = false },
     -- {
     --   "rebelot/heirline.nvim",
@@ -121,9 +92,7 @@ return {
             Snacks.toggle.inlay_hints():map "<Leader>uh"
           end,
         }
-        maps.n["<Leader>un"] = { function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" }
-        maps.n["<Leader>bd"] = { function() Snacks.bufdelete() end, desc = "Delete Buffer" }
-        -- maps.n["<Leader>gg"] = { function() Snacks.lazygit() end, desc = "Lazygit" }
+        maps.n["<Leader>gg"] = { function() Snacks.lazygit() end, desc = "Lazygit" }
         -- maps.n["<Leader>tl"] = { function() Snacks.lazygit() end, desc = "Lazygit" }
         maps.n["<Leader>gb"] = { function() Snacks.git.blame_line() end, desc = "Git Blame Line" }
         -- if vim.fn.executable "node" == 1 then
@@ -145,9 +114,9 @@ return {
         maps.n["<Leader>gf"] = { function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" }
         maps.n["<Leader>gl"] = { function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" }
         maps.n["<Leader>cR"] = { function() Snacks.rename() end, desc = "Rename File" }
-        -- maps.n["<Leader>th"] = { function() Snacks.terminal() end, desc = "Toggle Terminal" }
-        -- maps.n["<Leader>tf"] = { function() Snacks.terminal() end, desc = "Toggle Terminal Float" }
-        -- maps.n["<Leader>to"] = { function() Snacks.terminal() end, desc = "Toggle Terminal" }
+        maps.n["<Leader>th"] = { function() Snacks.terminal() end, desc = "Toggle Terminal" }
+        maps.n["<Leader>tf"] = { function() Snacks.terminal() end, desc = "Toggle Terminal Float" }
+        maps.n["<Leader>to"] = { function() Snacks.terminal() end, desc = "Toggle Terminal" }
         maps.n["]r"] = { function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" }
         maps.n["[r"] = { function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" }
         maps.n["<Leader>z"] = { function() Snacks.zen() end, desc = "Toggle Zen Mode" }

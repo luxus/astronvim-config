@@ -4,12 +4,11 @@ return {
   { "astrocore", version = false, branch = "v2" },
   { "astrolsp", version = false, branch = "v3" },
   { "astroui", version = false, branch = "v3" },
-  -- { "telescope.nvim", enabled = false },
+  { "telescope.nvim", enabled = false },
   { "markview.nvim", opts = { filetypes = { "markdown", "markdown.mdx", "quarto", "typst" } } },
-  { "augmentcode/augment.vim" },
-  {
-    "vyfor/cord.nvim",
-    build = ":Cord update",
-    opts = { editor = { client = "astronvim" } },
-  },
+  -- {
+  --   "vyfor/cord.nvim",
+  --   build = ":Cord update",
+  --   opts = { editor = { client = "astronvim" } },
+  -- },
 }
