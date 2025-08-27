@@ -1,7 +1,14 @@
 return {
   -- { "miikanissi/modus-themes.nvim", priority = 1000 },
   -- { "wnkz/monoglow.nvim", priority = 1000 },
-  { "sho-87/kanagawa-paper.nvim", priority = 1000 },
+  -- { "sho-87/kanagawa-paper.nvim", priority = 1000 },
+  {
+    "webhooked/kanso.nvim",
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
+  },
   -- {
   --   "comfysage/evergarden",
   --   priority = 1000, -- Colorscheme plugin is loaded first before any other plugins

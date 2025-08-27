@@ -1,13 +1,14 @@
 return {
   "luxus/colorful-times-nvim",
+  enabled = true,
   opts = {
     default = {
-      colorscheme = "kanagawa-paper",
+      colorscheme = "kanso",
       background = "system",
     },
     -- schedule = {
-    --   { start = "09:00", stop = "17:00", colorscheme = "kanagawa-paper-canvas" },
-    --   { start = "17:00", stop = "09:00", colorscheme = "kanagawa-paper-ink", background = "dark" },
+    -- { start = "09:00", stop = "17:00", colorscheme = "kanso", background = "light" },
+    -- { start = "17:00", stop = "09:00", colorscheme = "kanso", background = "dark" },
     -- },
   },
   dev = true,

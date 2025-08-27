@@ -1,4 +1,5 @@
----@type LazySpec
+-- if true then return {} end
+--@type LazySpec
 return {
   "stevearc/oil.nvim",
   cmd = "Oil",
@@ -41,9 +42,25 @@ return {
       orig(...)
     end)
 
+    local perm_hlgroups = {
+      r = "DiagnosticSignWarn",
+      w = "DiagnosticSignError",
+      x = "DiagnosticSignOk",
+    }
+
     local columns = {
       icon = { "icon", default_file = get_icon "DefaultFile", directory = get_icon "FolderClosed" },
-      permissions = { "permissions", highlight = "Type" },
+      permissions = {
+        "permissions",
+        highlight = function(perm_str)
+          local hls = {}
+          for i = 1, #perm_str do
+            local char = perm_str:sub(i, i)
+            table.insert(hls, { perm_hlgroups[char] or "NonText", i - 1, i })
+          end
+          return hls
+        end,
+      },
       size = { "size", highlight = "String" },
       mtime = { "mtime", highlight = "Function" },
     }

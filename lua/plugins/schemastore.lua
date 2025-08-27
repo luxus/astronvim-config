@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   "b0o/SchemaStore.nvim",
+  optional = true,
   specs = {
     {
       "AstroNvim/astrolsp",
