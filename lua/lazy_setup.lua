@@ -12,9 +12,9 @@ require("lazy").setup({
       update_notifications = true, -- Enable/disable notification about running `:Lazy update` twice to update pinned plugins
     },
   },
-  { "AstroNvim/astrolsp", branch = "v4" },
-  { "AstroNvim/astrocore", branch = "v3" },
-  { "AstroNvim/astroui", branch = "v4" },
+  { "AstroNvim/astrolsp" },
+  { "AstroNvim/astrocore" },
+  { "AstroNvim/astroui" },
   { import = "community" },
   { import = "plugins" },
 } --[[@as LazySpec]], {

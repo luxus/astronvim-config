@@ -6,10 +6,10 @@ return {
       colorscheme = "kanso",
       background = "system",
     },
-    -- schedule = {
-    -- { start = "09:00", stop = "17:00", colorscheme = "kanso", background = "light" },
-    -- { start = "17:00", stop = "09:00", colorscheme = "kanso", background = "dark" },
-    -- },
+--   schedule = {
+ --    { start = "10:10", stop = "17:00", colorscheme = "catppuccin", background = "light" },
+  --   { start = "17:00", stop = "09:00", colorscheme = "kanso", background = "dark" },
+   --  },
   },
   dev = true,
 }
